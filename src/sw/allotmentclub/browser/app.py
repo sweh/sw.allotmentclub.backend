@@ -393,7 +393,6 @@ class Portal(sw.allotmentclub.application.Application):
     @property
     def pipeline(self):
         return [
-            ('repoze.vhm', 'paste.filter_app_factory', 'vhm_xheaders', {}),
             (DenyFrame, 'factory', None, {}),
             (NoCache, 'factory', None, {}),
         ]
