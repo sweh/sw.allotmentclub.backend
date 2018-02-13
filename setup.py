@@ -4,6 +4,7 @@ from setuptools import setup, find_packages
 import glob
 import sys
 
+exec(open("src/sw/allotmentclub/version.py").read())
 
 def read(path):
     if sys.version_info < (3,):
@@ -17,7 +18,7 @@ def read(path):
 
 setup(
     name='sw.allotmentclub',
-    version='3.8.0.dev0',
+    version=__version__,  # noqa
 
     install_requires=[
         'bcrypt',
