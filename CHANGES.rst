@@ -2,7 +2,7 @@
 Change log for sw.allotmentclub
 ===============================
 
-3.8.0 (unreleased)
+3.8.0 (2018-02-13)
 ==================
 
 - Prepare package for the first release on Pypi.
