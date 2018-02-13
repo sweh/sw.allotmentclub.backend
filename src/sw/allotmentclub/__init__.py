@@ -1,7 +1,6 @@
 from .model import Object
 import decimal
 import re
-import sw.allotmentclub.version
 import warnings
 
 # VALUE_PER_MEMBER = 600000  # until end of 2015
@@ -35,5 +34,3 @@ for module in ['model', 'user', 'bulletins', 'assignment', 'depot', 'protocol',
         obj = getattr(module, name)
         if isinstance(obj, type) and issubclass(obj, Object):
             globals()[name] = obj
-
-version = sw.allotmentclub.version.__version__

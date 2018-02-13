@@ -13,6 +13,7 @@ import pyramid.security
 import sw.allotmentclub.browser.app
 import sw.allotmentclub.browser.auth
 import sw.allotmentclub.browser.base
+import sw.allotmentclub.version
 import urllib.parse
 
 
@@ -104,7 +105,7 @@ class LoginView(sw.allotmentclub.browser.base.View):
 
     def __call__(self):
         result = self.login()
-        result['version'] = sw.allotmentclub.version
+        result['version'] = sw.allotmentclub.version.__version__
         return result
 
     def login(self):
@@ -195,4 +196,4 @@ def logout_view(request, message=None):
     else:
         status, message = message
     return dict(status=status, message=message,
-                version=sw.allotmentclub.version)
+                version=sw.allotmentclub.version.__version__)

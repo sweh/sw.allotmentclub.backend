@@ -16,6 +16,7 @@ import sqlalchemy
 import sqlalchemy.sql.expression
 import sw.allotmentclub
 import sw.allotmentclub.base
+import sw.allotmentclub.version
 import transaction
 import xlsxwriter
 import openpyxl
@@ -282,7 +283,7 @@ class View(object):
         self.result = {}
         self.update()
         if isinstance(self.result, dict):
-            self.result['version'] = sw.allotmentclub.version
+            self.result['version'] = sw.allotmentclub.version.__version__
         return self.result
 
     def update(self):

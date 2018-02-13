@@ -1,5 +1,5 @@
 # encoding=utf-8
-import sw.allotmentclub
+import sw.allotmentclub.version
 
 
 def test_no_access_if_not_logged_in(browser):
@@ -7,7 +7,7 @@ def test_no_access_if_not_logged_in(browser):
     assert {
         u'message': u'',
         u'status': u'error',
-        u'version': sw.allotmentclub.version
+        u'version': sw.allotmentclub.version.__version__
     } == browser.json
 
 
@@ -16,7 +16,7 @@ def test_login_is_possible(browser):
     result = browser.json
     assert 'Anmeldung erfolgreich.' == result['message']
     assert 'success' == result['status']
-    assert sw.allotmentclub.version == result['version']
+    assert sw.allotmentclub.version.__version__ == result['version']
     assert {
         u'gravatar': (u'https://www.gravatar.com/avatar/'
                       u'd41d8cd98f00b204e9800998ecf8427e'),
@@ -30,7 +30,7 @@ def test_no_access_if_logging_in_with_invalid_data(browser):
     assert {
         u'message': u'Anmeldung fehlgeschlagen.',
         u'status': u'error',
-        u'version': sw.allotmentclub.version
+        u'version': sw.allotmentclub.version.__version__
     } == browser.json
 
 
@@ -47,5 +47,5 @@ def test_logout_is_possible(browser):
         u'message': (u'Abmeldung abgeschlossen. Sie können sich nun '
                      u'erneut anmelden.'),
         u'status': u'success',
-        u'version': sw.allotmentclub.version
+        u'version': sw.allotmentclub.version.__version__
     } == browser.json
