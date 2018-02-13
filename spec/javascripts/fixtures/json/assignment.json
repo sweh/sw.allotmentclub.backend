@@ -1,0 +1,213 @@
+{
+    "AssignmentAddView_1": {
+        "data": {
+            "load_data": {
+                "day": "20.02.2016 10:00",
+                "purpose": null,
+                "responsible_id": null
+            },
+            "load_options": {
+                "day": {
+                    "css_class": "datetimepicker",
+                    "label": "Tag"
+                },
+                "purpose": {
+                    "label": "Zweck"
+                },
+                "responsible_id": {
+                    "css_class": "chosen",
+                    "label": "Verantwortlich",
+                    "required": true,
+                    "source": []
+                }
+            },
+            "title": "Arbeitseinsatz anlegen",
+            "url": "/api//assignments/1/edit"
+        },
+        "url": "/assignments/add"
+    },
+    "AssignmentDeleteAttendeesView_1": {
+        "data": null,
+        "url": "/assignments/1/attendees/1/delete"
+    },
+    "AssignmentAttendeesEditView_1": {
+        "data": {
+            "load_data": {
+                "member_id": null,
+                "hours": null
+            },
+            "load_options": {
+                "hours": {
+                    "label": "geleistete Stunden"
+                },
+                "member_id": {
+                    "css_class": "chosen",
+                    "label": "Mitglied",
+                    "required": true,
+                    "source": []
+                }
+            },
+            "title": "Stunden für Teilnehmer erfassen",
+            "url": "/api//assignments/1/attendees/1/edit"
+        },
+        "url": "/assignments/1/attendees/1/edit"
+    },
+    "AssignmentListAttendeesView_1": {
+        "data": {
+            "actions": [
+                {
+                    "btn_class": "btn-success",
+                    "icon": "fa fa-plus",
+                    "route": "assignment_attendees_add",
+                    "title": "Neu",
+                    "url": "/assignments/{id}/attendees/add"
+                },
+                {
+                    "btn_class": "btn-success",
+                    "icon": "fa fa-pencil",
+                    "route": "assignment_attendees_edit",
+                    "title": "Bearbeiten",
+                    "url": "/assignments/{assignment_id}/attendees/{id}/edit"
+                },
+                {
+                    "btn_class": "btn-danger",
+                    "callback": "sw.allotmentclub.assignment_attendees_view.render()",
+                    "icon": "glyphicon glyphicon-trash",
+                    "route": "assignment_attendees_delete",
+                    "title": "L\u00f6schen",
+                    "url": "/assignments/{assignment_id}/attendees/{id}/delete"
+                }
+            ],
+            "data": [
+                [
+                    {
+                        "css_class": "hide",
+                        "value": 1
+                    },
+                    {
+                        "css_class": "",
+                        "value": "Mittag, Gerd"
+                    },
+                    {
+                        "css_class": "",
+                        "value": 4.0
+                    }
+                ]
+            ],
+            "header": [
+                {
+                    "css_class": "hide",
+                    "data-class": "",
+                    "data-hide": "",
+                    "name": "#"
+                },
+                {
+                    "css_class": "",
+                    "data-class": "",
+                    "data-hide": "",
+                    "name": "Teilnehmer"
+                },
+                {
+                    "css_class": "",
+                    "data-class": "",
+                    "data-hide": "",
+                    "name": "Stunden"
+                }
+            ],
+            "records": 1
+        },
+        "url": "/assignments/1/list"
+    },
+    "AssignmentListView_1": {
+        "data": {
+            "actions": [
+                {
+                    "btn_class": "btn-success",
+                    "icon": "fa fa-plus",
+                    "route": "assignment_add",
+                    "title": "Neu",
+                    "url": "/assignments/add"
+                },
+                {
+                    "btn_class": "btn-success",
+                    "icon": "fa fa-pencil",
+                    "route": "assignment_edit",
+                    "title": "Bearbeiten",
+                    "url": "/assignments/{id}/edit"
+                },
+                {
+                    "btn_class": "btn-danger",
+                    "callback": "sw.allotmentclub.assignments_list_view.render()",
+                    "icon": "glyphicon glyphicon-trash",
+                    "route": "assignment_delete",
+                    "title": "L\u00f6schen",
+                    "url": "/assignments/{id}/delete"
+                },
+                {
+                    "btn_class": "btn-success",
+                    "icon": "fa fa-list",
+                    "route": "assignment_list_attendees",
+                    "title": "Teilnehmer",
+                    "url": "/assignments/{id}/list"
+                }
+            ],
+            "data": [
+                [
+                    {
+                        "css_class": "hide",
+                        "value": 1
+                    },
+                    {
+                        "css_class": "",
+                        "value": "07.03.2015 09:00"
+                    },
+                    {
+                        "css_class": "",
+                        "value": "Fr\u00fchjahrsputz"
+                    },
+                    {
+                        "css_class": "",
+                        "value": "Mittag, Gerd"
+                    }
+                ]
+            ],
+            "header": [
+                {
+                    "css_class": "hide",
+                    "data-class": "",
+                    "data-hide": "",
+                    "name": "#"
+                },
+                {
+                    "css_class": "",
+                    "data-class": "expand",
+                    "data-hide": "",
+                    "name": "Datum"
+                },
+                {
+                    "css_class": "",
+                    "data-class": "",
+                    "data-hide": "phone,tablet",
+                    "name": "Zweck"
+                },
+                {
+                    "css_class": "",
+                    "data-class": "",
+                    "data-hide": "tablet",
+                    "name": "Verantwortlich"
+                }
+            ],
+            "records": 1,
+            "years": [
+                {
+                    "selected": "selected",
+                    "year": 2015
+                },
+                {
+                    "year": 2016
+                }
+            ]
+        },
+        "url": "/assignments?for_year=2015"
+    }
+}

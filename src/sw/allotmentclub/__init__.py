@@ -1,8 +1,9 @@
 from .model import Object
 import decimal
-import pip
 import re
 import warnings
+
+__version__ = '3.8.0.dev0'
 
 # VALUE_PER_MEMBER = 600000  # until end of 2015
 # VALUE_PER_MEMBER = 750000  # until end of 2016
@@ -36,5 +37,4 @@ for module in ['model', 'user', 'bulletins', 'assignment', 'depot', 'protocol',
         if isinstance(obj, type) and issubclass(obj, Object):
             globals()[name] = obj
 
-version = [pkg.version for pkg in pip.get_installed_distributions()
-           if pkg.key == 'sw.allotmentclub'][0]
+version = __version__

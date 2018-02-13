@@ -15,7 +15,7 @@ import transaction
 class JSONFixture(object):
 
     basepath = ('sw.allotmentclub',
-                '../../../../spec/javascripts/fixtures/json/')
+                '../../../spec/javascripts/fixtures/json/')
     _url = None
 
     def __init__(self, fixture, key):

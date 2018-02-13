@@ -1,0 +1,42 @@
+{
+    "MemberAddView_1": {
+        "data": {
+            "load_options": {
+                "direct_debit_account_holder": {"label": "Abweichender Kontoinhaber"},
+                "country": {"label": "Land"},
+                "iban": {"label": "IBAN"},
+                "birthday": {"label": "Geburtstag"},
+                "direct_debit_date": {"css_class": "datetimepicker", "label": "Lastschrift-Datum"},
+                "city": {"label": "Stadt"},
+                "mobile": {"label": "Mobil-Telefon"},
+                "street": {"label": "Stra\u00dfe"},
+                "firstname": {"required": true, "label": "Vorname"},
+                "zip": {"label": "PLZ"},
+                "lastname": {"required": true, "label": "Nachname"},
+                "email": {"label": "E-Mail"},
+                "get_post": {"template": "form_boolean", "label": "Postversand?"},
+                "title": {"required": true,
+                          "source": [{"token": "", "title": ""},
+                                     {"token": "Dr.", "title": "Dr."},
+                                     {"token": "Dr. med.", "title": "Dr. med."},
+                                     {"token": "Prof. Dr.", "title": "Prof. Dr."}],
+                          "label": "Titel"},
+                "bic": {"label": "BIC"},
+                "direct_debit": {"template": "form_boolean", "label": "Lastschrift"},
+                "appellation": {
+                    "required": true,
+                    "source": [{"token": "", "title": ""},
+                               {"token": "Herr", "title": "Herr"},
+                               {"token": "Frau", "title": "Frau"}],
+                    "label": "Anrede"},
+                "phone": {"label": "Telefon"}},
+            "load_data": {
+                "appellation": "", "title": "", "firstname": "", "lastname": "", "street": "",
+                "zip": "", "city": "", "country": "", "email": "", "phone": "", "mobile": "",
+                "birthday": "", "direct_debit": null, "direct_debit_account_holder": null,
+                "iban": "", "bic": "", "direct_debit_date": "", "get_post": true},
+            "url": "/api//members/1/edit",
+            "title": "Mitglied bearbeiten"},
+        "url": "/members/add"
+    }
+}

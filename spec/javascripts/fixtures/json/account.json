@@ -1,0 +1,706 @@
+{
+    "BookingListView_1": {
+        "data": {
+            "actions": [
+                {
+                    "btn_class": "btn-success",
+                    "icon": "fa fa-hand-o-right",
+                    "route": "map_booking",
+                    "title": "Zuordnen",
+                    "url": "/booking/{id}/map"
+                },
+                {
+                    "btn_class": "btn-success",
+                    "icon": "fa fa-scissors",
+                    "route": "split_booking",
+                    "title": "Aufteilen",
+                    "url": "/booking/{id}/split"
+                }
+            ],
+            "data": [
+                [
+                    {
+                        "css_class": "hide",
+                        "value": 7
+                    },
+                    {
+                        "css_class": "nowrap",
+                        "value": "2015-01-01"
+                    },
+                    {
+                        "css_class": "",
+                        "value": "ABSCHLUSS<br>Abrechnung 30.12.2014siehe Anlage<br>"
+                    },
+                    {
+                        "css_class": "right nowrap",
+                        "value": "0,00 \u20ac"
+                    },
+                    {
+                        "css_class": "nowrap",
+                        "value": null
+                    },
+                    {
+                        "css_class": "",
+                        "value": null
+                    }
+                ],
+                [
+                    {
+                        "css_class": "hide",
+                        "value": 9
+                    },
+                    {
+                        "css_class": "nowrap",
+                        "value": "2015-01-02"
+                    },
+                    {
+                        "css_class": "",
+                        "value": "ONLINE-UEBERWEISUNG TERM.<br>ZIS-2898488711 06233*Bungalow GemeinschaftDATUM 30.12.2014, 18.07 UHR1.TAN 508133<br>Generali Versicherungen"
+                    },
+                    {
+                        "css_class": "right nowrap",
+                        "value": "<span class=\"txt-color-red\">-109,09 \u20ac</span>"
+                    },
+                    {
+                        "css_class": "nowrap",
+                        "value": null
+                    },
+                    {
+                        "css_class": "",
+                        "value": null
+                    }
+                ],
+                [
+                    {
+                        "css_class": "hide",
+                        "value": 11
+                    },
+                    {
+                        "css_class": "nowrap",
+                        "value": "2015-01-02"
+                    },
+                    {
+                        "css_class": "",
+                        "value": "FOLGELASTSCHRIFT<br>41-07-98011328 HausratEUR 239,62<br>RHEINLAND VERSICHERUNGEN"
+                    },
+                    {
+                        "css_class": "right nowrap",
+                        "value": "<span class=\"txt-color-red\">-239,62 \u20ac</span>"
+                    },
+                    {
+                        "css_class": "nowrap",
+                        "value": null
+                    },
+                    {
+                        "css_class": "",
+                        "value": null
+                    }
+                ],
+                [
+                    {
+                        "css_class": "hide",
+                        "value": 10
+                    },
+                    {
+                        "css_class": "nowrap",
+                        "value": "2015-01-02"
+                    },
+                    {
+                        "css_class": "",
+                        "value": "FOLGELASTSCHRIFT<br>83.661.577869 ABBUCHUNG AM 02.01.2015 HAFTPFLICHT-VERSICHERUNG H<br>Gothaer Allgemeine Versiche"
+                    },
+                    {
+                        "css_class": "right nowrap",
+                        "value": "<span class=\"txt-color-red\">-135,66 \u20ac</span>"
+                    },
+                    {
+                        "css_class": "nowrap",
+                        "value": null
+                    },
+                    {
+                        "css_class": "",
+                        "value": null
+                    }
+                ],
+                [
+                    {
+                        "css_class": "hide",
+                        "value": 12
+                    },
+                    {
+                        "css_class": "nowrap",
+                        "value": "2015-01-09"
+                    },
+                    {
+                        "css_class": "",
+                        "value": "GUTSCHRIFT<br>Mietgliedsbeitrag &amp; Arbeitsstunden 2015 Amselweg134<br>Oliver Cernik"
+                    },
+                    {
+                        "css_class": "right nowrap",
+                        "value": "<span class=\"txt-color-green\">110,00 \u20ac</span>"
+                    },
+                    {
+                        "css_class": "nowrap",
+                        "value": null
+                    },
+                    {
+                        "css_class": "",
+                        "value": null
+                    }
+                ],
+                [
+                    {
+                        "css_class": "hide",
+                        "value": 13
+                    },
+                    {
+                        "css_class": "nowrap",
+                        "value": "2015-01-12"
+                    },
+                    {
+                        "css_class": "",
+                        "value": "ERSTLASTSCHRIFT<br>41-02-98011329 Gebaeude EUR 138,93<br>RHEINLAND VERSICHERUNGEN"
+                    },
+                    {
+                        "css_class": "right nowrap",
+                        "value": "<span class=\"txt-color-red\">-138,93 \u20ac</span>"
+                    },
+                    {
+                        "css_class": "nowrap",
+                        "value": null
+                    },
+                    {
+                        "css_class": "",
+                        "value": null
+                    }
+                ],
+                [
+                    {
+                        "css_class": "hide",
+                        "value": 14
+                    },
+                    {
+                        "css_class": "nowrap",
+                        "value": "2015-01-19"
+                    },
+                    {
+                        "css_class": "",
+                        "value": "GUTSCHRIFT<br>Vereinsbeitrag f\u00fcr 2015 Parzelle 214 Czech / Schroeter<br>Horst Schr\u00f6ter u. Frau Ingr"
+                    },
+                    {
+                        "css_class": "right nowrap",
+                        "value": "<span class=\"txt-color-green\">60,00 \u20ac</span>"
+                    },
+                    {
+                        "css_class": "nowrap",
+                        "value": null
+                    },
+                    {
+                        "css_class": "",
+                        "value": null
+                    }
+                ],
+                [
+                    {
+                        "css_class": "hide",
+                        "value": 15
+                    },
+                    {
+                        "css_class": "nowrap",
+                        "value": "2015-02-11"
+                    },
+                    {
+                        "css_class": "",
+                        "value": "FOLGELASTSCHRIFT<br>BELEG 097271128904 ENV103000915430, Leuna Bungal.g.Roter Seee.V., Reudener Weg 900 G, 06901 Kemberg<br>enviaM"
+                    },
+                    {
+                        "css_class": "right nowrap",
+                        "value": "<span class=\"txt-color-red\">-1002,83 \u20ac</span>"
+                    },
+                    {
+                        "css_class": "nowrap",
+                        "value": null
+                    },
+                    {
+                        "css_class": "",
+                        "value": null
+                    }
+                ],
+                [
+                    {
+                        "css_class": "hide",
+                        "value": 16
+                    },
+                    {
+                        "css_class": "nowrap",
+                        "value": "2015-02-16"
+                    },
+                    {
+                        "css_class": "",
+                        "value": "FOLGELASTSCHRIFT<br>GRUNDSTEUER B ROTTA GRUNDSTEUER B 15.02.15 0400001284 182 0001 000052<br>STADT KEMBERG"
+                    },
+                    {
+                        "css_class": "right nowrap",
+                        "value": "<span class=\"txt-color-red\">-9,15 \u20ac</span>"
+                    },
+                    {
+                        "css_class": "nowrap",
+                        "value": null
+                    },
+                    {
+                        "css_class": "",
+                        "value": null
+                    }
+                ],
+                [
+                    {
+                        "css_class": "hide",
+                        "value": 17
+                    },
+                    {
+                        "css_class": "nowrap",
+                        "value": "2015-02-20"
+                    },
+                    {
+                        "css_class": "",
+                        "value": "GUTSCHRIFT<br>EMERGIEABSCHLAG2015 1.RATE ZAEHLER 202335176 BUNGALOW 327<br>Annette R\u00f6sler"
+                    },
+                    {
+                        "css_class": "right nowrap",
+                        "value": "<span class=\"txt-color-green\">138,02 \u20ac</span>"
+                    },
+                    {
+                        "css_class": "nowrap",
+                        "value": null
+                    },
+                    {
+                        "css_class": "",
+                        "value": null
+                    }
+                ],
+                [
+                    {
+                        "css_class": "hide",
+                        "value": 18
+                    },
+                    {
+                        "css_class": "nowrap",
+                        "value": "2015-03-01"
+                    },
+                    {
+                        "css_class": "",
+                        "value": "ENTGELTABSCHLUSS<br>Abrechnung 27.02.2015siehe Anlage<br>"
+                    },
+                    {
+                        "css_class": "right nowrap",
+                        "value": "<span class=\"txt-color-red\">-0,85 \u20ac</span>"
+                    },
+                    {
+                        "css_class": "nowrap",
+                        "value": null
+                    },
+                    {
+                        "css_class": "",
+                        "value": null
+                    }
+                ],
+                [
+                    {
+                        "css_class": "hide",
+                        "value": 19
+                    },
+                    {
+                        "css_class": "nowrap",
+                        "value": "2015-03-06"
+                    },
+                    {
+                        "css_class": "",
+                        "value": "ONLINE-UEBERWEISUNG<br>Porto Termi-Schreibenan alle (Infobrief und MZ)sowie 14 Nach-Briefe (IBAN)mit MZ sowie Breifumschl\u00e4ge und Stempelkissen f\u00fcr InfobriefeDATUM 06.03.2015, 15.53 UHR1.TAN 875041<br>Sebastian Wehrmann"
+                    },
+                    {
+                        "css_class": "right nowrap",
+                        "value": "<span class=\"txt-color-red\">-67,97 \u20ac</span>"
+                    },
+                    {
+                        "css_class": "nowrap",
+                        "value": null
+                    },
+                    {
+                        "css_class": "",
+                        "value": null
+                    }
+                ],
+                [
+                    {
+                        "css_class": "hide",
+                        "value": 20
+                    },
+                    {
+                        "css_class": "nowrap",
+                        "value": "2015-03-06"
+                    },
+                    {
+                        "css_class": "",
+                        "value": "ONLINE-UEBERWEISUNG<br>5 Ketten schaerfen undS\u00e4ge reparieren VerpflegungBaumf\u00e4llen (eigene und FW-Rechnung) Fahrt dazu ans Bungalow und zurueckDATUM 06.03.2015, 15.56 UHR1.TAN 865354<br>Bodo Haubenrei\u00dfer"
+                    },
+                    {
+                        "css_class": "right nowrap",
+                        "value": "<span class=\"txt-color-red\">-162,34 \u20ac</span>"
+                    },
+                    {
+                        "css_class": "nowrap",
+                        "value": null
+                    },
+                    {
+                        "css_class": "",
+                        "value": null
+                    }
+                ],
+                [
+                    {
+                        "css_class": "hide",
+                        "value": 21
+                    },
+                    {
+                        "css_class": "nowrap",
+                        "value": "2015-03-09"
+                    },
+                    {
+                        "css_class": "",
+                        "value": "GUTSCHRIFT<br>ZWiScHENZAHLUNGEN ZXENERGiE 2015<br>Klaus Bauer u. Frau Christi"
+                    },
+                    {
+                        "css_class": "right nowrap",
+                        "value": "<span class=\"txt-color-green\">33,84 \u20ac</span>"
+                    },
+                    {
+                        "css_class": "nowrap",
+                        "value": null
+                    },
+                    {
+                        "css_class": "",
+                        "value": null
+                    }
+                ],
+                [
+                    {
+                        "css_class": "hide",
+                        "value": 22
+                    },
+                    {
+                        "css_class": "nowrap",
+                        "value": "2015-03-09"
+                    },
+                    {
+                        "css_class": "",
+                        "value": "GUTSCHRIFT<br>JAHRESBEiTRAG 2015<br>Klaus Bauer u. Frau Christi"
+                    },
+                    {
+                        "css_class": "right nowrap",
+                        "value": "<span class=\"txt-color-green\">60,00 \u20ac</span>"
+                    },
+                    {
+                        "css_class": "nowrap",
+                        "value": null
+                    },
+                    {
+                        "css_class": "",
+                        "value": null
+                    }
+                ],
+                [
+                    {
+                        "css_class": "hide",
+                        "value": 23
+                    },
+                    {
+                        "css_class": "nowrap",
+                        "value": "2015-03-16"
+                    },
+                    {
+                        "css_class": "",
+                        "value": "GUTSCHRIFT<br>jahresbeitrag2015 R\u00f6sler<br>Annette R\u00f6sler"
+                    },
+                    {
+                        "css_class": "right nowrap",
+                        "value": "<span class=\"txt-color-green\">60,00 \u20ac</span>"
+                    },
+                    {
+                        "css_class": "nowrap",
+                        "value": null
+                    },
+                    {
+                        "css_class": "",
+                        "value": null
+                    }
+                ],
+                [
+                    {
+                        "css_class": "hide",
+                        "value": 24
+                    },
+                    {
+                        "css_class": "nowrap",
+                        "value": "2015-03-19"
+                    },
+                    {
+                        "css_class": "",
+                        "value": "GUTSCHRIFT<br>Jahresbeitrag 2015 Bungalow 243<br>Frank Hesselbarth u. Frau C"
+                    },
+                    {
+                        "css_class": "right nowrap",
+                        "value": "<span class=\"txt-color-green\">60,00 \u20ac</span>"
+                    },
+                    {
+                        "css_class": "nowrap",
+                        "value": null
+                    },
+                    {
+                        "css_class": "",
+                        "value": null
+                    }
+                ],
+                [
+                    {
+                        "css_class": "hide",
+                        "value": 26
+                    },
+                    {
+                        "css_class": "nowrap",
+                        "value": "2015-03-23"
+                    },
+                    {
+                        "css_class": "",
+                        "value": "GUTSCHRIFT<br>MITGL.BTRG SCHOLZ 323<br>HELGARD SCHOLZ"
+                    },
+                    {
+                        "css_class": "right nowrap",
+                        "value": "<span class=\"txt-color-green\">60,00 \u20ac</span>"
+                    },
+                    {
+                        "css_class": "nowrap",
+                        "value": null
+                    },
+                    {
+                        "css_class": "",
+                        "value": null
+                    }
+                ],
+                [
+                    {
+                        "css_class": "hide",
+                        "value": 25
+                    },
+                    {
+                        "css_class": "nowrap",
+                        "value": "2015-03-23"
+                    },
+                    {
+                        "css_class": "",
+                        "value": "ONLINE-UEBERWEISUNG<br>VR 46284 Kassenzeichen. 1782-B81923-4 Auszug vom10.03.2015 unseres VereinsregistersDATUM 22.03.2015, 17.14 UHR1.TAN 278782<br>Amtsgericht Stendal, VR"
+                    },
+                    {
+                        "css_class": "right nowrap",
+                        "value": "<span class=\"txt-color-red\">-20,00 \u20ac</span>"
+                    },
+                    {
+                        "css_class": "nowrap",
+                        "value": null
+                    },
+                    {
+                        "css_class": "",
+                        "value": null
+                    }
+                ],
+                [
+                    {
+                        "css_class": "hide",
+                        "value": 28
+                    },
+                    {
+                        "css_class": "nowrap",
+                        "value": "2015-03-25"
+                    },
+                    {
+                        "css_class": "",
+                        "value": "GUTSCHRIFT<br>UMLAGE 2015BUNGALOW 239HARTMANN, H.-J.<br>ANDRE HARTMANN UND KATHRIN"
+                    },
+                    {
+                        "css_class": "right nowrap",
+                        "value": "<span class=\"txt-color-green\">60,00 \u20ac</span>"
+                    },
+                    {
+                        "css_class": "nowrap",
+                        "value": null
+                    },
+                    {
+                        "css_class": "",
+                        "value": null
+                    }
+                ],
+                [
+                    {
+                        "css_class": "hide",
+                        "value": 27
+                    },
+                    {
+                        "css_class": "nowrap",
+                        "value": "2015-03-25"
+                    },
+                    {
+                        "css_class": "",
+                        "value": "DAUERAUFTRAG<br>MITGLIEDSBEITRAG<br>Lutz R\u00f6sler"
+                    },
+                    {
+                        "css_class": "right nowrap",
+                        "value": "<span class=\"txt-color-green\">60,00 \u20ac</span>"
+                    },
+                    {
+                        "css_class": "nowrap",
+                        "value": null
+                    },
+                    {
+                        "css_class": "",
+                        "value": null
+                    }
+                ],
+                [
+                    {
+                        "css_class": "hide",
+                        "value": 30
+                    },
+                    {
+                        "css_class": "nowrap",
+                        "value": "2015-03-30"
+                    },
+                    {
+                        "css_class": "",
+                        "value": "DAUERAUFTRAG<br>B-Nr. 325 Beitrag<br>Klaus Bohle Hannelore Bohle"
+                    },
+                    {
+                        "css_class": "right nowrap",
+                        "value": "<span class=\"txt-color-green\">125,00 \u20ac</span>"
+                    },
+                    {
+                        "css_class": "nowrap",
+                        "value": null
+                    },
+                    {
+                        "css_class": "",
+                        "value": null
+                    }
+                ],
+                [
+                    {
+                        "css_class": "hide",
+                        "value": 29
+                    },
+                    {
+                        "css_class": "nowrap",
+                        "value": "2015-03-30"
+                    },
+                    {
+                        "css_class": "",
+                        "value": "ERSTLASTSCHRIFT<br>VK. 82183300 Vertrag.0074796801/STROM Reudener Weg 900 G Kemberg /<br>eins energie in sachsen"
+                    },
+                    {
+                        "css_class": "right nowrap",
+                        "value": "<span class=\"txt-color-red\">-1189,00 \u20ac</span>"
+                    },
+                    {
+                        "css_class": "nowrap",
+                        "value": null
+                    },
+                    {
+                        "css_class": "",
+                        "value": null
+                    }
+                ]
+            ],
+            "header": [
+                {
+                    "css_class": "hide",
+                    "data-class": "",
+                    "data-hide": "",
+                    "name": "#"
+                },
+                {
+                    "css_class": "nowrap",
+                    "data-class": "",
+                    "data-hide": "phone",
+                    "name": "Datum"
+                },
+                {
+                    "css_class": "",
+                    "data-class": "expand",
+                    "data-hide": "",
+                    "name": "Buchungsinfo"
+                },
+                {
+                    "css_class": "right nowrap",
+                    "data-class": "",
+                    "data-hide": "phone",
+                    "name": "Betrag"
+                },
+                {
+                    "css_class": "nowrap",
+                    "data-class": "",
+                    "data-hide": "phone,tablet",
+                    "name": "Zugeordnet"
+                },
+                {
+                    "css_class": "",
+                    "data-class": "",
+                    "data-hide": "",
+                    "name": "Typ"
+                }
+            ],
+            "records": 23,
+            "years": [
+                {
+                    "year": 2014
+                },
+                {
+                    "selected": "selected",
+                    "year": 2015
+                },
+                {
+                    "year": 2016
+                }
+            ]
+        },
+        "url": "/accounts/1/list?for_year=2015"
+    },
+    "SplitBookingView_1": {
+        "data": {
+            "load_data": {
+                "new_value": ""
+            },
+            "load_options": {
+                "new_value": {
+                    "label": "Teilen bei Betrag",
+                    "required": true
+                }
+            },
+            "title": "Buchung aufteilen",
+            "url": "/api//booking/1/split"
+        },
+        "url": "/booking/1/split"
+    },
+    "SplitBookingView_2": {
+        "data": {
+            "url": "/api//booking/1/split",
+            "type": "POST",
+            "data": "{\"new_value\":\"5\"}",
+            "contentType": "application/json"
+        }
+    },
+    "SplitBookingView_3": {
+        "data": {
+            "url": "/api//booking/1/split",
+            "type": "POST",
+            "data": "{\"new_value\":\"0\"}",
+            "contentType": "application/json"
+        }
+    }
+}

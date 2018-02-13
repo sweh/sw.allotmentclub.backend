@@ -1,0 +1,153 @@
+{
+    "_mail__MailListView_1": {
+        "data": {
+            "actions": [
+                {
+                    "btn_class": "btn-success",
+                    "icon": "fa fa-plus",
+                    "route": "mail_add",
+                    "title": "Neu",
+                    "url": "/mail/add"
+                },
+                {
+                    "btn_class": "btn-success",
+                    "icon": "fa fa-pencil",
+                    "route": "mail_edit",
+                    "title": "Bearbeiten",
+                    "url": "/mail/{id}/edit"
+                },
+                {
+                    "btn_class": "btn-success",
+                    "icon": "fa fa-copy",
+                    "route": "mail_duplicate",
+                    "title": "Duplizieren",
+                    "url": "/mail/{id}/duplicate"
+                },
+                {
+                    "btn_class": "btn-success",
+                    "icon": "fa fa-print",
+                    "route": "mail_preview",
+                    "title": "Vorschau",
+                    "url": "/mail/{id}/preview"
+                },
+                {
+                    "btn_class": "btn-success",
+                    "icon": "fa fa-envelope",
+                    "route": "mail_send",
+                    "title": "Versenden",
+                    "url": "/mail/{id}/send"
+                },
+                {
+                    "btn_class": "btn-danger",
+                    "icon": "glyphicon glyphicon-trash",
+                    "route": "mail_delete",
+                    "title": "L\u00f6schen",
+                    "url": "/mail/{id}/delete"
+                }
+            ],
+            "data": [
+                [
+                    {
+                        "css_class": "hide",
+                        "value": 242
+                    },
+                    {
+                        "css_class": "",
+                        "value": "Alle Mitglieder"
+                    },
+                    {
+                        "css_class": "",
+                        "value": "Info-Brief"
+                    },
+                    {
+                        "css_class": "",
+                        "value": "sw"
+                    },
+                    {
+                        "css_class": "",
+                        "value": null
+                    },
+                    {
+                        "css_class": "",
+                        "value": null
+                    }
+                ],
+                [
+                    {
+                        "css_class": "hide",
+                        "value": 243
+                    },
+                    {
+                        "css_class": "",
+                        "value": "Mustermann, Max"
+                    },
+                    {
+                        "css_class": "",
+                        "value": "Willkommen"
+                    },
+                    {
+                        "css_class": "",
+                        "value": "sw"
+                    },
+                    {
+                        "css_class": "",
+                        "value": null
+                    },
+                    {
+                        "css_class": "",
+                        "value": null
+                    }
+                ]
+            ],
+            "header": [
+                {
+                    "css_class": "hide",
+                    "data-class": "",
+                    "data-hide": "",
+                    "name": "#"
+                },
+                {
+                    "css_class": "",
+                    "data-class": "",
+                    "data-hide": "phone,tablet",
+                    "name": "Empf\u00e4nger"
+                },
+                {
+                    "css_class": "",
+                    "data-class": "expand",
+                    "data-hide": "",
+                    "name": "Betreff"
+                },
+                {
+                    "css_class": "",
+                    "data-class": "",
+                    "data-hide": "phone,tablet",
+                    "name": "Von"
+                },
+                {
+                    "css_class": "",
+                    "data-class": "",
+                    "data-hide": "phone,tablet",
+                    "name": "Gesendet"
+                },
+                {
+                    "css_class": "",
+                    "data-class": "",
+                    "data-hide": "phone,tablet",
+                    "name": "Via"
+                }
+            ],
+            "records": 2,
+            "years": [
+                {
+                    "selected": "selected",
+                    "year": 2015
+                },
+                {
+                    "year": 2016
+                }
+            ]
+        },
+        "url": "/mail/sent?for_year=2015"
+    }
+}

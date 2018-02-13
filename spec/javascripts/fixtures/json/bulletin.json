@@ -1,0 +1,119 @@
+{
+    "BulletinListView_1": {
+        "data": {
+            "actions": [
+                {
+                    "btn_class": "btn-success",
+                    "icon": "fa fa-plus",
+                    "route": "bulletin_add",
+                    "title": "Neu",
+                    "url": "/bulletins/add"
+                },
+                {
+                    "btn_class": "btn-success",
+                    "icon": "fa fa-pencil",
+                    "route": "bulletin_edit",
+                    "title": "Bearbeiten",
+                    "url": "/bulletins/{id}/edit"
+                },
+                {
+                    "btn_class": "btn-danger",
+                    "icon": "glyphicon glyphicon-trash",
+                    "route": "bulletin_delete",
+                    "title": "L\u00f6schen",
+                    "url": "/bulletins/{id}/delete"
+                },
+                {
+                    "btn_class": "btn-success",
+                    "icon": "fa fa-print",
+                    "route": "bulletin_print",
+                    "title": "Herunterladen",
+                    "url": "/bulletins/{id}/print"
+                }
+            ],
+            "data": [
+                [
+                    {
+                        "css_class": "hide",
+                        "value": 1
+                    },
+                    {
+                        "css_class": "",
+                        "value": "Ruhezeiten im Verein"
+                    },
+                    {
+                        "css_class": "",
+                        "value": "07.03.2015 10:00"
+                    },
+                    {
+                        "css_class": "",
+                        "value": "hans"
+                    }
+                ]
+            ],
+            "header": [
+                {
+                    "css_class": "hide",
+                    "data-class": "",
+                    "data-hide": "",
+                    "name": "#"
+                },
+                {
+                    "css_class": "",
+                    "data-class": "expand",
+                    "data-hide": "",
+                    "name": "Betreff"
+                },
+                {
+                    "css_class": "",
+                    "data-class": "",
+                    "data-hide": "phone,tablet",
+                    "name": "Datum"
+                },
+                {
+                    "css_class": "",
+                    "data-class": "",
+                    "data-hide": "phone,tablet",
+                    "name": "Von"
+                }
+            ],
+            "records": 1
+        },
+        "url": "/bulletins"
+    },
+    "BulletinAddView_1": {
+        "data": {
+            "load_data": {
+                "content": null,
+                "subject": null
+            },
+            "load_options": {
+                "content": {
+                    "label": "Inhalt",
+                    "template": "form_markdown"
+                },
+                "subject": {
+                    "label": "Betreff"
+                }
+            },
+            "title": "Aushang bearbeiten",
+            "url": "/api//bulletins/1/edit"
+        },
+        "url": "/bulletins/add"
+    },
+    "BulletinEditView_1": {
+        "data": {
+            "url": "/api//bulletins/1/edit",
+            "type": "POST",
+            "data": "{\"subject\":\"Vereinsfest findet statt\"}",
+            "contentType": "application/json"
+        }
+    },
+    "BulletinDeleteView_1": {
+        "data": {
+            "url": "/api//bulletins/1/delete",
+            "method": "GET",
+            "data": null
+        }
+    }
+}
