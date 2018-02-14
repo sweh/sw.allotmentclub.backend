@@ -73,7 +73,7 @@ class MapDownloadView(object):
             output = BytesIO()
             c = Canvas(output)
             c.setTitle(msg)
-            c.setPageSize((d.width + 1000, d.height - 300))
+            c.setPageSize((d.width, d.height))
             renderPDF.draw(d, c, 0, 0)
             c.showPage()
             c.save()
