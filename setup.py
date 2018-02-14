@@ -72,6 +72,7 @@ setup(
         'waitress==1.0.2',
         'webob==1.7.2',
         'xhtml2pdf==0.2b1',
+        'repoze.vhm3==0.15',
         'xlrd == 1.1.0',
         'xlsxwriter==0.9.6',
         'zope.component==4.3.0',
