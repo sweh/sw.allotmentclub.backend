@@ -5,7 +5,7 @@ Change log for sw.allotmentclub
 3.9.0 (unreleased)
 ==================
 
-- Nothing changed yet.
+- Fix install requirements to be able to install them only from pypi.
 
 
 3.8.0 (2018-02-13)
