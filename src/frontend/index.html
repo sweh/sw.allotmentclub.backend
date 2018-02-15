@@ -1,0 +1,248 @@
+<!DOCTYPE html
+<html lang="de" manifest="/manifest.appcache">
+  <head>
+    <meta charset="utf-8">
+    <title> Leuna-Bungalowgemeinschaft Roter See </title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="optimized.min.b8c76a79.css" media="screen">
+
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="mask-icon" href="/mask-icon.svg" color="#3276b1">
+
+    <link rel="apple-touch-icon" href="/img/sptouch-icon-iphone.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/img/touch-icon-ipad.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/img/touch-icon-iphone-retina.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/img/touch-icon-ipad-retina.png">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <link rel="apple-touch-startup-image" href="/img/ipad-landscape.png" media="screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape)">
+    <link rel="apple-touch-startup-image" href="/img/ipad-portrait.png" media="screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait)">
+    <link rel="apple-touch-startup-image" href="/img/iphone.png" media="screen and (max-device-width: 320px)">
+
+    <script type="text/javascript">
+        window.application_url = window.location.protocol + '//' + window.location.host + '/api';
+    </script>
+  </head>
+  <body class="fixed-header fixed-navigation fixed-ribbon">
+    <div class="pace pace-inactive">
+      <div data-progress="0" data-progress-text="10%"
+           style="width: 0%;" class="pace-progress">
+        <div class="pace-progress-inner"></div>
+      </div>
+      <div class="pace-activity"></div>
+    </div>
+    <header id="header">
+      <div id="logo-group">
+        <span id="logo">
+          <img src="img/logo.png" alt="Leuna-Bungalowgemeinschaft Roter See" />
+        </span>
+      </div>
+      <div class="pull-right">
+        <div id="hide-menu" class="btn-header pull-right">
+          <span>
+            <a href="javascript:void(0);" data-action="toggleMenu"
+                title="Menü einklappen"><i class="fa fa-reorder"></i></a>
+          </span>
+        </div>
+        <div id="logout" class="hide btn-header transparent pull-right">
+          <span>
+            <a href="#logout" title="Abmelden">
+                <i class="fa fa-sign-out"></i>
+            </a>
+          </span>
+        </div>
+        <div id="fullscreen" class="btn-header transparent pull-right">
+          <span>
+            <a href="javascript:void(0);" data-action="launchFullscreen"
+                title="Vollbild"><i class="fa fa-arrows-alt"></i>
+            </a>
+          </span>
+        </div>
+        <div id="online_status" class="btn-header transparent pull-right"
+             data-status="ONLINE">
+          <span>
+            <a href="javascript:void(0);" title="Sie arbeiten online"
+               style="color: #8ac38b;"><i class="fa fa-globe"></i>
+            </a>
+          </span>
+        </div>
+      </div>
+    </header>
+
+
+    <div class="signin container">
+      <div class="col-lg-4 col-lg-offset-4">
+        <div class="well no-padding">
+          <form class="smart-form client-form" role="form">
+            <header>
+              Bitte melden Sie sich an.
+            </header>
+            <fieldset>
+              <section>
+                <label class="label">Benutzername</label>
+                <label class="input">
+                  <i class="icon-append fa fa-user"></i>
+                  <input type="username" name="username" required autofocus
+                         data-bv-field="username" class="form-control"
+                         placeholder="Benutzername" />
+                </label>
+              </section>
+
+              <section>
+                <label class="label">Passwort</label>
+                <label class="input">
+                  <i class="icon-append fa fa-lock"></i>
+                  <input type="password" name="password" required
+                         data-bv-field="password" class="form-control"
+                         placeholder="Passwort" />
+                </label>
+              </section>
+
+              <section>
+                <label class="checkbox">
+                  <input type="checkbox" class="form-control" checked
+                         name="remember" />
+                  <i></i>Auf diesem Computer angemeldet bleiben</label>
+              </section>
+            </fieldset>
+            <footer>
+              <button class="btn btn-primary" type="submit">
+                Anmelden
+              </button>
+            </footer>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <aside id="left-panel">
+        <div class="login-info">
+            <span>
+                <a href="javascript:void(0);">
+                    <img class="online" alt="ich" src="">
+                    <span></span>
+                </a>
+            </span>
+        </div>
+       <nav class="navbar-main">
+       </nav>
+       <span class="minifyme" data-action="minifyMenu">
+          <i class="fa fa-arrow-circle-left hit"></i>
+        </span>
+    </aside>
+
+    <!--[if IE 8]>
+    <h1>Your browser is out of date, please update your browser by going to www.microsoft.com/download</h1>
+    <![endif]-->
+
+    <div id="main" role="main">
+      <div id="ribbon">
+        <span class="ribbon-button-alignment">
+        </span>
+        <ol class="breadcrumb">
+          <li>Startseite</li>
+        </ol>
+      </div>
+
+      <div id="content">
+        <div class="row">
+          <div class="col-xs-6 col-sm-7 col-md-7 col-lg-4">
+            <h1 class="page-title txt-color-blueDark">
+              <i class="fa-fw fa fa-home"></i> Startseite
+            </h1>
+          </div>
+          <div class="col-xs-6 col-sm-5 col-md-5 col-lg-8">
+            <ul id="sparks" class="">
+              <li class="sparks-info">
+                  <h5>
+                  Temperatur
+                  <span class="nt-temp">
+                      <i class="fa"></i>
+                      &nbsp; n/a&#8239;°C
+                  </span>
+                </h5>
+              </li>
+              <li class="sparks-info">
+                  <h5>
+                  Regen (24h)
+                  <span class="nt-rain">
+                      <i class="fa fa-umbrella"></i>
+                      n/a&#8239;mm
+                  </span>
+                </h5>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"
+               id="main_content">
+            <div class="well well-sm">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"
+               id="sub_content">
+          </div>
+        </div>
+      </div>
+  </div>
+
+    <div class="page-footer">
+      <div class="row">
+        <div class="col-xs-12 col-sm-6">
+          <span class="txt-color-white">Sebastian Wehrmann © 2014 - 2016</span>
+        </div>
+        <div class="col-xs-6 col-sm-6 text-right hidden-xs">
+          <div class="inline-block">
+            <i class="txt-color-blueLight hidden-mobile">
+              <a href="https://circleci.com/gh/sweh/sw.allotmentclub"
+                 target="_blank">
+                <img src="https://circleci.com/gh/sweh/sw.allotmentclub.svg?style=shield&circle-token=071a8316cb1ad9342d2bb4d3c316d548d12a292f" />
+              </a>
+              <a href="https://codecov.io/github/sweh/sw.allotmentclub?branch=production">
+                <img src="https://codecov.io/github/sweh/sw.allotmentclub/coverage.svg?token=R4t7l3Pb0z&branch=production" alt="Coverage via Codecov" />
+              </a>
+              <a href="https://www.ssllabs.com/ssltest/analyze.html?d=verwaltung.roter-see.de"
+                 target="_blank">
+                <img src="https://sslbadge.org/?domain=verwaltung.roter-see.de" />
+              </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div aria-hidden="false" aria-labelledby="changelogLabel" role="dialog" tabindex="-1" id="changelog" class="modal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button aria-hidden="true" data-dismiss="modal" class="close" type="button">
+              ×
+            </button>
+            <h4 id="changelogLabel" class="modal-title">Changelog</h4>
+          </div>
+          <pre class="modal-body" style="font-style: normal; height: 300px; margin-bottom: 0; overflow: scroll;">
+          </pre>
+          <div class="modal-footer">
+            <button data-dismiss="modal" class="btn btn-default" type="button">
+              Schließen
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="optimized.bf2b2455.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+          sw.allotmentclub.login();
+      });
+    </script>
+  </body>
+</html>
