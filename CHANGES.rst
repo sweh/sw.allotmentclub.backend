@@ -2,8 +2,8 @@
 Change log for sw.allotmentclub
 ===============================
 
-3.10.0 (unreleased)
-===================
+4.0.0 (2018-02-15)
+==================
 
 - Add compiled frontend code into package.
 
