@@ -25,7 +25,7 @@ setup(
         'first==2.0.1',
         'funcsigs==1.0.2',
         'gocept.logging==0.8.1',
-        'gocept.loginuser3==1.4',
+        'gocept.loginuser==1.3',
         'html5lib==1.0b10',
         'kontocheck==5.10.0',
         'lnetatmo==1.2.1',
