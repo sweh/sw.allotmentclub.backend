@@ -27,8 +27,6 @@ import time
 import traceback
 import zope.component
 
-APP_INIT = os.path.join(os.sep, 'tmp', 'app-initialized')
-
 
 def json_serializer(value, default, **kw):
     return json.dumps(value, default=default, **kw)
@@ -494,8 +492,6 @@ class NotFound(HTTPError):
 
 @pyramid.events.subscriber(pyramid.events.ApplicationCreated)
 def log_start(event):
-    with open(APP_INIT, 'a'):
-        os.utime(APP_INIT, None)
     app_log.info('Application successfully started.')
 
 
@@ -503,8 +499,6 @@ shutdown_already_logged = False
 
 
 def log_shutdown(signalnum, frame):
-    if os.path.exists(APP_INIT):
-        os.remove(APP_INIT)
     global shutdown_already_logged
     if not shutdown_already_logged:
         shutdown_already_logged = True

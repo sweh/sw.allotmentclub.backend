@@ -5,7 +5,7 @@ Change log for sw.allotmentclub
 4.0.1 (unreleased)
 ==================
 
-- Nothing changed yet.
+- Remove app-init stuff which was needed by the heroku nginx buildpack.
 
 
 4.0.0 (2018-02-15)
