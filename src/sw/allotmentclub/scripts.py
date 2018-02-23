@@ -137,3 +137,16 @@ END:VCARD
             os.makedirs(path)
         with open(os.path.join(path, 'addressbook.vcf'), 'w') as f:
             f.write(output)
+        config_path = os.path.join(os.path.expanduser("~"), '.config/radicale')
+        htpasswd_path = os.path.join(config_path, '.htpasswd')
+        with open(os.path.join(config_path, 'config'), 'w') as f:
+            f.write("""\
+[server]
+hosts = 0.0.0.0:5232
+
+[auth]
+type = htpasswd
+htpasswd_filename = {}
+htpasswd_encryption = bcrypt""".format(htpasswd_path))
+        with open(htpasswd_path, 'w') as f:
+            f.write("sweh:$2y$11$X98JWjsAFl7aVMcaQRNJxOcUf6pqUYh5dswyrRFywzhiUfzdjKNeq")

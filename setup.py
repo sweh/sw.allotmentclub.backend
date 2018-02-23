@@ -28,6 +28,7 @@ setup(
         'gocept.loginuser==1.3',
         'html5lib==1.0b10',
         'kontocheck==5.10.0',
+        'passlib==1.7.1',
         'lnetatmo==1.4.3',
         'mako==1.0.6',
         'markdown==2.6.8',
