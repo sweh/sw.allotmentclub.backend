@@ -142,7 +142,7 @@ END:VCARD
         with open(os.path.join(config_path, 'config'), 'w') as f:
             f.write("""\
 [server]
-hosts = 0.0.0.0:5232
+hosts = localhost:5232
 
 [auth]
 type = htpasswd
