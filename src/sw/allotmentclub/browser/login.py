@@ -7,7 +7,6 @@ from pyramid.security import NO_PERMISSION_REQUIRED
 from pyramid.view import view_config, forbidden_view_config
 import lnetatmo
 import hashlib
-import os
 import pyramid.httpexceptions
 import pyramid.security
 import sw.allotmentclub.browser.app
@@ -73,35 +72,42 @@ class LoginView(sw.allotmentclub.browser.base.View):
 
     def get_temp_data(self):
         result = dict()
+        settings = pyramid.threadlocal.get_current_registry().settings
         # 1 : Authenticate
-        if 'CLIENT_ID' not in os.environ:
+        if not settings.get('netatmo.client.id'):
             return dict()
         try:
-            authorization = lnetatmo.ClientAuth()
-
-            # 2 : Get devices list
-            weatherData = lnetatmo.WeatherStationData(authorization)
-
-            # 3 : Access most fresh data directly
-            for module in weatherData.stationByName('Roter See')['modules']:
-                if module['type'] == 'NAModule1':
-                    temp_trend = module['dashboard_data']['temp_trend']
-                    temp_trend = ('right' if temp_trend == 'stable'
-                                  else temp_trend)
-                    result['temperature'] = (
-                        module['dashboard_data']['Temperature'])
-                    result['trend'] = temp_trend
-                elif module['type'] == 'NAModule3':
-                    result['rain'] = module['dashboard_data']['Rain']
-                    result['sum_rain_1'] = (
-                        module['dashboard_data']['sum_rain_1'])
-                    result['sum_rain_24'] = (
-                        module['dashboard_data']['sum_rain_24'])
-            result['date'] = datetime.fromtimestamp(
-                module['last_message']).strftime('%d.%m.%Y %H:%M Uhr')
-            return result
-        except:
+            authorization = lnetatmo.ClientAuth(
+                settings['netatmo.client.id'],
+                settings['netatmo.client.secret'],
+                settings['netatmo.user'],
+                settings['netatmo.pass'],
+                scope="read_station")
+        except Exception:
             return dict()
+
+        # 2 : Get devices list
+        weatherData = lnetatmo.WeatherStationData(authorization)
+
+        # 3 : Access most fresh data directly
+        for module in weatherData.stationByName('Roter See')['modules']:
+            if module['type'] == 'NAModule1':
+                temp_trend = module['dashboard_data'].get(
+                    'temp_trend', 'stable')
+                temp_trend = ('right' if temp_trend == 'stable'
+                              else temp_trend)
+                result['temperature'] = (
+                    module['dashboard_data'].get('Temperature', '--'))
+                result['trend'] = temp_trend
+            elif module['type'] == 'NAModule3':
+                result['rain'] = module['dashboard_data'].get('Rain', '--')
+                result['sum_rain_1'] = (
+                    module['dashboard_data'].get('sum_rain_1', '--'))
+                result['sum_rain_24'] = (
+                    module['dashboard_data'].get('sum_rain_24', '--'))
+        result['date'] = datetime.fromtimestamp(
+            module['last_message']).strftime('%d.%m.%Y %H:%M Uhr')
+        return result
 
     def __call__(self):
         result = self.login()

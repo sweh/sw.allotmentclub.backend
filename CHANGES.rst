@@ -7,6 +7,8 @@ Change log for sw.allotmentclub
 
 - Remove app-init stuff which was needed by the heroku nginx buildpack.
 
+- Update netatmo client and scope it to only read station data.
+
 
 4.0.0 (2018-02-15)
 ==================

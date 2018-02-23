@@ -4,7 +4,6 @@ from pyramid.authentication import SessionAuthenticationPolicy
 from pyramid.authorization import ACLAuthorizationPolicy
 from pyramid.events import NewRequest
 from pyramid.security import NO_PERMISSION_REQUIRED
-import os
 import hashlib
 import json
 import mimetypes
