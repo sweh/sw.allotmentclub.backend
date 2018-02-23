@@ -2,7 +2,7 @@
 Change log for sw.allotmentclub
 ===============================
 
-4.0.3 (unreleased)
+4.0.3 (2018-02-23)
 ==================
 
 - Make sure radicale does only bind to localhost.
