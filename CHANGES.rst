@@ -338,19 +338,19 @@ Change log for sw.allotmentclub
 
 
 2.12.0 (2017-05-16)
-==================
+===================
 
 - Bump all versions of packages to the newest ones.
 
 
 2.11.1 (2017-05-12)
-==================
+===================
 
 - Fix tests on circleCI.
 
 
 2.11.0 (2017-05-12)
-==================
+===================
 
 - Add upport for delivery postmark webhook.
 
@@ -364,25 +364,25 @@ Change log for sw.allotmentclub
 
 
 2.10.8 (2017-03-22)
-==================
+===================
 
 - No longer display members and users from different organizations in dropdowns.
 
 
 2.10.7 (2017-03-16)
-==================
+===================
 
 - Remove codecov upload (JS) as its broken for circleci.
 
 
 2.10.6 (2017-03-16)
-==================
+===================
 
 - Fix a bug in deployment process.
 
 
 2.10.5 (2017-03-16)
-==================
+===================
 
 - Set member Beitrag to 65,- EUR.
 
@@ -390,13 +390,13 @@ Change log for sw.allotmentclub
 
 
 2.10.4 (2017-03-09)
-==================
+===================
 
 - Fix a bug where mails were sent to people in the wrong organization.
 
 
 2.10.3 (2017-02-21)
-==================
+===================
 
 - Fix segmentation fault during transaction import.
 
@@ -404,19 +404,19 @@ Change log for sw.allotmentclub
 
 
 2.10.2 (2017-02-07)
-==================
+===================
 
 - Fix access to other vcf addressbook data.
 
 
 2.10.1 (2017-02-07)
-==================
+===================
 
 - Add organization name to vcf addressbook data.
 
 
 2.10.0 (2017-02-07)
-==================
+===================
 
 - Support multiple organizations when writing vcf addressbook data.
 
@@ -774,7 +774,7 @@ Change log for sw.allotmentclub
 
 
 1.6.11 (2016-06-29)
-==================
+===================
 
 - Begin refactoring the SEPA Sammler views.
 
@@ -856,7 +856,7 @@ Change log for sw.allotmentclub
 
 
 1.5.10 (2016-04-26)
-==================
+===================
 
 - Bugfix: Dont try to send emails to post addresses, stupid!
 
@@ -1067,7 +1067,7 @@ Change log for sw.allotmentclub
 
 
 1.2.11 (2016-03-04)
-==================
+===================
 
 - Add static page content and nginx config for http://www.roter-see.de.
 
@@ -1138,7 +1138,7 @@ Change log for sw.allotmentclub
 
 
 1.0.10 (2016-02-29)
-==================
+===================
 
 - Fix filename ending for depot downloads.
 
