@@ -2,7 +2,7 @@
 Change log for sw.allotmentclub
 ===============================
 
-4.0.4 (unreleased)
+4.0.4 (2018-02-23)
 ==================
 
 - Remove auth config from radicale as its moved to the nginx server.
