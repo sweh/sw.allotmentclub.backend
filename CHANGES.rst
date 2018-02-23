@@ -9,6 +9,8 @@ Change log for sw.allotmentclub
 
 - Update netatmo client and scope it to only read station data.
 
+- Retrieve banking credentials from pyramid settings instead of from the environment.
+
 
 4.0.0 (2018-02-15)
 ==================

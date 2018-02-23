@@ -7,7 +7,7 @@ from fints.client import FinTS3PinTanClient
 from sqlalchemy import Column, Integer, String, ForeignKey, DateTime, Boolean
 from sqlalchemy import Date
 import kontocheck
-import os
+import pyramid.threadlocal
 import sqlalchemy.orm
 import transaction
 
@@ -129,9 +129,12 @@ class Abwasser(Object):
 
 
 def create_fints_client():
+    settings = pyramid.threadlocal.get_current_registry().settings
     return FinTS3PinTanClient(
-        '80053762', '1078654003365', os.environ.get('PIN_VEREIN'),
-        'https://banking-st5.s-fints-pt-st.de/fints30')
+        settings.get('banking.blz'),
+        settings.get('banking.kto'),
+        settings.get('banking.pin'),
+        settings.get('banking.url'))
 
 
 def import_transactions_from_fints(user=None):
