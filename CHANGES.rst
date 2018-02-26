@@ -2,7 +2,7 @@
 Change log for sw.allotmentclub
 ===============================
 
-4.0.5 (unreleased)
+4.1.0 (2018-02-26)
 ==================
 
 - Update badges.
