@@ -6,21 +6,18 @@ Vereinsverwaltung der Leuna-Bungalowgemeinschaft Roter-See
    :target: https://github.com/sweh/sw.allotmentclub/blob/master/LICENSE.txt
    :alt: License
 
-.. image:: https://circleci.com/gh/sweh/sw.allotmentclub.svg?style=shield&circle-token=071a8316cb1ad9342d2bb4d3c316d548d12a292f
-   :target: https://circleci.com/gh/sweh/sw.allotmentclub
-   :alt: CircleCi
+.. image:: https://api.codeclimate.com/v1/badges/fd997cfcf42412bf1cd6/test_coverage
+   :target: https://codeclimate.com/github/sweh/sw.allotmentclub.backend/test_coverage
+   :alt: Test Coverage
 
-.. image:: https://codecov.io/github/sweh/sw.allotmentclub/coverage.svg?token=R4t7l3Pb0z&branch=master
-   :target: https://codecov.io/github/sweh/sw.allotmentclub?branch=master
-   :alt: CodeCov
-
-.. image:: https://api.codacy.com/project/badge/grade/7c19e43c4fd746cc9834142edc77fbda
-   :target: https://www.codacy.com
-   :alt: Codacy
+.. image:: https://api.codeclimate.com/v1/badges/fd997cfcf42412bf1cd6/maintainability
+   :target: https://codeclimate.com/github/sweh/sw.allotmentclub.backend/maintainability
+   :alt: Maintainability
 
 .. image:: https://sslbadge.org/?domain=verwaltung.roter-see.de
    :target: https://www.ssllabs.com/ssltest/analyze.html?d=verwaltung.roter-see.de
    :alt: SSL state
+
 
 INSTALL
 =======
