@@ -3,7 +3,7 @@ Vereinsverwaltung der Leuna-Bungalowgemeinschaft Roter-See
 ==========================================================
 
 .. image:: https://img.shields.io/badge/license-MIT-blue.svg
-   :target: https://github.com/sweh/sw.allotmentclub/blob/master/LICENSE.txt
+   :target: https://github.com/sweh/sw.allotmentclub.backend/blob/master/LICENSE.rst
    :alt: License
 
 .. image:: https://api.codeclimate.com/v1/badges/fd997cfcf42412bf1cd6/test_coverage
@@ -22,12 +22,12 @@ Vereinsverwaltung der Leuna-Bungalowgemeinschaft Roter-See
 INSTALL
 =======
 
-Backend
-*******
+Note: It is recommended to install this package via the deployment package
+`sw.allotmentclub.deployment`.
 
 * Install and start postgres.
 
-* Create the db with a current dump with ./db_restore.sh.
+* Create the db with a current dump (contained in the deployment package).
 
 * Install nginx.
 
@@ -35,16 +35,15 @@ Backend
 
     virtualenv .
     source bin/activate
-    pip install 3rdparty/gocept.loginuser-1.3a1.tar.gz
-    pip install -r requirements.txt
-    heroku local (or bin/start-nginx ./run.sh)
+    pip install -e .
+    bin/pserve portal.ini
 
 Testing
-*******
+=======
 
 * To run the tests in backend, first install the test requirements::
 
-    pip install -r requirements/test.txt
+    pip install -e .[test]
 
 * Run the backend tests::
 
