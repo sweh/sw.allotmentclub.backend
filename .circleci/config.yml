@@ -24,6 +24,14 @@ jobs:
           name: Wait for DB
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
 
+      - run:
+          name: setup database
+          command: |
+              sudo apt update
+              sudo apt install postgresql-client
+              psql -h localhost -U root postgres -c "create user ubuntu with password 'ubuntu';"
+              psql -h localhost -U root postgres -c "alter user ubuntu with superuser"
+
       - restore_cache:
           keys:
           - v1-dependencies-{{ checksum "setup.py" }}
@@ -31,16 +39,9 @@ jobs:
           - v1-dependencies-
 
       - run:
-          name: setup database
-          command: |
-              sudo apt update
-              sudo apt install postgresql-client
-              sudo -u postgres psql -p 5433 -c "create user ubuntu with password 'ubuntu';"
-              sudo -u postgres psql -p 5433 -c "alter user ubuntu with superuser;"
-
-      - run:
           name: install dependencies
           command: |
+            sudo apt install poppler-utils
             python3 -m venv venv
             . venv/bin/activate
             pip install -e .[test]
