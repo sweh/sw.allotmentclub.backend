@@ -4,7 +4,7 @@
 #
 version: 2
 jobs:
-  build:
+  build_and_test:
     environment:
       CC_TEST_REPORTER_ID: 0069fc0d69294e56de0b134cd62f6be6d1ac6e8ed80a7e71a2770c1d166d93ff
     docker:
@@ -72,6 +72,7 @@ jobs:
           destination: coverage.xml
 
 workflows:
+    version: 2
     nightly:
         triggers:
         - schedule:
@@ -81,4 +82,4 @@ workflows:
                 only:
                     - master
      jobs:
-       - build
+       - build_and_test
