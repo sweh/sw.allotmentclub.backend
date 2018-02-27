@@ -4,7 +4,7 @@
 #
 version: 2
 jobs:
-  build_and_test:
+  build:
     environment:
       CC_TEST_REPORTER_ID: 0069fc0d69294e56de0b134cd62f6be6d1ac6e8ed80a7e71a2770c1d166d93ff
     docker:
@@ -76,10 +76,8 @@ workflows:
     nightly:
         triggers:
         - schedule:
-            cron: "0 19 * * *"
+            cron: "0 9 * * *"
             filters:
                 branches:
                 only:
                     - master
-     jobs:
-       - build_and_test
