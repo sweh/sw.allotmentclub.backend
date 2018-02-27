@@ -70,3 +70,15 @@ jobs:
       - store_artifacts:
           path: coverage.xml
           destination: coverage.xml
+
+workflows:
+    nightly:
+        triggers:
+        - schedule:
+            cron: "0 19 * * *"
+            filters:
+                branches:
+                only:
+                    - master
+     jobs:
+       - build
