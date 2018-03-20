@@ -5,7 +5,7 @@ Change log for sw.allotmentclub
 4.1.1 (unreleased)
 ==================
 
-- Nothing changed yet.
+- Fix value format in XML SEPA export.
 
 
 4.1.0 (2018-02-26)

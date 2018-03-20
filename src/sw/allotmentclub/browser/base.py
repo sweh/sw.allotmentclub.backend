@@ -4,7 +4,7 @@ from .. import Member, BookingKind, User
 from ..log import user_data_log, log_with_user
 from io import StringIO, BytesIO
 from pyramid.decorator import reify
-from pyramid.response import FileIter, Response
+from pyramid.response import FileIter
 import csv
 import datetime
 import dateutil.parser
@@ -20,7 +20,6 @@ import sw.allotmentclub.version
 import transaction
 import xlsxwriter
 import openpyxl
-import zipfile
 import zope.component
 import zope.interface
 
@@ -993,7 +992,7 @@ class XMLExporterView(CSVExporterView):
             </DrctDbtTxInf>"""
 
     def format_eur(self, value):
-        return format_eur(value)[:-2].replace(',', '.')
+        return format_eur(value)[:-2].replace('.', '').replace(',', '.')
 
     @property
     def values(self):
@@ -1049,18 +1048,9 @@ class XMLExporterView(CSVExporterView):
             pmtinfid=pmtinfid) + ' '*30
 
     def __call__(self):
-        data = self.data
-
-        s = BytesIO()
-        z = zipfile.ZipFile(s, 'w')
-        z.writestr('%s.xml' % self.filename, data)
-        z.close()
-        data = s.getvalue()
-        s.close()
-
-        return Response(
-            content_type='application/zip',
-            content_disposition=(
-                'attachment; filename="%s.zip"' % self.filename),
-            content_length=len(data),
-            body=data)
+        response = self.request.response
+        response.content_type = 'application/xml'
+        response.content_disposition = (
+            'attachment; filename={}.xml'.format(self.filename))
+        response.app_iter = FileIter(BytesIO(self.data.encode('utf-8')))
+        return response
