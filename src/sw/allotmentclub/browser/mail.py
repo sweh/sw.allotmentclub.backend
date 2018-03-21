@@ -174,6 +174,8 @@ class MailListSentView(sw.allotmentclub.browser.base.TableView):
              title='Anzeigen'),
         dict(url='mail_preview', btn_class='btn-success',
              icon='fa fa-print', title='Vorschau'),
+        dict(url='mail_send', btn_class='btn-success',
+             icon='fa fa-envelope', title='Erneut Drucken'),
         dict(url='mail_duplicate', btn_class='btn-success',
              icon='fa fa-copy', title='Duplizieren')]
 
@@ -323,32 +325,35 @@ class MailSendView(MailPrintView):
     def update(self):
         if self.recipients == [None]:
             return
-        recipients = [r for r in self.recipients if r.email]
-        subject = self.context.subject or ''
-        compiler = pybars.Compiler()
-        compiled_body = compiler.compile(self.context.body)
-        self_cc = True if len(recipients) == 1 else False
-        for recipient in recipients:
-            address = recipient.email
-            data = self.recipients_data(recipient)
-            if subject in self.additional.keys():
-                for nsubject, additional_data in self.additional[subject](
-                        recipient, self.context.accounting_year):
-                    additional_data.update(data)
-                    body = format_markdown(compiled_body(additional_data))
+        recipients = []
+        if not self.context.sent:
+            recipients = [r for r in self.recipients if r.email]
+            subject = self.context.subject or ''
+            compiler = pybars.Compiler()
+            compiled_body = compiler.compile(self.context.body)
+            self_cc = True if len(recipients) == 1 else False
+            for recipient in recipients:
+                address = recipient.email
+                data = self.recipients_data(recipient)
+                if subject in self.additional.keys():
+                    for nsubject, additional_data in self.additional[subject](
+                            recipient, self.context.accounting_year):
+                        additional_data.update(data)
+                        body = format_markdown(compiled_body(additional_data))
+                        msg_tag = send_mail(
+                            address, nsubject, body, self.context.user,
+                            attachments=self.context.attachments,
+                            self_cc=self_cc)
+                        SentMessageInfo.find_or_create(
+                            message=self.context, tag=msg_tag, address=address)
+                else:
+                    body = format_markdown(compiled_body(data))
                     msg_tag = send_mail(
-                        address, nsubject, body, self.context.user,
+                        address, subject, body, self.context.user,
                         attachments=self.context.attachments,
                         self_cc=self_cc)
                     SentMessageInfo.find_or_create(
                         message=self.context, tag=msg_tag, address=address)
-            else:
-                body = format_markdown(compiled_body(data))
-                msg_tag = send_mail(address, subject, body, self.context.user,
-                                    attachments=self.context.attachments,
-                                    self_cc=self_cc)
-                SentMessageInfo.find_or_create(
-                    message=self.context, tag=msg_tag, address=address)
         sent = len(recipients)
         if sent:
             self.context.sent = datetime.now()
@@ -361,7 +366,7 @@ class MailSendView(MailPrintView):
                 'message': 'Keine E-Mail versendet'}
         print_recipients = [r for r in self.recipients if not r.email]
         if print_recipients:
-            self.result['redirect'] = ('/api/' + route_url(
+            self.result['redirect'] = ('/api' + route_url(
                 'mail_print', self.request).replace(
                     '{id}', str(self.context.id)))
 

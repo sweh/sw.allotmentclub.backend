@@ -7,6 +7,8 @@ Change log for sw.allotmentclub
 
 - Fix value format in XML SEPA export.
 
+- Add option to reprint sent messages.
+
 
 4.1.0 (2018-02-26)
 ==================

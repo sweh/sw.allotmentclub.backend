@@ -307,3 +307,23 @@ def test__mail__MailAssignmentPreview_1(browser):
         dt.now.return_value = datetime(2016, 3, 25)
         browser.open('http://localhost/mail/245/preview')
     assertFileEqual(browser.contents, 'test_mail_fehlarbeitsstunden_1.pdf')
+
+
+def test__mail__MailSentView_1(browser, setUp, mailer):
+    """It does not sent mail if already sent."""
+    from sw.allotmentclub import Message, Member
+    assert 0 == len(mailer.outbox)
+    message = Message.get(243)
+    message.members.append(Member.create(
+        email='sw@roter-see.de', street='Musterstrasse'))
+    transaction.commit()
+    browser.login()
+    browser.open('http://localhost/mail/243/send')
+    assert browser.json['message'] == '1 E-Mail(s) erfolgreich versendet'
+    assert 1 == len(mailer.outbox)
+    assert 'Willkommen' in mailer.outbox[0].subject
+
+    browser.open('http://localhost/mail/243/send')
+    assert browser.json['message'] == 'Keine E-Mail versendet'
+    assert 1 == len(mailer.outbox)
+    assert browser.json['redirect'] == '/api/mail/243/download'
