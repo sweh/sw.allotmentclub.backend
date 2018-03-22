@@ -2,7 +2,7 @@
 Change log for sw.allotmentclub
 ===============================
 
-4.1.1 (unreleased)
+4.1.1 (2018-03-22)
 ==================
 
 - Fix value format in XML SEPA export.
