@@ -165,8 +165,8 @@ def test__EnergyValue__update_data_5(database):
     assert ap1.member == ap2.member == value.member
     assert ap1.booking_day == datetime.date(2017, 3, 31)
     assert ap2.booking_day == datetime.date(2017, 6, 30)
-    assert ap1.purpose == 'Energieabschlag I'
-    assert ap2.purpose == 'Energieabschlag II'
+    assert ap1.purpose == 'Energieabschlag I für Zähler 318992603'
+    assert ap2.purpose == 'Energieabschlag II für Zähler 318992603'
 
 
 def test__EnergyValue__usage_1(database):
