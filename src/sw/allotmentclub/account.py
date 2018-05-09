@@ -209,7 +209,7 @@ def add_transaction(data, account):
                 .filter(Member.iban == booking.iban)
                 .filter(Member.organization_id == booking.organization_id)
                 .one())
-        except:
+        except Exception:
             pass
     if booking.member:
         try:
@@ -220,7 +220,7 @@ def add_transaction(data, account):
                 .filter(Booking.accounting_year == booking.accounting_year)
                 .filter(Booking.organization_id == booking.organization_id)
                 .one())
-        except:
+        except Exception:
             pass
         else:
             booking.kind = debit_booking.kind
@@ -234,7 +234,7 @@ def add_transaction(data, account):
                 .filter(SEPASammler.pmtinfid == pmtinfid)
                 .filter(SEPASammler.organization_id == booking.organization_id)
                 .one())
-        except:
+        except Exception:
             raise ValueError("Keine Sammler zu PmtInfId '{}' gefunden.".format(
                 pmtinfid))
         sammlers = (
