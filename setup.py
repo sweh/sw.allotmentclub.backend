@@ -51,7 +51,7 @@ setup(
         'pyramid-mailer==0.15.1',
         'pyramid-tm==2.0',
         'pyramid-who==0.3',
-        'pyramid==1.9.1',
+        'pyramid==1.9.2',
         'python-dateutil==2.6.0',
         'python-editor==1.0.3',
         'pytz==2017.2',
