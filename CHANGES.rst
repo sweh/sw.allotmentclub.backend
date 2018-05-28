@@ -8,6 +8,8 @@ Change log for sw.allotmentclub
 - Bugfix: If member has multiple electic meters, advanced pay bookings where added for just one of
   them.
 
+- Increase mimetype field for depot uploads.
+
 
 4.1.1 (2018-03-22)
 ==================

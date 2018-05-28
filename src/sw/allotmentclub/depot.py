@@ -17,7 +17,7 @@ class Depot(Object):
     """ Die Ablage."""
 
     name = Column(String(100), default=u'')
-    mimetype = Column(String(30), default=u'')
+    mimetype = Column(String(100), default=u'')
     size = Column(String(20), default=u'')
     data = Column(LargeBinary(MAX_FILE_SIZE))
     date = Column(DateTime, nullable=False)
