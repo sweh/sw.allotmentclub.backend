@@ -2,7 +2,7 @@
 Change log for sw.allotmentclub
 ===============================
 
-4.1.2 (unreleased)
+4.2.0 (unreleased)
 ==================
 
 - Bugfix: If member has multiple electic meters, advanced pay bookings where added for just one of
