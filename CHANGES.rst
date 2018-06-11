@@ -5,7 +5,9 @@ Change log for sw.allotmentclub
 4.2.1 (unreleased)
 ==================
 
-- Nothing changed yet.
+- Bugfix: If member has multiple electic meters, energieabrechnung bookings where added for just
+  one of them.
+
 
 
 4.2.0 (2018-05-28)

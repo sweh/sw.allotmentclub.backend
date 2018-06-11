@@ -169,6 +169,46 @@ def test__EnergyValue__update_data_5(database):
     assert ap2.purpose == 'Energieabschlag II für Zähler 318992603'
 
 
+def test__EnergyValue__update_data_6(database):
+    """Creates multiple bookings for multiple meters of the same allotment."""
+    from sw.allotmentclub import EnergyValue, ElectricMeter, EnergyPrice
+    from sw.allotmentclub import Booking, BookingKind, BankingAccount
+    setUp()
+    BookingKind.create(title='Energieabrechnung')
+    BookingKind.create(title='Energieabschlag I')
+    BankingAccount.create(number='3')
+    EnergyPrice.create(
+        year=2016, price=3020, normal_fee=81700, power_fee=243300)
+    meter = ElectricMeter.get(1)
+    value = EnergyValue.create(electric_meter=meter, year=2016, value=7132)
+    meter2 = ElectricMeter.get(2)
+    value2 = EnergyValue.create(electric_meter=meter2, year=2016, value=14123)
+    meter.allotment = meter2.allotment
+
+    assert Booking.query().filter(Booking.accounting_year == 2017).all() == []
+    value.update_member()
+    value.update_usage()
+    value.update_data()
+    value2.update_member()
+    value2.update_usage()
+    value2.update_data()
+
+    ap1, ap2 = Booking.query().filter(Booking.accounting_year == 2017).all()
+    assert ap1.value != ap2.value
+    assert ap1.member == ap2.member == value.member
+    assert ap1.booking_day == ap2.booking_day == datetime.date(2017, 3, 31)
+    assert ap1.purpose == 'Energieabschlag I für Zähler 318992603'
+    assert ap2.purpose == 'Energieabschlag I für Zähler 136426011'
+
+    enab1, enab2 = Booking.query().filter(
+        Booking.accounting_year == 2016).all()
+    assert enab1.value != enab2.value
+    assert enab1.member == enab2.member == value.member
+    assert enab1.booking_day == enab2.booking_day == datetime.date(2016, 8, 31)
+    assert enab1.purpose == 'Energieabrechnung für Zähler 318992603'
+    assert enab2.purpose == 'Energieabrechnung für Zähler 136426011'
+
+
 def test__EnergyValue__usage_1(database):
     """Usage is 0 if value is None."""
     from sw.allotmentclub import EnergyValue, ElectricMeter

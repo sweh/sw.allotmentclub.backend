@@ -98,7 +98,8 @@ class EnergyValue(Object):
                        .filter(BankingAccount.number == '3').one())
             booking = Booking.find_or_create(
                 banking_account=account,
-                purpose=purpose,
+                purpose='{} für Zähler {}'.format(
+                    purpose, self.electric_meter.number),
                 accounting_year=self.year,
                 booking_day=datetime.date(self.year, month, day),
                 member=self.member,
