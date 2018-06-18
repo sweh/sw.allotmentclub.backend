@@ -1,6 +1,8 @@
 # encoding=utf-8
 from __future__ import unicode_literals
-from ..conftest import import_bookings
+from ..conftest import import_bookings, Amount
+import datetime
+import pytest
 
 
 def _getOne():
@@ -87,3 +89,94 @@ def test_imported_bookings_are_auto_assigned(database, member):
     import_bookings()
     booking = _getOne()
     assert 'Mittag' == booking.member.lastname
+
+
+def test_import_sepa_raises_value_error_if_no_sammler(database, member):
+    from ..account import import_transactions, BankingAccount, Booking
+    account = BankingAccount.find_or_create(
+        organization_id=1, number='3440000167')
+    statements = [{
+        'date': datetime.datetime.now(),
+        'currency': 'EUR',
+        'purpose': 'Energieabrechnung',
+        'amount': Amount(2743.12, 'EUR'),
+        'applicant_name': 'Verein',
+        'posting_text': 'SAMMEL-LS-EINZUG',
+        'applicant_iban': 'DE123456778899',
+        'applicant_bin': 'NOLADE21HAL',
+        'customer_reference': ('DATUM 14.06.2018, 14.28 UHR ANZAHL 9\n'
+                               'PII7ebef1ebc3ec4a5185583851c8f7dbb2')
+    }]
+    assert 0 == Booking.query().count()
+    with pytest.raises(
+            ValueError,
+            match=(r"Keine Sammler zu PmtInfId "
+                   r"'PII7ebef1ebc3ec4a5185583851c8f7dbb2' gefunden.")):
+        import_transactions(statements, account)
+    assert 0 == Booking.query().count()
+
+
+def test_import_sepa_raises_value_error_if_empty_sammler(database, member):
+    from ..account import import_transactions, BankingAccount, SEPASammler
+    from ..account import Booking
+    account = BankingAccount.find_or_create(
+        organization_id=1, number='3440000167')
+    SEPASammler.create(pmtinfid='PII7ebef1ebc3ec4a5185583851c8f7dbb2',
+                       booking_day=datetime.datetime.now(),
+                       accounting_year=2018)
+    statements = [{
+        'date': datetime.datetime.now(),
+        'currency': 'EUR',
+        'purpose': 'Energieabrechnung',
+        'amount': Amount(2743.12, 'EUR'),
+        'applicant_name': 'Verein',
+        'posting_text': 'SAMMEL-LS-EINZUG',
+        'applicant_iban': 'DE123456778899',
+        'applicant_bin': 'NOLADE21HAL',
+        'customer_reference': ('DATUM 14.06.2018, 14.28 UHR ANZAHL 9\n'
+                               'PII7ebef1ebc3ec4a5185583851c8f7dbb2')
+    }]
+    assert 0 == Booking.query().count()
+    with pytest.raises(
+            ValueError,
+            match=(r"Keine Sammler-Einträge zu PmtInfId "
+                   r"'PII7ebef1ebc3ec4a5185583851c8f7dbb2' gefunden.")):
+        import_transactions(statements, account)
+    assert 0 == Booking.query().count()
+
+
+def test_import_sepa_creates_new_booking_entry_for_open_amount(database,
+                                                               member):
+    from ..account import import_transactions, SEPASammler, SEPASammlerEntry
+    from ..account import BankingAccount, Booking
+    account = BankingAccount.find_or_create(
+        organization_id=1, number='3440000167')
+    sammler = SEPASammler.create(
+        pmtinfid='PII7ebef1ebc3ec4a5185583851c8f7dbb2',
+        booking_day=datetime.datetime.now(),
+        accounting_year=2018)
+    SEPASammlerEntry.create(sepasammler=sammler, value=10000000)
+    statements = [{
+        'date': datetime.datetime.now(),
+        'currency': 'EUR',
+        'purpose': 'Energieabrechnung',
+        'amount': Amount(2743.12, 'EUR'),
+        'applicant_name': 'Verein',
+        'posting_text': 'SAMMEL-LS-EINZUG',
+        'applicant_iban': 'DE123456778899',
+        'applicant_bin': 'NOLADE21HAL',
+        'customer_reference': ('DATUM 14.06.2018, 14.28 UHR ANZAHL 9\n'
+                               'PII7ebef1ebc3ec4a5185583851c8f7dbb2')
+    }]
+    assert 0 == Booking.query().count()
+    import_transactions(statements, account)
+    assert 3 == Booking.query().count()
+
+    assert 27431200 == Booking.get(1).value
+    assert 10000000 == Booking.get(2).value
+    assert 17431200 == Booking.get(3).value
+
+    assert 1 == Booking.get(2).splitted_from_id
+    assert 1 == Booking.get(3).splitted_from_id
+
+    assert 'SAMMEL-LS-EINZUG Verrechnet' == Booking.get(2).booking_text

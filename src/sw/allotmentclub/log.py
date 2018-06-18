@@ -26,12 +26,13 @@ class UserRequestLogger(logging.LoggerAdapter):
         """
         import pyramid.threadlocal
         request = pyramid.threadlocal.get_current_request()
-        assert request is not None  # since it should never happen
 
-        if not kwargs.pop('log_request', True):
+        if request is None or not kwargs.pop('log_request', True):
             return msg, kwargs
 
-        ip_address = request.environ.get('HTTP_X_REAL_IP', request.client_addr)
+        ip_address = request.environ.get('HTTP_X_REAL_IP')
+        if ip_address is None and hasattr(request, 'client_addr'):
+            ip_address = request.client_addr
         user_agent_header = request.environ.get('HTTP_USER_AGENT')
         browser = 'no useragent sent'
         if user_agent_header is not None:

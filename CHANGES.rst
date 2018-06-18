@@ -5,7 +5,7 @@ Change log for sw.allotmentclub
 4.2.2 (unreleased)
 ==================
 
-- Nothing changed yet.
+- Made sure SEPA-SAMMLERS are not imported if no `SEPASammlerEntry` is specified.
 
 
 4.2.1 (2018-06-11)

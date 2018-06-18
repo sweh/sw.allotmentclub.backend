@@ -175,6 +175,32 @@ def import_transactions(statements, account, user=None):
     transaction.commit()
 
 
+def get_sepa_sammlers(data, account):
+    if data['posting_text'] != 'SAMMEL-LS-EINZUG':
+        return
+    pmtinfid = data['customer_reference'].splitlines()[1]
+    try:
+        sepasammler = (
+            SEPASammler.query()
+            .filter(SEPASammler.pmtinfid == pmtinfid)
+            .filter(SEPASammler.organization_id == account.organization_id)
+            .one())
+    except Exception:
+        raise ValueError("Keine Sammler zu PmtInfId '{}' gefunden.".format(
+            pmtinfid))
+    sammlers = (
+        SEPASammlerEntry.query()
+        .filter(SEPASammlerEntry.sepasammler == sepasammler)
+        .filter(
+            SEPASammlerEntry.organization_id == account.organization_id)
+        .all())
+    if not sammlers:
+        raise ValueError(
+            "Keine Sammler-Einträge zu PmtInfId '{}' gefunden.".format(
+                pmtinfid))
+    return sammlers
+
+
 def add_transaction(data, account):
     from sw.allotmentclub import Member
     accounting_year = data['date'].year
@@ -187,6 +213,7 @@ def add_transaction(data, account):
             "Couldn't import booking {} because its not in Eur.".format(
                 data['purpose']))
     value = int(data['amount'].amount * 10000)
+    sammlers = get_sepa_sammlers(data, account)
     booking = Booking.find_or_create(
         organization_id=account.organization_id,
         banking_account=account,
@@ -195,10 +222,10 @@ def add_transaction(data, account):
         recipient=(
             data['applicant_name']
             if data['applicant_name'] is not None else org_title),
-        value=value,
-        accounting_year=accounting_year)
+        value=value)
     if booking.id:
         return
+    booking.accounting_year = accounting_year
     booking.booking_text = data['posting_text']
     booking.iban = data['applicant_iban']
     booking.bic = data['applicant_bin']
@@ -226,27 +253,7 @@ def add_transaction(data, account):
             booking.kind = debit_booking.kind
     if booking.booking_text == 'SAMMEL-LS-EINZUG':
         booking.recipient = org_title
-        pmtinfid = data['customer_reference'].splitlines()[1]
         sum_ = 0
-        try:
-            sepasammler = (
-                SEPASammler.query()
-                .filter(SEPASammler.pmtinfid == pmtinfid)
-                .filter(SEPASammler.organization_id == booking.organization_id)
-                .one())
-        except Exception:
-            raise ValueError("Keine Sammler zu PmtInfId '{}' gefunden.".format(
-                pmtinfid))
-        sammlers = (
-            SEPASammlerEntry.query()
-            .filter(SEPASammlerEntry.sepasammler == sepasammler)
-            .filter(
-                SEPASammlerEntry.organization_id == booking.organization_id)
-            .all())
-        if not sammlers:
-            raise ValueError(
-                "Keine Sammler-Einträge zu PmtInfId '{}' gefunden.".format(
-                    pmtinfid))
         for sammler in sammlers:
             sum_ += sammler.value
         if (booking.value - 100) > sum_:
