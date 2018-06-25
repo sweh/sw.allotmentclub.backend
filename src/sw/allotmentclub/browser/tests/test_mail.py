@@ -9,46 +9,35 @@ import transaction
 ENERGIEABRECHNUNG_BODY = """
 Sehr geehrte{{deflection}} {{appellation}} {{title}} {{lastname}},
 
-hiermit erhalten Sie Ihre Energieabrechnung für die Periode
-{{last_year}}/{{year}}.
+hiermit erhalten Sie Ihre Energieabrechnung für die Periode {{last_year}}/{{year}}.
 
-Entsprechend der festgelegten Abrechnungsmethode ergibt sich für diesen
-Zeitraum ein Preis von {{price_kwh}} / kWh. Die Zählergrundgebühren belaufen
-sich bei einem Kraftstromzähler auf {{power_fee}} / Zähler und bei einem
-Lichtstromzähler auf {{normal_fee}} / Zähler.
+Entsprechend der in der Mitgliederversammlung 2017 festgelegten Abrechnungsmethode
+ergibt sich für diesen Zeitraum ein Preis von {{price_kwh}} / kWh. Die
+Zählergrundgebühren belaufen sich bei einem Kraftstromzähler auf {{power_fee}} / Zähler
+und bei einem Lichtstromzähler auf {{normal_fee}} / Zähler.
 
-Aufgrund Ihres Verbrauches in Höhe von {{usage}} (Zählerstand {{value}}) ergibt
-sich für Sie ein Betrag in Höhe von {{whole_price}}.
-
-{{#if no_abschlag}}
-Da Sie im laufenden Jahr keine Energieabschläge zahlen mussten, ist der gesamte
-Betrag von **{{to_pay}}** zum 15.10.2015 fällig. Sollten Sie am
-Lastschriftverfahren teilnehmen, werden wir den Betrag zum genannten Zeitpunkt
-von Ihrem Konto abbuchen. Selbsteinzahler bitten wir, den Betrag bis zum
-genannten Zeitpunkt auf unten stehende Bankverbindung zu überweisen.
-{{/if}}
+Aufgrund Ihres Verbrauches in Höhe von {{usage}} (Zählerstand {{last_year}}:
+{{value_last_year}}, Zählerstand {{year}}: {{value}}) ergibt sich für Sie ein
+Betrag in Höhe von {{whole_price}}.
 
 {{#if must_pay}}
 Abzüglich Ihrer bisher geleisteten Energieabschläge in Höhe von {{advance_pay}}
-ist noch ein Restbetrag von **{{to_pay}}** zu zahlen, welcher zum
-15.10.{{year}} fällig ist. Sollten Sie am Lastschriftverfahren teilnehmen,
-werden wir den Betrag zum genannten Zeitpunkt von Ihrem Konto abbuchen.
-Selbsteinzahler bitten wir, den Betrag bis zum genannten Zeitpunkt auf unten
-stehende Bankverbindung zu überweisen.
+ist noch ein Restbetrag von **{{to_pay}}** zu zahlen, welcher zum 03.11.{{year}}
+fällig ist. Sollten Sie am Lastschriftverfahren teilnehmen, werden wir den
+Betrag zum genannten Zeitpunkt von Ihrem Konto abbuchen.
 {{/if}}
 
 {{#if gets_back}}
 Abzüglich Ihrer bisher geleisteten Energieabschläge in Höhe von {{advance_pay}}
 bleibt für Sie ein Guthaben in Höhe von **{{to_pay}}**. Dieses wird zum
-15.10.{{year}} auf Ihr Konto mit der Nummer {{iban}} ({{bic}}) überwiesen.
+03.11.{{year}} auf Ihr Konto mit der Nummer {{iban}} ({{bic}}) überwiesen.
 {{/if}}
 
 {{#if above_threshold}}
 Entsprechend Ihres Verbrauches über {{usage}} ergeben sich für den
 Abrechnungszeitraum {{year}}/{{next_year}} zwei Abschläge in Höhe von
-**{{advance_pay_next_year}}**. Diese Beträge werden zum
-**31. März {{next_year}}** und **30. Juni {{next_year}}** von Ihrem Bankkonto
-eingezogen.
+**{{advance_pay_next_year}}**. Diese Beträge werden zum **31. März {{next_year}}**
+und **30. Juni {{next_year}}** von Ihrem Bankkonto eingezogen.
 {{/if}}
 
 {{#if under_threshold}}
@@ -58,7 +47,6 @@ keine Zwischenzahlungen für die Abrechnungsperiode {{year}}/{{next_year}}
 erforderlich. Ihre Energieabrechnung erfolgt {{next_year}} vollständig mit der
 Endabrechnung im September.
 {{/if}}
-
 """
 
 MISSING_ASSIGMENT_BODY = """

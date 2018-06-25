@@ -7,6 +7,8 @@ Change log for sw.allotmentclub
 
 - Set value per member to 75,- € beginning 2019.
 
+- Add value_last_year to Energieabrechnung.
+
 
 4.2.2 (2018-06-18)
 ==================

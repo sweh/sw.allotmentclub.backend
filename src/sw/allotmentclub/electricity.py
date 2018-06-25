@@ -205,6 +205,7 @@ def get_energyvalue_mail_data(member, year):
             lastname=member.direct_debit_account_holder or member.lastname,
             value=format_kwh(value.value),
             usage=format_kwh(value.usage),
+            value_last_year=format_kwh(value.value-value.usage),
             meter=value.electric_meter.number,
             whole_price=format_eur(value.whole_price),
             to_pay=format_eur(value.to_pay),
