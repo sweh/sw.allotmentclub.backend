@@ -146,8 +146,8 @@ def value_to_int(value):
     return int(float(value.replace('.', '').replace(',', '.')) * 10000)
 
 
-def format_date(value, request):
-    return value.strftime('%d.%m.%Y %H:%M Uhr')
+def format_date(value, request=None):
+    return value.strftime('%d.%m.%Y')
 
 
 def format_eur(value, request=None, full=False):

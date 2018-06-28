@@ -5,7 +5,9 @@ Change log for sw.allotmentclub
 4.4.2 (unreleased)
 ==================
 
-- Nothing changed yet.
+- Add Datum column to account report.
+
+- Fix a table rendering bug when a cell is empty.
 
 
 4.4.1 (2018-06-28)

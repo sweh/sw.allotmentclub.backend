@@ -2,7 +2,8 @@
 from __future__ import unicode_literals
 from ..log import user_data_log, log_with_user
 from .base import date, get_selected_year, value_to_int, boolean, date_time
-from .base import format_eur_with_color, format_eur, to_string, string_agg
+from .base import format_eur_with_color, format_eur, format_date, to_string
+from .base import string_agg
 from .mail import append_pdf, render_pdf, format_markdown
 from PyPDF2 import PdfFileWriter, PdfFileReader
 from io import BytesIO
@@ -467,7 +468,7 @@ class BankingAccountListDetailView(sw.allotmentclub.browser.base.TableView):
         columns = [
             {'name': name, 'css_class': 'hide' if id == 0 else ''}
             for id, name in enumerate(
-                ['#', 'Betrag', 'Mitglied', 'Buchungstext', 'TYP'])]
+                ['#', 'Betrag', 'Mitglied', 'Buchungstext', 'Datum', 'TYP'])]
         result = []
         for type_, objs in enumerate([incoming, outstanding]):
             for obj in objs:
@@ -483,6 +484,9 @@ class BankingAccountListDetailView(sw.allotmentclub.browser.base.TableView):
                          if obj.member.allotments else ''))},
                     {'value': (obj.purpose if hasattr(obj, 'booking_text')
                                else 'Sammler-LS')},
+                    {'value': format_date(
+                        obj.booking_day if hasattr(obj, 'booking_day')
+                        else obj.sepasammler.booking_day)},
                     {'value': 'SOLL' if type_ == 1 else 'IST'},
                 ]
                 result.append(new_line)
@@ -501,10 +505,10 @@ class BankingAccountListReportView(sw.allotmentclub.browser.base.View):
 <h3>{{title}}</h3>
 <table style="border: 1px solid black;">
   <tr style="font-style: normal; font-size: 8pt;">
-    <th style="width: 15%; {{{header_style}}}">Betrag</th>
-    <th style="width: 25%; {{{header_style}}}">Mitglied</th>
-    <th style="width: 50%; {{{header_style}}}">Buchungstext</th>
-    <th style="width: 10%; {{{header_style}}}">Typ</th>
+    <th style="width: 10%; {{{header_style}}}">Betrag</th>
+    <th style="width: 23%; {{{header_style}}}">Mitglied</th>
+    <th style="width: 58%; {{{header_style}}}">Buchungstext</th>
+    <th style="width: 9%; {{{header_style}}}">Datum</th>
   </tr>
   {{#each content}}
     <tr>
@@ -513,12 +517,12 @@ class BankingAccountListReportView(sw.allotmentclub.browser.base.View):
                  padding: 2px 2px -1px 2px;
                  {{#unless @index}} text-align: right; {{/unless}}
                  font-style: normal;
-                 font-size: 8pt;">{{this}}</td>
+                 font-size: 8pt;">{{{this}}}</td>
       {{/each}}
     </tr>
   {{/each}}
   <tr style="font-style: normal; font-size: 8pt;">
-    <th style="width: 15%; {{{header_style}}}">SUMME</th>
+    <th style="width: 10%; {{{header_style}}}">SUMME</th>
     <th colspan="3" style="{{{header_style}}}">{{summe}}</th>
   </tr>
 </table>
@@ -535,9 +539,10 @@ class BankingAccountListReportView(sw.allotmentclub.browser.base.View):
             table_content = []
             for item in data['data']:
                 table_content.append(
-                    [re.sub(cleanr, '', d['value']) for d in item[1:]])
+                    [(re.sub(cleanr, '', d['value'])
+                      if d['value'] else '&nbsp;') for d in item[1:5]])
             table_content = sorted(
-                table_content, key=lambda x: x[1])  # sort by name
+                table_content, key=lambda x: (x[1], x[0], x[2]))  # sort by name
             sum_ = sum(float(
                 i[0].replace(' €', '').replace('.', '').replace(',', '.'))
                 for i in table_content)
