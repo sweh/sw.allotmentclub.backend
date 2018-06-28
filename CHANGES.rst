@@ -2,7 +2,7 @@
 Change log for sw.allotmentclub
 ===============================
 
-4.4.1 (unreleased)
+4.4.1 (2018-06-28)
 ==================
 
 - Fix brown bag release.
