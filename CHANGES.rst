@@ -2,7 +2,7 @@
 Change log for sw.allotmentclub
 ===============================
 
-4.2.3 (unreleased)
+4.4.0 (unreleased)
 ==================
 
 - Set value per member to 75,- € beginning 2019.
