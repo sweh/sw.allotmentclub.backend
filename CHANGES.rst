@@ -2,7 +2,7 @@
 Change log for sw.allotmentclub
 ===============================
 
-4.4.2 (unreleased)
+4.4.2 (2018-06-28)
 ==================
 
 - Add Datum column to account report.
