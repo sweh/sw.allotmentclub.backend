@@ -196,6 +196,7 @@ class Portal(sw.allotmentclub.application.Application):
         config.add_route('banking_account_list_detail',
                          '/accounts/{id}/detail',
                          factory='..account.BookingKind.context_factory')
+        config.add_route('banking_account_list_report', '/accounts/report.pdf')
         config.add_route('sepa_sammler_list', '/accounts/sepa_sammler')
         config.add_route('sepa_sammler_add', '/accounts/sepa_sammler/add')
         config.add_route('sepa_sammler_edit',

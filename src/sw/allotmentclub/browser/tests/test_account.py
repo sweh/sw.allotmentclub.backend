@@ -117,3 +117,23 @@ def test_SEPASammlerExportView_1(browser):
     assert '1075.39' == doc.find('.//CtrlSum', namespaces=doc.nsmap).text
     assert 'Müller, ' == doc.findall('.//Nm', namespaces=doc.nsmap)[-1].text
     assert 'Mueller-' == doc.find('.//MndtId', namespaces=doc.nsmap).text
+
+
+def test_BankingAccountListReportView_1(browser):
+    from sw.allotmentclub import Booking, BookingKind, Member
+    from ...conftest import assertFileEqual
+    import transaction
+    kind = BookingKind.find_or_create(
+        title='Energieabschlag I', shorttitle='ENA1')
+    BookingKind.find_or_create(
+        title='Energieabschlag II', shorttitle='ENA2')
+    member = Member.find_or_create(lastname='Wehrmann', firstname='Sebastian')
+    setUp()
+    for b in Booking.query():
+        b.kind = kind
+        b.member = member
+    transaction.commit()
+
+    browser.login()
+    browser.open('http://localhost/accounts/report.pdf?for_year=2015')
+    assertFileEqual(browser.contents, 'test_account_report_1.pdf')

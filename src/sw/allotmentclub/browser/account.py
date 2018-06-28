@@ -3,6 +3,10 @@ from __future__ import unicode_literals
 from ..log import user_data_log, log_with_user
 from .base import date, get_selected_year, value_to_int, boolean, date_time
 from .base import format_eur_with_color, format_eur, to_string, string_agg
+from .mail import append_pdf, render_pdf, format_markdown
+from PyPDF2 import PdfFileWriter, PdfFileReader
+from io import BytesIO
+from pyramid.response import FileIter
 from pyramid.view import view_config
 from sqlalchemy.sql import func
 from sw.allotmentclub import Booking, Member, Allotment, GrundsteuerB, Abwasser
@@ -11,6 +15,8 @@ from sw.allotmentclub import VALUE_PER_MEMBER
 import collections
 import datetime
 import dateutil.parser
+import pybars
+import re
 import sw.allotmentclub.browser.base
 
 BOOKING_FUTURE = datetime.datetime.now() + datetime.timedelta(days=61)
@@ -445,7 +451,9 @@ class BankingAccountListView(sw.allotmentclub.browser.base.TableView):
     year_selection = True
     available_actions = [
         dict(url='banking_account_list_detail', btn_class='btn-success',
-             icon='fa fa-list', title='Positionen')
+             icon='fa fa-list', title='Positionen'),
+        dict(url='banking_account_list_report', btn_class='btn-success',
+             icon='fa fa-print', title='Report')
     ]
 
 
@@ -483,6 +491,81 @@ class BankingAccountListDetailView(sw.allotmentclub.browser.base.TableView):
                 'actions': [],
                 'records': len(result)}
         return {'status': 'success', 'data': data}
+
+
+@view_config(route_name='banking_account_list_report', renderer='json',
+             permission='view')
+class BankingAccountListReportView(sw.allotmentclub.browser.base.View):
+
+    hbs_page = """
+<h3>{{title}}</h3>
+<table style="border: 1px solid black;">
+  <tr style="font-style: normal; font-size: 8pt;">
+    <th style="width: 15%; {{{header_style}}}">Betrag</th>
+    <th style="width: 25%; {{{header_style}}}">Mitglied</th>
+    <th style="width: 50%; {{{header_style}}}">Buchungstext</th>
+    <th style="width: 10%; {{{header_style}}}">Typ</th>
+  </tr>
+  {{#each content}}
+    <tr>
+      {{#each this}}
+      <td style="border: 1px solid black;
+                 padding: 2px 2px -1px 2px;
+                 {{#unless @index}} text-align: right; {{/unless}}
+                 font-style: normal;
+                 font-size: 8pt;">{{this}}</td>
+      {{/each}}
+    </tr>
+  {{/each}}
+  <tr style="font-style: normal; font-size: 8pt;">
+    <th style="width: 15%; {{{header_style}}}">SUMME</th>
+    <th colspan="3" style="{{{header_style}}}">{{summe}}</th>
+  </tr>
+</table>
+"""
+
+    def update(self):
+        output = PdfFileWriter()
+        compiler = pybars.Compiler()
+        compiled_page = compiler.compile(self.hbs_page)
+        cleanr = re.compile('<.*?>')
+
+        for kind in BookingKind.query():
+            data = BankingAccountListDetailView(kind, self.request)()['data']
+            table_content = []
+            for item in data['data']:
+                table_content.append(
+                    [re.sub(cleanr, '', d['value']) for d in item[1:]])
+            table_content = sorted(
+                table_content, key=lambda x: x[1])  # sort by name
+            sum_ = sum(float(
+                i[0].replace(' €', '').replace('.', '').replace(',', '.'))
+                for i in table_content)
+            sum_ = int(sum_ * 10000)
+
+            body = format_markdown(compiled_page(dict(
+                title='{} {}'.format(
+                    kind.title, get_selected_year()),
+                content=table_content,
+                summe=format_eur(sum_),
+                header_style=("border: 1px solid black; "
+                              "padding: 2px 2px -1px 2px;"))))
+            output = self.add_page(body, output)
+        result = BytesIO()
+        output.write(result)
+        result.seek(0)
+        response = self.request.response
+        response.set_cookie('fileDownload', value='true')
+        response.content_type = 'application/pdf'
+        response.content_disposition = 'attachment; filename=Report 2018.pdf'
+        response.app_iter = FileIter(result)
+        self.result = response
+
+    def add_page(self, body, output):
+        pdf = render_pdf(None, None, body, None, date=None, force_from=False)
+        pdf = PdfFileReader(pdf, strict=False)
+        append_pdf(pdf, output)
+        return output
 
 
 class SEPASammlerQuery(sw.allotmentclub.browser.base.Query):

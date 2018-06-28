@@ -26,6 +26,7 @@ TEMPLATE_HEADER = """
 <style>
     body { font-size: {{font_size}}; }
     #content { font-style: italic; }
+    .txt-color-red { font-color: red; }
     {{{styles}}}
 </style>
 </head>
@@ -173,14 +174,16 @@ def render_pdf(
         date = datetime.now()
     if isinstance(to, Member):
         to = to.address
-    from_ = '{} {} ({})'.format(user.vorname, user.nachname, user.position)
     if not to and not force_from:
         from_ = None
+    else:
+        from_ = '{} {} ({})'.format(user.vorname, user.nachname, user.position)
     data = dict(
         styles=PDF_STYLES,
         subject=subject, subsubject=subsubject, content=content, from_=from_,
-        city=user.ort, signature=user.signature,
-        date=date.strftime('%d.%m.%Y'),
+        city=user.ort if user else None,
+        signature=user.signature if user else None,
+        date=date.strftime('%d.%m.%Y') if date else None,
         address=to if to else None, logo=LOGO,
         attachments=attachments, font_size=font_size)
     html = "".join(pdf_template(data))

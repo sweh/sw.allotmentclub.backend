@@ -9,6 +9,8 @@ Change log for sw.allotmentclub
 
 - Add value_last_year to Energieabrechnung.
 
+- Add pdf export of virtual banking accounts.
+
 
 4.2.2 (2018-06-18)
 ==================
