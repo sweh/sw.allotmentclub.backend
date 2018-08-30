@@ -18,15 +18,15 @@ Abrechnungsmethode ergibt sich für diesen Zeitraum ein Preis von
 Kraftstromzähler auf {{power_fee}} / Zähler und bei einem Lichtstromzähler
 auf {{normal_fee}} / Zähler.
 
-Aufgrund Ihres Verbrauches in Höhe von {{usage}} (Zählerstand {{last_year}}:
-{{value_last_year}}, Zählerstand {{year}}: {{value}}) ergibt sich für Sie ein
+Aufgrund Ihres Verbrauches in Höhe von {{usage}} (Zählerstand neu:
+{{value}}, Zählerstand alt: {{value_last_year}}) ergibt sich für Sie ein
 Betrag in Höhe von {{whole_price}}.
 
 {{#if must_pay}}
 Abzüglich Ihrer bisher geleisteten Energieabschläge in Höhe von {{advance_pay}}
-ist noch ein Restbetrag von **{{to_pay}}** zu zahlen, welcher zum
-03.11.{{year}} fällig ist. Sollten Sie am Lastschriftverfahren teilnehmen,
-werden wir den Betrag zum genannten Zeitpunkt von Ihrem Konto abbuchen.
+steht noch ein Restbetrag von **{{to_pay}}** aus. Bitte überprüfen Sie die hier
+stehenden Angaben noch einmal. Sofern wir bis zum 15.10.{{year}} keinen
+Widerspruch von Ihnen erhalten, wird der Betrag zum 03.11.{{year}} fällig.
 {{/if}}
 
 {{#if gets_back}}
@@ -48,7 +48,7 @@ Da Ihr Verbrauch von {{usage}} in diesem Anrechnungszeitraum einen Abschlag
 ergibt, der unter der Bemessungsgrenze von {{threshold}} liegt, sind für Sie
 keine Zwischenzahlungen für die Abrechnungsperiode {{year}}/{{next_year}}
 erforderlich. Ihre Energieabrechnung erfolgt {{next_year}} vollständig mit der
-Endabrechnung im September.
+Endabrechnung in {{next_year}}.
 {{/if}}
 """
 

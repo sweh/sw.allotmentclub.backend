@@ -542,7 +542,8 @@ class BankingAccountListReportView(sw.allotmentclub.browser.base.View):
                     [(re.sub(cleanr, '', d['value'])
                       if d['value'] else '&nbsp;') for d in item[1:5]])
             table_content = sorted(
-                table_content, key=lambda x: (x[1], x[0], x[2]))  # sort by name
+                table_content,
+                key=lambda x: (x[1], x[0], x[2]))  # sort by name
             sum_ = sum(float(
                 i[0].replace(' €', '').replace('.', '').replace(',', '.'))
                 for i in table_content)

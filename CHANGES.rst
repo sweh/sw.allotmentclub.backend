@@ -7,6 +7,8 @@ Change log for sw.allotmentclub
 
 - Update some dependencies to current release versions.
 
+- Update energy mail contents to newest version.
+
 
 4.4.2 (2018-06-28)
 ==================
