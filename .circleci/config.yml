@@ -37,8 +37,6 @@ jobs:
       - restore_cache:
           keys:
           - v1-dependencies-{{ checksum "setup.py" }}
-          # fallback to using the latest cache if no exact match is found
-          - v1-dependencies-
 
       - run:
           name: install test-reporter
