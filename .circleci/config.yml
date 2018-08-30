@@ -70,14 +70,3 @@ jobs:
       - store_artifacts:
           path: coverage.xml
           destination: coverage.xml
-
-workflows:
-    version: 2
-    nightly:
-        triggers:
-        - schedule:
-            cron: "0 9 * * *"
-            filters:
-                branches:
-                only:
-                    - master
