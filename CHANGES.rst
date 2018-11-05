@@ -9,6 +9,8 @@ Change log for sw.allotmentclub
 
 - Update energy mail contents to newest version.
 
+- Fix energie value calculation if old calculations have no value.
+
 
 4.4.2 (2018-06-28)
 ==================

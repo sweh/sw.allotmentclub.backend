@@ -38,7 +38,8 @@ class ElectricMeter(Object):
     def get_last_value(self, obj, start=2013):
         last_value = self.get_value(start)
         for value in self.energy_values:
-            if value is not obj and value.value > last_value.value:
+            if (value is not obj and
+                    (value.value or 0) > (last_value.value or 0)):
                 last_value = value
         return last_value
 
