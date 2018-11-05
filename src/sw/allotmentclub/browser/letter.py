@@ -11,6 +11,7 @@ import pyramid_mailer
 import pyramid_mailer.message
 import re
 import xhtml2pdf.pisa
+import unicodedata
 
 from reportlab import rl_config
 rl_config.invariant = True
@@ -223,8 +224,18 @@ Im Auftrag des Vorstandes
         body=text,
         html=html)
     for attachment in attachments:
+        filename = attachment.filename
+        try:
+            # Prevent tuple exception in repoze.sendmail if filename contains
+            # non-ascii characters
+            filename = (unicodedata
+                        .normalize('NFKD', filename)
+                        .encode('ASCII', 'ignore')
+                        .decode())
+        except Exception:
+            pass
         msg.attach(pyramid_mailer.message.Attachment(
-            attachment.filename, attachment.mimetype, attachment.data))
+            filename, attachment.mimetype, attachment.data))
     mailer = pyramid_mailer.get_mailer(
         pyramid.threadlocal.get_current_request())
     mailer.send(msg)

@@ -11,6 +11,8 @@ Change log for sw.allotmentclub
 
 - Fix energie value calculation if old calculations have no value.
 
+- Fix sending mails with attachments that have unicode characters in filename.
+
 
 4.4.2 (2018-06-28)
 ==================
