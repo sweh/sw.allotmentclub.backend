@@ -5,7 +5,8 @@ Change log for sw.allotmentclub
 4.4.4 (unreleased)
 ==================
 
-- Nothing changed yet.
+- Use `pool_pre_ping=True` to fix `terminating connection due to administrator command` ecxeption
+  in sqlalchemy.
 
 
 4.4.3 (2018-11-05)

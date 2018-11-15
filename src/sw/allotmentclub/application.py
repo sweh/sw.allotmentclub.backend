@@ -37,6 +37,7 @@ class Application(object):
         if not self.testing:
             db = risclog.sqlalchemy.db.get_database()
             db.register_engine(self.settings['sqlalchemy.url'],
+                               engine_args=dict(pool_pre_ping=True),
                                name=ENGINE_NAME,
                                alembic_location='sw.allotmentclub:alembic')
 
