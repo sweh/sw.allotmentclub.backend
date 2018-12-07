@@ -243,6 +243,7 @@ class Portal(sw.allotmentclub.application.Application):
         config.add_route('calculate_energy_values',
                          '/electricity/calculate_energy_values')
 
+        config.add_route('dashboard', '/dashboard')
         config.add_route('access_authority', '/access_authority')
         config.add_route('access_authority_detail',
                          '/access_authority/{id}/list',

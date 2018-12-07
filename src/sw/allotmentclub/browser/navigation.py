@@ -42,6 +42,7 @@ NAVIGATION_ITEMS = (
         ('SEPA-Lastschriften', 'sepa_direct_debit'),
         ('SEPA-Sammler', 'sepa_sammler_list'),
     )),
+    ('Dashboard', 'dashboard', 'fa-bar-chart-o', None),
     ('Berechtigungen', 'access_authority', 'fa-unlock', None),
 )
 
