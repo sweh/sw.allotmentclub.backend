@@ -5,7 +5,7 @@ Change log for sw.allotmentclub
 4.4.5 (unreleased)
 ==================
 
-- Nothing changed yet.
+- Add dashboard.
 
 
 4.4.4 (2018-12-07)
