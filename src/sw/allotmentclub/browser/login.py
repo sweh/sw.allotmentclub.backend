@@ -57,10 +57,24 @@ def get_next_url(request, default_url):
     return next_url
 
 
+class NetatmoMixin():
+
+    def get_temp_data(self, dest='rotersee'):
+        data = (DashboardData.query()
+                .filter(getattr(DashboardData, '{}_out_temp'.format(dest)).isnot(None))
+                .order_by(DashboardData.date.desc()).first())
+        if data is None:
+            return dict()
+        return dict(temperature=getattr(data, '{}_out_temp'.format(dest)),
+                    trend=getattr(data, '{}_out_temp_trend'.format(dest)),
+                    date=data.date.strftime('%d.%m.%Y %H:%M Uhr'),
+                    sum_rain_24=getattr(data, '{}_rain_24'.format(dest)))
+
+
 @view_config(route_name='login',
              permission=NO_PERMISSION_REQUIRED,
              renderer='json')
-class LoginView(sw.allotmentclub.browser.base.View):
+class LoginView(sw.allotmentclub.browser.base.View, NetatmoMixin):
 
     def get_user_data(self, user):
         gravatar_url = 'https://www.gravatar.com/avatar/%s' % (
@@ -68,17 +82,6 @@ class LoginView(sw.allotmentclub.browser.base.View):
         return dict(username=user.username,
                     name='%s %s' % (user.vorname, user.nachname),
                     gravatar=gravatar_url)
-
-    def get_temp_data(self):
-        data = (DashboardData.query()
-                .filter(DashboardData.rotersee_out_temp.isnot(None))
-                .order_by(DashboardData.date.desc()).first())
-        if data is None:
-            return dict()
-        return dict(temperature=data.rotersee_out_temp,
-                    trend=data.rotersee_out_temp_trend,
-                    date=data.date.strftime('%d.%m.%Y %H:%M Uhr'),
-                    sum_rain_24=data.wachtelberg_rain_24)
 
     def __call__(self):
         result = self.login()
