@@ -2,6 +2,12 @@
 Change log for sw.allotmentclub
 ===============================
 
+4.5.1 (unreleased)
+==================
+
+- Nothing changed yet.
+
+
 4.5.0 (2018-12-07)
 ==================
 
