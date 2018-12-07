@@ -8,6 +8,8 @@ Change log for sw.allotmentclub
 - Use `pool_pre_ping=True` to fix `terminating connection due to administrator command` ecxeption
   in sqlalchemy.
 
+- Save historical netatmo weather data in database.
+
 
 4.4.3 (2018-11-05)
 ==================

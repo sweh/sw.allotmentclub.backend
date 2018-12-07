@@ -11,6 +11,7 @@ import json
 import pyramid.threadlocal
 import risclog.sqlalchemy.interfaces
 import risclog.sqlalchemy.model
+import sqlalchemy
 import sqlalchemy.orm
 import sys
 import zope.component
@@ -259,3 +260,46 @@ class AccessAuthority(Object):
     viewname = Column(String)
     user_id = Column(Integer, ForeignKey('user.id'), nullable=True)
     user = sqlalchemy.orm.relation('User', uselist=False)
+
+
+class DashboardData(Object):
+    """Daten für das Dashboard."""
+
+    id = None
+    date = Column(DateTime, nullable=False,
+                  server_default=sqlalchemy.func.now(), primary_key=True)
+    luefterstufe = Column(Integer, nullable=False)
+    luefter_percent = Column(Integer, nullable=False)
+    luefter_abluft_feuchte = Column(Integer, nullable=False)
+    luefter_aussenluft = Column(Numeric(3, 1), nullable=False)
+    luefter_zuluft = Column(Numeric(3, 1), nullable=False)
+    luefter_fortluft = Column(Numeric(3, 1), nullable=False)
+    luefter_abluft = Column(Numeric(3, 1), nullable=False)
+
+    rotersee_temp_out_battery = Column(Integer, nullable=True)
+    rotersee_rain_battery = Column(Integer, nullable=True)
+    rotersee_out_temp = Column(Numeric(3, 1),  nullable=True)
+    rotersee_in_temp = Column(Numeric(3, 1),  nullable=True)
+    rotersee_out_humi = Column(Integer, nullable=True)
+    rotersee_in_humi = Column(Integer, nullable=True)
+    rotersee_in_co2 = Column(Integer, nullable=True)
+    rotersee_rain = Column(Integer, nullable=True)
+    rotersee_rain_1 = Column(Integer, nullable=True)
+    rotersee_rain_24 = Column(Integer, nullable=True)
+    rotersee_out_temp_trend = Column(String,  nullable=True)
+
+    wachtelberg_temp_out_battery = Column(Integer, nullable=True)
+    wachtelberg_temp_in_battery = Column(Integer, nullable=True)
+    wachtelberg_rain_battery = Column(Integer, nullable=True)
+    wachtelberg_wind_battery = Column(Integer, nullable=True)
+    wachtelberg_out_temp = Column(Numeric(3, 1),  nullable=True)
+    wachtelberg_in_temp = Column(Numeric(3, 1),  nullable=True)
+    wachtelberg_out_humi = Column(Integer, nullable=True)
+    wachtelberg_in_humi = Column(Integer, nullable=True)
+    wachtelberg_in_co2 = Column(Integer, nullable=True)
+    wachtelberg_rain = Column(Integer, nullable=True)
+    wachtelberg_rain_1 = Column(Integer, nullable=True)
+    wachtelberg_rain_24 = Column(Integer, nullable=True)
+    wachtelberg_wind_strength = Column(Integer, nullable=True)
+    wachtelberg_wind_angle = Column(Integer, nullable=True)
+    wachtelberg_out_temp_trend = Column(String,  nullable=True)
