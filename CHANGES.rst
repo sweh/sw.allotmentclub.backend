@@ -2,7 +2,7 @@
 Change log for sw.allotmentclub
 ===============================
 
-4.4.4 (unreleased)
+4.4.4 (2018-12-07)
 ==================
 
 - Use `pool_pre_ping=True` to fix `terminating connection due to administrator command` ecxeption
