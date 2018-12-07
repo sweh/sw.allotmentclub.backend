@@ -2,7 +2,7 @@
 Change log for sw.allotmentclub
 ===============================
 
-4.5.1 (unreleased)
+4.5.1 (2018-12-07)
 ==================
 
 - Add tendency to dashboard data.
