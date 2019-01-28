@@ -61,7 +61,8 @@ class NetatmoMixin():
 
     def get_temp_data(self, dest='rotersee'):
         data = (DashboardData.query()
-                .filter(getattr(DashboardData, '{}_out_temp'.format(dest)).isnot(None))
+                .filter(getattr(DashboardData, '{}_out_temp'.format(
+                    dest)).isnot(None))
                 .order_by(DashboardData.date.desc()).first())
         if data is None:
             return dict()

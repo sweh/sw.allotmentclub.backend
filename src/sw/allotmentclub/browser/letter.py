@@ -196,21 +196,19 @@ def render_pdf(
 
 def send_mail(to, subject, content, user, date=None, attachments=[],
               font_size='12pt', self_cc=False):
+    anschreiben = render_pdf(to, subject, content, user, date)
     if date is None:
         date = datetime.now()
     from_ = '{} {} ({})'.format(user.vorname, user.nachname, user.position)
-    data = dict(
-        styles=MAIL_STYLES, content=content, from_=from_, city=user.ort,
-        signature=user.signature, date=date.strftime('%d.%m.%Y'), address=True,
-        font_size=font_size, logo=LOGO)
-    html = "".join(mail_template(data))
     text = """
 {}
 
 Mit freundlichen Grüßen,
 Im Auftrag des Vorstandes
 
-{}""".format(content, from_)
+{}
+
+""".format(content, from_)
 
     text = re.sub('<[^<]+?>', '', text)
     msg_tag = email.utils.make_msgid()
@@ -220,9 +218,9 @@ Im Auftrag des Vorstandes
         cc=['vorstand@roter-see.de'] if self_cc else None,
         sender=('Vorstand Leuna-Bungalowgemeinschaft Roter See '
                 '<vorstand@roter-see.de>'),
-        extra_headers={'X-PM-Tag': msg_tag},
-        body=text,
-        html=html)
+        body=text)
+    msg.attach(pyramid_mailer.message.Attachment(
+            'Anschreiben.pdf', 'application/pdf', anschreiben))
     for attachment in attachments:
         filename = attachment.filename
         try:

@@ -275,7 +275,6 @@ def test__mail__MailAssignmentPreview_1(browser):
     from sw.allotmentclub import Message, User, Member, Assignment
     from sw.allotmentclub import AssignmentAttendee
     from sw.allotmentclub.conftest import import_members
-    from sw.allotmentclub.browser.base import get_selected_year
     import_members()
     assignment = Assignment.find_or_create(day=datetime.now())
     AssignmentAttendee.find_or_create(
@@ -289,7 +288,7 @@ def test__mail__MailAssignmentPreview_1(browser):
 
     verein = Member.find_or_create(lastname="Verein")
     Message.create(id=245, members=[verein], user=User.create(),
-                   accounting_year=get_selected_year(),
+                   accounting_year=2018,
                    subject="Fehlende Arbeitsstunden",
                    body=MISSING_ASSIGMENT_BODY)
     transaction.commit()

@@ -3,7 +3,7 @@ from __future__ import unicode_literals
 from sw.allotmentclub import User
 
 
-def test_send_mail_sends_html_mail(mailer, database):
+def test_send_mail_sends_text_mail(mailer, database):
     from ..letter import send_mail
     user = User.create(username='hans', vorname='Hans', nachname='Wurst')
     send_mail('sw@gocept.com', 'Betreff', 'Dies ist der Inhalt', user)
@@ -14,7 +14,6 @@ def test_send_mail_sends_html_mail(mailer, database):
     assert ['sw@gocept.com'] == message.recipients
     assert message.body == (
         '\nDies ist der Inhalt\n\nMit freundlichen Grüßen,\n'
-        'Im Auftrag des Vorstandes\n\nHans Wurst (None)')
-    assert message.html.startswith(
-        '\n<html lang="de">\n<head>\n<meta charset="utf-8"/>\n'
-        '<style>\n    body { font-size: 12pt; }')
+        'Im Auftrag des Vorstandes\n\nHans Wurst (None)\n\n')
+    assert message.html is None
+    assert 'Anschreiben.pdf' == message.attachments[0].filename

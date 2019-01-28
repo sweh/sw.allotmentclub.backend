@@ -40,11 +40,14 @@ class DashboardListView(sw.allotmentclub.browser.base.View,
                         current_value_str=fmt.format(getattr(d, k))))
                     result['plots'].append([])
             if i == 1:
-                for j, (k, title, color, fmt) in enumerate(self.temperature_data):
+                for j, (k, title, color, fmt) in enumerate(
+                        self.temperature_data):
                     tendency = 'right'
-                    if result['temperatures'][j]['current_value'] < getattr(d, k):
+                    if (result['temperatures'][j]['current_value'] <
+                            getattr(d, k)):
                         tendency = 'down'
-                    elif result['temperatures'][j]['current_value'] > getattr(d, k):
+                    elif (result['temperatures'][j]['current_value'] >
+                            getattr(d, k)):
                         tendency = 'up'
                     result['temperatures'][j]['tendency'] = tendency
 
