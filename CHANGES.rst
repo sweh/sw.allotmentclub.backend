@@ -2,7 +2,7 @@
 Change log for sw.allotmentclub
 ===============================
 
-4.5.2 (unreleased)
+4.6.0 (2019-01-28)
 ==================
 
 - No longer send HTML mails, instead attach the content as pdf.
