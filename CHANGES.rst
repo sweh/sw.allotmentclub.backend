@@ -7,6 +7,8 @@ Change log for sw.allotmentclub
 
 - No longer send HTML mails, instead attach the content as pdf.
 
+- Remove exception when logout view is called without being logged in.
+
 
 4.5.1 (2018-12-07)
 ==================

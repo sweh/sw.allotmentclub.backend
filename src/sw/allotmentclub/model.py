@@ -90,7 +90,7 @@ class ObjectBase(risclog.sqlalchemy.model.ObjectBase):
     def create(cls, *args, **kw):
         if 'organization_id' not in kw:
             request = pyramid.threadlocal.get_current_request()
-            if request and hasattr(request, 'user'):
+            if request and hasattr(request, 'user') and request.user:
                 kw['organization_id'] = request.user.organization_id
             elif hasattr(sys, '_called_from_test'):
                 kw['organization_id'] = 1

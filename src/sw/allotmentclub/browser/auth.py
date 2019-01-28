@@ -59,5 +59,3 @@ def get_user(request):
     user_id = pyramid.security.authenticated_userid(request)
     if user_id:
         return User.get(user_id)
-    else:
-        return User()
