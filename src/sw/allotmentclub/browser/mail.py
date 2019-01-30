@@ -487,8 +487,11 @@ class MailEditView(sw.allotmentclub.browser.base.EditJSFormView):
         }
 
     def resource_data_item_title(self, item):
-        return '{} {}'.format(
+        meta = ('({}, {} Uhr)'.format(item.user.username, date_time(item.date))
+                if item.user else '')
+        return '{} {} {}'.format(
             item.filename,
+            meta,
             '(Weiße Seite davor)' if item.white_page_before else '')
 
     @property

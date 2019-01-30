@@ -1,11 +1,12 @@
 # encoding=utf-8
 from __future__ import unicode_literals
-from .depot import MAX_FILE_SIZE
+from .depot import MAX_FILE_SIZE, get_current_user
 from .model import PersonMixin, Member, members_messages_table
 from sqlalchemy import Boolean, Column, String, Integer, ForeignKey, Text
 from sqlalchemy import DateTime, LargeBinary, Table
 from sqlalchemy.orm import relationship
 from sw.allotmentclub import Object
+import datetime
 import sqlalchemy.orm
 
 
@@ -69,6 +70,11 @@ class Attachment(Object):
     size = Column(String(20), default=u'')
     data = Column(LargeBinary(MAX_FILE_SIZE))
     white_page_before = Column(Boolean, default=False, nullable=False)
+    date = Column(DateTime, nullable=True, default=datetime.datetime.now)
+    user_id = Column(Integer, ForeignKey('user.id'), nullable=True,
+                     default=get_current_user)
+    user = sqlalchemy.orm.relation(
+        'User', uselist=False, backref='attachments')
 
 
 class SentMessageInfo(Object):

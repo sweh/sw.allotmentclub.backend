@@ -10,7 +10,9 @@ MAX_FILE_SIZE = 1024*1024*10  # 10 MB
 
 def get_current_user(*args, **kw):
     import pyramid
-    return pyramid.threadlocal.get_current_request().user.id
+    user = pyramid.threadlocal.get_current_request().user
+    if user:
+        return user.id
 
 
 class Depot(Object):
