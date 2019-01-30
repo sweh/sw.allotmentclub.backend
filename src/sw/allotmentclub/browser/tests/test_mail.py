@@ -243,7 +243,8 @@ def test__mail__MailPreviewView_4(browser, setUp):
     import pkg_resources
     data = pkg_resources.resource_stream(
         'sw.allotmentclub.browser.tests', 'test_protocol_print.pdf').read()
-    Attachment.create(message_id=243, data=data, mimetype='application/pdf', user=User.get(1))
+    Attachment.create(message_id=243, data=data, mimetype='application/pdf',
+                      user=User.get(1))
     transaction.commit()
     browser.login()
     with mock.patch('sw.allotmentclub.browser.letter.datetime') as dt:
