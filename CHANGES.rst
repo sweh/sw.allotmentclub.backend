@@ -2,7 +2,7 @@
 Change log for sw.allotmentclub
 ===============================
 
-4.6.1 (unreleased)
+4.7.0 (2019-06-07)
 ==================
 
 - Display user and edit date on email attachments.
