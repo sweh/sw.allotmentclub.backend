@@ -63,7 +63,7 @@ setup(
         'requests==2.14.2',
         'risclog.sqlalchemy==3.0',
         'six==1.10.0',
-        'sqlalchemy==1.2.11',
+        'sqlalchemy==1.3.0',
         'svglib == 0.8.1',
         'transaction==2.2.1',
         'translationstring==1.3',

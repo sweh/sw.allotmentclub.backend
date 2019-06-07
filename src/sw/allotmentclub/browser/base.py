@@ -609,7 +609,7 @@ class TableView(QueryClient):
         column = self.default_order_by
         direction = self.default_sort_direction
         if column:
-            order_by = "{} {}".format(column, direction)
+            order_by = f"{column} {direction}"
         else:
             # No order required
             order_by = None
@@ -623,7 +623,7 @@ class TableView(QueryClient):
         query = self.query()
         order_by = self.order_by
         if order_by:
-            query = query.order_by(order_by)
+            query = query.order_by(sqlalchemy.text(order_by))
         limit = self.limit
         if limit:
             query = query.limit(limit)
