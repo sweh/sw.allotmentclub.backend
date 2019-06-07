@@ -211,6 +211,7 @@ Im Auftrag des Vorstandes
 """.format(content, from_)
 
     text = re.sub('<[^<]+?>', '', text)
+    text = text.replace('  ', ' ')
     msg_tag = email.utils.make_msgid()
     msg = pyramid_mailer.message.Message(
         subject=subject,

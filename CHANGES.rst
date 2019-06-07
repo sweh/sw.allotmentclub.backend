@@ -7,6 +7,8 @@ Change log for sw.allotmentclub
 
 - Display user and edit date on email attachments.
 
+- Remove double whitespace in mails.
+
 
 4.6.0 (2019-01-28)
 ==================
