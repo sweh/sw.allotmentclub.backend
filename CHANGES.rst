@@ -9,6 +9,8 @@ Change log for sw.allotmentclub
 
 - Remove double whitespace in mails.
 
+- Allow pdf files as attachments to protocols.
+
 
 4.6.0 (2019-01-28)
 ==================

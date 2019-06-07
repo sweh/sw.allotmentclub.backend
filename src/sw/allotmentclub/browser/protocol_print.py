@@ -3,8 +3,10 @@ from __future__ import unicode_literals
 from .protocol import format_markdown
 from io import BytesIO
 from pyramid.view import view_config
-import base64
+from PyPDF2 import PdfFileWriter, PdfFileReader
+from .mail import append_pdf
 import datetime
+import img2pdf
 import pybars
 import sw.allotmentclub.browser.base
 import xhtml2pdf.pisa
@@ -81,12 +83,6 @@ TEMPLATE = """
     {{#if attachments}}
     <pdf:nextpage />
     <h3>Anlagen</h3>
-    {{#each attachments}}
-    <hr />
-    <h4>{{name}}</h4>
-    <img src="data:{{mimetype}};base64,{{img}}" />
-    <pdf:nextpage />
-    {{/each}}
     {{/if}}
   </body>
 </html>"""
@@ -124,14 +120,7 @@ class ProtocolPrintView(sw.allotmentclub.browser.base.PrintBaseView):
         for commitment in self.context.commitments:
             data['commitments'].append(self.get_json(commitment))
         # Attachments
-        data['attachments'] = []
-        for attachment in self.context.attachments:
-            attachment = dict(data=attachment.data,
-                              mimetype=attachment.mimetype,
-                              name=attachment.name)
-            attachment['img'] = base64.b64encode(
-                attachment['data']).decode('utf-8')
-            data['attachments'].append(attachment)
+        data['attachments'] = bool(self.context.attachments)
         if self.context.day >= datetime.datetime.now():
             data['type'] = 'AGENDA'
         else:
@@ -142,4 +131,18 @@ class ProtocolPrintView(sw.allotmentclub.browser.base.PrintBaseView):
         pdf = BytesIO()
         xhtml2pdf.pisa.CreatePDF(html, dest=pdf)
         pdf.seek(0)
-        return pdf
+
+        output = PdfFileWriter()
+        append_pdf(PdfFileReader(pdf, strict=False), output)
+
+        for attachment in self.context.attachments:
+            if attachment.mimetype in ('application/pdf',):
+                pdf = attachment.data
+            else:
+                pdf = img2pdf.convert(attachment.data)
+            append_pdf(PdfFileReader(BytesIO(pdf), strict=False), output)
+
+        result = BytesIO()
+        output.write(result)
+        result.seek(0)
+        return result

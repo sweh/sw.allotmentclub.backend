@@ -27,6 +27,7 @@ setup(
         'gocept.logging==0.8.1',
         'gocept.loginuser==1.3',
         'html5lib==1.0b10',
+        'img2pdf==0.3.3',
         'kontocheck==5.10.0',
         'passlib==1.7.1',
         'lnetatmo==1.4.3',
