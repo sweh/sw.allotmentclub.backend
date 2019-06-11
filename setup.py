@@ -61,7 +61,7 @@ setup(
         'repoze.lru==0.6',
         'repoze.sendmail==4.4.1',
         'repoze.who==2.3',
-        'requests==2.14.2',
+        'requests==2.22.0',
         'risclog.sqlalchemy==3.0',
         'six==1.10.0',
         'sqlalchemy==1.3.0',
