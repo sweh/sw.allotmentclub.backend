@@ -7,6 +7,8 @@ Change log for sw.allotmentclub
 
 - No longer show old members in Mitgliedskonten.
 
+- Clean up external recipients by hiding this without an address to the public.
+
 
 4.7.0 (2019-06-07)
 ==================

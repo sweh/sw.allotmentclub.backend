@@ -515,8 +515,10 @@ class MailEditView(sw.allotmentclub.browser.base.EditJSFormView):
                     external.lastname,
                     external.firstname)
             }
-            for external in ExternalRecipient.query().order_by(
-                ExternalRecipient.lastname).all()]
+            for external in (
+                ExternalRecipient.query()
+                .filter(ExternalRecipient.city != '')
+                .order_by(ExternalRecipient.lastname))]
 
     @property
     def body(self):
