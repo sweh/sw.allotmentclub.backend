@@ -2,7 +2,7 @@
 Change log for sw.allotmentclub
 ===============================
 
-4.7.1 (unreleased)
+4.8.0 (2019-06-11)
 ==================
 
 - No longer show old members in Mitgliedskonten.
