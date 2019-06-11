@@ -18,6 +18,7 @@ import datetime
 import dateutil.parser
 import pybars
 import re
+import sqlalchemy
 import sw.allotmentclub.browser.base
 
 BOOKING_FUTURE = datetime.datetime.now() + datetime.timedelta(days=61)
@@ -229,7 +230,10 @@ class MemberAccountQuery(sw.allotmentclub.browser.base.Query):
                  .concat(to_string(Member.firstname)).label('Mitglied')),
                 Member.id.label('Konto')
             )
-            .select_from(Member))
+            .select_from(Member)
+            .filter(sqlalchemy.or_(
+                Member.leaving_year.is_(None),
+                Member.leaving_year >= get_selected_year())))
 
 
 @view_config(route_name='member_account_list', renderer='json',
