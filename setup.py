@@ -37,7 +37,7 @@ setup(
         'mt-940==4.10.0',
         'openpyxl==2.4.8',
         'paste==2.0.3',
-        'pastedeploy==1.5.2',
+        'pastedeploy==2.0.1',
         'pastescript==2.0.2',
         'pillow==4.1.1',
         'pipdeptree==0.10.1',
