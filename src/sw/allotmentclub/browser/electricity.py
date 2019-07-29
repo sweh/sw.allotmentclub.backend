@@ -1,10 +1,11 @@
 # encoding=utf8
-from __future__ import unicode_literals
 from .base import to_string, format_eur, format_kwh, boolean, get_selected_year
+from .letter import send_mail
 from pyramid.view import view_config
 from sw.allotmentclub import ElectricMeter, EnergyValue, Allotment, Member
-from sw.allotmentclub import EnergyPrice
+from sw.allotmentclub import EnergyPrice, User
 import datetime
+import json
 import sw.allotmentclub.browser.member
 import transaction
 
@@ -226,13 +227,54 @@ class CalculateEnergyValues(sw.allotmentclub.browser.base.View):
                               .filter(EnergyValue.organization_id == org_id)))
         price.leakage_current = price.usage_hauptzaehler - price.usage_members
         price.price = price.bill / price.usage_hauptzaehler
-        phases = sum(3 if e.electric_power else 1
-                     for e in (
-                         ElectricMeter.query()
-                         .filter(ElectricMeter.disconnected.is_(False))
-                         .filter(ElectricMeter.organization_id == org_id)))
-        price.normal_fee = price.leakage_current * price.price / phases
+        self.phases = sum(
+            3 if e.electric_power else 1
+            for e in (
+                ElectricMeter.query()
+                .filter(ElectricMeter.disconnected.is_(False))
+                .filter(ElectricMeter.organization_id == org_id)))
+        price.normal_fee = price.leakage_current * price.price / self.phases
         price.power_fee = price.normal_fee * 3
+
+    def send_report(self):
+        org_id = self.request.user.organization_id
+        current_year = get_selected_year()
+        price = (EnergyPrice.query()
+                 .filter(EnergyValue.organization_id == org_id)
+                 .filter(EnergyPrice.year == current_year).one())
+
+        data = json.loads(json.dumps(price))
+        data['phases'] = self.phases
+        data['price'] = format_eur(data['price'])
+        data['bill'] = format_eur(data['bill'])
+        data['normal_fee'] = format_eur(data['normal_fee'])
+        data['power_fee'] = format_eur(data['power_fee'])
+
+        subject = "Bericht Energieabrechnung {year}".format(**data)
+
+        body = """
+        <p>Sehr geehrter Vorstand,</p>
+
+        <p>anbei die Kennzahlen zur diesjährigen Energieabrechnung:</p>
+
+        <table>
+        <tr><td>Verbrauch Hauptzähler: </td><td>{usage_hauptzaehler} kWh</td></tr>
+        <tr><td>Verbrauch der Mitglieder (inkl. SAT-Anlage und
+        Vereinsgebäude): </td><td>{usage_members} kWh</td></tr>
+        <tr><td colspan=2></td></tr>
+
+        <tr><td>Verluststrom: </td><td>{usage_hauptzaehler} kWh - {usage_members} kWh = {leakage_current} kWh</td></tr>
+        <tr><td colspan=2></td></tr>
+
+        <tr><td>Preis pro kWh: </td><td>{bill} / {usage_hauptzaehler} kWh = {price}/kWh</td></tr>
+        <tr><td colspan=2></td></tr>
+
+        <tr><td>Grundgebühr 1 Phase ({phases} insgesamt): </td><td>{leakage_current} kWh * {price}/kWh / {phases} = {normal_fee}</td></tr>
+        <tr><td>Grundgebühr einfacher Zähler (1 Phase): </td><td>{normal_fee}</td></tr>
+        <tr><td>Grundgebühr Kraftstromzähler (3 Phase): </td><td>{power_fee}</td></tr>
+        </table><br /><br />""".format(**data)  # noqa
+        send_mail(
+            "vorstand@roter-see.de", subject, body, User.by_username('system'))
 
     def update(self):
         self.update_price()
@@ -242,6 +284,7 @@ class CalculateEnergyValues(sw.allotmentclub.browser.base.View):
                   .all())
         for value in values:
             value.update_data()
+        self.send_report()
 
 
 class AdvancePayValueQuery(sw.allotmentclub.browser.base.Query):

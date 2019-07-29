@@ -11,6 +11,8 @@ Change log for sw.allotmentclub
 
 - Improve the import/export of energy values.
 
+- Send a summary per mail with the key values of the Energieabrechnung.
+
 
 4.8.0 (2019-06-11)
 ==================
