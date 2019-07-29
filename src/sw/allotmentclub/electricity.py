@@ -42,7 +42,8 @@ class ElectricMeter(Object):
         for value in self.energy_values:
             if value is exclude:
                 continue
-            if getattr(value, 'value', 0) > getattr(last_value, 'value', 0):
+            if ((getattr(value, 'value', 0) or 0) >
+                    (getattr(last_value, 'value', 0) or 0)):
                 last_value = value
         return last_value
 

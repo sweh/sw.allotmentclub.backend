@@ -23,16 +23,13 @@ def test_can_download_and_upload_energy_list(browser):
     browser.open('http://localhost/electricity/export')
     wb = openpyxl.load_workbook(BytesIO(browser.contents))
     sheet = wb.get_active_sheet()
-    red = openpyxl.styles.PatternFill(
-        start_color='FFFF0000',
-        end_color='FFFF0000',
-        fill_type='solid')
     for index, row in enumerate(sheet.rows):
         if index in (0, 1):
             continue
-        row[-1].value = row[5].value or 0 + 100
+        row[-3].value = row[5].value or 0 + 100
+        row[-1].value = True
         if row[0].value == 4:
-            row[-1].fill = red
+            row[-1].value = False
     to_import = BytesIO()
     wb.save(to_import)
     to_import.seek(0)

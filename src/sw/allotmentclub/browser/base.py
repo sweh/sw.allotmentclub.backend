@@ -835,9 +835,8 @@ class XLSXExporterView(View):
 
     def export_helper(self):
         data = self._data(self._query)
-        bold_style = self.workbook.add_format({'bold': True})
         for column_index, cell in enumerate(self.headers):
-            self.worksheet.write(1, column_index, cell, bold_style)
+            self.worksheet.write(1, column_index, cell, self.bold_style)
 
         for row_index, row in enumerate(data):
             for column_index, cell in enumerate(row):
@@ -871,10 +870,14 @@ class XLSXExporterView(View):
         else:
             self.worksheet.write(row+2, column, value)
 
+    def after_export(self):
+        return
+
     def export(self):
         result = BytesIO()
         self.workbook = xlsxwriter.Workbook(result, {'in_memory': True})
         self.worksheet = self.workbook.add_worksheet(self.sheet_title)
+        self.bold_style = self.workbook.add_format({'bold': True})
 
         # Write headline and merge cells
         self.worksheet.merge_range(0, 0, 0, len(self.headers)-1, '')
@@ -882,6 +885,7 @@ class XLSXExporterView(View):
             0, 0, self.headline, self.workbook.add_format({'font_size': 16}))
 
         self.export_helper()
+        self.after_export()
 
         self.workbook.close()
         result.seek(0)

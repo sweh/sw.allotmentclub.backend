@@ -327,12 +327,8 @@ class EnergyMeterExporterView(sw.allotmentclub.browser.base.XLSXExporterView):
         for item in data:
             item = list(item)
             meter = ElectricMeter.get(item[1])
-            if meter.discount_to:
-                item[1] = meter.discount_to.lastname
-                item[2] = meter.comment or meter.discount_to.firstname
-            else:
-                item[1] = meter.allotment.member.lastname
-                item[2] = meter.comment or meter.allotment.member.firstname
+            item[1] = meter.allotment.member.lastname
+            item[2] = meter.comment or meter.allotment.member.firstname
             year = get_selected_year()
             value_sec3last_year = meter.get_value(year-3)
             value_sec2last_year = meter.get_value(year-2)
@@ -358,6 +354,32 @@ class EnergyMeterExporterView(sw.allotmentclub.browser.base.XLSXExporterView):
                 item[i] = price.bill
         yield item
 
+    def after_export(self):
+        red_format = self.workbook.add_format(
+            {'bold': True, 'font_color': 'red'})
+        irow = self.worksheet.dim_colmax + 1
+        lrow = chr(ord('A') + irow)
+        self.worksheet.write(1, irow, 'Verbrauch', self.bold_style)
+        for i in range(self.worksheet.dim_rowmax - 2):
+            i += 3
+            cellindex = '{}{}'.format(lrow, i)
+            formula = '=IF({r1}{i},{r1}{i}-{r2}{i},0)'.format(
+                i=i, r1=chr(ord('A') + irow-1), r2=chr(ord('A') + irow-2))
+            self.worksheet.write_formula(cellindex, formula)
+            self.worksheet.conditional_format(
+                cellindex, {'type': 'cell', 'criteria': '<', 'value': 0,
+                            'format': red_format})
+
+        irow += 1
+        lrow = chr(ord('A') + irow)
+        self.worksheet.write(1, irow, 'Zähler gesehen?', self.bold_style)
+        for i in range(self.worksheet.dim_rowmax - 2):
+            i += 3
+            cellindex = '{}{}'.format(lrow, i)
+            self.worksheet.write_boolean(cellindex, False)
+            self.worksheet.data_validation(
+                cellindex, {'validate': 'list', 'source': ['WAHR', 'FALSCH']})
+
     def _get_value(self, value_item):
         if not value_item:
             return ''
@@ -370,6 +392,8 @@ class EnergyMeterExporterView(sw.allotmentclub.browser.base.XLSXExporterView):
              permission='view',
              renderer='json')
 class EnergyMeterImporterView(sw.allotmentclub.browser.base.XLSXImporterView):
+
+    cell_index = -3
 
     def __call__(self):
         year = datetime.datetime.now().year
@@ -387,22 +411,22 @@ class EnergyMeterImporterView(sw.allotmentclub.browser.base.XLSXImporterView):
     def add_data(self, line):
         year = datetime.datetime.now().year
         if line[1].value == 'Hauptzähler':
-            EnergyPrice.find_or_create(year=year).value = line[-1].value
+            EnergyPrice.find_or_create(year=year).value = line[
+                self.cell_index].value
             transaction.savepoint()
             return
         if line[1].value == 'Endabrechnung':
-            EnergyPrice.find_or_create(year=year).bill = line[-1].value
+            EnergyPrice.find_or_create(year=year).bill = line[
+                self.cell_index].value
             transaction.savepoint()
             return
         meter = ElectricMeter.get(line[0].value)
-        if not line[-1].value:
-            value = int(line[-2].value)
+        if not line[self.cell_index].value:
+            value = int(line[self.cell_index-1].value)
             estimated = True
         else:
-            value = int(line[-1].value)
-            cs = line[-1].parent.parent._cell_styles
-            estimated = (False if list(cs[line[-1].style_id][0:2]) == [0, 0]
-                         else True)
+            value = int(line[self.cell_index].value)
+            estimated = not line[-1].value
         energy_value = EnergyValue.find_or_create(
             electric_meter=meter, year=year)
         energy_value.value = value

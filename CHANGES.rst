@@ -9,6 +9,8 @@ Change log for sw.allotmentclub
 
 - Improve the creation of SEPA XML.
 
+- Improve the import/export of energy values.
+
 
 4.8.0 (2019-06-11)
 ==================
