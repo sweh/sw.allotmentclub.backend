@@ -1,6 +1,7 @@
 # coding:utf8
 from __future__ import unicode_literals
 from .. import Member, BookingKind, User
+from ..direct_debit import DirectDebit
 from ..log import user_data_log, log_with_user
 from io import StringIO, BytesIO
 from pyramid.decorator import reify
@@ -896,100 +897,7 @@ class XLSXExporterView(View):
         return response
 
 
-class XMLExporterView(CSVExporterView):
-
-    xml_file_content = """\
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<Document xmlns="urn:iso:std:iso:20022:tech:xsd:pain.008.001.02"
-          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          xsi:schemaLocation="
-            urn:iso:std:iso:20022:tech:xsd:pain.008.001.02 pain.008.001.02.xsd
-          ">
-    <CstmrDrctDbtInitn>
-        <GrpHdr>
-            <MsgId>MSGdcd875b07aa7b9586cc7c0b390b4a064</MsgId>
-            <CreDtTm>{creation_date}.277Z</CreDtTm>
-            <NbOfTxs>{count}</NbOfTxs>
-            <CtrlSum>{sum_}</CtrlSum>
-            <InitgPty>
-                <Nm>Leuna Bungalowgemeinschaft,  Roter See  e.V.</Nm>
-            </InitgPty>
-        </GrpHdr>
-        <PmtInf>
-            <PmtInfId>{pmtinfid}</PmtInfId>
-            <PmtMtd>DD</PmtMtd>
-            <NbOfTxs>{count}</NbOfTxs>
-            <CtrlSum>{sum_}</CtrlSum>
-            <PmtTpInf>
-                <SvcLvl>
-                    <Cd>SEPA</Cd>
-                </SvcLvl>
-                <LclInstrm>
-                    <Cd>CORE</Cd>
-                </LclInstrm>
-                <SeqTp>RCUR</SeqTp>
-            </PmtTpInf>
-            <ReqdColltnDt>{booking_day}</ReqdColltnDt>
-            <Cdtr>
-                <Nm>Leuna Bungalowgemeinschaft,  Roter See  e.V.</Nm>
-            </Cdtr>
-            <CdtrAcct>
-                <Id>
-                    <IBAN>DE71800537623440000167</IBAN>
-                </Id>
-            </CdtrAcct>
-            <CdtrAgt>
-                <FinInstnId>
-                    <BIC>NOLADE21HAL</BIC>
-                </FinInstnId>
-            </CdtrAgt>
-            <ChrgBr>SLEV</ChrgBr>
-            <CdtrSchmeId>
-                <Id>
-                    <PrvtId>
-                        <Othr>
-                            <Id>DE42ZZZ00000348413</Id>
-                            <SchmeNm>
-                                <Prtry>SEPA</Prtry>
-                            </SchmeNm>
-                        </Othr>
-                    </PrvtId>
-                </Id>
-            </CdtrSchmeId>
-            {content}
-        </PmtInf>
-    </CstmrDrctDbtInitn>
-</Document>"""
-
-    xml_entry = """
-            <DrctDbtTxInf>
-                <PmtId>
-                    <EndToEndId>NOTPROVIDED</EndToEndId>
-                </PmtId>
-                <InstdAmt Ccy="EUR">{to_pay}</InstdAmt>
-                <DrctDbtTx>
-                    <MndtRltdInf>
-                        <MndtId>{id_}</MndtId>
-                        <DtOfSgntr>{sigdate}</DtOfSgntr>
-                    </MndtRltdInf>
-                </DrctDbtTx>
-                <DbtrAgt>
-                    <FinInstnId>
-                        <BIC>{bic}</BIC>
-                    </FinInstnId>
-                </DbtrAgt>
-                <Dbtr>
-                    <Nm>{name}</Nm>
-                </Dbtr>
-                <DbtrAcct>
-                    <Id>
-                        <IBAN>{iban}</IBAN>
-                    </Id>
-                </DbtrAcct>
-                <RmtInf>
-                    <Ustrd>{subject}</Ustrd>
-                </RmtInf>
-            </DrctDbtTxInf>"""
+class SEPAExporterView(CSVExporterView):
 
     def format_eur(self, value):
         return format_eur(value)[:-2].replace('.', '').replace(',', '.')
@@ -1006,15 +914,37 @@ class XMLExporterView(CSVExporterView):
 
     @property
     def data(self):
-        values = self.values
-        content = ""
-        count = 0
-        sum_ = 0.0
-        for value in values:
-            to_pay = self.format_eur(self.get_to_pay(value))
-            if float(to_pay) <= 0:
+        dd = DirectDebit(
+            message_id=self.subject,
+            creditor_name='Leuna Bungalowgemeinschaft Roter See e.V.',
+            creditor_ci='DE42ZZZ00000348413',
+            creditor_iban='DE71800537623440000167',
+            creditor_bic='NOLADE21HAL')
+        payment_id = (
+            self.context.pmtinfid or 'PII0ad20386aa6c4287ba8e2000c25c01e2')
+        payment = dd.add_payment(
+            payment_id=payment_id,
+            direct_debit_type='CORE',
+            sequence_type='RCUR',
+            purpose='CASH',
+            payment_date=self.booking_day,
+            batch_booking=True)
+        for value in self.values:
+            to_pay = float(self.format_eur(self.get_to_pay(value)))
+            if to_pay <= 0:
                 continue
+
             member = self.get_member(value)
+
+            if not member.direct_debit or not member.iban:
+                continue
+
+            id_ = '{}{}'.format(member.lastname, '/'.join(
+                str(m.number) for m in member.allotments))
+            id_ = (id_.replace('ä', 'au').replace('ö', 'oe')
+                   .replace('ü', 'ue').replace('ß', 'ss')
+                   .replace(' ', '').upper())
+
             if member.direct_debit_account_holder:
                 name = member.direct_debit_account_holder
             elif member.title:
@@ -1022,30 +952,18 @@ class XMLExporterView(CSVExporterView):
                                           member.firstname)
             else:
                 name = '{}, {}'.format(member.lastname, member.firstname)
-            id_ = '{}-{}'.format(member.lastname, '/'.join(
-                str(m.number) for m in member.allotments))
-            id_ = (id_.replace('ä', 'au').replace('ö', 'oe')
-                   .replace('ü', 'ue').replace('ß', 'ss'))
-            iban = member.iban
-            bic = member.bic
-            if not member.direct_debit:
-                continue
-            if not iban:
-                continue
-            sigdate = member.direct_debit_date.strftime('%Y-%m-%d')
-            content += self.xml_entry.format(to_pay=to_pay, name=name, id_=id_,
-                                             iban=iban, bic=bic,
-                                             sigdate=sigdate,
-                                             subject=self.subject)
-            count += 1
-            sum_ += self.get_to_pay(value)
-        sum_ = self.format_eur(sum_)
-        pmtinfid = (
-            self.context.pmtinfid or 'PII0ad20386aa6c4287ba8e2000c25c01e2')
-        return self.xml_file_content.format(
-            content=content, count=count, sum_=sum_,
-            creation_date=self.creation_date, booking_day=self.booking_day,
-            pmtinfid=pmtinfid) + ' '*30
+
+            payment.add_transaction(
+                debtor_name=name,
+                debtor_iban=member.iban,
+                debtor_bic=member.bic,
+                amount=to_pay,
+                purpose='SALA',
+                mandate_id=id_,
+                mandate_date=member.direct_debit_date.strftime('%Y-%m-%d'),
+                reason=self.subject,
+                end_to_end_id='NOTPROVIDED')
+        return dd.to_string(validate_xml=True)
 
     def __call__(self):
         response = self.request.response

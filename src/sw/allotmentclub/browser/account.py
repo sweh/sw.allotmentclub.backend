@@ -802,7 +802,7 @@ class SEPASammlerAddView(SEPASammlerEditView):
 
 @view_config(route_name='sepa_sammler_export', renderer='json',
              permission='view')
-class SEPASammlerExportView(sw.allotmentclub.browser.base.XMLExporterView):
+class SEPASammlerExportView(sw.allotmentclub.browser.base.SEPAExporterView):
 
     @property
     def filename(self):

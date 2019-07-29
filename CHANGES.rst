@@ -7,6 +7,8 @@ Change log for sw.allotmentclub
 
 - Add Zählerwechsel for Dr. Kern.
 
+- Improve the creation of SEPA XML.
+
 
 4.8.0 (2019-06-11)
 ==================
