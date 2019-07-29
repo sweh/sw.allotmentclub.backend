@@ -2,7 +2,7 @@
 Change log for sw.allotmentclub
 ===============================
 
-4.8.1 (unreleased)
+4.9.0 (2019-07-29)
 ==================
 
 - Add Zählerwechsel for Dr. Kern.
