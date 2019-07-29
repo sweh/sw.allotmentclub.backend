@@ -35,13 +35,44 @@ class ElectricMeter(Object):
             if value.year == year:
                 return value
 
-    def get_last_value(self, obj, start=2013):
+    def get_last_value(self, exclude, start=2013):
+        if (len(self.energy_values) == 1):
+            return self.energy_values[0]
         last_value = self.get_value(start)
         for value in self.energy_values:
-            if (value is not obj and
-                    (value.value or 0) > (last_value.value or 0)):
+            if value is exclude:
+                continue
+            if getattr(value, 'value', 0) > getattr(last_value, 'value', 0):
                 last_value = value
         return last_value
+
+    def replace(self, old_value, new_number, new_value):
+        year = datetime.datetime.now().year
+        new = ElectricMeter()
+        new.allotment = self.allotment
+        new.number = new_number
+        new.electric_power = self.electric_power
+        self.replaced_by = new
+        new.discount_to = self.discount_to
+        new.organization_id = self.organization_id
+
+        value = EnergyValue.create(
+            electric_meter=self, year=year, value=old_value,
+            organization_id=self.organization_id)
+        value.update_member()
+        value.update_usage()
+        self.energy_values.append(value)
+
+        value = EnergyValue.create(
+            electric_meter=new, year=year-1, value=new_value,
+            organization_id=self.organization_id)
+        value.update_member()
+        value.advance_pay = value.fee = value.price = value.usage = 0
+        value.whole_price = value.to_pay = 0
+        value.discounted = True
+        new.energy_values.append(value)
+        self.disconnected = True
+        return new
 
 
 class EnergyValue(Object):

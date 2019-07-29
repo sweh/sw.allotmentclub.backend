@@ -27,11 +27,13 @@ def test_meter_can_be_replaced_by_another_meter(database):
     import transaction
     setUp()
     old = ElectricMeter.get(3)
-    new = ElectricMeter.create(number='0815', allotment=old.allotment)
-    old.replaced_by = new
+    new = old.replace(100, '0815', 0)
     transaction.commit()
     assert old.allotment == new.allotment
     assert new == old.replaced_by
+    assert new.get_last_value(new).member == old.get_last_value(old).member
+    assert 0 == new.get_last_value(new).usage
+    assert 1053 == old.get_last_value(old).usage
 
 
 def test_value_has_a_member(database):

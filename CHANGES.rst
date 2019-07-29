@@ -5,7 +5,7 @@ Change log for sw.allotmentclub
 4.8.1 (unreleased)
 ==================
 
-- Nothing changed yet.
+- Add Zählerwechsel for Dr. Kern.
 
 
 4.8.0 (2019-06-11)
