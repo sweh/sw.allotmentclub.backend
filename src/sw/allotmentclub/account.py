@@ -3,7 +3,7 @@ from __future__ import unicode_literals
 from .log import log_with_user, auth_log
 from .model import Object, Organization
 from datetime import date, timedelta
-from fints.client import FinTS3PinTanClient
+from fints.client import FinTS3PinTanClient, FinTSClientMode
 from sqlalchemy import Column, Integer, String, ForeignKey, DateTime, Boolean
 from sqlalchemy import Date
 import kontocheck
@@ -134,25 +134,28 @@ def create_fints_client():
         settings.get('banking.blz'),
         settings.get('banking.kto'),
         settings.get('banking.pin'),
-        settings.get('banking.url'))
+        settings.get('banking.url'),
+        mode=FinTSClientMode.INTERACTIVE,
+        force_twostep_tan=True)
 
 
 def import_transactions_from_fints(user=None):
     kontocheck.lut_load(9)
     client = create_fints_client()
-    accounts = client.get_sepa_accounts()
-    for account in accounts:
-        try:
-            local_account = (
-                BankingAccount.query()
-                .filter(BankingAccount.number == account.accountnumber)
-                .one())
-        except sqlalchemy.orm.exc.NoResultFound:
-            continue
-        statements = client.get_statement(
-            account, date.today() - timedelta(days=15), date.today())
-        import_transactions(
-            [stmt.data for stmt in statements], local_account, user)
+    with client:
+        accounts = client.get_sepa_accounts()
+        for account in accounts:
+            try:
+                local_account = (
+                    BankingAccount.query()
+                    .filter(BankingAccount.number == account.accountnumber)
+                    .one())
+            except sqlalchemy.orm.exc.NoResultFound:
+                continue
+            statements = client.get_transactions(
+                account, date.today() - timedelta(days=50), date.today())
+            import_transactions(
+                [stmt.data for stmt in statements], local_account, user)
 
 
 def import_transactions(statements, account, user=None):

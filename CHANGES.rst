@@ -5,7 +5,7 @@ Change log for sw.allotmentclub
 4.9.1 (unreleased)
 ==================
 
-- Nothing changed yet.
+- Update fints client to get fetching transactions working after PSD2.
 
 
 4.9.0 (2019-07-29)

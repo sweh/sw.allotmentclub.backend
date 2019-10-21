@@ -21,7 +21,7 @@ setup(
         'click==6.7',
         'codecov == 2.0.10',
         'decorator==4.0.11',
-        'fints==0.2.0',
+        'fints==2.2.0',
         'first==2.0.1',
         'funcsigs==1.0.2',
         'gocept.logging==0.8.1',
