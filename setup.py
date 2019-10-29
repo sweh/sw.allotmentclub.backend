@@ -39,7 +39,7 @@ setup(
         'paste==2.0.3',
         'pastedeploy==2.0.1',
         'pastescript==2.0.2',
-        'pillow==4.1.1',
+        'pillow==6.2.1',
         'pipdeptree==0.10.1',
         'psycopg2-binary==2.7.5',
         'py == 1.5.2',
