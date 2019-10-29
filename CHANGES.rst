@@ -7,6 +7,8 @@ Change log for sw.allotmentclub
 
 - Add `product_id` to FinTS connection for better compatability with PSD2.
 
+- Integrate `sentry` for better error reporting.
+
 
 4.9.1 (2019-10-21)
 ==================

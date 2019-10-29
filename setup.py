@@ -40,6 +40,7 @@ setup(
         'pastedeploy==2.0.1',
         'pastescript==2.0.2',
         'pillow==6.2.1',
+        'sentry_sdk==0.13.1',
         'pipdeptree==0.10.1',
         'psycopg2-binary==2.7.5',
         'py == 1.5.2',

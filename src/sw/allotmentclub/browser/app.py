@@ -22,9 +22,13 @@ import sw.allotmentclub.application
 import sw.allotmentclub.browser
 import sw.allotmentclub.browser.auth
 import sw.allotmentclub.browser.base
+import sw.allotmentclub.version
 import time
 import traceback
 import zope.component
+import sentry_sdk
+from sentry_sdk.integrations.pyramid import PyramidIntegration
+from sentry_sdk.integrations.sqlalchemy import SqlalchemyIntegration
 
 
 def json_serializer(value, default, **kw):
@@ -81,6 +85,12 @@ class Portal(sw.allotmentclub.application.Application):
 
         registry = pyramid.registry.Registry(
             bases=(zope.component.getGlobalSiteManager(),))
+        if self.settings['sentry.dsn']:
+            version = sw.allotmentclub.version.__version__
+            sentry_sdk.init(
+                release=f"sw-allotmentclub-backend@{version}",
+                dsn=self.settings['sentry.dsn'],
+                integrations=[PyramidIntegration(), SqlalchemyIntegration()])
         self.config = config = pyramid.config.Configurator(
             settings=self.settings,
             registry=registry)
