@@ -9,6 +9,8 @@ Change log for sw.allotmentclub
 
 - Integrate `sentry` for better error reporting.
 
+- Fixed some UI bugs.
+
 
 4.9.1 (2019-10-21)
 ==================
