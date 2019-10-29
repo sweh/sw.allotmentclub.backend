@@ -5,7 +5,7 @@ Change log for sw.allotmentclub
 4.9.2 (unreleased)
 ==================
 
-- Nothing changed yet.
+- Add `product_id` to FinTS connection for better compatability with PSD2.
 
 
 4.9.1 (2019-10-21)

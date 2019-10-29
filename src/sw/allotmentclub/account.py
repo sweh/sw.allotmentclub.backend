@@ -136,6 +136,7 @@ def create_fints_client():
         settings.get('banking.pin'),
         settings.get('banking.url'),
         mode=FinTSClientMode.INTERACTIVE,
+        product_id=settings.get('banking.product_id'),
         force_twostep_tan=True)
 
 
