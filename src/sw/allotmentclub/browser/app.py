@@ -85,7 +85,7 @@ class Portal(sw.allotmentclub.application.Application):
 
         registry = pyramid.registry.Registry(
             bases=(zope.component.getGlobalSiteManager(),))
-        if self.settings['sentry.dsn']:
+        if self.settings.get('sentry.dsn', None):
             version = sw.allotmentclub.version.__version__
             sentry_sdk.init(
                 release=f"sw-allotmentclub-backend@{version}",
