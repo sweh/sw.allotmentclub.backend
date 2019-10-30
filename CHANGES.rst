@@ -2,7 +2,7 @@
 Change log for sw.allotmentclub
 ===============================
 
-4.9.4 (unreleased)
+4.9.4 (2019-10-30)
 ==================
 
 - Add sourcemap for javascript code.
