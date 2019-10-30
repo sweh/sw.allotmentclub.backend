@@ -2,7 +2,7 @@
 Change log for sw.allotmentclub
 ===============================
 
-4.9.3 (unreleased)
+4.9.3 (2019-10-30)
 ==================
 
 - Use sentry in frontend for error reporting.
