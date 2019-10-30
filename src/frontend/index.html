@@ -25,6 +25,8 @@
     <link rel="apple-touch-startup-image" href="/img/ipad-portrait.png" media="screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait)">
     <link rel="apple-touch-startup-image" href="/img/iphone.png" media="screen and (max-device-width: 320px)">
 
+    <script src="https://browser.sentry-cdn.com/5.7.1/bundle.min.js" integrity="sha384-KMv6bBTABABhv0NI+rVWly6PIRvdippFEgjpKyxUcpEmDWZTkDOiueL5xW+cztZZ" crossorigin="anonymous">
+    </script>
     <script type="text/javascript">
         window.application_url = window.location.protocol + '//' + window.location.host + '/api';
     </script>
@@ -198,7 +200,7 @@
     <div class="page-footer">
       <div class="row">
         <div class="col-xs-12 col-sm-6">
-          <span class="txt-color-white">Sebastian Wehrmann © 2014 - 2016</span>
+          <span class="txt-color-white">Sebastian Wehrmann © 2014 - 2019</span>
         </div>
         <div class="col-xs-6 col-sm-6 text-right hidden-xs">
           <div class="inline-block">
@@ -255,9 +257,23 @@
         </div>
       </div>
     </div>
-    <script src="optimized.b3dc0c6e.js"></script>
+    <script src="optimized.0410819c.js"></script>
     <script type="text/javascript">
       $(document).ready(function () {
+          var xhr = new XMLHttpRequest(),
+              version = sw.allotmentclub.version;
+          if (!version.indexOf('dev')) {
+              xhr.open('GET', window.application_url + '/sentry_frontend');
+              xhr.onload = function() {
+                  if (xhr.status === 200) {
+                      Sentry.init({
+                          dsn: JSON.parse(xhr.responseText).dsn,
+                          release: "sw-allotmentclub-frontend@" + version
+                      });
+                  }
+              };
+              xhr.send();
+          }
           sw.allotmentclub.login();
       });
     </script>
