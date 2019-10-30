@@ -139,6 +139,7 @@ class Portal(sw.allotmentclub.application.Application):
 
     def add_routes(self):
         config = self.config
+        config.add_route('sentry_frontend', '/sentry_frontend')
         config.add_route('login', '/login')
         config.add_route('logout', '/logout')
 
@@ -460,6 +461,17 @@ class Error(sw.allotmentclub.browser.base.View):
             error_log.info(line, log_request=False)
         if self.show_traceback:
             print('Exception raised during test: {}'.format(self.tb))
+
+
+@pyramid.view.view_config(
+    route_name='sentry_frontend',
+    permission=NO_PERMISSION_REQUIRED,
+    renderer='json')
+class SentryDataView(sw.allotmentclub.browser.base.View):
+
+    def __call__(self):
+        settings = pyramid.threadlocal.get_current_registry().settings
+        return dict(dsn=settings.get('sentry.frontenddsn', ''))
 
 
 @pyramid.view.view_config(
