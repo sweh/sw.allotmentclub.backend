@@ -1,8 +1,6 @@
 # encoding=utf-8
-from __future__ import unicode_literals
-from sqlalchemy import Boolean
 from sqlalchemy import Column, Integer, String, ForeignKey, Numeric, DateTime
-from sqlalchemy import Date, Table
+from sqlalchemy import Date, Table, LargeBinary, Boolean
 from sqlalchemy.orm import relationship, ColumnProperty
 from sqlalchemy.orm.interfaces import AttributeExtension
 from sqlalchemy.ext.instrumentation import InstrumentationManager
@@ -17,6 +15,7 @@ import sys
 import zope.component
 
 
+MAX_FILE_SIZE = 1024*1024*10  # 10 MB
 ENGINE_NAME = 'portal'
 
 
@@ -252,6 +251,18 @@ class Parcel(Object):
     allotment_id = Column(Integer, ForeignKey(Allotment.id), nullable=False)
     allotment = sqlalchemy.orm.relation(
         'Allotment', uselist=False, backref='parcels')
+
+
+class ParcelAttachment(Object):
+    """Ein Datei-Anhang zu einem Flurstück. z.B. ein Lageplan."""
+
+    parcel_id = Column(Integer, ForeignKey(Parcel.id), nullable=False)
+    parcel = sqlalchemy.orm.relation(
+        'Parcel', uselist=False, backref='attachments')
+    name = Column(String(100), default='')
+    mimetype = Column(String(100), default='')
+    size = Column(String(20), default='')
+    data = Column(LargeBinary(MAX_FILE_SIZE))
 
 
 class AccessAuthority(Object):

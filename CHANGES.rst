@@ -9,6 +9,8 @@ Change log for sw.allotmentclub
 
 - Add Zählerwechsel for Dr. Helbig.
 
+- Begin adding attachments to parcels.
+
 
 4.9.4 (2019-10-30)
 ==================

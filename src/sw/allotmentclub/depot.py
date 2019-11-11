@@ -1,11 +1,8 @@
 # -*- coding: utf-8 -*-
-from __future__ import unicode_literals
-from .model import Object
-from sqlalchemy import (
-    Column, Integer, String, ForeignKey, LargeBinary, DateTime)
+from .model import Object, MAX_FILE_SIZE
+from sqlalchemy import Column, Integer, String, ForeignKey, LargeBinary
+from sqlalchemy import DateTime
 import sqlalchemy.orm
-
-MAX_FILE_SIZE = 1024*1024*10  # 10 MB
 
 
 def get_current_user(*args, **kw):
