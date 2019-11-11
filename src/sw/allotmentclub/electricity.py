@@ -178,7 +178,7 @@ class EnergyValue(Object):
         try:
             price = EnergyPrice.query().filter(
                 EnergyPrice.year == self.year).one()
-        except:
+        except Exception:
             return 0
         if not price.price:
             return 0
@@ -189,7 +189,7 @@ class EnergyValue(Object):
         try:
             price = EnergyPrice.query().filter(
                 EnergyPrice.year == self.year).one()
-        except:
+        except Exception:
             return 0
         if self.electric_meter.disconnected:
             return 0
