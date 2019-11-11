@@ -7,6 +7,8 @@ Change log for sw.allotmentclub
 
 - Fix import of energy values.
 
+- Add Zählerwechsel for Dr. Helbig.
+
 
 4.9.4 (2019-10-30)
 ==================
