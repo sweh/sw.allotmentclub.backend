@@ -3,6 +3,9 @@ python:
   - "3.6"
 services:
   - postgresql
+before_install:
+  - sudo apt-get update
+  - sudo apt-get install -y poppler-utils
 install:
   - pip install -e .
   - pip install -e .[test]
