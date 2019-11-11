@@ -4,5 +4,6 @@ python:
 install:
   - pip install -e .
   - pip install -e .[test]
+  - pip install -U "git+https://github.com/sweh/python-fints.git#egg=fints"
 script:
   - pytest
