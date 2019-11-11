@@ -2,8 +2,8 @@
 Change log for sw.allotmentclub
 ===============================
 
-4.9.5 (unreleased)
-==================
+4.10.0 (2019-11-11)
+===================
 
 - Fix import of energy values.
 
