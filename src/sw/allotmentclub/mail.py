@@ -83,7 +83,7 @@ class SentMessageInfo(Object):
     message_id = Column(
         Integer, ForeignKey('message.id'), nullable=False)
     message = sqlalchemy.orm.relationship('Message', uselist=False)
-    tag = Column(String(100))
+    tag = Column(String(150))
     address = Column(String(100))
     status = Column(String(255))
 
