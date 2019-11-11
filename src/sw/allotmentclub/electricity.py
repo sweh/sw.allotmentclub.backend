@@ -30,14 +30,19 @@ class ElectricMeter(Object):
         Integer, ForeignKey('member.id'), nullable=True)
     discount_to = sqlalchemy.orm.relation('Member', uselist=False)
 
+    @classmethod
+    def by_number(cls, number):
+        return cls.query().filter(cls.number == str(number)).one_or_none()
+
     def get_value(self, year):
         for value in self.energy_values:
             if value.year == year:
                 return value
 
-    def get_last_value(self, exclude, start=2013):
+    def get_last_value(self, exclude=None):
         if (len(self.energy_values) == 1):
             return self.energy_values[0]
+        start = min([v.year for v in self.energy_values])
         last_value = self.get_value(start)
         for value in self.energy_values:
             if value is exclude:
@@ -57,12 +62,14 @@ class ElectricMeter(Object):
         new.discount_to = self.discount_to
         new.organization_id = self.organization_id
 
-        value = EnergyValue.create(
-            electric_meter=self, year=year, value=old_value,
-            organization_id=self.organization_id)
-        value.update_member()
-        value.update_usage()
-        self.energy_values.append(value)
+        last_value = self.get_last_value()
+        if last_value.value < old_value:
+            value = EnergyValue.create(
+                electric_meter=self, year=year, value=old_value,
+                organization_id=self.organization_id)
+            value.update_member()
+            value.update_usage()
+            self.energy_values.append(value)
 
         value = EnergyValue.create(
             electric_meter=new, year=year-1, value=new_value,

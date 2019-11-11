@@ -779,7 +779,7 @@ class CSVExporterView(View):
 class XLSXImporterView(View):
 
     def _import(self, file):
-        wb = openpyxl.load_workbook(file)
+        wb = openpyxl.load_workbook(file, data_only=True)
         sheet = wb.get_active_sheet()
         for index, line in enumerate(sheet.rows):
             if index in (0, 1):

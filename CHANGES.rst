@@ -5,7 +5,7 @@ Change log for sw.allotmentclub
 4.9.5 (unreleased)
 ==================
 
-- Nothing changed yet.
+- Fix import of energy values.
 
 
 4.9.4 (2019-10-30)

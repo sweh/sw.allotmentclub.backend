@@ -436,19 +436,20 @@ class EnergyMeterExporterView(sw.allotmentclub.browser.base.XLSXExporterView):
              renderer='json')
 class EnergyMeterImporterView(sw.allotmentclub.browser.base.XLSXImporterView):
 
-    cell_index = -3
+    cell_index = 8
 
     def __call__(self):
         year = datetime.datetime.now().year
         # Sonderbehandlung Satellitenanlage
         meter = ElectricMeter.get(124)
         if meter and not meter.get_value(year):
-            last = meter.get_last_value(None, 2015)
+            last = meter.get_last_value()
             energy_value = EnergyValue.create(
                 electric_meter=meter, year=year, value=last.value + 552)
             energy_value.update_member()
             energy_value.update_usage()  # verbrauch berechnen
-            meter.energy_values.append(energy_value)
+            if energy_value not in meter.energy_values:
+                meter.energy_values.append(energy_value)
         return super(EnergyMeterImporterView, self).__call__()
 
     def add_data(self, line):
@@ -463,18 +464,20 @@ class EnergyMeterImporterView(sw.allotmentclub.browser.base.XLSXImporterView):
                 self.cell_index].value
             transaction.savepoint()
             return
-        meter = ElectricMeter.get(line[0].value)
+        meter = ElectricMeter.by_number(line[4].value)
         if not line[self.cell_index].value:
             value = int(line[self.cell_index-1].value)
             estimated = True
         else:
             value = int(line[self.cell_index].value)
-            estimated = not line[-1].value
-        energy_value = EnergyValue.find_or_create(
-            electric_meter=meter, year=year)
-        energy_value.value = value
-        energy_value.estimated_value = estimated
-        meter.energy_values.append(energy_value)
+            estimated = not line[self.cell_index+2].value
+        energy_value = EnergyValue.create(
+            electric_meter=meter,
+            year=year,
+            value=value,
+            estimated_value=estimated)
+        if energy_value not in meter.energy_values:
+            meter.energy_values.append(energy_value)
         energy_value.update_member()
         energy_value.update_usage()  # verbrauch berechnen
         transaction.savepoint()
