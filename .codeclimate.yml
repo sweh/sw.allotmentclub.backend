@@ -28,3 +28,8 @@ checks:
     enabled: false
   identical-code:
     enabled: false
+engines:
+  bandit:
+    enabled: true
+  pep8:
+    enabled: true
