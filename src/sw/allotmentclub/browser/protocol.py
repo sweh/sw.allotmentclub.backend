@@ -336,11 +336,6 @@ class ProtocolAttachmentAddView(sw.allotmentclub.browser.base.AddView):
         size = len(data)
         return name, mimetype, size, data
 
-    def log(self, id):
-        log_with_user(user_data_log.info,
-                      self.request.user,
-                      'hat Ablage %s %s.', id, self.action)
-
     def __call__(self):
         if not self.form_submit():
             return {'status': 'success', 'data': {}}
