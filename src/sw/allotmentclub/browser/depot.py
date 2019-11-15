@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-from __future__ import unicode_literals
 from ..log import user_data_log, log_with_user
 from .base import date_time, format_size, format_mimetype
 from io import BytesIO

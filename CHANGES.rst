@@ -5,7 +5,7 @@ Change log for sw.allotmentclub
 4.10.1 (unreleased)
 ===================
 
-- Nothing changed yet.
+- Add map attachment to parcels.
 
 
 4.10.0 (2019-11-11)

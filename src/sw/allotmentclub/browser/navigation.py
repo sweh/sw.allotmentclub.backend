@@ -1,5 +1,4 @@
 # encoding=utf-8
-from __future__ import unicode_literals
 from pyramid.security import NO_PERMISSION_REQUIRED
 from pyramid.view import view_config
 from sw.allotmentclub.browser.base import View, route_permitted, route_url
@@ -20,7 +19,10 @@ NAVIGATION_ITEMS = (
         ('Alle', 'member_list'),
         ('Pächter', 'member_list_leased'),
         ('Trinkwasser', 'member_list_tap_water'),
-        ('Lageplan', 'map'),
+    )),
+    ('Lageplan', 'map', 'fa-location-arrow', (
+        ('Übersicht', 'map'),
+        ('Flurstücke', 'parcel_list'),
     )),
     ('Postversand', 'mail_list_inbox', 'fa-envelope-square', (
         ('Posteingang', 'mail_list_inbox'),

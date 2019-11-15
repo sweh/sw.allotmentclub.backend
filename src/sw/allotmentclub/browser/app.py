@@ -148,6 +148,15 @@ class Portal(sw.allotmentclub.application.Application):
         config.add_route('home', '/')
         config.add_route('map', '/map')
         config.add_route('map_download', '/map/download')
+        config.add_route('parcel_list', '/parcels')
+        config.add_route('parcel_map_upload', '/parcels/{id}/upload_map',
+                         factory='..model.Parcel.context_factory')
+        config.add_route('parcel_map_download_check',
+                         '/parcels/{id}/check_download_map',
+                         factory='..model.Parcel.context_factory')
+        config.add_route('parcel_map_download', '/parcels/{id}/download_map',
+                         factory='..model.Parcel.context_factory')
+
         config.add_route('depot', '/depot')
 
         config.add_route('mail_add', '/mail/add')

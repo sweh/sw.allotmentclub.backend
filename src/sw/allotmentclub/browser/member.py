@@ -1,5 +1,4 @@
 # encoding=utf8
-from __future__ import unicode_literals
 from ..log import user_data_log, log_with_user
 from .base import date, string_agg, get_selected_year
 from .letter import render_pdf

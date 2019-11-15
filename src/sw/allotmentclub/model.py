@@ -251,18 +251,9 @@ class Parcel(Object):
     allotment_id = Column(Integer, ForeignKey(Allotment.id), nullable=False)
     allotment = sqlalchemy.orm.relation(
         'Allotment', uselist=False, backref='parcels')
-
-
-class ParcelAttachment(Object):
-    """Ein Datei-Anhang zu einem Flurstück. z.B. ein Lageplan."""
-
-    parcel_id = Column(Integer, ForeignKey(Parcel.id), nullable=False)
-    parcel = sqlalchemy.orm.relation(
-        'Parcel', uselist=False, backref='attachments')
-    name = Column(String(100), default='')
-    mimetype = Column(String(100), default='')
-    size = Column(String(20), default='')
-    data = Column(LargeBinary(MAX_FILE_SIZE))
+    map_mimetype = Column(String(100), default='')
+    map_size = Column(String(20), default='')
+    map_data = Column(LargeBinary(MAX_FILE_SIZE))
 
 
 class AccessAuthority(Object):
