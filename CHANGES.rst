@@ -7,6 +7,8 @@ Change log for sw.allotmentclub
 
 - Add map attachment to parcels.
 
+- Add XML export of SEPA wire transfers.
+
 
 4.10.0 (2019-11-11)
 ===================

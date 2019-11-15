@@ -282,6 +282,8 @@ class Portal(sw.allotmentclub.application.Application):
 
         config.add_route('energy_price', '/energy_price')
         config.add_route('electricity_list', '/electricity')
+        config.add_route('export_wire_transfer',
+                         '/electricity/export_wire_transfer')
         config.add_route('global_energy_value_list', '/electricity_billing')
         config.add_route('energy_value_list',
                          '/electricity/{id}/history',

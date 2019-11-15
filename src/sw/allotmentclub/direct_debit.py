@@ -481,6 +481,14 @@ E = NullElementMaker(
     },
 )
 
+D = NullElementMaker(
+    typemap={SEPAType: SEPAType.to_string},
+    nsmap={
+        None: "urn:iso:std:iso:20022:tech:xsd:pain.001.001.03",
+        "xsi": "http://www.w3.org/2001/XMLSchema-instance",
+    },
+)
+
 
 class XMLProducer:
     """Models a data class that is able to render to an XML representation."""
@@ -551,6 +559,20 @@ class Creditor:
 
     def __str__(self):
         return "Creditor <{}>".format(self.name)
+
+
+class Debitor:
+    """Data collection of debitor information in a bank wire."""
+
+    def __init__(self, name, iban, bic, currency=None, ultimate_name=None):
+        self.name = name
+        self.iban = iban
+        self.bic = bic
+        self.currency = currency
+        self.ultimate_name = ultimate_name
+
+    def __str__(self):
+        return "Debitor <{}>".format(self.name)
 
 
 class Transaction(XMLProducer):
@@ -940,6 +962,281 @@ class Payment(XMLProducer):
 
     def __str__(self):
         return "Payment <{}>".format(self._payment_id)
+
+
+class CreditTransaction(XMLProducer):
+
+    def __init__(
+        self,
+        creditor_name,
+        creditor_iban,
+        creditor_bic,
+        amount,
+        reason,
+        currency="EUR",
+    ):
+        self._creditor_name = creditor_name
+        self._creditor_iban = creditor_iban
+        self._creditor_bic = creditor_bic
+        self.amount = amount
+        self._reason = reason
+        self._currency = currency
+        self._end_to_end_id = None
+
+    def to_xml(self):
+        """Return lxml tree structure."""
+        # Individual transaction
+        root = D.CdtTrfTxInf(
+            # Reference a single payment instruction
+            D.PmtId(
+                # Unambiguous reference of the submitter of a direct debit.
+                D.EndToEndId(
+                    RestrictedIdentificationSEPA1(self._end_to_end_id)
+                    if self._end_to_end_id is not None
+                    else "NOTPROVIDED"
+                )
+            ),
+            # Amount of money to be moved
+            D.Amt(
+                D.InstdAmt(
+                    ActiveOrHistoricCurrencyAndAmountSEPA(self.amount),
+                    Ccy=self._currency,
+                )
+            ),
+            # Information about the debtor
+            D.Cdtr(
+                # Name
+                D.Nm(Max70Text(self._creditor_name))
+            ),
+            # Bank account of debtor
+            D.CdtrAcct(
+                # Identification of debtor's bank account
+                D.Id(
+                    # International Bank Account Number (IBAN)
+                    D.IBAN(IBAN2007Identifier(self._creditor_iban))
+                )
+            ),
+            # Remittance information
+            D.RmtInf(
+                # Unstructured information
+                D.Ustrd(Max140Text(self._reason))
+            )
+            if self._reason is not None
+            else None,
+        )
+        return root
+
+    def __str__(self):
+        return "Credit Transaction <{amount} from {name}>".format(
+            amount=self.amount, name=self._creditor_name
+        )
+
+
+class Transfer(XMLProducer):
+    """
+    """
+
+    def __init__(
+        self,
+        debitor,
+        payment_id,
+        payment_date,
+    ):
+        self._debitor = debitor
+        self._payment_id = payment_id
+        self._payment_date = payment_date
+        self._transactions = []
+
+    def add_transaction(
+        self,
+        creditor_name,
+        creditor_iban,
+        creditor_bic,
+        amount,
+        reason,
+        currency="EUR",
+    ):
+        transaction = CreditTransaction(
+            creditor_name=creditor_name,
+            creditor_iban=creditor_iban,
+            creditor_bic=creditor_bic,
+            amount=amount,
+            reason=reason,
+            currency=currency,
+        )
+        self._transactions.append(transaction)
+        return transaction
+
+    def count_transactions(self):
+        """Return number of associated transactions."""
+        return len(self._transactions)
+
+    def transactions_sum(self):
+        """Returns sum of all transaction amounts in this payment."""
+        return sum(transaction.amount for transaction in self._transactions)
+
+    def to_xml(self):
+        """Return lxml tree structure."""
+        root = D.PmtInf(
+            # Unique reference assigned to payment
+            D.PmtInfId(RestrictedIdentificationSEPA1(self._payment_id)),
+            # Means of payment, here: Direct Debit
+            D.PmtMtd("TRF"),
+            # Number of included transactions
+            D.NbOfTxs(Max15NumericText(len(self._transactions))),
+            # Sum of all included transactions with two decimal places
+            D.CtrlSum(DecimalNumber(self.transactions_sum())),
+            # Requested collection date
+            D.ReqdExctnDt(ISODate(self._payment_date)),
+            D.Dbtr(
+                # Name
+                D.Nm(Max70Text(self._debitor.name))
+            ),
+            # Bank account of creditor
+            D.DbtrAcct(
+                # Identification of bank account
+                D.Id(
+                    # International Bank Account Number (IBAN)
+                    D.IBAN(IBAN2007Identifier(self._debitor.iban))
+                ),
+                # Currency of bank account
+                D.Ccy(ActiveOrHistoricCurrencyCode(self._debitor.currency))
+                if self._debitor.currency is not None
+                else None,
+            ),
+            # Financial institution of creditor
+            D.DbtrAgt(
+                # Identification of the institution
+                D.FinInstnId(
+                    # Business Identifier Code (SWIFT-Code)
+                    D.BIC(BICIdentifier(self._debitor.bic))
+                    if self._debitor.bic is not None
+                    else None,
+                    # Other means of identification
+                    D.Othr(E.Id("NOTPROVIDED"))
+                    if self._debitor.bic is None
+                    else None,
+                )
+            ),
+            # Name of ultimate creditor, if not the creditor above.
+            D.UltmtCdtr(
+                # Name
+                D.Nm(Max70Text(self._debitor.ultimate_name))
+            )
+            if self._debitor.ultimate_name is not None
+            else None,
+            D.ChrgBr("SLEV"),  # Both parties bear their own charges
+            # Credit party that signs the mandate
+            *[transaction.to_xml() for transaction in self._transactions]
+        )
+        return root
+
+    def __iter__(self):
+        """Iterate over transactions."""
+        yield from self._transactions
+
+    def __getitem__(self, key):
+        """Access transaction via index."""
+        return self._transactions[key]
+
+    def __str__(self):
+        return "Transfer <{}>".format(self._payment_id)
+
+
+class BankWire(SEPAMessage):
+    """SEPA bank wire message, containing payments and transactions."""
+
+    xml_schema_path = str(
+        Path(__file__).absolute().parent / "pain.001.001.03.xsd"
+    )
+
+    def __init__(
+        self,
+        message_id,
+        debitor_name,
+        debitor_iban,
+        debitor_bic,
+        debitor_currency=None,
+        debitor_ultimate_name=None,
+    ):
+        self.message_id = message_id
+        self._debitor = Debitor(
+            name=debitor_name,
+            iban=debitor_iban,
+            bic=debitor_bic,
+            currency=debitor_currency,
+            ultimate_name=debitor_ultimate_name,
+        )
+        self._transfers = []
+
+    def add_transfer(
+        self,
+        payment_id,
+        payment_date,
+        batch_booking=True,
+    ):
+        transfer = Transfer(
+            debitor=self._debitor,
+            payment_id=payment_id,
+            payment_date=payment_date,
+        )
+        self._transfers.append(transfer)
+        return transfer
+
+    def count_transfers(self):
+        return len(self._transfers)
+
+    def transactions_sum(self):
+        return sum(
+            [transfer.transactions_sum() for transfer in self._transfers]
+        )
+
+    def count_transactions(self):
+        """Return number of all transaction of this bank transfer."""
+        return sum(
+            [transfer.count_transactions() for transfer in self._transfers]
+        )
+
+    def to_xml(self, check_xsd=False):
+        """Return lxml tree structure."""
+        root = D.Document(
+            # Customer Credit Transfer Initiation
+            D.CstmrCdtTrfInitn(
+                # Characteristics shared by all transactions in this message
+                D.GrpHdr(
+                    # End-to-end reference of this message
+                    D.MsgId(RestrictedIdentificationSEPA1(self.message_id)),
+                    # Date and time of file generation
+                    D.CreDtTm(ISODateTime(datetime.now().isoformat())),
+                    # Number of individual transaction in this file
+                    D.NbOfTxs(Max15NumericText(self.count_transactions())),
+                    D.CtrlSum(DecimalNumber(self.transactions_sum())),
+                    # Initiating party
+                    D.InitgPty(
+                        # Name
+                        D.Nm(Max70Text(self._debitor.name))
+                    ),
+                ),
+                *[transfer.to_xml() for transfer in self._transfers]
+            ),
+            **{
+                "{http://www.w3.org/2001/XMLSchema-instance}schemaLocation": (
+                    "urn:iso:std:iso:20022:tech:xsd:pain.001.001.03 "
+                    "pain.001.001.03.xsd")
+            }
+        )
+        return root
+
+    def __iter__(self):
+        """Iterate over assigned payments."""
+        yield from self._transfers
+
+    def __getitem__(self, key):
+        """Access payments via index. """
+        return self._transfers[key]
+
+    def __str__(self):
+        return " <{}>".format(self.message_id)
 
 
 class DirectDebit(SEPAMessage):
