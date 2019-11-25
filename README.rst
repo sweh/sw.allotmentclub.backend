@@ -18,6 +18,17 @@ Vereinsverwaltung der Leuna-Bungalowgemeinschaft Roter-See
    :target: https://www.ssllabs.com/ssltest/analyze.html?d=verwaltung.roter-see.de
    :alt: SSL state
 
+.. image:: https://www.travis-ci.org/sweh/sw.allotmentclub.backend.svg?branch=master
+    :target: https://www.travis-ci.org/sweh/sw.allotmentclub.backend
+    :alt: Build Status
+
+.. image:: https://img.shields.io/pypi/v/sw.allotmentclub.svg?style=flat
+    :target: https://pypi.python.org/pypi/sw.allotmentclub/
+    :alt: Latest Version
+
+.. image:: https://img.shields.io/pypi/pyversions/sw.allotmentclub.svg?style=flat
+    :target: https://pypi.python.org/pypi/sw.allotmentclub/
+    :alt: Supported Python versions
 
 INSTALL
 =======
