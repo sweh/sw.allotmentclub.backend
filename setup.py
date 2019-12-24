@@ -72,7 +72,7 @@ setup(
         'ua-parser==0.7.3',
         'user-agents==1.1.0',
         'venusian==1.1.0',
-        'waitress==1.0.2',
+        'waitress==1.4.0',
         'webob==1.7.2',
         'xhtml2pdf==0.2b1',
         'xlrd == 1.1.0',
