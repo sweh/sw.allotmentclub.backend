@@ -97,6 +97,7 @@ class SEPASammler(Object):
     accounting_year = Column(Integer)
     kind_id = Column(Integer, ForeignKey('bookingkind.id'), nullable=True)
     kind = sqlalchemy.orm.relation('BookingKind', uselist=False)
+    is_ueberweisung = Column(Boolean, default=False, nullable=False)
 
 
 class SEPASammlerEntry(Object):

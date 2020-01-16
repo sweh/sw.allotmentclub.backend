@@ -120,6 +120,37 @@ def test_SEPASammlerExportView_1(browser):
     assert 'MUELLER' == doc.find('.//MndtId', namespaces=doc.nsmap).text
 
 
+def test_SEPASammlerExportView_2(browser):
+    """Testing SEPASammler Energieabrechnung Sammelüberweisung XML export."""
+    from sw.allotmentclub import SEPASammler, SEPASammlerEntry, BookingKind
+    from sw.allotmentclub import Member
+    import datetime
+    import lxml.etree
+    kind = BookingKind.find_or_create(
+        title='Energieabrechnung', shorttitle='ENAB')
+    sammler = SEPASammler.create(
+        booking_day='2018-03-31', accounting_year=2018, kind=kind,
+        is_ueberweisung=True)
+    for iban, value in (('DE12500105170648489890', 2540500),
+                        ('EE342200221034126658', 8213400)):
+        SEPASammlerEntry.find_or_create(
+            sepasammler=sammler, value=value,
+            member=Member.create(
+                lastname='Müller', direct_debit=True, iban=iban,
+                bic='NOLADE21HAL',
+                direct_debit_date=datetime.date(2017, 1, 1)))
+    setUp()
+    browser.login()
+    browser.open(
+        'http://localhost/accounts/sepa_sammler/{}/export'.format(sammler.id))
+    doc = lxml.etree.fromstring(browser.contents.encode('utf-8'))
+    assert '1075.39' == doc.find('.//CtrlSum', namespaces=doc.nsmap).text
+    assert '2' == doc.find('.//NbOfTxs', namespaces=doc.nsmap).text
+    assert ['254.05', '821.34'] == [
+        d.text for d in doc.findall('.//InstdAmt', namespaces=doc.nsmap)
+    ]
+
+
 def test_BankingAccountListReportView_1(browser):
     from sw.allotmentclub import Booking, BookingKind, Member
     from ...conftest import assertFileEqual

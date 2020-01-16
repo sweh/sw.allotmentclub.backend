@@ -219,6 +219,10 @@ class Portal(sw.allotmentclub.application.Application):
         config.add_route('banking_account_list_report', '/accounts/report.pdf')
         config.add_route('sepa_sammler_list', '/accounts/sepa_sammler')
         config.add_route('sepa_sammler_add', '/accounts/sepa_sammler/add')
+        config.add_route(
+            'sepa_ueberweisung_add',
+            '/accounts/sepa_sammler/add_ueberweisung'
+        )
         config.add_route('sepa_sammler_edit',
                          '/accounts/sepa_sammler/{id}/edit',
                          factory='..account.SEPASammler.context_factory')
@@ -282,8 +286,6 @@ class Portal(sw.allotmentclub.application.Application):
 
         config.add_route('energy_price', '/energy_price')
         config.add_route('electricity_list', '/electricity')
-        config.add_route('export_wire_transfer',
-                         '/electricity/export_wire_transfer')
         config.add_route('global_energy_value_list', '/electricity_billing')
         config.add_route('energy_value_list',
                          '/electricity/{id}/history',

@@ -918,6 +918,46 @@ class SEPAExporterView(CSVExporterView):
 
     @property
     def data(self):
+        if self.context.is_ueberweisung:
+            return self.data_wire_bank
+        return self.data_direct_debit
+
+    @property
+    def data_wire_bank(self):
+        from ..direct_debit import BankWire
+        dd = BankWire(
+            message_id=self.subject,
+            debitor_name='Leuna Bungalowgemeinschaft Roter See e.V.',
+            debitor_iban='DE71800537623440000167',
+            debitor_bic='NOLADE21HAL')
+        transfer = dd.add_transfer(
+            payment_id='NOTPROVIDED',
+            payment_date=datetime.date(1999, 1, 1))
+        for value in self.values:
+            to_pay = float(self.format_eur(self.get_to_pay(value)))
+            member = self.get_member(value)
+
+            if not member.iban:
+                continue
+
+            if member.direct_debit_account_holder:
+                name = member.direct_debit_account_holder
+            elif member.title:
+                name = '{} {}, {}'.format(member.lastname, member.title,
+                                          member.firstname)
+            else:
+                name = '{}, {}'.format(member.lastname, member.firstname)
+
+            transfer.add_transaction(
+                name,
+                member.iban,
+                member.bic,
+                to_pay,
+                self.subject)
+        return dd.to_string(validate_xml=True)
+
+    @property
+    def data_direct_debit(self):
         dd = DirectDebit(
             message_id=self.subject,
             creditor_name='Leuna Bungalowgemeinschaft Roter See e.V.',

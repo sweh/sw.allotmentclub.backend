@@ -45,33 +45,3 @@ def test_can_download_and_upload_energy_list(browser):
                  .filter(EnergyValue.estimated_value.is_(True)).count())
     assert [8165, 8411, 100] == [v.value for v in
                                  ElectricMeter.get(4).energy_values]
-
-
-def test_can_download_sepa_wire_transfer(browser):
-    from sw.allotmentclub import EnergyValue
-    setUp()
-    testvalue1 = EnergyValue.query().filter_by(to_pay=2100600).one()
-    testvalue1.to_pay = -1325634
-    testvalue1.member.iban = 'DE12345678901234567890'
-    testvalue1.member.bic = 'NOLADE21HAL'
-
-    testvalue2 = EnergyValue.query().filter_by(to_pay=120960).one()
-    testvalue2.to_pay = -59852
-    testvalue2.member.iban = 'DE98765432109876543210'
-    testvalue2.member.bic = 'NOLADE21HAL'
-
-    testvalue3 = EnergyValue.query().filter_by(to_pay=534700).one()
-    testvalue3.to_pay = -123123
-
-    browser.login()
-    browser.open(
-        'http://localhost/electricity/export_wire_transfer?for_year=2014'
-    )
-    assert '<CtrlSum>138.55</CtrlSum>' in browser.contents
-    assert '<NbOfTxs>2</NbOfTxs>' in browser.contents
-    assert '132.56' in browser.contents
-    assert '5.99' in browser.contents
-    assert '12.31' not in browser.contents
-    assert (
-        'Energieabrechnung 2014. Rueckzahlung zuviel gezahlter Abschlaege '
-        'fuer Zaehler 20236014') in browser.contents

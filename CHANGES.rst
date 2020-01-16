@@ -2,10 +2,10 @@
 Change log for sw.allotmentclub
 ===============================
 
-4.11.1 (unreleased)
+4.12.0 (unreleased)
 ===================
 
-- Nothing changed yet.
+- Integrate SEPA-Sammelüberweisung into SEPA-Sammler.
 
 
 4.11.0 (2019-11-15)

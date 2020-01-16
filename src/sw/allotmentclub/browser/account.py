@@ -179,7 +179,7 @@ class MapBookingView(sw.allotmentclub.browser.base.EditJSFormView):
 
 
 def get_balance(value, request=None):
-    from sqlalchemy.sql.expression import false
+    from sqlalchemy.sql.expression import true, false, case
     import zope.component
     import risclog.sqlalchemy
     member = Member.get(value)
@@ -192,7 +192,15 @@ def get_balance(value, request=None):
         .filter(Booking.booking_day <= BOOKING_FUTURE)
         .filter(Booking.accounting_year == get_selected_year()))
     sepa = (
-        db.query(func.sum(SEPASammlerEntry.value))
+        db.query(func.sum(
+            case([
+                (
+                    SEPASammler.is_ueberweisung == true(),
+                    0 - SEPASammlerEntry.value
+                )],
+                else_=SEPASammlerEntry.value,
+            ).label('Betrag'),
+        ))
         .join(Member)
         .join(SEPASammler)
         .filter(SEPASammlerEntry.member == member)
@@ -272,7 +280,7 @@ class MemberAccountDetailQuery(sw.allotmentclub.browser.base.Query):
     }
 
     def select(self):
-        from sqlalchemy.sql.expression import false
+        from sqlalchemy.sql.expression import true, false, case
         bookings = (
             self.db.query(
                 to_string(Booking.id).concat('-Booking').label('#'),
@@ -295,7 +303,13 @@ class MemberAccountDetailQuery(sw.allotmentclub.browser.base.Query):
                  .concat('-SEPASammlerEntry').label('#')),
                 SEPASammler.booking_day.label('Datum'),
                 BookingKind.title.label('Typ'),
-                SEPASammlerEntry.value.label('Betrag'),
+                case([
+                    (
+                        SEPASammler.is_ueberweisung == true(),
+                        0 - SEPASammlerEntry.value
+                    )],
+                    else_=SEPASammlerEntry.value,
+                ).label('Betrag'),
                 SEPASammlerEntry.ignore_in_reporting.label('RS')
             )
             .select_from(SEPASammler)
@@ -589,12 +603,22 @@ class SEPASammlerQuery(sw.allotmentclub.browser.base.Query):
     }
 
     def select(self):
+        from sqlalchemy.sql.expression import case, literal, true
         return (
             self.db.query(
                 SEPASammler.id.label('#'),
                 BookingKind.title.label('Art'),
                 SEPASammler.booking_day.label('Datum'),
                 SEPASammler.pmtinfid.label('Sparkassen-ID'),
+                case(
+                    [
+                        (
+                            SEPASammler.is_ueberweisung == true(),
+                            literal('Sammelüberweisung')
+                        ),
+                    ],
+                    else_=literal('Sammellastschrift')
+                ).label('Typ'),
             )
             .select_from(SEPASammler)
             .outerjoin(BookingKind)
@@ -610,7 +634,9 @@ class SEPASammlerListView(sw.allotmentclub.browser.base.TableView):
     start_year = 2015
     available_actions = [
         dict(url='sepa_sammler_add', btn_class='btn-success',
-             icon='fa fa-plus', title='Neu'),
+             icon='fa fa-plus', title='Neue Sammellastschrift'),
+        dict(url='sepa_ueberweisung_add', btn_class='btn-success',
+             icon='fa fa-plus', title='Neue Sammelüberweisung'),
         dict(url='sepa_sammler_edit', btn_class='btn-success',
              icon='fa fa-pencil', title='Bearbeiten'),
         dict(url='sepa_sammler_entry_list', btn_class='btn-success',
@@ -643,13 +669,20 @@ class SEPASammlerUpdateView(sw.allotmentclub.browser.base.View):
         values = (
             Booking.query()
             .filter(Booking.accounting_year == self.context.accounting_year)
-            .filter(Booking.kind == self.context.kind)
-            .filter(Booking.value <= 0).all())
+            .filter(Booking.kind == self.context.kind)).all()
+        if self.context.is_ueberweisung:
+            values = [v for v in values if v.value > 0]
+        else:
+            values = [v for v in values if v.value <= 0]
         for value in values:
             if value.member.direct_debit:
                 SEPASammlerEntry().find_or_create(
                     sepasammler=self.context,
-                    value=0 - value.value,
+                    value=(
+                        value.value
+                        if self.context.is_ueberweisung
+                        else 0 - value.value
+                    ),
                     member=value.member)
 
     def grundsteuerb(self):
@@ -760,6 +793,13 @@ class SEPASammlerEditView(sw.allotmentclub.browser.base.EditJSFormView):
         }
 
     @property
+    def booking_kind_source(self):
+        result = super(SEPASammlerEditView, self).booking_kind_source
+        if self.context.is_ueberweisung:
+            return [r for r in result if r['title'] == 'Energieabrechnung']
+        return result
+
+    @property
     def load_data(self):
         fields = [
             ('kind_id', self.context.kind_id),
@@ -791,6 +831,9 @@ class SEPASammlerAddView(SEPASammlerEditView):
         context = SEPASammler.create()
         context.commit()
         super(SEPASammlerAddView, self).__init__(context, request)
+        self.log()
+
+    def log(self):
         log_with_user(
             user_data_log.info, self.request.user,
             'SEPA Sammler %s hinzugefügt.', self.context.id)
@@ -798,6 +841,17 @@ class SEPASammlerAddView(SEPASammlerEditView):
     @property
     def route_name(self):
         return 'sepa_sammler_edit'
+
+
+@view_config(route_name='sepa_ueberweisung_add', renderer='json',
+             permission='view')
+class SEPAUeberweisungAddView(SEPASammlerAddView):
+
+    def log(self):
+        self.context.is_ueberweisung = True
+        log_with_user(
+            user_data_log.info, self.request.user,
+            'SEPA Überweisung %s hinzugefügt.', self.context.id)
 
 
 @view_config(route_name='sepa_sammler_export', renderer='json',

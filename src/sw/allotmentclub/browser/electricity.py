@@ -139,8 +139,6 @@ class GlobalEnergyValueListView(sw.allotmentclub.browser.base.TableView):
     available_actions = [
         dict(url='calculate_energy_values', btn_class='btn-danger',
              icon='fa fa-refresh', title='Neuberechnen'),
-        dict(url='export_wire_transfer', btn_class='btn-success',
-             icon='fa fa-cloud-download', title='SEPA Sammel-Überweisung'),
     ]
 
 
@@ -541,54 +539,3 @@ class EnergyPriceListView(sw.allotmentclub.browser.base.TableView):
     query_class = EnergyPriceQuery
     year_selection = True
     start_year = 2014
-
-
-@view_config(route_name='export_wire_transfer', permission='view')
-class ExportWireTransfer(sw.allotmentclub.browser.base.SEPAExporterView):
-
-    subject = (
-        'Energieabrechnung %s. Rückzahlung zuviel gezahlter Abschläge '
-        'für Zähler %s')
-    filename = 'SEPAÜberweisung'
-
-    @property
-    def values(self):
-        year = get_selected_year()
-        return (EnergyValue.query()
-                .filter(EnergyValue.year == year)
-                .filter(EnergyValue.to_pay < 0))
-
-    @property
-    def data(self):
-        from ..direct_debit import BankWire
-        dd = BankWire(
-            message_id='NOTPROVIDED',
-            debitor_name='Leuna Bungalowgemeinschaft Roter See e.V.',
-            debitor_iban='DE71800537623440000167',
-            debitor_bic='NOLADE21HAL')
-        transfer = dd.add_transfer(
-            payment_id='NOTPROVIDED',
-            payment_date=datetime.date(1999, 1, 1))
-        for value in self.values:
-            to_pay = float(self.format_eur(0 - value.to_pay))
-            member = value.member
-
-            if not member.iban:
-                continue
-
-            if member.direct_debit_account_holder:
-                name = member.direct_debit_account_holder
-            elif member.title:
-                name = '{} {}, {}'.format(member.lastname, member.title,
-                                          member.firstname)
-            else:
-                name = '{}, {}'.format(member.lastname, member.firstname)
-
-            transfer.add_transaction(
-                name,
-                member.iban,
-                member.bic,
-                to_pay,
-                self.subject % (get_selected_year(),
-                                value.electric_meter.number))
-        return dd.to_string(validate_xml=True)
