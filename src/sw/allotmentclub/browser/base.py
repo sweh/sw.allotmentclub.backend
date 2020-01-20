@@ -472,7 +472,10 @@ class EditJSFormView(AddEditBase):
             json = None
         file_ = self.request.params.get('file')
         if self.form_submit() and file_ is None:
-            raise NotImplementedError('Handle in subclass.')
+            self.result = {
+                'status': 'error',
+                'msg': 'Ein unerwarteter Fehler ist aufgetreten'
+            }
         elif file_ is not None:
             created, route_name = self.handle_upload(file_)
             transaction.savepoint()
