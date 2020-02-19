@@ -263,8 +263,8 @@ class MailPreviewView(sw.allotmentclub.browser.base.View):
                     title=recipient.title,
                     firstname=recipient.firstname,
                     lastname=recipient.lastname,
-                    phone=recipient.get('phone', ''),
-                    mobile=recipient.get('mobile', ''))
+                    phone=recipient.phone,
+                    mobile=recipient.mobile)
 
     def update(self):
         output = PdfFileWriter()
