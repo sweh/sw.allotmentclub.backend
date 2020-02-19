@@ -7,6 +7,8 @@ Change log for sw.allotmentclub
 
 - Bugfix: No longer raise `NotImplemented` in bulletins.
 
+- Add phone and mobile to form letter / mail.
+
 
 4.12.0 (2020-01-16)
 ===================
