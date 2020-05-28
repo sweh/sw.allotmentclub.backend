@@ -2,7 +2,7 @@
 Change log for sw.allotmentclub
 ===============================
 
-4.12.1 (unreleased)
+4.12.1 (2020-05-28)
 ===================
 
 - Bugfix: No longer raise `NotImplemented` in bulletins.
