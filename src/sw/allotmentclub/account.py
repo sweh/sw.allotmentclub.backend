@@ -140,10 +140,13 @@ def create_fints_client():
         product_id=settings.get('banking.product_id'))
 
 
-def ask_for_tan(client, response):
-    print(response.challenge)
-    tan = '123456'
-    import pdb; pdb.set_trace()  # XXXXXXXXXX 
+def ask_for_tan(client, response, user=None):
+    log_with_user(
+        auth_log.info, user,
+        'hat Bank-Import ausgeführt: Fehler ({}).'.format(response.challenge))
+    transaction.commit()
+    raise NotImplementedError('A TAN is required')
+    tan = None
     client.send_tan(response, tan)
 
 
@@ -152,10 +155,10 @@ def import_transactions_from_fints(user=None):
     client = create_fints_client()
     with client:
         if client.init_tan_response:
-            ask_for_tan(client, client.init_tan_response)
+            ask_for_tan(client, client.init_tan_response, user)
         accounts = client.get_sepa_accounts()
         if isinstance(accounts, NeedTANResponse):
-            accounts = ask_for_tan(client, accounts)
+            accounts = ask_for_tan(client, accounts, user)
         for account in accounts:
             try:
                 local_account = (
@@ -167,7 +170,7 @@ def import_transactions_from_fints(user=None):
             statements = client.get_transactions(
                 account, date.today() - timedelta(days=50), date.today())
             while isinstance(statements, NeedTANResponse):
-                statements = ask_for_tan(client, statements)
+                statements = ask_for_tan(client, statements, user)
             import_transactions(
                 [stmt.data for stmt in statements], local_account, user)
 
