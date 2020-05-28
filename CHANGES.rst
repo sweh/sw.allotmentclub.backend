@@ -2,7 +2,7 @@
 Change log for sw.allotmentclub
 ===============================
 
-4.12.3 (unreleased)
+4.12.3 (2020-05-28)
 ===================
 
 - FinTS-Integration now logs an error if a TAN is required.
