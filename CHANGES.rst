@@ -5,7 +5,7 @@ Change log for sw.allotmentclub
 4.12.2 (unreleased)
 ===================
 
-- Nothing changed yet.
+- Fix brown bag release.
 
 
 4.12.1 (2020-05-28)

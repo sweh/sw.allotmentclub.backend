@@ -3,7 +3,7 @@ from __future__ import unicode_literals
 from .log import log_with_user, auth_log
 from .model import Object, Organization
 from datetime import date, timedelta
-from fints.client import FinTS3PinTanClient, FinTSClientMode
+from fints.client import FinTS3PinTanClient, FinTSClientMode, NeedTANResponse, FinTSUnsupportedOperation
 from sqlalchemy import Column, Integer, String, ForeignKey, DateTime, Boolean
 from sqlalchemy import Date
 import kontocheck
@@ -137,15 +137,25 @@ def create_fints_client():
         settings.get('banking.pin'),
         settings.get('banking.url'),
         mode=FinTSClientMode.INTERACTIVE,
-        product_id=settings.get('banking.product_id'),
-        force_twostep_tan=True)
+        product_id=settings.get('banking.product_id'))
+
+
+def ask_for_tan(client, response):
+    print(response.challenge)
+    tan = '123456'
+    import pdb; pdb.set_trace()  # XXXXXXXXXX 
+    client.send_tan(response, tan)
 
 
 def import_transactions_from_fints(user=None):
     kontocheck.lut_load(9)
     client = create_fints_client()
     with client:
+        if client.init_tan_response:
+            ask_for_tan(client, client.init_tan_response)
         accounts = client.get_sepa_accounts()
+        if isinstance(accounts, NeedTANResponse):
+            accounts = ask_for_tan(client, accounts)
         for account in accounts:
             try:
                 local_account = (
@@ -156,6 +166,8 @@ def import_transactions_from_fints(user=None):
                 continue
             statements = client.get_transactions(
                 account, date.today() - timedelta(days=50), date.today())
+            while isinstance(statements, NeedTANResponse):
+                statements = ask_for_tan(client, statements)
             import_transactions(
                 [stmt.data for stmt in statements], local_account, user)
 
