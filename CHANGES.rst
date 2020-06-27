@@ -7,6 +7,8 @@ Change log for sw.allotmentclub
 
 - Remove members, that already left the club, from the CalDAV export. (#20)
 
+- Improve contrast in disabled textarea fields. (#14)
+
 
 4.12.3 (2020-05-28)
 ===================
