@@ -5,7 +5,7 @@ Change log for sw.allotmentclub
 4.12.4 (unreleased)
 ===================
 
-- Nothing changed yet.
+- Remove members, that already left the club, from the CalDAV export. (#20)
 
 
 4.12.3 (2020-05-28)

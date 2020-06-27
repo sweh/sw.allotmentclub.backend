@@ -100,7 +100,8 @@ def export_members_vcf():
         output = ""
         for m in (
                 Member.query()
-                .filter(Member.organization_id == organization.id)):
+                .filter(Member.organization_id == organization.id)
+                .filter(Member.leaving_year.is_(None))):
             output += """BEGIN:VCARD
 VERSION:3.0
 PRODID:-//Sebastian Wehrmann//sw.allotmentclub//DE
