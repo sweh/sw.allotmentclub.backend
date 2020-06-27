@@ -3,7 +3,10 @@ from __future__ import unicode_literals
 from .log import log_with_user, auth_log
 from .model import Object, Organization
 from datetime import date, timedelta
-from fints.client import FinTS3PinTanClient, FinTSClientMode, NeedTANResponse, FinTSUnsupportedOperation
+from fints.client import (
+    FinTS3PinTanClient, FinTSClientMode, NeedTANResponse,
+    FinTSUnsupportedOperation
+)
 from sqlalchemy import Column, Integer, String, ForeignKey, DateTime, Boolean
 from sqlalchemy import Date
 import kontocheck
