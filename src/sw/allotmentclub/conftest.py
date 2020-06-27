@@ -3,9 +3,14 @@ from __future__ import unicode_literals
 from datetime import datetime
 from sw.allotmentclub import User, Member, Organization
 from sw.allotmentclub.model import ENGINE_NAME
+from psycopg2.extensions import ISOLATION_LEVEL_AUTOCOMMIT
+import random
+import psycopg2
 import csv
 import json
 import os.path
+import sqlalchemy
+import sqlalchemy.orm.session
 import pkg_resources
 import pytest
 import risclog.sqlalchemy.testing
@@ -111,15 +116,133 @@ def json_fixture(request):
         request.function.__name__.replace('test_', ''))
 
 
+class PostgreSQLTestDB(object):
+
+    user = 'allotmentclubtest'
+    passwd = 'asdf'
+    host = 'localhost'
+    port = 5432
+    name = None
+
+    def __init__(self, prefix, schema_path=None):
+        self.prefix = prefix
+        db_name = '%012x' % random.getrandbits(48)
+        self.name = f'{self.prefix}{db_name}'
+        self.dsn = self.get_dsn()
+        self.schema_path = schema_path
+
+    def get_dsn(self):
+        login = ''
+        if self.user:
+            login += self.user
+            if self.passwd:
+                login += ':' + self.passwd
+            login += '@'
+        return f'postgresql://{login}{self.host}:{self.port}/{self.name}'
+
+    def create(self):
+        with psycopg2.connect(
+            database='postgres',
+            user=self.user,
+            password=self.passwd,
+            host=self.host,
+            port=self.port,
+        ) as conn:
+            conn.set_isolation_level(ISOLATION_LEVEL_AUTOCOMMIT)
+            with conn.cursor() as cursor:
+                sql = f'CREATE DATABASE {self.name} WITH OWNER {self.user}'
+                cursor.execute(sql)
+        self.mark_testing()
+        if self.schema_path:
+            with psycopg2.connect(
+                database=self.name,
+                user=self.user,
+                password=self.passwd,
+                host=self.host,
+                port=self.port,
+            ) as conn:
+                conn.set_isolation_level(ISOLATION_LEVEL_AUTOCOMMIT)
+                with conn.cursor() as cursor:
+                    cursor.execute(open(self.schema_path, 'r').read())
+
+    def drop(self):
+        with psycopg2.connect(
+            database='postgres',
+            user=self.user,
+            password=self.passwd,
+            host=self.host,
+            port=self.port,
+        ) as conn:
+            conn.set_isolation_level(ISOLATION_LEVEL_AUTOCOMMIT)
+            with conn.cursor() as cursor:
+                for sql in [
+                    f'UPDATE pg_database SET datallowconn = false '
+                    f"WHERE datname = '{self.name}'",
+                    f'ALTER DATABASE "{self.name}" CONNECTION LIMIT 1',
+                    f'SELECT pg_terminate_backend(pid) FROM pg_stat_activity '
+                    f"WHERE datname = '{self.name}'",
+                    f'drop database {self.name}',
+                ]:
+                    cursor.execute(sql)
+
+    def mark_testing(self):
+        engine = sqlalchemy.create_engine(self.dsn)
+        meta = sqlalchemy.MetaData()
+        meta.bind = engine
+        table = sqlalchemy.Table(
+            'tmp_functest',
+            meta,
+            sqlalchemy.Column('schema_mtime', sqlalchemy.Integer),
+        )
+        table.create()
+        engine.dispose()
+
+
+def database_fixture_factory(
+    request,
+    prefix,
+    name,
+    schema_path=None,
+    create_all=True,
+    alembic_location=None,
+    expire_on_commit=False,
+):
+    db = PostgreSQLTestDB(prefix=prefix, schema_path=schema_path)
+    db.create()
+
+    db_util = risclog.sqlalchemy.db.get_database(
+        testing=True, keep_session=True, expire_on_commit=expire_on_commit
+    )
+    db_util.register_engine(
+        db.dsn, name=name, alembic_location=alembic_location
+    )
+    if create_all:
+        db_util.create_all(name)
+    transaction.commit()
+
+    def dropdb():
+        transaction.abort()
+        db_util.drop_engine(name)
+        for conn in sqlalchemy.pool._refs:
+            conn.close()
+
+        db.drop()
+        if db_util and not db_util.get_all_engines():
+            db_util._teardown_utility()
+
+    request.addfinalizer(dropdb)
+    return db_util
+
+
 @pytest.fixture(scope='session')
 def database_session(request):
-    """Set up and tear down the sw.allotmentclub database.
+    """Set up and tear down the import test database.
 
     Returns the database utility object.
     """
-    # create pytest fixture for database
-    return risclog.sqlalchemy.testing.database_fixture_factory(
-        request, 'sw.allotmentclub', ENGINE_NAME, create_all=True)
+    yield database_fixture_factory(
+        request, 'sw_allotmentclub_', ENGINE_NAME
+    )
 
 
 @pytest.fixture(scope='function')
@@ -133,8 +256,13 @@ def database(request, database_session):
 
     Returns the database utility object.
     """
-    risclog.sqlalchemy.testing.database_test_livecycle_fixture_factory(request)
-    return database_session
+
+    for engine in database_session.get_all_engines():
+        database_session.empty(engine)
+
+    yield database_session
+
+    database_session.session.close_all()
 
 
 @pytest.fixture(scope='function')
