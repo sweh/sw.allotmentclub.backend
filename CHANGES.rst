@@ -7,6 +7,10 @@ Change log for sw.allotmentclub
 
 - Small bugfix importing SEPA-Sammler.
 
+- Add Zählerwechsel for Steinmüller.
+
+- Fix Zählernummer for Schiffmann (222).
+
 
 4.12.4 (2020-06-27)
 ===================
