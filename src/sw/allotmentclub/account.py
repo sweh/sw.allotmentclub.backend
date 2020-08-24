@@ -275,7 +275,8 @@ def add_transaction(data, account):
         else:
             booking.kind = debit_booking.kind
     if booking.booking_text == 'SAMMEL-LS-EINZUG':
-        booking.recipient = org_title
+        if not booking.recipient:
+            booking.recipient = org_title
         sum_ = 0
         for sammler in sammlers:
             sum_ += sammler.value

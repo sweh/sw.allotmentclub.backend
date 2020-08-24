@@ -5,7 +5,7 @@ Change log for sw.allotmentclub
 4.12.5 (unreleased)
 ===================
 
-- Nothing changed yet.
+- Small bugfix importing SEPA-Sammler.
 
 
 4.12.4 (2020-06-27)
