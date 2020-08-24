@@ -2,7 +2,7 @@
 Change log for sw.allotmentclub
 ===============================
 
-4.12.5 (unreleased)
+4.12.5 (2020-08-24)
 ===================
 
 - Small bugfix importing SEPA-Sammler.
