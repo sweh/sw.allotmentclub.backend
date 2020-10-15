@@ -2,7 +2,7 @@
 Change log for sw.allotmentclub
 ===============================
 
-4.12.6 (unreleased)
+4.12.6 (2020-10-15)
 ===================
 
 - Add ah signature.
