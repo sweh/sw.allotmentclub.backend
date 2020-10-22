@@ -232,6 +232,12 @@ class EnergyPrice(Object):
     power_fee = Column(Integer)  # Gebühr Kraftstrom-Zähler in MicroCent
 
 
+def format_iban(iban):
+    if not iban or len(iban) < 10:
+        return iban
+    return 'X' * 10 + iban[10:]
+
+
 def get_energyvalue_mail_data(member, year):
     for value in (EnergyValue.query()
                   .filter(EnergyValue.year == year)
@@ -252,7 +258,7 @@ def get_energyvalue_mail_data(member, year):
             last_year=value.year-1,
             year=value.year,
             next_year=value.year+1,
-            iban=member.iban,
+            iban=format_iban(member.iban),
             bic=member.bic,
             threshold=format_eur(THRESHOLD),
             advance_pay=format_eur(value.whole_price - value.to_pay),

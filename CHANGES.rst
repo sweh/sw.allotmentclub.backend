@@ -5,7 +5,7 @@ Change log for sw.allotmentclub
 4.12.7 (unreleased)
 ===================
 
-- Nothing changed yet.
+- Romove some chars from iban when sending electricity mails.
 
 
 4.12.6 (2020-10-15)
