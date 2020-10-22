@@ -126,7 +126,6 @@ class MemberEditView(
     def load_options(self):
         options = super(MemberEditView, self).load_options
         options.update({
-            'phone': {'label': 'Telefon'},
             'mobile': {'label': 'Mobil-Telefon'},
             'birthday': {'label': 'Geburtstag'},
             'direct_debit': {'label': 'Lastschrift',
@@ -139,6 +138,7 @@ class MemberEditView(
                 'label': 'Lastschrift-Datum',
                 'css_class': 'datetimepicker'},
             'get_post': {'label': 'Postversand?', 'template': 'form_boolean'},
+            'note': {'label': 'Hinweis', 'template': 'form_markdown'},
         })
         return options
 

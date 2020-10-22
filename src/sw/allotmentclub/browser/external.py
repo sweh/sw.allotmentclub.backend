@@ -24,6 +24,7 @@ class Query(sw.allotmentclub.browser.base.Query):
         return (
             self.db.query(
                 ExternalRecipient.id.label('#'),
+                ExternalRecipient.organization.label('Firma'),
                 ExternalRecipient.lastname.label('Nachname'),
                 ExternalRecipient.firstname.label('Vorname'),
                 (
@@ -77,6 +78,7 @@ class ExternalRecipientEditView(sw.allotmentclub.browser.base.EditJSFormView):
                     {'title': 'Herr', 'token': 'Herr'},
                     {'title': 'Frau', 'token': 'Frau'}
                 ]},
+            'organization': {'label': 'Firma'},
             'firstname': {'label': 'Vorname', 'required': True},
             'lastname': {'label': 'Nachname', 'required': True},
             'street': {'label': 'Straße'},
@@ -84,6 +86,7 @@ class ExternalRecipientEditView(sw.allotmentclub.browser.base.EditJSFormView):
             'city': {'label': 'Stadt'},
             'country': {'label': 'Land'},
             'email': {'label': 'E-Mail'},
+            'phone': {'label': 'Telefon'},
         }
 
     @property
@@ -91,6 +94,7 @@ class ExternalRecipientEditView(sw.allotmentclub.browser.base.EditJSFormView):
         fields = [
             ('appellation', self.context.appellation),
             ('title', self.context.title),
+            ('organization', self.context.organization),
             ('firstname', self.context.firstname),
             ('lastname', self.context.lastname),
             ('street', self.context.street),
@@ -98,6 +102,7 @@ class ExternalRecipientEditView(sw.allotmentclub.browser.base.EditJSFormView):
             ('city', self.context.city),
             ('country', self.context.country),
             ('email', self.context.email),
+            ('phone', self.context.phone),
 
         ]
         return collections.OrderedDict(fields)

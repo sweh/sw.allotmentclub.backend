@@ -2,10 +2,12 @@
 Change log for sw.allotmentclub
 ===============================
 
-4.12.7 (unreleased)
+4.13.0 (unreleased)
 ===================
 
-- Romove some chars from iban when sending electricity mails.
+- Remove some chars from iban when sending electricity mails.
+
+- Add phone, note and organization to external recipients and members.
 
 
 4.12.6 (2020-10-15)

@@ -1,6 +1,6 @@
 # encoding=utf-8
 from sqlalchemy import Column, Integer, String, ForeignKey, Numeric, DateTime
-from sqlalchemy import Date, Table, LargeBinary, Boolean
+from sqlalchemy import Date, Table, LargeBinary, Boolean, Text
 from sqlalchemy.orm import relationship, ColumnProperty
 from sqlalchemy.orm.interfaces import AttributeExtension
 from sqlalchemy.ext.instrumentation import InstrumentationManager
@@ -123,7 +123,7 @@ class Log(Object):
 
 
 ADDRESS = """
-{appellation}<br />
+{appellation_or_organization}<br />
 {title} {firstname} {lastname}<br />
 {street}<br />
 {zip} {city}<br />
@@ -148,6 +148,14 @@ class PersonMixin(object):
         address_data['country'] = (
             '' if address_data['country'] == 'Deutschland'
             else address_data['country'])
+        if address_data['organization']:
+            address_data['appellation_or_organization'] = (
+                address_data['organization']
+            )
+        else:
+            address_data['appellation_or_organization'] = (
+                address_data['appellation']
+            )
         return ADDRESS.format(**address_data)
 
     @property
@@ -176,6 +184,7 @@ class Member(Object, PersonMixin):
 
     title = Column(String(20), default=u'')
     appellation = Column(String(20), default=u'')
+    organization = Column(String(100), default='')
     firstname = Column(String(50), default=u'')
     lastname = Column(String(50), default=u'')
     street = Column(String(100), default=u'')
@@ -191,6 +200,7 @@ class Member(Object, PersonMixin):
     direct_debit_account_holder = Column(String(100))
     direct_debit = Column(Boolean)
     direct_debit_date = Column(DateTime)
+    note = Column(Text)
     get_post = Column(Boolean, default=True)
     leaving_year = Column(Integer)
 

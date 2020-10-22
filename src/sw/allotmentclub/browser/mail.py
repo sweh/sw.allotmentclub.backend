@@ -261,6 +261,7 @@ class MailPreviewView(sw.allotmentclub.browser.base.View):
         return dict(deflection=recipient.deflection,
                     appellation=recipient.appellation,
                     title=recipient.title,
+                    organization=recipient.organization or '',
                     firstname=recipient.firstname,
                     lastname=recipient.lastname,
                     phone=getattr(recipient, 'phone', ''),
@@ -513,9 +514,10 @@ class MailEditView(sw.allotmentclub.browser.base.EditJSFormView):
         return [
             {
                 'token': external.id,
-                'title': '{}, {}'.format(
+                'title': '{}, {} ({})'.format(
                     external.lastname,
-                    external.firstname)
+                    external.firstname,
+                    external.organization or '')
             }
             for external in (
                 ExternalRecipient.query()

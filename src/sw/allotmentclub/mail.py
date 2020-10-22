@@ -93,6 +93,7 @@ class ExternalRecipient(Object, PersonMixin):
 
     title = Column(String(20), default=u'')
     appellation = Column(String(20), default=u'')
+    organization = Column(String(100), default='')
     firstname = Column(String(50), default=u'')
     lastname = Column(String(50), default=u'')
     street = Column(String(100), default=u'')
@@ -100,5 +101,6 @@ class ExternalRecipient(Object, PersonMixin):
     city = Column(String(50), default=u'')
     country = Column(String(50), default=u'')
     email = Column(String(100), default=u'')
+    phone = Column(String(50), default=u'')
 
     messages = relationship("Message", secondary=externals_messages_table)
