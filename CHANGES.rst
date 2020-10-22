@@ -2,7 +2,7 @@
 Change log for sw.allotmentclub
 ===============================
 
-4.13.0 (unreleased)
+4.13.0 (2020-10-22)
 ===================
 
 - Remove some chars from iban when sending electricity mails.
