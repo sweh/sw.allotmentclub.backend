@@ -35,7 +35,6 @@ class Query(sw.allotmentclub.browser.base.Query):
                 ExternalRecipient.email.label('E-Mail'),
             )
             .select_from(ExternalRecipient)
-            .filter(ExternalRecipient.city != '')
         )
 
 
