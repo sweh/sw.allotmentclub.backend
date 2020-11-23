@@ -2,7 +2,7 @@
 Change log for sw.allotmentclub
 ===============================
 
-4.13.1 (unreleased)
+4.13.1 (2020-11-23)
 ===================
 
 - Display all external recipients.
