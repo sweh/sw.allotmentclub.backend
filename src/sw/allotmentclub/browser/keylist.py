@@ -3,7 +3,7 @@ from __future__ import unicode_literals
 from ..log import user_data_log, log_with_user
 from .base import boolean, date_time, to_string, string_agg, format_size
 from .base import format_mimetype
-from io import StringIO
+from io import StringIO, BytesIO
 from pyramid.response import FileIter
 from pyramid.view import view_config
 from sqlalchemy.sql import func
@@ -295,9 +295,10 @@ class KeylistAttachmentDownloadView(object):
     def __call__(self):
         response = self.request.response
         response.set_cookie('fileDownload', value='true')
-        response.content_type = self.context.mimetype.encode('utf-8')
+        response.content_type = self.context.mimetype
         response.content_length = int(self.context.size)
         response.content_disposition = (
-            b'attachment; filename=' + self.context.name.encode('utf-8'))
-        response.app_iter = FileIter(StringIO(self.context.data))
+            'attachment; filename=' + self.context.name
+        )
+        response.app_iter = FileIter(BytesIO(self.context.data))
         return response

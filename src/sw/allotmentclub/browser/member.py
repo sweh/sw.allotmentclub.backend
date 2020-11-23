@@ -253,9 +253,9 @@ class DirectDebitLetter(sw.allotmentclub.browser.base.View):
 
 <p>
 Der Vorstand der Bungalowgemeinschaft Roter See e.V. wird hiermit widerruflich
-ab sofort ermächtigt, die fälligen Mitgliedsbeiträge sowie die
-Energiekostenabschläge und den Endabrechnungsbetrag für den Energieverbrauch
-mittels Lastschriftverfahren von meinem Konto einzuziehen.
+ab sofort ermächtigt, alle im Zusammenhang mit meiner Mitgliedschaft
+bestehenden Forderungen wie z.B. Mitgliedsbeiträge oder Energiekosten mittels
+Lastschriftverfahren von meinem Konto einzuziehen.
 </p>
 
 <table style="font-size: 10pt;">

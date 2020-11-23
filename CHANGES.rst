@@ -7,6 +7,8 @@ Change log for sw.allotmentclub
 
 - Display all external recipients.
 
+- Minor bugfixes.
+
 
 4.13.0 (2020-10-22)
 ===================
