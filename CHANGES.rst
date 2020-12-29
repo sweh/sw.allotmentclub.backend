@@ -5,7 +5,7 @@ Change log for sw.allotmentclub
 4.13.2 (unreleased)
 ===================
 
-- Nothing changed yet.
+- Add "Wirtschaftsplan" to the Konto-Typen View.
 
 
 4.13.1 (2020-11-23)

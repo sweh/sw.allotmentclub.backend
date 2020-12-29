@@ -38,7 +38,7 @@ NAVIGATION_ITEMS = (
     ('Abwasser', 'waste_water', 'fa-recycle', None),
     ('Grundsteuer B', 'property_tax_b', 'fa-university', None),
     ('Finanzen', 'booking_list', 'fa-credit-card', (
-        ('Konto-Typen', 'banking_account_list'),
+        ('Übersicht', 'banking_account_list'),
         ('Vereins-Konto', 'booking_list'),
         ('Mitgliedskonten', 'member_account_list'),
         ('SEPA-Lastschriften', 'sepa_direct_debit'),

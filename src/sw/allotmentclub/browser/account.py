@@ -12,7 +12,7 @@ from pyramid.view import view_config
 from sqlalchemy.sql import func
 from sw.allotmentclub import Booking, Member, Allotment, GrundsteuerB, Abwasser
 from sw.allotmentclub import BookingKind, SEPASammler, SEPASammlerEntry
-from sw.allotmentclub import VALUE_PER_MEMBER
+from sw.allotmentclub import Budget, VALUE_PER_MEMBER
 import collections
 import datetime
 import dateutil.parser
@@ -346,38 +346,35 @@ class MemberAccountDetailSwitchRSView(sw.allotmentclub.browser.base.View):
                        'message': 'Reporting-Status geändert.'}
 
 
-def get_outstanding_raw(value, request=None, year=None):
+def get_budget_raw(value, request=None, year=None):
     from sqlalchemy.sql.expression import false
     year = year if year else get_selected_year()
     kind = BookingKind.get(value)
-    if kind.id == 19:
-        return (
-            get_outstanding_raw(3) +
-            get_outstanding_raw(4) +
-            get_outstanding_raw(5))
-    else:
+    return [
+        Budget.query()
+        .filter(Budget.booking_kind == kind)
+        .filter(Budget.accounting_year == year)
+        .one()
+    ]
+
+
+def get_budget_sum(value, request=None, year=None):
+    from sqlalchemy.sql.expression import false
+    year = year if year else get_selected_year()
+    kind = BookingKind.get(value)
+    if kind.shorttitle == 'ENAB':
+        kind = BookingKind.query().filter_by(shorttitle='ENAN').one()
         query = (
             Booking.query()
-            .join(Member)
             .filter(Booking.kind == kind)
             .filter(Booking.accounting_year == year)
-            .filter(Booking.ignore_in_reporting == false())
-            .filter(Booking.is_splitted == false())
-            .filter(Booking.banking_account_id != 1)
         )
-        return query.all()
+        return 0 - sum(b.value for b in query)
+    return sum(b.value for b in get_budget_raw(value, request, year))
 
 
-def get_outstanding_sum(value, request=None, year=None):
-    kind = BookingKind.get(value)
-    sum_ = sum(b.value for b in get_outstanding_raw(value, request, year))
-    if kind.id == 19:
-        return 0 - sum_
-    return sum_
-
-
-def get_outstanding(value, request=None, year=None):
-    return format_eur_with_color(get_outstanding_sum(value, request, year))
+def get_budget(value, request=None, year=None):
+    return format_eur_with_color(get_budget_sum(value, request, year))
 
 
 def get_incoming_raw(value, request=None, year=None):
@@ -393,6 +390,7 @@ def get_incoming_raw(value, request=None, year=None):
         .filter(Booking.is_splitted == false())
         .filter(Booking.banking_account_id == 1)
         .filter(Booking.booking_text != 'SAMMEL-LS-EINZUG')
+        .filter(~Booking.purpose.like('%ANZAHL 00000%'))
     )
     sammler = (
         SEPASammlerEntry.query()
@@ -402,11 +400,30 @@ def get_incoming_raw(value, request=None, year=None):
         .filter(SEPASammlerEntry.ignore_in_reporting == false())
         .filter(SEPASammler.accounting_year == year)
     )
-    return query.all() + sammler.all()
+    result = query.all() + sammler.all()
+    if kind.shorttitle == 'ENAB':
+        result += (
+            get_incoming_raw(
+                BookingKind.query().filter_by(shorttitle='ENA1').one().id,
+                request, year
+            ) +
+            get_incoming_raw(
+                BookingKind.query().filter_by(shorttitle='ENA2').one().id,
+                request, year
+            )
+        )
+    return result
 
 
 def get_incoming_sum(value, request=None, year=None):
-    return sum(b.value for b in get_incoming_raw(value, request, year))
+    result = 0
+    for item in get_incoming_raw(value, request, year):
+        value = item.value
+        if hasattr(item, 'sepasammler'):
+            if item.sepasammler.is_ueberweisung:
+                value = 0 - value
+        result += value
+    return result
 
 
 def get_incoming(value, request=None, year=None):
@@ -418,25 +435,26 @@ def get_incoming_pre_year(value, request=None):
 
 
 def get_sum(value, request=None):
-    return format_eur_with_color(
-        get_outstanding_sum(value, request) +
-        get_incoming_sum(value, request))
+    budget = get_budget_sum(value, request)
+    actual = get_incoming_sum(value, request)
+
+    return format_eur_with_color(actual - budget)
 
 
 class BankingAccountQuery(sw.allotmentclub.browser.base.Query):
 
     formatters = {
         'Vorjahr': get_incoming_pre_year,
-        'Soll': get_outstanding,
+        'Budget': get_budget,
         'Ist': get_incoming,
-        'Offen': get_sum,
+        'Differenz': get_sum,
     }
 
     css_classes = {
         'Vorjahr': 'right nowrap',
-        'Soll': 'right nowrap',
+        'Budget': 'right nowrap',
         'Ist': 'right nowrap',
-        'Offen': 'right nowrap',
+        'Differenz': 'right nowrap',
     }
 
     data_class = {
@@ -444,9 +462,9 @@ class BankingAccountQuery(sw.allotmentclub.browser.base.Query):
     }
     data_hide = {
         'Vorjahr': 'phone',
-        'Soll': 'phone',
+        'Budget': 'phone',
         'Ist': 'phone',
-        'Offen': 'phone,tablet'
+        'Differenz': 'phone,tablet'
     }
 
     def select(self):
@@ -455,11 +473,13 @@ class BankingAccountQuery(sw.allotmentclub.browser.base.Query):
                 BookingKind.id.label('#'),
                 BookingKind.title.label('Kategorie'),
                 BookingKind.id.label('Vorjahr'),
-                BookingKind.id.label('Soll'),
+                BookingKind.id.label('Budget'),
                 BookingKind.id.label('Ist'),
-                BookingKind.id.label('Offen')
+                BookingKind.id.label('Differenz')
             )
-            .select_from(BookingKind))
+            .select_from(BookingKind)
+            .filter(~BookingKind.shorttitle.in_(('ENA1', 'ENA2', 'ENAN')))
+        )
 
 
 @view_config(route_name='banking_account_list', renderer='json',
@@ -482,32 +502,38 @@ class BankingAccountListDetailView(sw.allotmentclub.browser.base.TableView):
 
     def __call__(self):
         incoming = get_incoming_raw(self.context.id, self.request)
-        outstanding = get_outstanding_raw(self.context.id, self.request)
         columns = [
             {'name': name, 'css_class': 'hide' if id == 0 else ''}
             for id, name in enumerate(
-                ['#', 'Betrag', 'Mitglied', 'Buchungstext', 'Datum', 'TYP'])]
+                ['#', 'Betrag', 'Mitglied', 'Buchungstext', 'Datum'])]
         result = []
-        for type_, objs in enumerate([incoming, outstanding]):
-            for obj in objs:
-                value = obj.value
-                if self.context.id == 19 and type_ == 1:
+        for obj in incoming:
+            value = obj.value
+            if not hasattr(obj, 'booking_text'):
+                if obj.sepasammler.is_ueberweisung:
+                    type_ = 'Sammel-Überweisung'
                     value = 0 - value
-                new_line = [
-                    {'value': obj.id, 'css_class': 'hide'},
-                    {'value': format_eur_with_color(value, self.request)},
-                    {'value': '{}, {} ({})'.format(
-                        obj.member.lastname, obj.member.firstname,
-                        (obj.member.allotments[0].number
-                         if obj.member.allotments else ''))},
-                    {'value': (obj.purpose if hasattr(obj, 'booking_text')
-                               else 'Sammler-LS')},
-                    {'value': format_date(
-                        obj.booking_day if hasattr(obj, 'booking_day')
-                        else obj.sepasammler.booking_day)},
-                    {'value': 'SOLL' if type_ == 1 else 'IST'},
-                ]
-                result.append(new_line)
+                else:
+                    type_ = 'Sammel-Lastschrift'
+                text = (
+                    f'{type_} {obj.sepasammler.kind.title} '
+                    f'{obj.sepasammler.pmtinfid}'
+                )
+            else:
+                text = obj.purpose
+            new_line = [
+                {'value': obj.id, 'css_class': 'hide'},
+                {'value': format_eur_with_color(value, self.request)},
+                {'value': '{}, {} ({})'.format(
+                    obj.member.lastname, obj.member.firstname,
+                    (obj.member.allotments[0].number
+                        if obj.member.allotments else ''))},
+                {'value': text},
+                {'value': format_date(
+                    obj.booking_day if hasattr(obj, 'booking_day')
+                    else obj.sepasammler.booking_day)},
+            ]
+            result.append(new_line)
         data = {'data': result,
                 'header': columns,
                 'actions': [],

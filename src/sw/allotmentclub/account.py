@@ -34,6 +34,17 @@ class BookingKind(Object):
         'BankingAccount', uselist=False, backref='booking_kinds')
 
 
+class Budget(Object):
+    """ Ein Element im Wirtschaftsplan. """
+
+    value = Column(Integer)
+    accounting_year = Column(Integer)
+    booking_kind_id = Column(
+        Integer, ForeignKey('bookingkind.id'), nullable=False)
+    booking_kind = sqlalchemy.orm.relation(
+        'BookingKind', backref='budgets')
+
+
 class Booking(Object):
     """ Eine Buchung. """
 
