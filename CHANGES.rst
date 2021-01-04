@@ -2,7 +2,7 @@
 Change log for sw.allotmentclub
 ===============================
 
-4.14.1 (unreleased)
+4.15.0 (2021-01-04)
 ===================
 
 - Fix display of double bungalows in Map.
