@@ -60,7 +60,18 @@ class MapView(sw.allotmentclub.browser.base.TableView):
                 result['data']['data']):
             if fn:
                 ln += ', {}.'.format(fn[0])
-            map_data[str(parcel)] = [str(allotment), ln]
+            if str(parcel) not in map_data:
+                map_data[str(parcel)] = [str(allotment), ln]
+            elif map_data[str(parcel)][1] == ln:
+                map_data[str(parcel)] = [
+                    map_data[str(parcel)][0] + f', {allotment}',
+                    map_data[str(parcel)][1]
+                ]
+            else:
+                map_data[str(parcel)] = [
+                    map_data[str(parcel)][0] + f', {allotment}',
+                    map_data[str(parcel)][1] + f', {ln}'
+                ]
         result['data']['map_data'] = map_data
         with open(pkg_resources.resource_filename(
                 'sw.allotmentclub.browser', 'lageplan.svg')) as map_:
