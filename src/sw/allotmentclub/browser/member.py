@@ -186,11 +186,7 @@ class MemberEditView(
             'get_post': {'label': 'Postversand?', 'template': 'form_boolean'},
             'note': {'label': 'Hinweis', 'template': 'form_markdown'},
         })
-        if not (
-            Allotment.query()
-            .filter(Allotment.member_id == self.context.id)
-            .one_or_none()
-        ):
+        if not self.context.active:
             options.update({
                 'passive_allotment_id': {
                     'label': 'Passive Mitgliedschaft',
@@ -215,9 +211,12 @@ class MemberEditView(
             ('bic', self.context.bic),
             ('direct_debit_date', date(self.context.direct_debit_date)),
             ('get_post', self.context.get_post),
-            ('passive_allotment_id', self.context.passive_allotment_id),
-            ('note', self.context.note),
         ])
+        if not self.context.active:
+            fields.append(
+                ('passive_allotment_id', self.context.passive_allotment_id)
+            )
+        fields.append(('note', self.context.note))
         return collections.OrderedDict(fields)
 
     def save(self, key, value):

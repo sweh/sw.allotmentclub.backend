@@ -5,7 +5,7 @@ Change log for sw.allotmentclub
 4.15.1 (unreleased)
 ===================
 
-- Nothing changed yet.
+- Bugfix edit active members with multiple allotments. (#12)
 
 
 4.15.0 (2021-01-04)
