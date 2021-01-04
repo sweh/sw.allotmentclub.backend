@@ -16,7 +16,8 @@ NAVIGATION_ITEMS = (
         ('Abrechnung', 'member_assignments'),
     )),
     ('Mitglieder', 'member_list', 'fa-user', (
-        ('Alle', 'member_list'),
+        ('Aktive', 'member_list'),
+        ('Passive', 'member_list_passive'),
         ('Pächter', 'member_list_leased'),
         ('Trinkwasser', 'member_list_tap_water'),
     )),

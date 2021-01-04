@@ -206,6 +206,16 @@ class Member(Object, PersonMixin):
 
     messages = relationship("Message", secondary=members_messages_table)
 
+    passive_allotment_id = Column(
+        Integer, ForeignKey('allotment.id'), nullable=True)
+    passive_allotment = sqlalchemy.orm.relation(
+        'Allotment', uselist=True, backref='passive_members',
+        foreign_keys=[passive_allotment_id])
+
+    @property
+    def active(self):
+        return bool(self.allotments)
+
     @property
     def assignment_hours(self):
         if self.id in (187, 188):  # Werkstatt, Verein
@@ -249,7 +259,8 @@ class Allotment(Object):
     number = Column(Integer, nullable=False)
     member_id = Column(Integer, ForeignKey(Member.id), nullable=False)
     member = sqlalchemy.orm.relation(
-        'Member', uselist=False, backref='allotments')
+        'Member', uselist=False, backref='allotments',
+        foreign_keys=[member_id])
 
 
 class Parcel(Object):

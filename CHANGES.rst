@@ -7,6 +7,8 @@ Change log for sw.allotmentclub
 
 - Fix display of double bungalows in Map.
 
+- Add active and passive members (#12)
+
 
 4.14.0 (2020-12-29)
 ===================

@@ -70,7 +70,7 @@ class Query(sw.allotmentclub.browser.base.Query):
             )
             .select_from(Booking)
             .outerjoin(Member)
-            .outerjoin(Allotment)
+            .outerjoin(Allotment, Allotment.member_id == Member.id)
             .outerjoin(BookingKind)
             .group_by(Booking.id, Member.lastname, BookingKind.shorttitle)
             .filter(Booking.banking_account == self.context)
@@ -347,7 +347,6 @@ class MemberAccountDetailSwitchRSView(sw.allotmentclub.browser.base.View):
 
 
 def get_budget_raw(value, request=None, year=None):
-    from sqlalchemy.sql.expression import false
     year = year if year else get_selected_year()
     kind = BookingKind.get(value)
     return [
@@ -359,7 +358,6 @@ def get_budget_raw(value, request=None, year=None):
 
 
 def get_budget_sum(value, request=None, year=None):
-    from sqlalchemy.sql.expression import false
     year = year if year else get_selected_year()
     kind = BookingKind.get(value)
     if kind.shorttitle == 'ENAB':
@@ -731,11 +729,14 @@ class SEPASammlerUpdateView(sw.allotmentclub.browser.base.View):
                     value=value.value,
                     member=member)
 
+    @property
+    def active_members(self):
+        return super(SEPASammlerUpdateView, self).active_members.filter(
+            Member.direct_debit.is_(True)
+        )
+
     def arbeitsstunden(self):
-        members = (Member.query()
-                         .join(Allotment)
-                         .filter(Member.direct_debit.is_(True)))
-        for member in members.all():
+        for member in self.active_members.all():
             bookings = (
                 Booking.query()
                 .filter(
@@ -752,9 +753,7 @@ class SEPASammlerUpdateView(sw.allotmentclub.browser.base.View):
                     member=member)
 
     def mitgliedsbeitrag(self):
-        members = Member.query().join(Allotment).filter(
-            Member.direct_debit.is_(True))
-        for member in members.all():
+        for member in self.active_members.all():
             SEPASammlerEntry().find_or_create(
                 sepasammler=self.context,
                 value=VALUE_PER_MEMBER,
@@ -942,7 +941,7 @@ class SEPASammlerEntryQuery(sw.allotmentclub.browser.base.Query):
             .select_from(SEPASammlerEntry)
             .filter(SEPASammlerEntry.sepasammler == self.context)
             .join(Member)
-            .outerjoin(Allotment)
+            .outerjoin(Allotment, Allotment.member_id == Member.id)
             .group_by(SEPASammlerEntry.id, Member.lastname, Member.firstname))
 
 
@@ -987,7 +986,7 @@ class SEPADirectDebitQuery(sw.allotmentclub.browser.base.Query):
                 Member.direct_debit_date.label('Datum'),
             )
             .select_from(Member)
-            .join(Allotment)
+            .join(Allotment, Allotment.member_id == Member.id)
             .group_by(Member.id)
             .filter(Member.direct_debit == true())
         )

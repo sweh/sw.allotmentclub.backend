@@ -248,6 +248,7 @@ class Portal(sw.allotmentclub.application.Application):
 
         config.add_route('member_list', '/members')
         config.add_route('member_list_leased', '/members_leased')
+        config.add_route('member_list_passive', '/members_passive')
         config.add_route('member_list_tap_water', '/members_tap_water')
         config.add_route('member_sale_history', '/members/sale_history')
         config.add_route('membership_fee', '/members/insert_membership_fee')

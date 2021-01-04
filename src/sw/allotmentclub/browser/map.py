@@ -35,7 +35,7 @@ class Query(sw.allotmentclub.browser.base.Query):
             )
             .select_from(Parcel)
             .join(Allotment)
-            .join(Member)
+            .join(Member, Member.id == Allotment.member_id)
             .group_by(
                 Parcel.id,
                 Parcel.number,

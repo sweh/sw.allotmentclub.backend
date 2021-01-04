@@ -34,7 +34,7 @@ class Query(sw.allotmentclub.browser.base.Query):
                 Abwasser.value.label('Gebühr'),
             )
             .select_from(Member)
-            .outerjoin(Allotment)
+            .outerjoin(Allotment, Allotment.member_id == Member.id)
             .outerjoin(Parcel)
             .join(Abwasser)
         )

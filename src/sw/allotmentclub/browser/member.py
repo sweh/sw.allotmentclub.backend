@@ -38,54 +38,98 @@ class Query(sw.allotmentclub.browser.base.Query):
         'Geburtstag': date,
     }
 
+    join_condition = (Allotment.member_id == Member.id)
+
+    fields = (
+        Member.id.label('#'),
+        func.coalesce(
+            string_agg(Allotment.number), 'n/a').label('Bungalow'),
+        func.coalesce(
+            string_agg(Parcel.number), 'n/a').label('Flurstück'),
+        Member.lastname.label('Nachname'),
+        Member.firstname.label('Vorname'),
+        Member.street.label('Straße'),
+        Member.zip.label('PLZ'),
+        Member.city.label('Ort'),
+        Member.phone.label('Telefon'),
+        Member.mobile.label('Mobil'),
+        Member.email.label('E-Mail'),
+        Member.birthday.label('Geburtstag'),
+    )
+
     def select(self):
         return (
-            self.db.query(
-                Member.id.label('#'),
-                func.coalesce(
-                    string_agg(Allotment.number), 'n/a').label('Bungalow'),
-                func.coalesce(
-                    string_agg(Parcel.number), 'n/a').label('Flurstück'),
-                Member.lastname.label('Nachname'),
-                Member.firstname.label('Vorname'),
-                Member.street.label('Straße'),
-                Member.zip.label('PLZ'),
-                Member.city.label('Ort'),
-                Member.phone.label('Telefon'),
-                Member.mobile.label('Mobil'),
-                Member.email.label('E-Mail'),
-                Member.birthday.label('Geburtstag'),
-            )
+            self.db.query(*self.fields)
             .select_from(Member)
-            .outerjoin(Allotment)
-            .outerjoin(Parcel)
-            .group_by(Member.id, Parcel.leased)
+            .join(Allotment, self.join_condition)
+            .join(Parcel)
+            .group_by(Member.id)
             .filter(Member.leaving_year.is_(None))
+            .filter(Member.organization_id == self.user.organization_id)
         )
+
+
+class ActiveQuery(Query):
+
+    def select(self):
+        return super(ActiveQuery, self).select().filter(
+            Allotment.id.isnot(None))
 
 
 @view_config(route_name='member_list', renderer='json', permission='view')
 class MemberListView(sw.allotmentclub.browser.base.TableView):
 
-    query_class = Query
-    default_order_by = 'lastname'
+    query_class = ActiveQuery
     available_actions = [
+        dict(url='member_edit', btn_class='btn-success',
+             icon='fa fa-pencil', title='Bearbeiten'),
         dict(url='direct_debit_letter', btn_class='btn-success',
              icon='fa fa-print', title='Lastschrift drucken'),
-        dict(url='become_member_letter', btn_class='btn-success',
-             icon='fa fa-print', title='Beitrittserklärung drucken'),
         dict(url='mv_entrance_list', btn_class='btn-success',
              icon='fa fa-print', title='Einlasslisten drucken'),
         dict(url='member_sale', btn_class='btn-success',
              icon='fa fa-money', title='Verkauf'),
         dict(url='member_sale_history', btn_class='btn-success',
              icon='fa fa-money', title='Verkaufhistorie'),
+        dict(url='membership_fee', btn_class='btn-danger',
+             icon='fa fa-money', title='Mitgliedsbeiträge generieren')]
+
+
+class PassiveQuery(Query):
+
+    join_condition = (Member.passive_allotment_id == Allotment.id)
+
+    def select(self):
+        passive = super(PassiveQuery, self).select().filter(
+            Member.passive_allotment_id.isnot(None)
+        )
+        other = (
+            self.db.query(*self.fields)
+            .select_from(Member)
+            .outerjoin(Allotment, Allotment.member_id == Member.id)
+            .outerjoin(Parcel)
+            .group_by(Member.id)
+            .filter(Member.leaving_year.is_(None))
+            .filter(Allotment.member_id.is_(None))
+            .filter(Member.passive_allotment_id.is_(None))
+            .filter(Member.organization_id == self.user.organization_id)
+        )
+        return passive.union(other).distinct()
+
+
+@view_config(route_name='member_list_passive', renderer='json',
+             permission='view')
+class MemberListPassiveView(MemberListView):
+
+    query_class = PassiveQuery
+    available_actions = [
         dict(url='member_add', btn_class='btn-success',
              icon='fa fa-plus', title='Neu'),
         dict(url='member_edit', btn_class='btn-success',
              icon='fa fa-pencil', title='Bearbeiten'),
-        dict(url='membership_fee', btn_class='btn-danger',
-             icon='fa fa-money', title='Mitgliedsbeiträge generieren')]
+        dict(url='become_member_letter', btn_class='btn-success',
+             icon='fa fa-print', title='Beitrittserklärung drucken'),
+    ]
 
 
 class LeasedQuery(Query):
@@ -100,6 +144,7 @@ class LeasedQuery(Query):
 class MemberListLeasedView(MemberListView):
 
     query_class = LeasedQuery
+    available_actions = []
 
 
 class TapWaterQuery(Query):
@@ -114,6 +159,7 @@ class TapWaterQuery(Query):
 class MemberListTapWaterView(MemberListView):
 
     query_class = TapWaterQuery
+    available_actions = []
 
 
 @view_config(route_name='member_edit', renderer='json', permission='view')
@@ -140,6 +186,19 @@ class MemberEditView(
             'get_post': {'label': 'Postversand?', 'template': 'form_boolean'},
             'note': {'label': 'Hinweis', 'template': 'form_markdown'},
         })
+        if not (
+            Allotment.query()
+            .filter(Allotment.member_id == self.context.id)
+            .one_or_none()
+        ):
+            options.update({
+                'passive_allotment_id': {
+                    'label': 'Passive Mitgliedschaft',
+                    'source': self.allotment_source,
+                    'css_class': 'chosen',
+                    'required': False
+                }
+            })
         return options
 
     @property
@@ -156,6 +215,8 @@ class MemberEditView(
             ('bic', self.context.bic),
             ('direct_debit_date', date(self.context.direct_debit_date)),
             ('get_post', self.context.get_post),
+            ('passive_allotment_id', self.context.passive_allotment_id),
+            ('note', self.context.note),
         ])
         return collections.OrderedDict(fields)
 
@@ -453,7 +514,7 @@ class MVEntranceListView(sw.allotmentclub.browser.base.XLSXExporterView):
                 Member.id.label('Vollmacht'),
             )
             .select_from(Member)
-            .join(Allotment)
+            .join(Allotment, Member.id == Allotment.member_id)
             .group_by(Member.id)
             .filter(Member.lastname != 'Werkstatt')
             .filter(Member.lastname != 'Verein')
@@ -499,7 +560,10 @@ class MemberSaleHistoryQuery(sw.allotmentclub.browser.base.Query):
             .select_from(SaleHistory)
             .join(seller, SaleHistory.seller_id == seller.id)
             .join(buyer, SaleHistory.buyer_id == buyer.id)
-            .outerjoin(Allotment)
+            .outerjoin(
+                Allotment,
+                Allotment.member_id.in_((seller.id, buyer.id))
+            )
             .outerjoin(Parcel)
             .group_by(SaleHistory.id, seller.lastname, seller.firstname,
                       buyer.lastname, buyer.firstname)

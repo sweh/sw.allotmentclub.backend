@@ -1,6 +1,6 @@
 # coding:utf8
 from __future__ import unicode_literals
-from .. import Member, BookingKind, User
+from .. import Member, BookingKind, User, Allotment
 from ..direct_debit import DirectDebit
 from ..log import user_data_log, log_with_user
 from io import StringIO, BytesIO
@@ -294,6 +294,13 @@ class View(object):
             self.request.params and
             list(self.request.params.keys()) != ['for_year'])
 
+    @property
+    def active_members(self):
+        return (
+            Member.query()
+            .join(Allotment, Allotment.member_id == Member.id)
+        )
+
 
 class AddEditBase(View):
 
@@ -391,6 +398,28 @@ class EditJSFormView(AddEditBase):
                              for a in member.allotments) or 'n/a')
             }
             for member in self.members.order_by(Member.lastname).all()]
+
+    @property
+    def allotments(self):
+        return (
+            Allotment.query()
+            .join(Member, Allotment.member_id == Member.id)
+            .filter(
+                Member.organization_id == self.request.user.organization_id)
+        )
+
+    @property
+    def allotment_source(self):
+        return [
+            {
+                'token': allotment.id,
+                'title': '{} ({}, {})'.format(
+                    str(allotment.number),
+                    allotment.member.lastname,
+                    allotment.member.firstname
+                )
+            }
+            for allotment in self.allotments.order_by(Allotment.number)]
 
     @property
     def users(self):

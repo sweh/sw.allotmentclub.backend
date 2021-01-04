@@ -50,7 +50,7 @@ class Query(sw.allotmentclub.browser.base.Query):
             )
             .select_from(ElectricMeter)
             .outerjoin(Allotment)
-            .outerjoin(Member))
+            .outerjoin(Member, Allotment.member_id == Member.id))
 
 
 @view_config(route_name='electricity_list', renderer='json',
@@ -359,7 +359,7 @@ class EnergyMeterExporterView(sw.allotmentclub.browser.base.XLSXExporterView):
             )
             .select_from(ElectricMeter)
             .join(Allotment)
-            .join(Member)
+            .join(Member, Allotment.member_id == Member.id)
             .order_by(Allotment.number)
             .filter(ElectricMeter.disconnected == false())
             .filter(ElectricMeter.id != 124)

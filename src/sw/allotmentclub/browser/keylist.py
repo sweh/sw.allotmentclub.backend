@@ -119,7 +119,7 @@ class KeyQuery(sw.allotmentclub.browser.base.Query):
                 Key.lost.label('Verloren'))
             .select_from(Key)
             .outerjoin(Member)
-            .outerjoin(Allotment)
+            .outerjoin(Allotment, Allotment.member_id == Member.id)
             .group_by(Key.id, Member.lastname, Member.firstname)
             .filter(Key.keylist == self.context))
 

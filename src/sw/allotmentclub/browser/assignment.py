@@ -257,7 +257,7 @@ class MemberAssignmentQuery(sw.allotmentclub.browser.base.Query):
                 Member.id.label('Stunden'),
             )
             .select_from(Allotment)
-            .join(Member)
+            .join(Member, Allotment.member_id == Member.id)
             .group_by(Member.id)
         )
 
@@ -313,8 +313,7 @@ class MemberAssignmentsDetailListView(sw.allotmentclub.browser.base.TableView):
 class MemberAssignmentsBillView(sw.allotmentclub.browser.base.View):
 
     def update(self):
-        members = Member.query().join(Allotment)
-        for member in members.all():
+        for member in self.active_members.all():
             member.bill_assignment_hours()
         self.result = {'status': 'success',
                        'message': 'Arbeitsstunden erfolgreich übertragen'}
