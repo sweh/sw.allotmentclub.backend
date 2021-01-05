@@ -331,7 +331,8 @@ class ProtocolAttachmentAddView(sw.allotmentclub.browser.base.AddView):
         data = file.file
         data.seek(0)
         data = data.read()
-        name = 'Anlage %s' % int2roman(len(self.context.attachments) + 1)
+        number = int2roman(len(self.context.attachments) + 1)
+        name = f'Anlage {number} ({file.filename})'
         mimetype = file.type
         size = len(data)
         return name, mimetype, size, data

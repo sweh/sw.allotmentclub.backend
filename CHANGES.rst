@@ -9,6 +9,8 @@ Change log for sw.allotmentclub
 
 - Add attachment upload to members. (#11)
 
+- Add filename to protocol attachments. (#16)
+
 
 4.15.0 (2021-01-04)
 ===================
