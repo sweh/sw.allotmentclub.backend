@@ -205,6 +205,9 @@ class Member(Object, PersonMixin):
     leaving_year = Column(Integer)
 
     messages = relationship("Message", secondary=members_messages_table)
+    attachments = sqlalchemy.orm.relation(
+        'MemberAttachment', uselist=True, backref='protocol',
+        order_by="MemberAttachment.name", cascade='all,delete')
 
     passive_allotment_id = Column(
         Integer, ForeignKey('allotment.id'), nullable=True)
@@ -244,6 +247,17 @@ class Member(Object, PersonMixin):
                 accounting_year=year,
                 member=self,
                 kind=kind)
+
+
+class MemberAttachment(Object):
+    """ Eine Anlage zum Mitglied. """
+
+    member_id = Column(
+        Integer, ForeignKey('member.id'), nullable=False)
+    name = Column(String(100), default=u'')
+    mimetype = Column(String(30), default=u'')
+    size = Column(String(20), default=u'')
+    data = Column(LargeBinary(MAX_FILE_SIZE))
 
 
 class SaleHistory(Object):

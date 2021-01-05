@@ -204,6 +204,19 @@ class Portal(sw.allotmentclub.application.Application):
         config.add_route('member_edit',
                          '/members/{id}/edit',
                          factory='..model.Member.context_factory')
+        config.add_route('member_attachment_add',
+                         '/members/{id}/attachments/add',
+                         factory='..model.Member.context_factory')
+        config.add_route('member_attachment', '/members/{id}/attachments',
+                         factory='..model.Member.context_factory')
+        config.add_route(
+            'member_attachment_download',
+            '/members/{member_id}/attachments/{id}/download',
+            factory='..model.MemberAttachment.context_factory')
+        config.add_route(
+            'member_attachment_delete',
+            '/members/{member_id}/attachments/{id}/delete',
+            factory='..model.MemberAttachment.context_factory')
         config.add_route('member_account_list', '/members/account_list')
         config.add_route('member_account_detail_list',
                          '/members/{id}/account_details',

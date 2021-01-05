@@ -7,6 +7,8 @@ Change log for sw.allotmentclub
 
 - Bugfix edit active members with multiple allotments. (#12)
 
+- Add attachment upload to members. (#11)
+
 
 4.15.0 (2021-01-04)
 ===================

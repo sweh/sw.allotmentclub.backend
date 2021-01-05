@@ -1,15 +1,17 @@
 # encoding=utf8
+from io import BytesIO
+from pyramid.response import FileIter
 from ..log import user_data_log, log_with_user
-from .base import date, string_agg, get_selected_year
+from .base import date, string_agg, get_selected_year, format_size
+from .base import format_mimetype
 from .letter import render_pdf
 from .protocol import format_markdown
-from pyramid.response import FileIter
 from pyramid.view import view_config
 from sqlalchemy import func
 from sqlalchemy.orm import aliased
 from sw.allotmentclub import BankingAccount, BookingKind, VALUE_PER_MEMBER
 from sw.allotmentclub import Member, Allotment, Parcel, Booking
-from sw.allotmentclub import SaleHistory
+from sw.allotmentclub import SaleHistory, MemberAttachment
 import collections
 import datetime
 import dateutil.parser
@@ -83,6 +85,8 @@ class MemberListView(sw.allotmentclub.browser.base.TableView):
     available_actions = [
         dict(url='member_edit', btn_class='btn-success',
              icon='fa fa-pencil', title='Bearbeiten'),
+        dict(url='member_attachment', btn_class='btn-success',
+             icon='fa fa-list', title='Anlagen'),
         dict(url='direct_debit_letter', btn_class='btn-success',
              icon='fa fa-print', title='Lastschrift drucken'),
         dict(url='mv_entrance_list', btn_class='btn-success',
@@ -127,6 +131,8 @@ class MemberListPassiveView(MemberListView):
              icon='fa fa-plus', title='Neu'),
         dict(url='member_edit', btn_class='btn-success',
              icon='fa fa-pencil', title='Bearbeiten'),
+        dict(url='member_attachment', btn_class='btn-success',
+             icon='fa fa-list', title='Anlagen'),
         dict(url='become_member_letter', btn_class='btn-success',
              icon='fa fa-print', title='Beitrittserklärung drucken'),
     ]
@@ -575,3 +581,106 @@ class MemberSaleHistoryView(sw.allotmentclub.browser.base.TableView):
 
     query_class = MemberSaleHistoryQuery
     default_order_by = 'date'
+
+
+class AttachmentQuery(sw.allotmentclub.browser.base.Query):
+
+    formatters = {
+        'Größe': format_size,
+        'Dateityp': format_mimetype,
+    }
+    data_class = {
+        'Name': 'expand'
+    }
+    data_hide = {
+        'Dateityp': 'phone,tablet',
+        'Größe': 'phone,tablet',
+    }
+
+    def select(self):
+        return (
+            self.db.query(
+                MemberAttachment.id.label('#'),
+                MemberAttachment.name.label('Name'),
+                MemberAttachment.mimetype.label('Dateityp'),
+                MemberAttachment.size.label('Größe'))
+            .select_from(MemberAttachment)
+            .filter_by(member_id=self.context.id))
+
+
+@view_config(route_name='member_attachment', renderer='json',
+             permission='view')
+class MemberAttachmentsView(sw.allotmentclub.browser.base.TableView):
+    """ Liste aller Anlagen."""
+
+    query_class = AttachmentQuery
+    default_order_by = 'Name'
+    available_actions = [
+        dict(url='member_attachment_add', btn_class='btn-success',
+             icon='fa fa-plus', title='Neu'),
+        dict(url='member_attachment_delete', btn_class='btn-danger',
+             icon='glyphicon glyphicon-trash', title='Löschen'),
+        dict(url='member_attachment_download', btn_class='btn-success',
+             icon='fa fa-download', title='Herunterladen')]
+
+
+@view_config(route_name='member_attachment_add', renderer='json',
+             permission='view')
+class MemberAttachmentAddView(sw.allotmentclub.browser.base.AddView):
+
+    model = MemberAttachment
+
+    def parse_file(self):
+        file = self.request.params.get('file')
+        name = file.filename
+        data = file.file
+        data.seek(0)
+        data = data.read()
+        mimetype = file.type
+        size = len(data)
+        return name, mimetype, size, data
+
+    def __call__(self):
+        if not self.form_submit():
+            return {'status': 'success', 'data': {}}
+        name, mimetype, size, data = self.parse_file()
+        attachment = self.model.create(
+            name=name, mimetype=mimetype, size=size, data=data,
+            member_id=self.context.id)
+        attachment.commit()
+        log_with_user(user_data_log.info,
+                      self.request.user,
+                      'hat Anlage %s zu Mitglied %s hinzugefügt.',
+                      attachment.id, self.context.id)
+        return {'status': 'success'}
+
+
+@view_config(route_name='member_attachment_download',
+             permission='view')
+class MemberAttachmentDownloadView(sw.allotmentclub.browser.base.View):
+
+    def __call__(self):
+        response = self.request.response
+        response.set_cookie('fileDownload', value='true')
+        response.content_type = self.context.mimetype
+        response.content_length = int(self.context.size)
+        response.content_disposition = (
+            'attachment; filename="{}"'.format(self.context.name))
+        response.app_iter = FileIter(BytesIO(self.context.data))
+        return response
+
+
+@view_config(route_name='member_attachment_delete', renderer='json',
+             permission='view')
+class MemberAttachmentDeleteView(sw.allotmentclub.browser.base.DeleteView):
+
+    model = MemberAttachment
+
+    def log(self):
+        if self.deleted is not None:
+            deleted = self.context.id
+            member = self.context.member_id
+            log_with_user(user_data_log.info,
+                          self.request.user,
+                          'hat Anlage %s von Mitglied %s gelöscht.',
+                          deleted, member)
