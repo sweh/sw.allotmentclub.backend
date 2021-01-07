@@ -2,7 +2,7 @@
 Change log for sw.allotmentclub
 ===============================
 
-5.0.1 (unreleased)
+5.0.1 (2021-01-07)
 ==================
 
 - Fix parsing of german dates.
