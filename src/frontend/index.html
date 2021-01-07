@@ -317,7 +317,7 @@
         </div>
       </div>
     </div>
-    <script src="optimized.eba989a1.js"></script>
+    <script src="optimized.52f02fba.js"></script>
     <script type="text/javascript">
       $(document).ready(function () {
           var xhr = new XMLHttpRequest(),
@@ -356,10 +356,10 @@
 
           $('#add-event-form .submit').click(function (ev) {
             var data = {
-                category: $('#add-event-form label.active input').val(),
+                category: $('#add-event-form label.active input[name=category]').val(),
                 title: $('#add-event-form input[name=title]').val(),
                 description: $('#add-event-form textarea[name=description]').val(),
-                allday: $('#add-event-form label.active input').val(),
+                allday: $('#add-event-form label.active input[name=allday]').val(),
                 start: $('#add-event-form input[name=start]').val(),
                 end: $('#add-event-form input[name=end]').val(),
                 owner: localStorage.getItem('username'),
