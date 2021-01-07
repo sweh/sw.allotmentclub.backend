@@ -147,6 +147,7 @@ class Portal(sw.allotmentclub.application.Application):
 
         config.add_route('home', '/')
         config.add_route('map', '/map')
+        config.add_route('infobrief_print', '/infobrief_print')
         config.add_route('calendar', '/calendar')
         config.add_route('calendar_event_add', '/calendar/add')
         config.add_route(

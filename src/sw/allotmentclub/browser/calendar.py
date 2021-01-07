@@ -3,12 +3,16 @@ from pyramid.view import view_config
 from sw.allotmentclub import Event, User, Protocol, Assignment, Member
 from sw.allotmentclub import SEPASammler, BookingKind
 from ..log import user_data_log, log_with_user
-from .base import to_string
+from .base import to_string, get_selected_year, date, date_time
+from .letter import render_pdf
 from sqlalchemy.dialects.postgresql import INTERVAL
 from sqlalchemy.sql.functions import concat
+import pybars
 import sw.allotmentclub.browser.base
 import pyramid.threadlocal
 import sqlalchemy
+import zope.component
+import risclog.sqlalchemy.interfaces
 
 
 class BaseQuery(sw.allotmentclub.browser.base.Query):
@@ -22,6 +26,7 @@ class BaseQuery(sw.allotmentclub.browser.base.Query):
                 Event.description.label('Beschreibung'),
                 Event.start.label('Start'),
                 Event.end.label('Ende'),
+                to_string('Termin').label('Typ'),
                 Event.allday.label('Ganztag'),
                 User.username.label('Owner'),
             )
@@ -50,6 +55,7 @@ class VorstandQuery(BaseQuery):
                         concat(3, ' HOURS'), INTERVAL
                     )
                 ).label('Ende'),
+                to_string('Vorstandssitzung').label('Typ'),
                 sqlalchemy.false().label('Ganztag'),
                 to_string('').label('Owner'),
             )
@@ -79,6 +85,7 @@ class MitgliederQuery(BaseQuery):
                         concat(2.5, ' HOURS'), INTERVAL
                     )
                 ).label('Ende'),
+                to_string('Arbeitseinsatz').label('Typ'),
                 sqlalchemy.false().label('Ganztag'),
                 to_string('').label('Owner'),
             )
@@ -97,6 +104,7 @@ class MitgliederQuery(BaseQuery):
                     'Konto').label('Beschreibung'),
                 SEPASammler.booking_day.label('Start'),
                 SEPASammler.booking_day.label('Ende'),
+                to_string('Lastschrift').label('Typ'),
                 sqlalchemy.true().label('Ganztag'),
                 to_string('').label('Owner'),
             )
@@ -120,6 +128,92 @@ class Query(sw.allotmentclub.browser.base.Query):
 class CalendarView(sw.allotmentclub.browser.base.TableView):
 
     query_class = Query
+
+    available_actions = [
+        dict(url='infobrief_print', btn_class='btn-success',
+             icon='fa fa-print', title='Termine Info-Brief')]
+
+
+@view_config(route_name='infobrief_print', permission='view')
+class InfobriefPrintView(sw.allotmentclub.browser.base.PrintBaseView):
+
+    filename = 'Termine'
+    subject = 'Termine'
+    message = """
+<h2>Lastschrifteinzüge</h2>
+<table style="font-size: 10pt;">
+  <tbody>
+    {{#each Lastschrift}}
+    <tr>
+      <td style="width: 40%;">{{date}}</td>
+      <td style="width: 60%">{{title}}</td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+
+<h2>wichtige Termine</h2>
+<table style="font-size: 10pt;">
+  <tbody>
+    {{#each Termin}}
+    <tr>
+      <td style="width: 40%;">{{date}}</td>
+      <td style="width: 60%">{{title}}</td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+
+<h2>Geplante Arbeitseinsätze</h2>
+<table style="font-size: 10pt;">
+  <tbody>
+    {{#each Arbeitseinsatz}}
+    <tr>
+      <td style="width: 40%;">{{date}}</td>
+      <td style="width: 60%">{{title}}</td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>"""
+
+    def get_pdf(self):
+        year = get_selected_year()
+        subject = self.subject + f' {year}'
+        compiler = pybars.Compiler()
+        template = compiler.compile(self.message)
+
+        db = zope.component.getUtility(
+            risclog.sqlalchemy.interfaces.IDatabase
+        )
+        query = MitgliederQuery(db, None)
+        events = []
+        for event in query.select():
+            if event[4].year != year:
+                continue
+            events.append(
+                dict(
+                    date=event[4],
+                    title=event[2],
+                    type_=event[-3],
+                    allday=event[-2]
+                )
+            )
+        data = {
+            'Lastschrift': [],
+            'Arbeitseinsatz': [],
+            'Termin': [],
+        }
+        for event in sorted(events, key=lambda x: x['date']):
+            datum = (
+                date(event['date']) if event['allday']
+                else date_time(event['date'])
+            )
+            data[event['type_']].append(dict(
+                date=datum, title=event['title']
+            ))
+
+        message = "".join(template(data))
+        return render_pdf(None, subject, message, self.request.user)
 
 
 @view_config(route_name='calendar_event_add', renderer='json',

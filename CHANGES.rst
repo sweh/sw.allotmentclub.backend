@@ -7,6 +7,8 @@ Change log for sw.allotmentclub
 
 - Small improvements and bugfixes.
 
+- Add Termine page download for Info-Brief. (#10)
+
 
 5.0.3 (2021-01-07)
 ==================

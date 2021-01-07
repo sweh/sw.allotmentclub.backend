@@ -289,9 +289,10 @@ class MemberLetter(sw.allotmentclub.browser.base.AddView):
 
 @view_config(route_name='direct_debit_letter', renderer='json',
              permission='view')
-class DirectDebitLetter(sw.allotmentclub.browser.base.View):
+class DirectDebitLetter(sw.allotmentclub.browser.base.PrintBaseView):
 
     with_address = None
+    filename = 'Lastschrift'
     subject = 'Lastschrifteinzugsermächtigung'
     subsubject = 'Gläubiger-ID: <b>DE42ZZZ00000348413</b>'
     intro = ''
@@ -338,15 +339,6 @@ Lastschriftverfahren von meinem Konto einzuziehen.
   </tbody>
 </table>"""
 
-    def update(self):
-        pdf = self.get_pdf()
-        response = self.request.response
-        response.set_cookie('fileDownload', value='true')
-        response.content_type = 'application/pdf'
-        response.content_disposition = 'attachment; filename=Lastschrift.pdf'
-        response.app_iter = FileIter(pdf)
-        self.result = response
-
     def get_pdf(self):
         subject = self.subject
         message = self.intro + self.message
@@ -358,11 +350,12 @@ Lastschriftverfahren von meinem Konto einzuziehen.
 
 @view_config(route_name='become_member_letter', renderer='json',
              permission='view')
-class BecomeMemberLetter(sw.allotmentclub.browser.base.View):
+class BecomeMemberLetter(sw.allotmentclub.browser.base.PrintBaseView):
 
     with_address = None
     subject = 'Beitrittserklärung'
     intro = ''
+    filename = 'Beitritt'
     message = """
 <table style="font-size: 10pt;">
   <tbody>
@@ -399,15 +392,6 @@ Leuna-Bungalowgemeinschaft an.
     </tr>
   </tbody>
 </table>"""
-
-    def update(self):
-        pdf = self.get_pdf()
-        response = self.request.response
-        response.set_cookie('fileDownload', value='true')
-        response.content_type = 'application/pdf'
-        response.content_disposition = 'attachment; filename=Beitritt.pdf'
-        response.app_iter = FileIter(pdf)
-        self.result = response
 
     def get_pdf(self):
         subject = self.subject
