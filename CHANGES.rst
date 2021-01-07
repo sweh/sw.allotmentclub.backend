@@ -2,7 +2,7 @@
 Change log for sw.allotmentclub
 ===============================
 
-5.0.2 (unreleased)
+5.0.2 (2021-01-07)
 ==================
 
 - Add ics export of calendar events. (#10)
