@@ -7,7 +7,7 @@
     <meta name="author" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <link rel="stylesheet" href="optimized.min.43f17911.css" media="screen">
+    <link rel="stylesheet" href="optimized.min.5e5ccf70.css" media="screen">
 
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
@@ -74,6 +74,66 @@
             </a>
           </span>
         </div>
+        <div id="speech-btn"
+            class="btn-header transparent pull-right">
+                    <div>
+                        <a href="javascript:void(0)" title="Neuer Termin" class="new_event_button"><i class="fa fa-calendar"></i></a>
+                        <div class="new_event_popup popover bottom" style="display: hidden;">
+                            <div class="arrow"></div>
+                            <div class="popover-content">
+                                <header><h2>Neuer Termin</h2></header>
+                                <div>
+                                    <div class="widget-body">
+                                    <form id="add-event-form">
+                                        <fieldset>
+                                            <div class="form-group">
+                                                <label>Kategorie</label>
+                                                <div class="btn-group btn-group-sm btn-group-justified" data-toggle="buttons">
+                                                    <label class="btn btn-default active">
+                                                        <input type="radio" name="category" value="Vorstand" checked> Vorstand </label>
+                                                    <label class="btn btn-default">
+                                                        <input type="radio" name="category" value="Mitglieder"> Mitglieder </label>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Titel</label>
+                                                <input class="form-control" name="title" maxlength="40" type="text">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Beschreibung</label>
+                                                <textarea class="form-control" rows="3" maxlength="100" id="description" name="description"></textarea>
+                                                <p class="note">Länge ist auf 100 Zeichen begrenzt.</p>
+                                            </div>
+                                            <div class="form-group allday">
+                                                <label>Ganztag</label>
+                                                <div class="btn-group btn-group-sm btn-group-justified" data-toggle="buttons">
+                                                    <label class="btn btn-default">
+                                                        <input type="radio" name="allday" value="1"> Ja </label>
+                                                    <label class="btn btn-default active">
+                                                        <input type="radio" name="allday" value="0" checked> Nein </label>
+                                                </div>
+                                            </div>
+                                            <div class="form-group start">
+                                                <label>Beginn</label>
+                                                <input type="text" class="form-control datetimepicker" name="start" value="">
+                                            </div>
+                                            <div class="form-group end">
+                                                <label>Ende</label>
+                                                <input type="text" class="form-control datetimepicker" name="end" value="">
+                                            </div>
+                                            <div class="form-group">
+                                                <button class="btn btn-default submit" type="button" id="add-event" >
+                                                    Termin eintragen
+                                                </button>
+                                            </div>
+                                        </fieldset>
+                                    </form>
+                                </div>
+                            </div>
+                    </div>
+                        </div>
+                    </div>
+                </div>
       </div>
     </header>
 
@@ -257,7 +317,7 @@
         </div>
       </div>
     </div>
-    <script src="optimized.a1bf1233.js"></script>
+    <script src="optimized.eba989a1.js"></script>
     <script type="text/javascript">
       $(document).ready(function () {
           var xhr = new XMLHttpRequest(),
@@ -274,7 +334,80 @@
               };
               xhr.send();
           }
+
           sw.allotmentclub.login();
+
+          var init_datetimepicker_add_event_form = function (allday) {
+            if (allday === "0") {
+                fmt = 'DD.MM.YYYY HH:mm';
+            } else {
+                fmt = 'DD.MM.YYYY';
+            }
+            $('#add-event-form input.datetimepicker').datetimepicker({
+              format: fmt,
+              locale: 'de',
+              stepping: 15
+            });
+          }
+
+          $('.new_event_button').click(function (ev) {
+            $('.new_event_popup').toggle();
+          });
+
+          $('#add-event-form .submit').click(function (ev) {
+            var data = {
+                category: $('#add-event-form label.active input').val(),
+                title: $('#add-event-form input[name=title]').val(),
+                description: $('#add-event-form textarea[name=description]').val(),
+                allday: $('#add-event-form label.active input').val(),
+                start: $('#add-event-form input[name=start]').val(),
+                end: $('#add-event-form input[name=end]').val(),
+                owner: localStorage.getItem('username'),
+            }
+            if (!data.title || !data.start) {
+                return
+            }
+            if (data.allday == '0') {
+                fmt = 'DD.MM.YYYY HH:mm'
+                data.allday = false;
+            } else {
+                fmt = 'DD.MM.YYYY'
+                data.allday = true;
+            }
+            data.start = moment(data.start, fmt).format();
+            if (data.end) {
+                data.end = moment(data.end, fmt).format();
+            }
+            $.ajax({
+                url: window.application_url + '/calendar/add',
+                method: 'POST',
+                data: JSON.stringify(data),
+                contentType: 'application/json',
+                dataType: "json",
+                success: function (evid) {
+                    $('#add-event-form')[0].reset();
+                    $('.new_event_popup').toggle();
+                    data.id = evid;
+                    if ($('#calendar').length) {
+                        sw.allotmentclub.add_event(data);
+                    }
+                }
+            });
+          });
+
+          $('#add-event-form .allday label').click(function (ev) {
+            $('#add-event-form .start input.datetimepicker').data("DateTimePicker").destroy();
+            $('#add-event-form .end input.datetimepicker').data("DateTimePicker").destroy();
+            $('#add-event-form .start input.datetimepicker').val('');
+            $('#add-event-form .end input.datetimepicker').val('');
+            init_datetimepicker_add_event_form(
+              $(ev.currentTarget).find('input').val()
+            );
+          });
+
+          init_datetimepicker_add_event_form(
+            $('#add-event-form .allday input:checked').val()
+          );
       });
     </script>
   </body>
