@@ -1,6 +1,6 @@
 # coding:utf8
-from __future__ import unicode_literals
 from babel.numbers import format_currency
+import datetime
 
 
 def format_kwh(value):
@@ -16,3 +16,24 @@ def format_eur(value, full=False):
         format = '#,##0.0000 ¤'
     return format_currency(
         value, 'EUR', format, currency_digits=False, locale='de_DE')
+
+
+def parse_date(value):
+    if isinstance(value, datetime.date):
+        return value
+    if isinstance(value, datetime.datetime):
+        return value
+    fmts = [
+        '%Y-%m-%dT%H:%M:%S%z',
+        '%Y-%m-%dT%H:%M:%S',
+        '%d.%m.%Y %H:%M',
+        '%d.%m.%Y',
+        '%Y-%m-%d %H:%M',
+        '%Y-%m-%d',
+    ]
+    for fmt in fmts:
+        try:
+            return datetime.datetime.strptime(value, fmt)
+        except ValueError:
+            continue
+    raise ValueError(f'Could not parse {value} into da datetime object')

@@ -2,13 +2,12 @@
 from __future__ import unicode_literals
 from ..log import user_data_log, log_with_user
 from .base import date_time, to_string, string_agg, get_selected_year
-from .base import datetime_now
+from .base import datetime_now, parse_date
 from sqlalchemy import func
 from pyramid.view import view_config
 from sw.allotmentclub import Assignment, AssignmentAttendee, Member, Allotment
 import collections
 import datetime
-import dateutil.parser
 import sw.allotmentclub.browser.base
 
 
@@ -94,15 +93,6 @@ class AssignmentEditView(sw.allotmentclub.browser.base.EditJSFormView):
             ('responsible_id', self.context.responsible_id),
         ]
         return collections.OrderedDict(fields)
-
-    def update(self):
-        super(AssignmentEditView, self).update()
-        if self.context.day:
-            if isinstance(self.context.day, datetime.datetime):
-                self.context.accounting_year = self.context.day.year
-            else:
-                self.context.accounting_year = (
-                    dateutil.parser.parse(self.context.day).year)
 
 
 @view_config(route_name='assignment_add', renderer='json',

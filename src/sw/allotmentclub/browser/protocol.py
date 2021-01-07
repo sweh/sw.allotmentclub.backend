@@ -3,14 +3,13 @@ from __future__ import unicode_literals
 from io import BytesIO
 from pyramid.response import FileIter
 from .base import date_time, get_selected_year, datetime_now, format_size
-from .base import format_mimetype
+from .base import format_mimetype, parse_date
 from ..log import user_data_log, log_with_user
 from pyramid.view import view_config
 import datetime
 from sw.allotmentclub import (
     Protocol, ProtocolDetail, ProtocolAttachment, ProtocolCommitment)
 import collections
-import dateutil.parser
 import sw.allotmentclub.browser.base
 import markdown
 
@@ -134,7 +133,7 @@ class ProtocolEditView(sw.allotmentclub.browser.base.EditJSFormView):
                 self.context.accounting_year = self.context.day.year
             else:
                 self.context.accounting_year = (
-                    dateutil.parser.parse(self.context.day).year)
+                    parse_date(self.context.day).year)
 
 
 @view_config(route_name='protocol_add', renderer='json',

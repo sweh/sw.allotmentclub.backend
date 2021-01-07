@@ -3,7 +3,7 @@ from __future__ import unicode_literals
 from ..log import user_data_log, log_with_user
 from .base import date, get_selected_year, value_to_int, boolean, date_time
 from .base import format_eur_with_color, format_eur, format_date, to_string
-from .base import string_agg
+from .base import string_agg, parse_date
 from .mail import append_pdf, render_pdf, format_markdown
 from PyPDF2 import PdfFileWriter, PdfFileReader
 from io import BytesIO
@@ -15,7 +15,6 @@ from sw.allotmentclub import BookingKind, SEPASammler, SEPASammlerEntry
 from sw.allotmentclub import Budget, VALUE_PER_MEMBER
 import collections
 import datetime
-import dateutil.parser
 import pybars
 import re
 import sqlalchemy
@@ -835,7 +834,7 @@ class SEPASammlerEditView(sw.allotmentclub.browser.base.EditJSFormView):
 
     def save(self, key, value):
         if key == 'booking_day' and value:
-            value = dateutil.parser.parse(value).date()
+            value = parse_date(value).date()
         return super(SEPASammlerEditView, self).save(key, value)
 
     def update(self):
@@ -845,7 +844,7 @@ class SEPASammlerEditView(sw.allotmentclub.browser.base.EditJSFormView):
                 self.context.accounting_year = self.context.booking_day.year
             else:
                 self.context.accounting_year = (
-                    dateutil.parser.parse(self.context.booking_day).year)
+                    parse_date(self.context.booking_day).year)
 
 
 @view_config(route_name='sepa_sammler_add', renderer='json',

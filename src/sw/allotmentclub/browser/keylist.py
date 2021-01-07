@@ -2,14 +2,13 @@
 from __future__ import unicode_literals
 from ..log import user_data_log, log_with_user
 from .base import boolean, date_time, to_string, string_agg, format_size
-from .base import format_mimetype
+from .base import format_mimetype, parse_date
 from io import StringIO, BytesIO
 from pyramid.response import FileIter
 from pyramid.view import view_config
 from sqlalchemy.sql import func
 from sw.allotmentclub import Keylist, Key, KeylistAttachment, Member, Allotment
 import collections
-import dateutil.parser
 import sw.allotmentclub.browser.base
 
 
@@ -63,7 +62,7 @@ class KeylistEditView(sw.allotmentclub.browser.base.EditJSFormView):
 
     def save(self, key, value):
         if key == 'rent' and value:
-            value = dateutil.parser.parse(value).datetime()
+            value = parse_date(value)
         return super(KeylistEditView, self).save(key, value)
 
 

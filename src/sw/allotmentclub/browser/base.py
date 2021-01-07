@@ -3,12 +3,12 @@ from __future__ import unicode_literals
 from .. import Member, BookingKind, User, Allotment
 from ..direct_debit import DirectDebit
 from ..log import user_data_log, log_with_user
+from ..base import parse_date
 from io import StringIO, BytesIO
 from pyramid.decorator import reify
 from pyramid.response import FileIter
 import csv
 import datetime
-import dateutil.parser
 import decimal
 import json
 import pyramid.interfaces
@@ -128,7 +128,7 @@ def iso_to_german_date(value, request=None):
     if isinstance(value, datetime.date):
         return date(value)
     try:
-        return date(dateutil.parser.parse(value))
+        return date(parser_date(value))
     except ValueError:
         return value
 
@@ -489,6 +489,10 @@ class EditJSFormView(AddEditBase):
         return result
 
     def save(self, key, value):
+        try:
+            value = parse_date(value)
+        except ValueError:
+            pass
         if value == '':
             value = None
         try:
@@ -726,7 +730,7 @@ class PrintBaseView(object):
     def get_json(self, obj):
         data = json.loads(json.dumps(obj))
         if 'day' in data:
-            data['day'] = date_time(dateutil.parser.parse(data['day']))
+            data['day'] = date_time(parse_date(data['day']))
         return data
 
     def __call__(self):

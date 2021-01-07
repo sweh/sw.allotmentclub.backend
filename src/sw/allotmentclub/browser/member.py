@@ -14,7 +14,6 @@ from sw.allotmentclub import Member, Allotment, Parcel, Booking
 from sw.allotmentclub import SaleHistory, MemberAttachment
 import collections
 import datetime
-import dateutil.parser
 import sw.allotmentclub.browser.base
 import sw.allotmentclub.browser.external
 
@@ -228,7 +227,7 @@ class MemberEditView(
     def save(self, key, value):
         if key in ('direct_debit_date', 'birthday'):
             if value:
-                value = dateutil.parser.parse(value).date()
+                value = parse_date(value).date()
             else:
                 value = None
         return super(MemberEditView, self).save(key, value)
