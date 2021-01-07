@@ -489,6 +489,8 @@ class EditJSFormView(AddEditBase):
         return result
 
     def save(self, key, value):
+        if value == '':
+            value = None
         try:
             setattr(self.context, key, value)
         except sw.allotmentclub.model.ValidationError as e:

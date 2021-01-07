@@ -5,7 +5,7 @@ Change log for sw.allotmentclub
 4.16.1 (unreleased)
 ===================
 
-- Nothing changed yet.
+- Implement a calendar. (#10)
 
 
 4.16.0 (2021-01-05)

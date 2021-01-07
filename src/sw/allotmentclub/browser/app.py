@@ -147,6 +147,13 @@ class Portal(sw.allotmentclub.application.Application):
 
         config.add_route('home', '/')
         config.add_route('map', '/map')
+        config.add_route('calendar', '/calendar')
+        config.add_route('calendar_event_add', '/calendar/add')
+        config.add_route(
+            'calendar_event_delete',
+            '/calendar/{id}/delete',
+            factory='..model.Event.context_factory'
+        )
         config.add_route('map_download', '/map/download')
         config.add_route('parcel_list', '/parcels')
         config.add_route('parcel_map_upload', '/parcels/{id}/upload_map',

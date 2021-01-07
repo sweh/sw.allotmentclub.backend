@@ -340,3 +340,17 @@ class DashboardData(Object):
     wachtelberg_wind_strength = Column(Integer, nullable=True)
     wachtelberg_wind_angle = Column(Integer, nullable=True)
     wachtelberg_out_temp_trend = Column(String,  nullable=True)
+
+
+class Event(Object):
+    """Ein Termin im Kalender."""
+
+    user_id = Column(Integer, ForeignKey('user.id'), nullable=True)
+    user = sqlalchemy.orm.relation('User', uselist=False)
+
+    category = Column(String, nullable=True)
+    title = Column(String, nullable=True)
+    description = Column(String, nullable=True)
+    start = Column(DateTime, nullable=True)
+    end = Column(DateTime, nullable=True)
+    allday = Column(Boolean, nullable=False, default=False)

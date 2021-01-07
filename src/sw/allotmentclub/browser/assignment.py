@@ -113,7 +113,6 @@ class AssignmentAddView(AssignmentEditView):
 
     def __init__(self, context, request):
         context = Assignment.create(
-            day=datetime_now(),
             accounting_year=get_selected_year())
         context.commit()
         super(AssignmentAddView, self).__init__(context, request)

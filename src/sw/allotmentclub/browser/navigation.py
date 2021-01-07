@@ -9,6 +9,7 @@ NAVIGATION_ITEMS = (
     ('Startseite', 'home', 'fa-home', None),
     ('Ablage', 'depots', 'fa-inbox', None),
     ('Aushänge', 'bulletins', 'fa-thumb-tack', None),
+    ('Kalender <sup>beta</sup>', 'calendar', 'fa-calendar', None),
     ('Protokolle', 'protocols', 'fa-book', None),
     ('Schlüsselbuch', 'keylists', 'fa-key', None),
     ('Arbeitseinsätze', 'assignments', 'fa-wrench', (
