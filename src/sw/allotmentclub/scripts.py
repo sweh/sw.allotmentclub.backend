@@ -1,7 +1,9 @@
 # encoding=utf-8
+import hashlib
 from sw.allotmentclub import Member, Organization, User
 from sw.allotmentclub.account import import_transactions_from_fints
 from sw.allotmentclub.application import Application
+import risclog.sqlalchemy.interfaces
 import csv
 import datetime
 import gocept.logging
@@ -141,6 +143,83 @@ END:VCARD
             os.makedirs(path)
         with open(os.path.join(path, 'addressbook.vcf'), 'w') as f:
             f.write(output)
+
+
+def export_events_ics():
+    import sw.allotmentclub.browser.calendar
+    parser = gocept.logging.ArgumentParser(
+        description="Export events in ics format.")
+    parser.add_argument('-c', '--config', default='portal.ini',
+                        help='Specify the config file. (default: portal.ini)')
+    parser.add_argument('-t', '--type', help='The type (Mitglied|Vorstand)')
+    options = parser.parse_args()
+    assert options.type in ('Mitglied', 'Vorstand')
+
+    queries = {
+        'Mitglied': sw.allotmentclub.browser.calendar.MitgliederQuery,
+        'Vorstand': sw.allotmentclub.browser.calendar.VorstandQuery
+    }
+
+    Application.from_filename(options.config)
+
+    output = """\
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:VerwaltungLeunaBundalow
+X-WR-CALNAME:Leuna-Siedlung Mitgliederliste
+NAME:Leuna-Siedlung Mitgliederliste
+CALSCALE:GREGORIAN
+BEGIN:VTIMEZONE
+TZID:Europe/Berlin
+TZURL:http://tzurl.org/zoneinfo-outlook/Europe/Berlin
+X-LIC-LOCATION:Europe/Berlin
+BEGIN:DAYLIGHT
+TZOFFSETFROM:+0100
+TZOFFSETTO:+0200
+TZNAME:CEST
+DTSTART:19700329T020000
+RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=-1SU
+END:DAYLIGHT
+BEGIN:STANDARD
+TZOFFSETFROM:+0200
+TZOFFSETTO:+0100
+TZNAME:CET
+DTSTART:19701025T030000
+RRULE:FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU
+END:STANDARD
+END:VTIMEZONE
+"""
+
+    db = zope.component.getUtility(
+        risclog.sqlalchemy.interfaces.IDatabase
+    )
+    query = queries[options.type](db, None).select()
+    for event in query:
+        m = hashlib.md5()
+        m.update('-'.join(str(i) for i in event).encode())
+        uid = m.hexdigest()
+        if event[-2]:
+            timestamp = event[4].strftime('%Y%m%dT000000Z')
+            start = end = event[4].strftime('%Y%m%d')
+            if event[5]:
+                end = event[5].strftime('%Y%m%d')
+        else:
+            timestamp = event[4].strftime('%Y%m%dT%H%M%SZ')
+            start = end = event[4].strftime('%Y%m%dT%H%M%S')
+            if event[5]:
+                end = event[5].strftime('%Y%m%dT%H%M%S')
+        output += f"""\
+BEGIN:VEVENT
+DTSTAMP:{timestamp}
+UID:{uid}@roter-see.de
+DTSTART;TZID=Europe/Berlin:{start}
+DTEND;TZID=Europe/Berlin:{end}
+SUMMARY:{event[2]}
+LOCATION:{event[3]}
+END:VEVENT
+"""
+    output += "END:VCALENDAR"
+    print(output)
 
 
 def grab_helios_data(settings):

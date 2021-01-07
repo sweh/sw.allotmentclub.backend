@@ -31,7 +31,9 @@ setup(
             'grab_dashboard_data = sw.allotmentclub.scripts:'
             'grab_dashboard_data',
             'export_members_vcf = sw.allotmentclub.scripts:'
-            'export_members_vcf'
+            'export_members_vcf',
+            'export_events_ics = sw.allotmentclub.scripts:'
+            'export_events_ics',
         ],
     },
 
