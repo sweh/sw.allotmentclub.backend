@@ -5,7 +5,7 @@ Change log for sw.allotmentclub
 5.0.3 (unreleased)
 ==================
 
-- Nothing changed yet.
+- Fix netatmo weather retrieval.
 
 
 5.0.2 (2021-01-07)

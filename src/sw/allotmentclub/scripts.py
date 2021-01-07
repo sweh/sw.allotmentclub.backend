@@ -162,11 +162,14 @@ def export_events_ics():
 
     Application.from_filename(options.config)
 
-    output = """\
+    name = (
+        'Mitgliederliste' if options.type == 'Mitglied' else 'Vorstandsliste'
+    )
+    output = f"""\
 BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:VerwaltungLeunaBundalow
-X-WR-CALNAME:Leuna-Siedlung Mitgliederliste
+X-WR-CALNAME:Leuna-Siedlung {name}
 NAME:Leuna-Siedlung Mitgliederliste
 CALSCALE:GREGORIAN
 BEGIN:VTIMEZONE
@@ -287,7 +290,7 @@ def grab_netatmo_data(settings):
     weatherData = lnetatmo.WeatherStationData(authorization)
 
     # 3 : Access most fresh data directly
-    station = weatherData.stationByName('Am Wachtelberg')
+    station = weatherData.stationByName('Am Wachtelberg 14 (Wohnzimmer)')
     for module in station['modules']:
         if module['type'] == 'NAModule1':
             result['wachtelberg_temp_out_battery'] = module['battery_percent']
@@ -319,7 +322,7 @@ def grab_netatmo_data(settings):
                 module['dashboard_data']['Humidity'])
             result['wachtelberg_in_co2'] = module['dashboard_data']['CO2']
 
-    station = weatherData.stationByName('Roter See')
+    station = weatherData.stationByName('Roter See (Wohnzimmer)')
     for module in station['modules']:
         if module['type'] == 'NAModule1':
             result['rotersee_temp_out_battery'] = module['battery_percent']
