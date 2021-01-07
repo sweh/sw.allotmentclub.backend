@@ -1,6 +1,7 @@
 # encoding=utf-8
 from pyramid.view import view_config
 from sw.allotmentclub import Event, User, Protocol, Assignment, Member
+from sw.allotmentclub import SEPASammler, BookingKind
 from ..log import user_data_log, log_with_user
 from .base import to_string
 from sqlalchemy.dialects.postgresql import INTERVAL
@@ -8,7 +9,6 @@ from sqlalchemy.sql.functions import concat
 import sw.allotmentclub.browser.base
 import pyramid.threadlocal
 import sqlalchemy
-import datetime
 
 
 class BaseQuery(sw.allotmentclub.browser.base.Query):
@@ -87,7 +87,25 @@ class MitgliederQuery(BaseQuery):
             .join(Member)
         )
 
-        return query.union(arbeitseinsaetze)
+        lastschriften = (
+            self.db.query(
+                sqlalchemy.null().label('#'),
+                to_string('Mitglieder').label('Liste'),
+                to_string('Einzug ').concat(BookingKind.title).label('Titel'),
+                to_string(
+                    'Bitte sorgen Sie für ausreichend Deckung auf Ihrem '
+                    'Konto').label('Beschreibung'),
+                SEPASammler.booking_day.label('Start'),
+                SEPASammler.booking_day.label('Ende'),
+                sqlalchemy.true().label('Ganztag'),
+                to_string('').label('Owner'),
+            )
+            .select_from(SEPASammler)
+            .filter(SEPASammler.booking_day.isnot(None))
+            .join(BookingKind)
+        )
+
+        return query.union(arbeitseinsaetze).union(lastschriften)
 
 
 class Query(sw.allotmentclub.browser.base.Query):

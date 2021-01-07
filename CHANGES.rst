@@ -7,6 +7,8 @@ Change log for sw.allotmentclub
 
 - Fix parsing of german dates.
 
+- Render SEPA-Lastschriften into calendar automagically. (#10)
+
 
 5.0.0 (2021-01-07)
 ==================
