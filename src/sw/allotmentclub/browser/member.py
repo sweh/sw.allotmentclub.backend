@@ -3,7 +3,7 @@ from io import BytesIO
 from pyramid.response import FileIter
 from ..log import user_data_log, log_with_user
 from .base import date, string_agg, get_selected_year, format_size
-from .base import format_mimetype
+from .base import format_mimetype, parse_date
 from .letter import render_pdf
 from .protocol import format_markdown
 from pyramid.view import view_config

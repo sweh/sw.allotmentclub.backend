@@ -489,12 +489,12 @@ class EditJSFormView(AddEditBase):
         return result
 
     def save(self, key, value):
-        try:
+        type_ = self.context.__table__.columns[key].type
+        if (
+            isinstance(type_, sqlalchemy.DateTime) or
+            isinstance(type_, sqlalchemy.Date)
+        ):
             value = parse_date(value)
-        except ValueError:
-            pass
-        if value == '':
-            value = None
         try:
             setattr(self.context, key, value)
         except sw.allotmentclub.model.ValidationError as e:

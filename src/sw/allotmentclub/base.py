@@ -19,6 +19,8 @@ def format_eur(value, full=False):
 
 
 def parse_date(value):
+    if not value:
+        return None
     if isinstance(value, datetime.date):
         return value
     if isinstance(value, datetime.datetime):

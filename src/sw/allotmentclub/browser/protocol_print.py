@@ -93,10 +93,6 @@ class ProtocolPrintView(sw.allotmentclub.browser.base.PrintBaseView):
 
     filename = 'Protokoll'
 
-    def __init__(self, context, request):
-        self.context = context
-        self.request = request
-
     def get_pdf(self):
         # Base data
         data = self.get_json(self.context)
