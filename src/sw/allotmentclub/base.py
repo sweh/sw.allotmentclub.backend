@@ -34,6 +34,6 @@ def parse_date(value):
     for fmt in fmts:
         try:
             return datetime.datetime.strptime(value, fmt)
-        except ValueError:
+        except (ValueError, TypeError):
             continue
     raise ValueError(f'Could not parse {value} into da datetime object')

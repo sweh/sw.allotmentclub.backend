@@ -181,7 +181,10 @@ def render_pdf(
         from_ = '{} {} ({})'.format(user.vorname, user.nachname, user.position)
     data = dict(
         styles=PDF_STYLES,
-        subject=subject, subsubject=subsubject, content=content, from_=from_,
+        subject=subject,
+        subsubject=subsubject,
+        content=content,
+        from_=from_,
         city=user.ort if user else None,
         signature=user.signature if user else None,
         date=date.strftime('%d.%m.%Y') if date else None,
@@ -210,6 +213,7 @@ Im Auftrag des Vorstandes
 
 """.format(content, from_)
 
+    text = text.replace('</p>', '\n')
     text = re.sub('<[^<]+?>', '', text)
     text = text.replace('  ', ' ')
     msg_tag = email.utils.make_msgid()
