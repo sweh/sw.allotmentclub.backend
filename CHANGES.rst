@@ -5,7 +5,7 @@ Change log for sw.allotmentclub
 5.1.1 (unreleased)
 ==================
 
-- Nothing changed yet.
+- Bugfix deletion of some events.
 
 
 5.1.0 (2021-01-07)
