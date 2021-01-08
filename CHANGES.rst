@@ -11,6 +11,8 @@ Change log for sw.allotmentclub
 
 - Filter calendar events for organization ID. (#10)
 
+- Show members bithdays in calendar. (#10)
+
 
 5.1.1 (2021-01-07)
 ==================

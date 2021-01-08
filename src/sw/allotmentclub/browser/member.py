@@ -313,6 +313,7 @@ def get_member_form_data(member):
         {'key': 'Telefon', 'value': member.phone},
         {'key': 'Mobiltelefon', 'value': member.mobile},
         {'key': 'E-Mail-Adresse', 'value': member.email},
+        {'key': 'Geburtstag', 'value': date(member.birthday)},
         {'key': 'IBAN', 'value': member.iban},
         {'key': 'BIC', 'value': member.bic},
         {'key': 'Name Kreditinstitut', 'value': ''},

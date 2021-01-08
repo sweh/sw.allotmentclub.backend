@@ -113,10 +113,51 @@ class MitgliederQuery(BaseQuery):
             )
             .select_from(SEPASammler)
             .filter(SEPASammler.booking_day.isnot(None))
+            .filter(SEPASammler.organization_id == self.user.organization_id)
             .join(BookingKind)
         )
 
         return query.union(arbeitseinsaetze).union(lastschriften)
+
+
+class BirthdayQuery(sw.allotmentclub.browser.base.Query):
+
+    def select(self, year=None):
+        if not year:
+            year = get_selected_year()
+        return (
+            self.db.query(
+                sqlalchemy.null().label('#'),
+                to_string('Geburtstage').label('Liste'),
+                to_string(Member.lastname).concat(', ').concat(
+                    Member.firstname).label('Titel'),
+                (
+                    to_string(year - sqlalchemy.cast(
+                        sqlalchemy.func.extract('year', Member.birthday),
+                        sqlalchemy.INTEGER
+                    )).concat('. Geburtstag')
+                ).label('Beschreibung'),
+                sqlalchemy.cast((
+                    to_string(year)
+                    .concat('-')
+                    .concat(
+                        sqlalchemy.func.extract('month', Member.birthday)
+                    )
+                    .concat('-')
+                    .concat(
+                        sqlalchemy.func.extract('day', Member.birthday)
+                    )
+                ), sqlalchemy.DATE).label('Start'),
+                sqlalchemy.null().label('Ende'),
+                to_string('Geburtstag').label('Typ'),
+                sqlalchemy.true().label('Ganztag'),
+                to_string('').label('Owner'),
+            )
+            .select_from(Member)
+            .filter(Member.birthday.isnot(None))
+            .filter(Member.leaving_year.is_(None))
+            .filter(Member.organization_id == self.user.organization_id)
+        )
 
 
 class Query(sw.allotmentclub.browser.base.Query):
@@ -124,6 +165,9 @@ class Query(sw.allotmentclub.browser.base.Query):
     def select(self):
         query = VorstandQuery(self.db, self.user).select().union(
             MitgliederQuery(self.db, self.user).select())
+        year = get_selected_year()
+        for year in [year-1, year, year+1]:
+            query = query.union(BirthdayQuery(self.db, self.user).select(year))
         return query.distinct()
 
 
