@@ -225,8 +225,9 @@ class Member(Object, PersonMixin):
             return 5.0
         from .browser.base import get_selected_year
         hours = 0.0
+        year = get_selected_year()
         for assignmentattendee in self.assignments:
-            if assignmentattendee.assignment.day.year == get_selected_year():
+            if assignmentattendee.assignment.accounting_year == year:
                 hours += assignmentattendee.hours
         return hours
 
