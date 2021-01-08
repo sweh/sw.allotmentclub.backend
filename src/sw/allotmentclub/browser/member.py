@@ -1,6 +1,7 @@
 # encoding=utf8
 from io import BytesIO
 from pyramid.response import FileIter
+import pybars
 from ..log import user_data_log, log_with_user
 from .base import date, string_agg, get_selected_year, format_size
 from .base import format_mimetype, parse_date
@@ -86,6 +87,8 @@ class MemberListView(sw.allotmentclub.browser.base.TableView):
              icon='fa fa-pencil', title='Bearbeiten'),
         dict(url='member_attachment', btn_class='btn-success',
              icon='fa fa-list', title='Anlagen'),
+        dict(url='become_member_letter', btn_class='btn-success',
+             icon='fa fa-print', title='Beitrittserklärung drucken'),
         dict(url='direct_debit_letter', btn_class='btn-success',
              icon='fa fa-print', title='Lastschrift drucken'),
         dict(url='mv_entrance_list', btn_class='btn-success',
@@ -134,6 +137,8 @@ class MemberListPassiveView(MemberListView):
              icon='fa fa-list', title='Anlagen'),
         dict(url='become_member_letter', btn_class='btn-success',
              icon='fa fa-print', title='Beitrittserklärung drucken'),
+        dict(url='direct_debit_letter', btn_class='btn-success',
+             icon='fa fa-print', title='Lastschrift drucken'),
     ]
 
 
@@ -287,6 +292,35 @@ class MemberLetter(sw.allotmentclub.browser.base.AddView):
                           attachments=attachments)
 
 
+def get_member_form_data(member):
+    allotments = member.allotments
+    if not allotments:
+        allotments = member.passive_allotment
+    allotment = '/'.join(str(a.number) for a in allotments)
+
+    data = {'member': [
+        {'key': 'Anrede', 'value': member.appellation},
+        {'key': 'Titel', 'value': member.title},
+        {'key': 'Vorname', 'value': member.firstname},
+        {'key': 'Nachname', 'value': member.lastname},
+        {'key': 'Bungalownummer', 'value': allotment},
+        {'key': 'Strasse', 'value': member.street},
+        {'key': 'PLZ', 'value': member.zip},
+        {'key': 'Ort', 'value': member.city},
+        {'key': 'Telefon', 'value': member.phone},
+        {'key': 'Mobiltelefon', 'value': member.mobile},
+        {'key': 'E-Mail-Adresse', 'value': member.email},
+        {'key': 'IBAN', 'value': member.iban},
+        {'key': 'BIC', 'value': member.bic},
+        {'key': 'Name Kreditinstitut', 'value': ''},
+    ]}
+
+    for item in data['member']:
+        if not item['value']:
+            item['value'] = '&nbsp;'
+    return data
+
+
 @view_config(route_name='direct_debit_letter', renderer='json',
              permission='view')
 class DirectDebitLetter(sw.allotmentclub.browser.base.PrintBaseView):
@@ -299,41 +333,28 @@ class DirectDebitLetter(sw.allotmentclub.browser.base.PrintBaseView):
     message = """
 <table style="font-size: 10pt;">
   <tbody>
+    {{#each member}}
     <tr>
-      <td style="width: 30%;">&nbsp;<hr/>Vorname</td>
-      <td style="width: 40%">&nbsp;<hr/>Nachname</td>
-      <td style="width: 30%;">&nbsp;<hr/>Bungalownummer</td>
+      <td style="width: 30%;">{{key}}: </td>
+      <td style="width: 70%; height: 25pt;">
+        {{{value}}}
+        <hr style="margin-top: 0px;" />
+      </td>
     </tr>
-    <tr>
-      <td style="width: 30%;">&nbsp;<hr/>Straße</td>
-      <td style="width: 40%">&nbsp;<hr/>PLZ</td>
-      <td style="width: 30%;">&nbsp;<hr/>Ort</td>
-    </tr>
-    <tr>
-      <td style="width: 30%;">&nbsp;<hr/>Telefon</td>
-      <td style="width: 40%">&nbsp;<hr/>Mobil</td>
-      <td style="width: 30%;">&nbsp;<hr/>E-Mail-Adresse</td>
-    </tr>
+    {{/each}}
   </tbody>
 </table>
-
 <p>
 Der Vorstand der Bungalowgemeinschaft Roter See e.V. wird hiermit widerruflich
 ab sofort ermächtigt, alle im Zusammenhang mit meiner Mitgliedschaft
 bestehenden Forderungen wie z.B. Mitgliedsbeiträge oder Energiekosten mittels
 Lastschriftverfahren von meinem Konto einzuziehen.
 </p>
-
 <table style="font-size: 10pt;">
   <tbody>
     <tr>
-      <td style="width: 40%;">&nbsp;<hr/>IBAN</td>
-      <td style="width: 20%">&nbsp;<hr/>BIC</td>
-      <td style="width: 40%;">&nbsp;<hr/>Name Kreditinstit</td>
-    </tr>
-    <tr>
-      <td style="width: 40%;">&nbsp;<hr/>Ort</td>
       <td style="width: 20%">&nbsp;<hr/>Datum</td>
+      <td style="width: 40%;">&nbsp;<hr/>Ort</td>
       <td style="width: 40%;">&nbsp;<hr/>Unterschrift Kontoinhaber</td>
     </tr>
   </tbody>
@@ -341,8 +362,11 @@ Lastschriftverfahren von meinem Konto einzuziehen.
 
     def get_pdf(self):
         subject = self.subject
-        message = self.intro + self.message
-        message = format_markdown(message)
+        compiler = pybars.Compiler()
+        template = compiler.compile(self.message)
+        data = get_member_form_data(self.context)
+
+        message = "".join(template(data))
         member = self.context if self.with_address else None
         return render_pdf(member, subject, message, self.request.user,
                           subsubject=self.subsubject)
@@ -354,51 +378,49 @@ class BecomeMemberLetter(sw.allotmentclub.browser.base.PrintBaseView):
 
     with_address = None
     subject = 'Beitrittserklärung'
+    subsubject = ''
     intro = ''
     filename = 'Beitritt'
     message = """
 <table style="font-size: 10pt;">
   <tbody>
+    {{#each member}}
     <tr>
-      <td style="width: 30%;">&nbsp;<hr/>Vorname</td>
-      <td style="width: 40%">&nbsp;<hr/>Nachname</td>
-      <td style="width: 30%;">&nbsp;<hr/>Bungalownummer</td>
+      <td style="width: 30%;">{{key}}: </td>
+      <td style="width: 70%; height: 25pt;">
+        {{{value}}}
+        <hr style="margin-top: 0px;" />
+      </td>
     </tr>
-    <tr>
-      <td style="width: 30%;">&nbsp;<hr/>Straße</td>
-      <td style="width: 40%">&nbsp;<hr/>PLZ</td>
-      <td style="width: 30%;">&nbsp;<hr/>Ort</td>
-    </tr>
-    <tr>
-      <td style="width: 30%;">&nbsp;<hr/>Telefon</td>
-      <td style="width: 40%">&nbsp;<hr/>Mobil</td>
-      <td style="width: 30%;">&nbsp;<hr/>E-Mail-Adresse</td>
-    </tr>
+    {{/each}}
   </tbody>
 </table>
-
 <p>
 Hiermit erkläre ich meinen Beitritt zum Verein Leuna-Bungalowgemeinschaft
 "Roter See" e.V. und erkenne die mir vorgelegte Satzung und die Ordnungen der
 Leuna-Bungalowgemeinschaft an.
 </p>
-
 <table style="font-size: 10pt;">
   <tbody>
     <tr>
-      <td style="width: 40%;">&nbsp;<hr/>Ort</td>
       <td style="width: 20%">&nbsp;<hr/>Datum</td>
-      <td style="width: 40%;">&nbsp;<hr/>Unterschrift</td>
+      <td style="width: 40%;">&nbsp;<hr/>Ort</td>
+      <td style="width: 40%;">&nbsp;<hr/>Unterschrift Kontoinhaber</td>
     </tr>
   </tbody>
 </table>"""
 
     def get_pdf(self):
         subject = self.subject
-        message = self.intro + self.message
-        message = format_markdown(message)
+        compiler = pybars.Compiler()
+        template = compiler.compile(self.message)
+        data = get_member_form_data(self.context)
+        data['member'] = data['member'][:-3]
+
+        message = "".join(template(data))
         member = self.context if self.with_address else None
-        return render_pdf(member, subject, message, self.request.user)
+        return render_pdf(member, subject, message, self.request.user,
+                          subsubject=self.subsubject)
 
 
 @view_config(route_name='member_sale', renderer='json', permission='view')

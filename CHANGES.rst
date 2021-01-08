@@ -5,7 +5,7 @@ Change log for sw.allotmentclub
 5.1.2 (unreleased)
 ==================
 
-- Nothing changed yet.
+- Auto-fill Mitgliedsantrag and Lastschrifteinzug. (#21)
 
 
 5.1.1 (2021-01-07)
