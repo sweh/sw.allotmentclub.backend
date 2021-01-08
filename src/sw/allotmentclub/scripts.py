@@ -127,6 +127,10 @@ BDAY:{}""".format(m.birthday.strftime('%Y%m%d'))
             if m.allotments:
                 output += """
 NOTE:Bungalow: {}""".format('/'.join(str(a.number) for a in m.allotments))
+            elif m.passive_allotment:
+                output += """
+NOTE:Bungalow: {}""".format(
+                    '/'.join(str(a.number) for a in m.passive_allotment))
             output += """
 ORG:{org}
 REV:{rev}""".format(org=organization.title,
