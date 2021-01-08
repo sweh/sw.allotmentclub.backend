@@ -128,7 +128,7 @@ def iso_to_german_date(value, request=None):
     if isinstance(value, datetime.date):
         return date(value)
     try:
-        return date(parser_date(value))
+        return date(parse_date(value))
     except ValueError:
         return value
 
@@ -489,7 +489,10 @@ class EditJSFormView(AddEditBase):
         return result
 
     def save(self, key, value):
-        type_ = self.context.__table__.columns[key].type
+        try:
+            type_ = self.context.__table__.columns[key].type
+        except Exception:
+            type_ = None
         if (
             isinstance(type_, sqlalchemy.DateTime) or
             isinstance(type_, sqlalchemy.Date)
