@@ -2,7 +2,7 @@
 Change log for sw.allotmentclub
 ===============================
 
-5.1.2 (unreleased)
+5.2.0 (2021-01-08)
 ==================
 
 - Auto-fill Mitgliedsantrag and Lastschrifteinzug. (#21)
