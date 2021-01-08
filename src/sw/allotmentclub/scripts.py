@@ -196,7 +196,7 @@ END:VTIMEZONE
     db = zope.component.getUtility(
         risclog.sqlalchemy.interfaces.IDatabase
     )
-    query = queries[options.type](db, None).select()
+    query = queries[options.type](db, User.by_username('system')).select()
     for event in query:
         m = hashlib.md5()
         m.update('-'.join(str(i) for i in event).encode())

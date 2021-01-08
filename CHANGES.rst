@@ -9,6 +9,8 @@ Change log for sw.allotmentclub
 
 - Add german date formatting and sorting.
 
+- Filter calendar events for organization ID. (#10)
+
 
 5.1.1 (2021-01-07)
 ==================

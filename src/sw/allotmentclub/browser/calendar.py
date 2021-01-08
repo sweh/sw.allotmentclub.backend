@@ -34,6 +34,7 @@ class BaseQuery(sw.allotmentclub.browser.base.Query):
             .join(User)
             .filter(Event.start.isnot(None))
             .filter(Event.title.isnot(None))
+            .filter(Event.organization_id == self.user.organization_id)
         )
 
 
@@ -61,6 +62,7 @@ class VorstandQuery(BaseQuery):
             )
             .select_from(Protocol)
             .filter(Protocol.day.isnot(None))
+            .filter(Protocol.organization_id == self.user.organization_id)
         )
 
         return query.union(sitzungen)
@@ -91,6 +93,7 @@ class MitgliederQuery(BaseQuery):
             )
             .select_from(Assignment)
             .filter(Assignment.day.isnot(None))
+            .filter(Assignment.organization_id == self.user.organization_id)
             .join(Member)
         )
 
