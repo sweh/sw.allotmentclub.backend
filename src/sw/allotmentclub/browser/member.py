@@ -183,7 +183,10 @@ class MemberEditView(
         options = super(MemberEditView, self).load_options
         options.update({
             'mobile': {'label': 'Mobil-Telefon'},
-            'birthday': {'label': 'Geburtstag'},
+            'birthday': {
+                'label': 'Geburtstag',
+                'css_class': 'datepicker',
+            },
             'direct_debit': {'label': 'Lastschrift',
                              'template': 'form_boolean'},
             'direct_debit_account_holder': {
@@ -192,7 +195,7 @@ class MemberEditView(
             'bic': {'label': 'BIC'},
             'direct_debit_date': {
                 'label': 'Lastschrift-Datum',
-                'css_class': 'datetimepicker'},
+                'css_class': 'datepicker'},
             'get_post': {'label': 'Postversand?', 'template': 'form_boolean'},
             'note': {'label': 'Hinweis', 'template': 'form_markdown'},
         })

@@ -7,6 +7,8 @@ Change log for sw.allotmentclub
 
 - Auto-fill Mitgliedsantrag and Lastschrifteinzug. (#21)
 
+- Add german date formatting and sorting.
+
 
 5.1.1 (2021-01-07)
 ==================

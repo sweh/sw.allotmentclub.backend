@@ -34,6 +34,7 @@ def AccountDetailFactory(request):
 class Query(sw.allotmentclub.browser.base.Query):
 
     formatters = {
+        'Datum': date,
         'Betrag': format_eur_with_color,
     }
 
@@ -617,6 +618,9 @@ class BankingAccountListReportView(sw.allotmentclub.browser.base.View):
 
 class SEPASammlerQuery(sw.allotmentclub.browser.base.Query):
 
+    formatters = {
+        'Datum': date,
+    }
     data_class = {
         'Art': 'expand'
     }
@@ -809,7 +813,7 @@ class SEPASammlerEditView(sw.allotmentclub.browser.base.EditJSFormView):
             },
             'booking_day': {
                 'label': 'Datum',
-                'css_class': 'datetimepicker',
+                'css_class': 'datepicker',
             },
             'pmtinfid': {
                 'label': 'Sparkassen-ID',
@@ -963,6 +967,7 @@ def account_holder(id, request=None):
 class SEPADirectDebitQuery(sw.allotmentclub.browser.base.Query):
 
     formatters = {
+        'Datum': date,
         'Mitglied': account_holder,
     }
     data_class = {
