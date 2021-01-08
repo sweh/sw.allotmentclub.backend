@@ -277,7 +277,10 @@ def test__mail__MailAssignmentPreview_1(browser):
     from sw.allotmentclub import AssignmentAttendee
     from sw.allotmentclub.conftest import import_members
     import_members()
-    assignment = Assignment.find_or_create(day=datetime.now())
+    assignment = Assignment.find_or_create(
+        day=datetime.now(),
+        accounting_year=datetime.now().year
+    )
     AssignmentAttendee.find_or_create(
         assignment=assignment,
         member=Member.query().filter(Member.lastname == 'Wehrmann').one(),
