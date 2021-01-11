@@ -2,7 +2,7 @@
 Change log for sw.allotmentclub
 ===============================
 
-5.2.1 (unreleased)
+5.3.0 (2021-01-11)
 ==================
 
 - Add passive allotments to member vcard export.
