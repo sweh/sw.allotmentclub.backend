@@ -232,7 +232,7 @@ class InfobriefPrintView(sw.allotmentclub.browser.base.PrintBaseView):
         db = zope.component.getUtility(
             risclog.sqlalchemy.interfaces.IDatabase
         )
-        query = MitgliederQuery(db, None)
+        query = MitgliederQuery(db, self.request.user)
         events = []
         for event in query.select():
             if event[4].year != year:
