@@ -102,5 +102,6 @@ class ExternalRecipient(Object, PersonMixin):
     country = Column(String(50), default=u'')
     email = Column(String(100), default=u'')
     phone = Column(String(50), default=u'')
+    deleted = Column(Boolean, default=False)
 
     messages = relationship("Message", secondary=externals_messages_table)

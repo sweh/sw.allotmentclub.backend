@@ -7,6 +7,8 @@ Change log for sw.allotmentclub
 
 - Add passive allotments to member vcard export.
 
+- Add delete option to external recipients.
+
 
 5.2.0 (2021-01-08)
 ==================

@@ -320,6 +320,8 @@ class Portal(sw.allotmentclub.application.Application):
         config.add_route('external_add', '/externals/add')
         config.add_route('external_edit', '/externals/{id}/edit',
                          factory='..mail.ExternalRecipient.context_factory')
+        config.add_route('external_delete', '/externals/{id}/delete',
+                         factory='..mail.ExternalRecipient.context_factory')
 
         config.add_route('bulletins', '/bulletins')
         config.add_route('bulletin_add', '/bulletins/add')

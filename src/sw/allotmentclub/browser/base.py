@@ -546,10 +546,16 @@ class DeleteView(View):
 
     model = NotImplementedError
     deleted = None
+    mark_deleted = False
 
     def update(self):
-        db = zope.component.getUtility(risclog.sqlalchemy.interfaces.IDatabase)
-        db.session.delete(self.context)
+        if self.mark_deleted:
+            self.context.deleted = True
+        else:
+            db = zope.component.getUtility(
+                risclog.sqlalchemy.interfaces.IDatabase
+            )
+            db.session.delete(self.context)
         self.deleted = True
         self.result = {'status': 'success'}
         self.log()

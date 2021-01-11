@@ -17,6 +17,7 @@ from pyramid.view import view_config
 from sqlalchemy import func, or_
 from sw.allotmentclub import ExternalRecipient, SentMessageInfo
 from sw.allotmentclub import Member, Message, Attachment, User
+from .external import filter_external_recipients
 import base64
 import collections
 import dateutil.parser
@@ -520,9 +521,11 @@ class MailEditView(sw.allotmentclub.browser.base.EditJSFormView):
                     external.organization or '')
             }
             for external in (
-                ExternalRecipient.query()
-                .filter(ExternalRecipient.city != '')
-                .order_by(ExternalRecipient.lastname))]
+                filter_external_recipients(
+                    ExternalRecipient.query()
+                ).order_by(ExternalRecipient.lastname)
+            )
+        ]
 
     @property
     def body(self):
