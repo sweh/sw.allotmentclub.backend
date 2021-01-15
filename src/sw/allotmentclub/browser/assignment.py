@@ -2,12 +2,11 @@
 from __future__ import unicode_literals
 from ..log import user_data_log, log_with_user
 from .base import date_time, to_string, string_agg, get_selected_year
-from .base import datetime_now, parse_date
+from .base import datetime_now  # noqa
 from sqlalchemy import func
 from pyramid.view import view_config
 from sw.allotmentclub import Assignment, AssignmentAttendee, Member, Allotment
 import collections
-import datetime
 import sw.allotmentclub.browser.base
 
 

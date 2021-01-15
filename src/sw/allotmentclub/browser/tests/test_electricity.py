@@ -17,8 +17,9 @@ def test_can_download_and_upload_energy_list(browser):
     from sw.allotmentclub import EnergyValue, ElectricMeter
     year = datetime.now().year
     setUp()
-    assert [8165, 8411] == [v.value for v in
-                            ElectricMeter.get(4).energy_values]
+    assert [8165, 8411] == sorted(
+        [v.value for v in ElectricMeter.get(4).energy_values]
+    )
     browser.login()
     browser.open('http://localhost/electricity/export')
     wb = openpyxl.load_workbook(BytesIO(browser.contents))
@@ -43,5 +44,6 @@ def test_can_download_and_upload_energy_list(browser):
     assert 1 == (EnergyValue.query()
                  .filter(EnergyValue.year == year)
                  .filter(EnergyValue.estimated_value.is_(True)).count())
-    assert [8165, 8411, 100] == [v.value for v in
-                                 ElectricMeter.get(4).energy_values]
+    assert [100, 8165, 8411] == sorted(
+        [v.value for v in ElectricMeter.get(4).energy_values]
+    )

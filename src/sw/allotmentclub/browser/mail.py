@@ -436,7 +436,7 @@ class MailEditView(sw.allotmentclub.browser.base.EditJSFormView):
 
     def quote_body(self, msg):
         body = self.strip_html(msg.body)
-        body = '\n'.join('> {}'.format(l) for l in body.splitlines())
+        body = '\n'.join('> {}'.format(line) for line in body.splitlines())
         recipient = (msg.members or msg.externals)[0]
         quote_header = 'Am {} schrieb {} {} <{}>:'.format(
             format_datetime(

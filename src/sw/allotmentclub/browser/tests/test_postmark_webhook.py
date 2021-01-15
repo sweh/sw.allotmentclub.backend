@@ -46,7 +46,7 @@ def test__mail__postmark_webhook_1(browser, setUp):
                               "Company": "Apple Computer, Inc.",
                               "Family": "OS X 10"},
                        "Platform": "WebMail",
-                       "UserAgent": "Mozilla\/5.0 (Macintosh Safari\/537.36)",
+                       "UserAgent": "Mozilla/5.0 (Macintosh Safari/537.36)",
                        "ReadSeconds": 5,
                        "Geo": {"CountryISOCode": "RS",
                                "Country": "Serbia",
@@ -190,7 +190,7 @@ def test__mail__postmark_inbound_webhook_1(browser):
               "TextBody": "This is a test text body.",
               "HtmlBody": ("<html><body><p>"
                            "This is a test html body."
-                           "<\/p><\/body><\/html>"),
+                           "</p></body></html>"),
               "StrippedTextReply": "This is the reply text",
               "Tag": "TestTag",
               "Headers": [
@@ -228,7 +228,7 @@ def test__mail__postmark_inbound_webhook_1(browser):
     assert mail.inbound is True
     assert ("<html><body><p>"
             "This is a test html body."
-            "<\/p><\/body><\/html>" == mail.body)
+            "</p></body></html>" == mail.body)
     assert 1 == len(mail.attachments)
     assert MINIMAL_TEST_PDF_CONTENTS.encode() == base64.b64encode(
         mail.attachments[0].data)

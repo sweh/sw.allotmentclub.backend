@@ -10,7 +10,7 @@ VALUE_PER_MEMBER = 750000
 
 SCAN_IGNORE_TESTS = [re.compile(r'\.testing$').search,
                      re.compile(r'\.conftest$').search,
-                     re.compile('\.tests\.').search]
+                     re.compile(r'\.tests\.').search]
 
 warnings.simplefilter('ignore')  # suppress sqlalchemy warnings
 

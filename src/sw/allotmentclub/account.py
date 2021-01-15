@@ -4,8 +4,7 @@ from .log import log_with_user, auth_log
 from .model import Object, Organization
 from datetime import date, timedelta
 from fints.client import (
-    FinTS3PinTanClient, FinTSClientMode, NeedTANResponse,
-    FinTSUnsupportedOperation
+    FinTS3PinTanClient, FinTSClientMode, NeedTANResponse
 )
 from sqlalchemy import Column, Integer, String, ForeignKey, DateTime, Boolean
 from sqlalchemy import Date

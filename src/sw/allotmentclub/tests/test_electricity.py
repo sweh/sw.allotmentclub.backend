@@ -75,7 +75,7 @@ def add_new_meter_values_to_csv(csv):
         # lines[index] = lines[index].decode('utf-8')
         if new_value is not None:
             lines[index] = lines[index] + new_value
-    return b'\n'.join(l for l in lines)
+    return b'\n'.join(line for line in lines)
 
 
 def test__EnergyValue__update_data_1(database):

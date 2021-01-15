@@ -3,7 +3,7 @@ from __future__ import unicode_literals
 from ..log import user_data_log, log_with_user
 from .base import boolean, date_time, to_string, string_agg, format_size
 from .base import format_mimetype, parse_date
-from io import StringIO, BytesIO
+from io import BytesIO
 from pyramid.response import FileIter
 from pyramid.view import view_config
 from sqlalchemy.sql import func

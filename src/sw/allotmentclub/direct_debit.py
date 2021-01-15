@@ -688,7 +688,7 @@ class Transaction(XMLProducer):
                                 else []
                             )
                             if self._old_creditor_name is not None or
-                                self._old_creditor_id is not None
+                                self._old_creditor_id is not None  # noqa
                             else None,
                             # Original debtor account
                             E.OrgnlDbtrAcct(
