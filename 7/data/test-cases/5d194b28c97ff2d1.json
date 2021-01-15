@@ -1,0 +1,94 @@
+{
+  "uid" : "5d194b28c97ff2d1",
+  "name" : "src/sw/__init__.py",
+  "fullName" : "src.sw.__init__#FLAKE8",
+  "historyId" : "bfdaefe826b846be4da64fc98cbe7cda",
+  "time" : {
+    "start" : 1610718864399,
+    "stop" : 1610718864613,
+    "duration" : 214
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "tag",
+    "value" : "flake8"
+  }, {
+    "name" : "parentSuite",
+    "value" : "src.sw"
+  }, {
+    "name" : "suite",
+    "value" : "__init__"
+  }, {
+    "name" : "host",
+    "value" : "fv-az32-356"
+  }, {
+    "name" : "thread",
+    "value" : "7953-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "src.sw.__init__"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "history" : {
+      "statistic" : {
+        "failed" : 0,
+        "broken" : 0,
+        "skipped" : 0,
+        "passed" : 4,
+        "unknown" : 0,
+        "total" : 4
+      },
+      "items" : [ {
+        "uid" : "bebdb76b006cb5ab",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/6//#testresult/bebdb76b006cb5ab",
+        "status" : "passed",
+        "time" : {
+          "start" : 1610717676475,
+          "stop" : 1610717676713,
+          "duration" : 238
+        }
+      }, {
+        "uid" : "3561658e0c546434",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/4//#testresult/3561658e0c546434",
+        "status" : "passed",
+        "time" : {
+          "start" : 1610717152636,
+          "stop" : 1610717152814,
+          "duration" : 178
+        }
+      }, {
+        "uid" : "ee0275caa66134bb",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/2//#testresult/ee0275caa66134bb",
+        "status" : "passed",
+        "time" : {
+          "start" : 1610714998593,
+          "stop" : 1610714999303,
+          "duration" : 710
+        }
+      } ]
+    },
+    "tags" : [ "flake8" ]
+  },
+  "source" : "5d194b28c97ff2d1.json",
+  "parameterValues" : [ ]
+}
