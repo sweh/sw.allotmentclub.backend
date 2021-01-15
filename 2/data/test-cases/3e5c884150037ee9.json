@@ -1,0 +1,72 @@
+{
+  "uid" : "3e5c884150037ee9",
+  "name" : "src/sw/allotmentclub/alembic/versions/set_advance_pay_to_0_if_under_threshold_1654373c7899.py",
+  "fullName" : "src.sw.allotmentclub.alembic.versions.set_advance_pay_to_0_if_under_threshold_1654373c7899#FLAKE8",
+  "historyId" : "9c27c592f3511a001f8dfebf9466e027",
+  "time" : {
+    "start" : 1610715005896,
+    "stop" : 1610715005982,
+    "duration" : 86
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ {
+      "uid" : "6db25432dfed6209",
+      "name" : "log",
+      "source" : "6db25432dfed6209.txt",
+      "type" : "text/plain",
+      "size" : 182
+    } ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 1,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "tag",
+    "value" : "flake8"
+  }, {
+    "name" : "parentSuite",
+    "value" : "src.sw.allotmentclub.alembic.versions"
+  }, {
+    "name" : "suite",
+    "value" : "set_advance_pay_to_0_if_under_threshold_1654373c7899"
+  }, {
+    "name" : "host",
+    "value" : "fv-az32-356"
+  }, {
+    "name" : "thread",
+    "value" : "4225-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "src.sw.allotmentclub.alembic.versions.set_advance_pay_to_0_if_under_threshold_1654373c7899"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ "flake8" ]
+  },
+  "source" : "3e5c884150037ee9.json",
+  "parameterValues" : [ ]
+}

@@ -1,0 +1,72 @@
+{
+  "uid" : "1b563752efa3a677",
+  "name" : "mail.py",
+  "fullName" : "src.sw.allotmentclub.browser.mail#FLAKE8",
+  "historyId" : "315d7b9ddefeb2b68bda742bb0bd0565",
+  "time" : {
+    "start" : 1610715007152,
+    "stop" : 1610715007617,
+    "duration" : 465
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ {
+      "uid" : "45d9520cc1d40c80",
+      "name" : "log",
+      "source" : "45d9520cc1d40c80.txt",
+      "type" : "text/plain",
+      "size" : 182
+    } ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 1,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "tag",
+    "value" : "flake8"
+  }, {
+    "name" : "parentSuite",
+    "value" : "src.sw.allotmentclub.browser"
+  }, {
+    "name" : "suite",
+    "value" : "mail"
+  }, {
+    "name" : "host",
+    "value" : "fv-az32-356"
+  }, {
+    "name" : "thread",
+    "value" : "4222-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "src.sw.allotmentclub.browser.mail"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ "flake8" ]
+  },
+  "source" : "1b563752efa3a677.json",
+  "parameterValues" : [ ]
+}

@@ -1,0 +1,72 @@
+{
+  "uid" : "48d024ac0defd876",
+  "name" : "version.py",
+  "fullName" : "src.sw.allotmentclub.version#FLAKE8",
+  "historyId" : "5a9addfe061f7730480973fcd9610a17",
+  "time" : {
+    "start" : 1610715000806,
+    "stop" : 1610715000887,
+    "duration" : 81
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ {
+      "uid" : "ef427098c0247c04",
+      "name" : "log",
+      "source" : "ef427098c0247c04.txt",
+      "type" : "text/plain",
+      "size" : 182
+    } ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 1,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "tag",
+    "value" : "flake8"
+  }, {
+    "name" : "parentSuite",
+    "value" : "src.sw.allotmentclub"
+  }, {
+    "name" : "suite",
+    "value" : "version"
+  }, {
+    "name" : "host",
+    "value" : "fv-az32-356"
+  }, {
+    "name" : "thread",
+    "value" : "4222-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "src.sw.allotmentclub.version"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ "flake8" ]
+  },
+  "source" : "48d024ac0defd876.json",
+  "parameterValues" : [ ]
+}
