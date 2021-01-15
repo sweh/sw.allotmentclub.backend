@@ -1,0 +1,92 @@
+{
+  "uid" : "acd9fc8b164ad60f",
+  "name" : "src/sw/allotmentclub/alembic/versions/re_2_model_for_electic_meter_and_energy__447579f29e92.py",
+  "fullName" : "src.sw.allotmentclub.alembic.versions.re_2_model_for_electic_meter_and_energy__447579f29e92#FLAKE8",
+  "historyId" : "799f86f975d87001a461174d15c3b60a",
+  "time" : {
+    "start" : 1610717159104,
+    "stop" : 1610717159206,
+    "duration" : 102
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ {
+      "uid" : "192deffd1c9eabef",
+      "name" : "log",
+      "source" : "192deffd1c9eabef.txt",
+      "type" : "text/plain",
+      "size" : 182
+    } ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 1,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "tag",
+    "value" : "flake8"
+  }, {
+    "name" : "parentSuite",
+    "value" : "src.sw.allotmentclub.alembic.versions"
+  }, {
+    "name" : "suite",
+    "value" : "re_2_model_for_electic_meter_and_energy__447579f29e92"
+  }, {
+    "name" : "host",
+    "value" : "fv-az176-222"
+  }, {
+    "name" : "thread",
+    "value" : "4932-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "src.sw.allotmentclub.alembic.versions.re_2_model_for_electic_meter_and_energy__447579f29e92"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "history" : {
+      "statistic" : {
+        "failed" : 0,
+        "broken" : 0,
+        "skipped" : 0,
+        "passed" : 2,
+        "unknown" : 0,
+        "total" : 2
+      },
+      "items" : [ {
+        "uid" : "ec52d7e363a3237a",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/2//#testresult/ec52d7e363a3237a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1610715005055,
+          "stop" : 1610715005156,
+          "duration" : 101
+        }
+      } ]
+    },
+    "tags" : [ "flake8" ]
+  },
+  "source" : "acd9fc8b164ad60f.json",
+  "parameterValues" : [ ]
+}

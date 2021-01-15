@@ -1,0 +1,92 @@
+{
+  "uid" : "c3753235908fc9fa",
+  "name" : "protocol.py",
+  "fullName" : "src.sw.allotmentclub.protocol#FLAKE8",
+  "historyId" : "96cac2514f048d43638276fd893e22c5",
+  "time" : {
+    "start" : 1610717154421,
+    "stop" : 1610717154530,
+    "duration" : 109
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ {
+      "uid" : "137398bf679a66e1",
+      "name" : "log",
+      "source" : "137398bf679a66e1.txt",
+      "type" : "text/plain",
+      "size" : 182
+    } ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 1,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "tag",
+    "value" : "flake8"
+  }, {
+    "name" : "parentSuite",
+    "value" : "src.sw.allotmentclub"
+  }, {
+    "name" : "suite",
+    "value" : "protocol"
+  }, {
+    "name" : "host",
+    "value" : "fv-az176-222"
+  }, {
+    "name" : "thread",
+    "value" : "4932-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "src.sw.allotmentclub.protocol"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "history" : {
+      "statistic" : {
+        "failed" : 0,
+        "broken" : 0,
+        "skipped" : 0,
+        "passed" : 2,
+        "unknown" : 0,
+        "total" : 2
+      },
+      "items" : [ {
+        "uid" : "ab3c7acaaef3567f",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/2//#testresult/ab3c7acaaef3567f",
+        "status" : "passed",
+        "time" : {
+          "start" : 1610715000434,
+          "stop" : 1610715000544,
+          "duration" : 110
+        }
+      } ]
+    },
+    "tags" : [ "flake8" ]
+  },
+  "source" : "c3753235908fc9fa.json",
+  "parameterValues" : [ ]
+}

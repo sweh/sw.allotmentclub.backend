@@ -1,0 +1,232 @@
+{
+  "uid" : "c56e64c4e47c1649",
+  "name" : "test__mail__MailAssignmentPreview_1",
+  "fullName" : "src.sw.allotmentclub.browser.tests.test_mail#test__mail__MailAssignmentPreview_1",
+  "historyId" : "ac0c802c0b2aad7fa5552092d174aae7",
+  "time" : {
+    "start" : 1610717187753,
+    "stop" : 1610717189765,
+    "duration" : 2012
+  },
+  "description" : "It can send Fehlende Arbeitsstunden.",
+  "descriptionHtml" : "<p>It can send Fehlende Arbeitsstunden.</p>\n",
+  "status" : "broken",
+  "statusMessage" : "FileNotFoundError: [Errno 2] No such file or directory: 'pdftotext': 'pdftotext'",
+  "statusTrace" : "Traceback (most recent call last):\n  File \"/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_mail.py\", line 303, in test__mail__MailAssignmentPreview_1\n    assertFileEqual(browser.contents, 'test_mail_fehlarbeitsstunden_1.pdf')\n  File \"/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/conftest.py\", line 85, in assertFileEqual\n    changes = compute_changes(master_file, generated_file)\n  File \"/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/.pytest/unclean/lib/python3.6/site-packages/pdf_diff/command_line.py\", line 14, in compute_changes\n    docs = [serialize_pdf(0, pdf_fn_1, top_margin, bottom_margin), serialize_pdf(1, pdf_fn_2, top_margin, bottom_margin)]\n  File \"/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/.pytest/unclean/lib/python3.6/site-packages/pdf_diff/command_line.py\", line 29, in serialize_pdf\n    for run in box_generator:\n  File \"/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/.pytest/unclean/lib/python3.6/site-packages/pdf_diff/command_line.py\", line 99, in mark_eol_hyphens\n    for next_box in boxes:\n  File \"/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/.pytest/unclean/lib/python3.6/site-packages/pdf_diff/command_line.py\", line 61, in pdf_to_bboxes\n    xml = subprocess.check_output([\"pdftotext\", \"-bbox\", fn, \"/dev/stdout\"])\n  File \"/opt/hostedtoolcache/Python/3.6.12/x64/lib/python3.6/subprocess.py\", line 356, in check_output\n    **kwargs).stdout\n  File \"/opt/hostedtoolcache/Python/3.6.12/x64/lib/python3.6/subprocess.py\", line 423, in run\n    with Popen(*popenargs, **kwargs) as process:\n  File \"/opt/hostedtoolcache/Python/3.6.12/x64/lib/python3.6/subprocess.py\", line 729, in __init__\n    restore_signals, start_new_session)\n  File \"/opt/hostedtoolcache/Python/3.6.12/x64/lib/python3.6/subprocess.py\", line 1364, in _execute_child\n    raise child_exception_type(errno_num, err_msg, err_filename)\nFileNotFoundError: [Errno 2] No such file or directory: 'pdftotext': 'pdftotext'",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "browser",
+    "time" : {
+      "start" : 1610717187752,
+      "stop" : 1610717187752,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "wsgi_app",
+    "time" : {
+      "start" : 1610717164620,
+      "stop" : 1610717166524,
+      "duration" : 1904
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "organization",
+    "time" : {
+      "start" : 1610717187473,
+      "stop" : 1610717187477,
+      "duration" : 4
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "database_session",
+    "time" : {
+      "start" : 1610717164067,
+      "stop" : 1610717164619,
+      "duration" : 552
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "database",
+    "time" : {
+      "start" : 1610717187396,
+      "stop" : 1610717187472,
+      "duration" : 76
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "verwalter",
+    "time" : {
+      "start" : 1610717187478,
+      "stop" : 1610717187752,
+      "duration" : 274
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "portal_app",
+    "time" : {
+      "start" : 1610717164620,
+      "stop" : 1610717164620,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  } ],
+  "afterStages" : [ {
+    "name" : "database_session::1",
+    "time" : {
+      "start" : 1610717200819,
+      "stop" : 1610717200819,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "database_session::dropdb",
+    "time" : {
+      "start" : 1610717200819,
+      "stop" : 1610717201189,
+      "duration" : 370
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "database::0",
+    "time" : {
+      "start" : 1610717189772,
+      "stop" : 1610717189773,
+      "duration" : 1
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  } ],
+  "labels" : [ {
+    "name" : "parentSuite",
+    "value" : "src.sw.allotmentclub.browser.tests"
+  }, {
+    "name" : "suite",
+    "value" : "test_mail"
+  }, {
+    "name" : "host",
+    "value" : "fv-az176-222"
+  }, {
+    "name" : "thread",
+    "value" : "4929-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "src.sw.allotmentclub.browser.tests.test_mail"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ {
+      "name" : "Test defects",
+      "matchedStatuses" : [ ],
+      "flaky" : false
+    } ],
+    "history" : {
+      "statistic" : {
+        "failed" : 0,
+        "broken" : 2,
+        "skipped" : 0,
+        "passed" : 0,
+        "unknown" : 0,
+        "total" : 2
+      },
+      "items" : [ {
+        "uid" : "9de81da2a70eeb9e",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/2//#testresult/9de81da2a70eeb9e",
+        "status" : "broken",
+        "statusDetails" : "psycopg2.OperationalError: could not connect to server: Connection refused\n\tIs the server running on host \"localhost\" (::1) and accepting\n\tTCP/IP connections on port 5432?\ncould not connect to server: Connection refused\n\tIs the server running on host \"localhost\" (127.0.0.1) and accepting\n\tTCP/IP connections on port 5432?",
+        "time" : {
+          "start" : 1610715010445,
+          "stop" : 1610715010445,
+          "duration" : 0
+        }
+      } ]
+    },
+    "tags" : [ ]
+  },
+  "source" : "c56e64c4e47c1649.json",
+  "parameterValues" : [ ]
+}

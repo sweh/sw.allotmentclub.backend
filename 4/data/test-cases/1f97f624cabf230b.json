@@ -1,0 +1,92 @@
+{
+  "uid" : "1f97f624cabf230b",
+  "name" : "src/sw/allotmentclub/browser/__init__.py",
+  "fullName" : "src.sw.allotmentclub.browser.__init__#FLAKE8",
+  "historyId" : "b13f13c7b059170f4811f814db930052",
+  "time" : {
+    "start" : 1610717160509,
+    "stop" : 1610717160590,
+    "duration" : 81
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ {
+      "uid" : "3fedf8c6e561a4f6",
+      "name" : "log",
+      "source" : "3fedf8c6e561a4f6.txt",
+      "type" : "text/plain",
+      "size" : 182
+    } ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 1,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "tag",
+    "value" : "flake8"
+  }, {
+    "name" : "parentSuite",
+    "value" : "src.sw.allotmentclub.browser"
+  }, {
+    "name" : "suite",
+    "value" : "__init__"
+  }, {
+    "name" : "host",
+    "value" : "fv-az176-222"
+  }, {
+    "name" : "thread",
+    "value" : "4929-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "src.sw.allotmentclub.browser.__init__"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "history" : {
+      "statistic" : {
+        "failed" : 0,
+        "broken" : 0,
+        "skipped" : 0,
+        "passed" : 2,
+        "unknown" : 0,
+        "total" : 2
+      },
+      "items" : [ {
+        "uid" : "cf589ac145c0ffbc",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/2//#testresult/cf589ac145c0ffbc",
+        "status" : "passed",
+        "time" : {
+          "start" : 1610715006728,
+          "stop" : 1610715006810,
+          "duration" : 82
+        }
+      } ]
+    },
+    "tags" : [ "flake8" ]
+  },
+  "source" : "1f97f624cabf230b.json",
+  "parameterValues" : [ ]
+}
