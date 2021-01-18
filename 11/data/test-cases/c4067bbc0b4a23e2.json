@@ -1,0 +1,304 @@
+{
+  "uid" : "c4067bbc0b4a23e2",
+  "name" : "test__mail__MailPreviewView_1",
+  "fullName" : "src.sw.allotmentclub.browser.tests.test_mail#test__mail__MailPreviewView_1",
+  "historyId" : "5846cc2232865b329129679188e885a4",
+  "time" : {
+    "start" : 1610962586189,
+    "stop" : 1610962586839,
+    "duration" : 650
+  },
+  "description" : "It generates pdfs for recipients regardless of email.",
+  "descriptionHtml" : "<p>It generates pdfs for recipients regardless of email.</p>\n",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "browser",
+    "time" : {
+      "start" : 1610962586175,
+      "stop" : 1610962586175,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "database_session",
+    "time" : {
+      "start" : 1610962570288,
+      "stop" : 1610962570798,
+      "duration" : 510
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "wsgi_app",
+    "time" : {
+      "start" : 1610962570798,
+      "stop" : 1610962572800,
+      "duration" : 2002
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "database",
+    "time" : {
+      "start" : 1610962585783,
+      "stop" : 1610962585838,
+      "duration" : 55
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "verwalter",
+    "time" : {
+      "start" : 1610962585844,
+      "stop" : 1610962586174,
+      "duration" : 330
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "portal_app",
+    "time" : {
+      "start" : 1610962570798,
+      "stop" : 1610962570798,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "setUp",
+    "time" : {
+      "start" : 1610962586175,
+      "stop" : 1610962586187,
+      "duration" : 12
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "organization",
+    "time" : {
+      "start" : 1610962585838,
+      "stop" : 1610962585843,
+      "duration" : 5
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  } ],
+  "testStage" : {
+    "description" : "It generates pdfs for recipients regardless of email.",
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ {
+      "uid" : "b34fb88cbd5648c3",
+      "name" : "stderr",
+      "source" : "b34fb88cbd5648c3.txt",
+      "type" : "text/plain",
+      "size" : 52
+    } ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 1,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true
+  },
+  "afterStages" : [ {
+    "name" : "database_session::1",
+    "time" : {
+      "start" : 1610962610525,
+      "stop" : 1610962610525,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "database_session::dropdb",
+    "time" : {
+      "start" : 1610962610525,
+      "stop" : 1610962610758,
+      "duration" : 233
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "database::0",
+    "time" : {
+      "start" : 1610962586844,
+      "stop" : 1610962586845,
+      "duration" : 1
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  } ],
+  "labels" : [ {
+    "name" : "parentSuite",
+    "value" : "src.sw.allotmentclub.browser.tests"
+  }, {
+    "name" : "suite",
+    "value" : "test_mail"
+  }, {
+    "name" : "host",
+    "value" : "fv-az87-634"
+  }, {
+    "name" : "thread",
+    "value" : "7918-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "src.sw.allotmentclub.browser.tests.test_mail"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "history" : {
+      "statistic" : {
+        "failed" : 0,
+        "broken" : 2,
+        "skipped" : 0,
+        "passed" : 5,
+        "unknown" : 0,
+        "total" : 7
+      },
+      "items" : [ {
+        "uid" : "156122d65daf9e8e",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/10//#testresult/156122d65daf9e8e",
+        "status" : "passed",
+        "time" : {
+          "start" : 1610876094815,
+          "stop" : 1610876095524,
+          "duration" : 709
+        }
+      }, {
+        "uid" : "89942bbf01dfe9c9",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/9//#testresult/89942bbf01dfe9c9",
+        "status" : "passed",
+        "time" : {
+          "start" : 1610789600809,
+          "stop" : 1610789601363,
+          "duration" : 554
+        }
+      }, {
+        "uid" : "87055138a19dc70f",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/8//#testresult/87055138a19dc70f",
+        "status" : "passed",
+        "time" : {
+          "start" : 1610718911023,
+          "stop" : 1610718911583,
+          "duration" : 560
+        }
+      }, {
+        "uid" : "a92583da425c6e6c",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/6//#testresult/a92583da425c6e6c",
+        "status" : "passed",
+        "time" : {
+          "start" : 1610717705814,
+          "stop" : 1610717706521,
+          "duration" : 707
+        }
+      }, {
+        "uid" : "dcdce7b4a8d465c4",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/4//#testresult/dcdce7b4a8d465c4",
+        "status" : "broken",
+        "statusDetails" : "FileNotFoundError: [Errno 2] No such file or directory: 'pdftotext': 'pdftotext'",
+        "time" : {
+          "start" : 1610717180540,
+          "stop" : 1610717181058,
+          "duration" : 518
+        }
+      }, {
+        "uid" : "ffa130869761d59",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/2//#testresult/ffa130869761d59",
+        "status" : "broken",
+        "statusDetails" : "psycopg2.OperationalError: could not connect to server: Connection refused\n\tIs the server running on host \"localhost\" (::1) and accepting\n\tTCP/IP connections on port 5432?\ncould not connect to server: Connection refused\n\tIs the server running on host \"localhost\" (127.0.0.1) and accepting\n\tTCP/IP connections on port 5432?",
+        "time" : {
+          "start" : 1610715010521,
+          "stop" : 1610715010521,
+          "duration" : 0
+        }
+      } ]
+    },
+    "tags" : [ ]
+  },
+  "source" : "c4067bbc0b4a23e2.json",
+  "parameterValues" : [ ]
+}
