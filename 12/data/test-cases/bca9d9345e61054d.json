@@ -1,0 +1,295 @@
+{
+  "uid" : "bca9d9345e61054d",
+  "name" : "test__mail__postmark_webhook_2",
+  "fullName" : "src.sw.allotmentclub.browser.tests.test_postmark_webhook#test__mail__postmark_webhook_2",
+  "historyId" : "5bbb8e204ae6adfce892baf38694f4c7",
+  "time" : {
+    "start" : 1611049155236,
+    "stop" : 1611049155249,
+    "duration" : 13
+  },
+  "description" : "It creates new status for addresses not in db.",
+  "descriptionHtml" : "<p>It creates new status for addresses not in db.</p>\n",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "database",
+    "time" : {
+      "start" : 1611049154820,
+      "stop" : 1611049154885,
+      "duration" : 65
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "organization",
+    "time" : {
+      "start" : 1611049154885,
+      "stop" : 1611049154890,
+      "duration" : 5
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "portal_app",
+    "time" : {
+      "start" : 1611049126975,
+      "stop" : 1611049126975,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "verwalter",
+    "time" : {
+      "start" : 1611049154890,
+      "stop" : 1611049155225,
+      "duration" : 335
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "wsgi_app",
+    "time" : {
+      "start" : 1611049126975,
+      "stop" : 1611049129523,
+      "duration" : 2548
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "setUp",
+    "time" : {
+      "start" : 1611049155225,
+      "stop" : 1611049155234,
+      "duration" : 9
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "browser",
+    "time" : {
+      "start" : 1611049155225,
+      "stop" : 1611049155225,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "database_session",
+    "time" : {
+      "start" : 1611049126289,
+      "stop" : 1611049126975,
+      "duration" : 686
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  } ],
+  "afterStages" : [ {
+    "name" : "database::0",
+    "time" : {
+      "start" : 1611049155252,
+      "stop" : 1611049155253,
+      "duration" : 1
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "database_session::1",
+    "time" : {
+      "start" : 1611049170734,
+      "stop" : 1611049170734,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "database_session::dropdb",
+    "time" : {
+      "start" : 1611049170734,
+      "stop" : 1611049170880,
+      "duration" : 146
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  } ],
+  "labels" : [ {
+    "name" : "parentSuite",
+    "value" : "src.sw.allotmentclub.browser.tests"
+  }, {
+    "name" : "suite",
+    "value" : "test_postmark_webhook"
+  }, {
+    "name" : "host",
+    "value" : "fv-az65-514"
+  }, {
+    "name" : "thread",
+    "value" : "8334-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "src.sw.allotmentclub.browser.tests.test_postmark_webhook"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "history" : {
+      "statistic" : {
+        "failed" : 0,
+        "broken" : 1,
+        "skipped" : 0,
+        "passed" : 7,
+        "unknown" : 0,
+        "total" : 8
+      },
+      "items" : [ {
+        "uid" : "c990189270a05911",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/11//#testresult/c990189270a05911",
+        "status" : "passed",
+        "time" : {
+          "start" : 1610962596227,
+          "stop" : 1610962596239,
+          "duration" : 12
+        }
+      }, {
+        "uid" : "4859a690779d3ad3",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/10//#testresult/4859a690779d3ad3",
+        "status" : "passed",
+        "time" : {
+          "start" : 1610876108180,
+          "stop" : 1610876108194,
+          "duration" : 14
+        }
+      }, {
+        "uid" : "223fc634710776cd",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/9//#testresult/223fc634710776cd",
+        "status" : "passed",
+        "time" : {
+          "start" : 1610789604116,
+          "stop" : 1610789604127,
+          "duration" : 11
+        }
+      }, {
+        "uid" : "adeb47328afe8e23",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/8//#testresult/adeb47328afe8e23",
+        "status" : "passed",
+        "time" : {
+          "start" : 1610718915714,
+          "stop" : 1610718915725,
+          "duration" : 11
+        }
+      }, {
+        "uid" : "6f777f30fd72f1ef",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/6//#testresult/6f777f30fd72f1ef",
+        "status" : "passed",
+        "time" : {
+          "start" : 1610717723382,
+          "stop" : 1610717723395,
+          "duration" : 13
+        }
+      }, {
+        "uid" : "599b612c0461a760",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/4//#testresult/599b612c0461a760",
+        "status" : "passed",
+        "time" : {
+          "start" : 1610717192827,
+          "stop" : 1610717192839,
+          "duration" : 12
+        }
+      }, {
+        "uid" : "e166e70df7d36e6e",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/2//#testresult/e166e70df7d36e6e",
+        "status" : "broken",
+        "statusDetails" : "psycopg2.OperationalError: could not connect to server: Connection refused\n\tIs the server running on host \"localhost\" (::1) and accepting\n\tTCP/IP connections on port 5432?\ncould not connect to server: Connection refused\n\tIs the server running on host \"localhost\" (127.0.0.1) and accepting\n\tTCP/IP connections on port 5432?",
+        "time" : {
+          "start" : 1610715010529,
+          "stop" : 1610715010529,
+          "duration" : 0
+        }
+      } ]
+    },
+    "tags" : [ ]
+  },
+  "source" : "bca9d9345e61054d.json",
+  "parameterValues" : [ ]
+}

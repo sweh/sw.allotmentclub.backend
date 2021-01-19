@@ -1,0 +1,313 @@
+{
+  "uid" : "bc9b85079e66d981",
+  "name" : "test__mail__MailPreviewView_2",
+  "fullName" : "src.sw.allotmentclub.browser.tests.test_mail#test__mail__MailPreviewView_2",
+  "historyId" : "3094f6059030c2d253875d1731f2ec17",
+  "time" : {
+    "start" : 1611049143984,
+    "stop" : 1611049144623,
+    "duration" : 639
+  },
+  "description" : "It prints multiple pdf pages for a `Verein` message.",
+  "descriptionHtml" : "<p>It prints multiple pdf pages for a <code>Verein</code> message.</p>\n",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "verwalter",
+    "time" : {
+      "start" : 1611049143643,
+      "stop" : 1611049143970,
+      "duration" : 327
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "database_session",
+    "time" : {
+      "start" : 1611049129554,
+      "stop" : 1611049130123,
+      "duration" : 569
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "setUp",
+    "time" : {
+      "start" : 1611049143971,
+      "stop" : 1611049143982,
+      "duration" : 11
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "wsgi_app",
+    "time" : {
+      "start" : 1611049130124,
+      "stop" : 1611049132283,
+      "duration" : 2159
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "browser",
+    "time" : {
+      "start" : 1611049143970,
+      "stop" : 1611049143970,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "portal_app",
+    "time" : {
+      "start" : 1611049130124,
+      "stop" : 1611049130124,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "organization",
+    "time" : {
+      "start" : 1611049143637,
+      "stop" : 1611049143643,
+      "duration" : 6
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "database",
+    "time" : {
+      "start" : 1611049143569,
+      "stop" : 1611049143637,
+      "duration" : 68
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  } ],
+  "testStage" : {
+    "description" : "It prints multiple pdf pages for a `Verein` message.",
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ {
+      "uid" : "98ca89f85ca4d518",
+      "name" : "stderr",
+      "source" : "98ca89f85ca4d518.txt",
+      "type" : "text/plain",
+      "size" : 52
+    } ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 1,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true
+  },
+  "afterStages" : [ {
+    "name" : "database_session::1",
+    "time" : {
+      "start" : 1611049170621,
+      "stop" : 1611049170621,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "database_session::dropdb",
+    "time" : {
+      "start" : 1611049170621,
+      "stop" : 1611049170963,
+      "duration" : 342
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "database::0",
+    "time" : {
+      "start" : 1611049144628,
+      "stop" : 1611049144629,
+      "duration" : 1
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  } ],
+  "labels" : [ {
+    "name" : "parentSuite",
+    "value" : "src.sw.allotmentclub.browser.tests"
+  }, {
+    "name" : "suite",
+    "value" : "test_mail"
+  }, {
+    "name" : "host",
+    "value" : "fv-az65-514"
+  }, {
+    "name" : "thread",
+    "value" : "8337-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "src.sw.allotmentclub.browser.tests.test_mail"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "history" : {
+      "statistic" : {
+        "failed" : 0,
+        "broken" : 2,
+        "skipped" : 0,
+        "passed" : 6,
+        "unknown" : 0,
+        "total" : 8
+      },
+      "items" : [ {
+        "uid" : "d75002972e50cbbf",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/11//#testresult/d75002972e50cbbf",
+        "status" : "passed",
+        "time" : {
+          "start" : 1610962587253,
+          "stop" : 1610962587918,
+          "duration" : 665
+        }
+      }, {
+        "uid" : "1cef71f9edfae17e",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/10//#testresult/1cef71f9edfae17e",
+        "status" : "passed",
+        "time" : {
+          "start" : 1610876096001,
+          "stop" : 1610876096714,
+          "duration" : 713
+        }
+      }, {
+        "uid" : "d21e2ea26a4b72cf",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/9//#testresult/d21e2ea26a4b72cf",
+        "status" : "passed",
+        "time" : {
+          "start" : 1610789601733,
+          "stop" : 1610789602291,
+          "duration" : 558
+        }
+      }, {
+        "uid" : "2da7291a39f55aca",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/8//#testresult/2da7291a39f55aca",
+        "status" : "passed",
+        "time" : {
+          "start" : 1610718911953,
+          "stop" : 1610718912518,
+          "duration" : 565
+        }
+      }, {
+        "uid" : "fb42ed57d2e5e4b8",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/6//#testresult/fb42ed57d2e5e4b8",
+        "status" : "passed",
+        "time" : {
+          "start" : 1610717706998,
+          "stop" : 1610717707697,
+          "duration" : 699
+        }
+      }, {
+        "uid" : "6e4c5c960fd8dadf",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/4//#testresult/6e4c5c960fd8dadf",
+        "status" : "broken",
+        "statusDetails" : "FileNotFoundError: [Errno 2] No such file or directory: 'pdftotext': 'pdftotext'",
+        "time" : {
+          "start" : 1610717181486,
+          "stop" : 1610717182005,
+          "duration" : 519
+        }
+      }, {
+        "uid" : "5dd19c8477a82095",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/2//#testresult/5dd19c8477a82095",
+        "status" : "broken",
+        "statusDetails" : "psycopg2.OperationalError: could not connect to server: Connection refused\n\tIs the server running on host \"localhost\" (::1) and accepting\n\tTCP/IP connections on port 5432?\ncould not connect to server: Connection refused\n\tIs the server running on host \"localhost\" (127.0.0.1) and accepting\n\tTCP/IP connections on port 5432?",
+        "time" : {
+          "start" : 1610715010407,
+          "stop" : 1610715010407,
+          "duration" : 0
+        }
+      } ]
+    },
+    "tags" : [ ]
+  },
+  "source" : "bc9b85079e66d981.json",
+  "parameterValues" : [ ]
+}
