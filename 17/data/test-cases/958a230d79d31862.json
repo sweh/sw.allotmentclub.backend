@@ -1,0 +1,356 @@
+{
+  "uid" : "958a230d79d31862",
+  "name" : "test_MapView__call__1",
+  "fullName" : "src.sw.allotmentclub.browser.tests.test_map#test_MapView__call__1",
+  "historyId" : "54230af9810dba4a24469b6fce738cef",
+  "time" : {
+    "start" : 1611481066475,
+    "stop" : 1611481067094,
+    "duration" : 619
+  },
+  "description" : "It returns members and parcels.",
+  "descriptionHtml" : "<p>It returns members and parcels.</p>\n",
+  "status" : "skipped",
+  "statusMessage" : "XFAIL\n\nAssertionError: assert 17 == 18\n +  where 17 = len([[{'css_class': '', 'value': 67}, {'css_class': '', 'value': '108'}, {'css_class': '', 'value': 'Wehrmann'}, {'css_cla...{'css_class': '', 'value': '406'}, {'css_class': '', 'value': 'Leutloff'}, {'css_class': '', 'value': 'Marlies'}], ...])\n +  and   18 = len([[{'css_class': 'hide', 'value': 1}, {'css_class': '', 'value': 60}, {'css_class': '', 'value': '102'}, {'css_class': ...112'}, {'css_class': '', 'value': 'Esser'}, {'css_class': '', 'value': 'Regina'}, {'css_class': '', 'value': ''}], ...])",
+  "statusTrace" : "Traceback (most recent call last):\n  File \"/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map.py\", line 19, in test_MapView__call__1\n    json_fixture.assertEqual(browser.json['data'], 'data')\n  File \"/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/conftest.py\", line 57, in assertEqual\n    assert len(expected) == len(got)\nAssertionError: assert 17 == 18\n +  where 17 = len([[{'css_class': '', 'value': 67}, {'css_class': '', 'value': '108'}, {'css_class': '', 'value': 'Wehrmann'}, {'css_cla...{'css_class': '', 'value': '406'}, {'css_class': '', 'value': 'Leutloff'}, {'css_class': '', 'value': 'Marlies'}], ...])\n +  and   18 = len([[{'css_class': 'hide', 'value': 1}, {'css_class': '', 'value': 60}, {'css_class': '', 'value': '102'}, {'css_class': ...112'}, {'css_class': '', 'value': 'Esser'}, {'css_class': '', 'value': 'Regina'}, {'css_class': '', 'value': ''}], ...])",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "portal_app",
+    "time" : {
+      "start" : 1611481039684,
+      "stop" : 1611481039684,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "database_session",
+    "time" : {
+      "start" : 1611481039102,
+      "stop" : 1611481039684,
+      "duration" : 582
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "organization",
+    "time" : {
+      "start" : 1611481066150,
+      "stop" : 1611481066155,
+      "duration" : 5
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "json_fixture",
+    "time" : {
+      "start" : 1611481066467,
+      "stop" : 1611481066473,
+      "duration" : 6
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "browser",
+    "time" : {
+      "start" : 1611481066467,
+      "stop" : 1611481066467,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "database",
+    "time" : {
+      "start" : 1611481066067,
+      "stop" : 1611481066150,
+      "duration" : 83
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "verwalter",
+    "time" : {
+      "start" : 1611481066155,
+      "stop" : 1611481066467,
+      "duration" : 312
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "wsgi_app",
+    "time" : {
+      "start" : 1611481039685,
+      "stop" : 1611481041804,
+      "duration" : 2119
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  } ],
+  "afterStages" : [ {
+    "name" : "database_session::1",
+    "time" : {
+      "start" : 1611481080254,
+      "stop" : 1611481080254,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "database_session::dropdb",
+    "time" : {
+      "start" : 1611481080254,
+      "stop" : 1611481080649,
+      "duration" : 395
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "database::0",
+    "time" : {
+      "start" : 1611481067100,
+      "stop" : 1611481067111,
+      "duration" : 11
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  } ],
+  "labels" : [ {
+    "name" : "tag",
+    "value" : "@pytest.mark.xfail"
+  }, {
+    "name" : "parentSuite",
+    "value" : "src.sw.allotmentclub.browser.tests"
+  }, {
+    "name" : "suite",
+    "value" : "test_map"
+  }, {
+    "name" : "host",
+    "value" : "fv-az128-459"
+  }, {
+    "name" : "thread",
+    "value" : "8165-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "src.sw.allotmentclub.browser.tests.test_map"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "history" : {
+      "statistic" : {
+        "failed" : 0,
+        "broken" : 0,
+        "skipped" : 13,
+        "passed" : 0,
+        "unknown" : 0,
+        "total" : 13
+      },
+      "items" : [ {
+        "uid" : "832fc172d058bd67",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/16//#testresult/832fc172d058bd67",
+        "status" : "skipped",
+        "statusDetails" : "XFAIL\n\nAssertionError: assert 17 == 18\n +  where 17 = len([[{'css_class': '', 'value': 67}, {'css_class': '', 'value': '108'}, {'css_class': '', 'value': 'Wehrmann'}, {'css_cla...{'css_class': '', 'value': '406'}, {'css_class': '', 'value': 'Leutloff'}, {'css_class': '', 'value': 'Marlies'}], ...])\n +  and   18 = len([[{'css_class': 'hide', 'value': 1}, {'css_class': '', 'value': 60}, {'css_class': '', 'value': '102'}, {'css_class': ...112'}, {'css_class': '', 'value': 'Esser'}, {'css_class': '', 'value': 'Regina'}, {'css_class': '', 'value': ''}], ...])",
+        "time" : {
+          "start" : 1611394483141,
+          "stop" : 1611394483641,
+          "duration" : 500
+        }
+      }, {
+        "uid" : "584e44b1bd5e260e",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/15//#testresult/584e44b1bd5e260e",
+        "status" : "skipped",
+        "statusDetails" : "XFAIL\n\nAssertionError: assert 17 == 18\n +  where 17 = len([[{'css_class': '', 'value': 67}, {'css_class': '', 'value': '108'}, {'css_class': '', 'value': 'Wehrmann'}, {'css_cla...{'css_class': '', 'value': '406'}, {'css_class': '', 'value': 'Leutloff'}, {'css_class': '', 'value': 'Marlies'}], ...])\n +  and   18 = len([[{'css_class': 'hide', 'value': 1}, {'css_class': '', 'value': 60}, {'css_class': '', 'value': '102'}, {'css_class': ...112'}, {'css_class': '', 'value': 'Esser'}, {'css_class': '', 'value': 'Regina'}, {'css_class': '', 'value': ''}], ...])",
+        "time" : {
+          "start" : 1611308257173,
+          "stop" : 1611308257679,
+          "duration" : 506
+        }
+      }, {
+        "uid" : "7eebc92f1c768cd8",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/14//#testresult/7eebc92f1c768cd8",
+        "status" : "skipped",
+        "statusDetails" : "XFAIL\n\nAssertionError: assert 17 == 18\n +  where 17 = len([[{'css_class': '', 'value': 67}, {'css_class': '', 'value': '108'}, {'css_class': '', 'value': 'Wehrmann'}, {'css_cla...{'css_class': '', 'value': '406'}, {'css_class': '', 'value': 'Leutloff'}, {'css_class': '', 'value': 'Marlies'}], ...])\n +  and   18 = len([[{'css_class': 'hide', 'value': 1}, {'css_class': '', 'value': 60}, {'css_class': '', 'value': '102'}, {'css_class': ...112'}, {'css_class': '', 'value': 'Esser'}, {'css_class': '', 'value': 'Regina'}, {'css_class': '', 'value': ''}], ...])",
+        "time" : {
+          "start" : 1611221974126,
+          "stop" : 1611221974776,
+          "duration" : 650
+        }
+      }, {
+        "uid" : "9dc0794b5a60a79a",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/13//#testresult/9dc0794b5a60a79a",
+        "status" : "skipped",
+        "statusDetails" : "XFAIL\n\nAssertionError: assert 17 == 18\n +  where 17 = len([[{'css_class': '', 'value': 67}, {'css_class': '', 'value': '108'}, {'css_class': '', 'value': 'Wehrmann'}, {'css_cla...{'css_class': '', 'value': '406'}, {'css_class': '', 'value': 'Leutloff'}, {'css_class': '', 'value': 'Marlies'}], ...])\n +  and   18 = len([[{'css_class': 'hide', 'value': 1}, {'css_class': '', 'value': 60}, {'css_class': '', 'value': '102'}, {'css_class': ...112'}, {'css_class': '', 'value': 'Esser'}, {'css_class': '', 'value': 'Regina'}, {'css_class': '', 'value': ''}], ...])",
+        "time" : {
+          "start" : 1611135596694,
+          "stop" : 1611135597144,
+          "duration" : 450
+        }
+      }, {
+        "uid" : "c7527e06c858706f",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/12//#testresult/c7527e06c858706f",
+        "status" : "skipped",
+        "statusDetails" : "XFAIL\n\nAssertionError: assert 17 == 18\n +  where 17 = len([[{'css_class': '', 'value': 67}, {'css_class': '', 'value': '108'}, {'css_class': '', 'value': 'Wehrmann'}, {'css_cla...{'css_class': '', 'value': '406'}, {'css_class': '', 'value': 'Leutloff'}, {'css_class': '', 'value': 'Marlies'}], ...])\n +  and   18 = len([[{'css_class': 'hide', 'value': 1}, {'css_class': '', 'value': 60}, {'css_class': '', 'value': '102'}, {'css_class': ...112'}, {'css_class': '', 'value': 'Esser'}, {'css_class': '', 'value': 'Regina'}, {'css_class': '', 'value': ''}], ...])",
+        "time" : {
+          "start" : 1611049156589,
+          "stop" : 1611049157204,
+          "duration" : 615
+        }
+      }, {
+        "uid" : "3e039545ef51f3a6",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/11//#testresult/3e039545ef51f3a6",
+        "status" : "skipped",
+        "statusDetails" : "XFAIL\n\nAssertionError: assert 17 == 18\n +  where 17 = len([[{'css_class': '', 'value': 67}, {'css_class': '', 'value': '108'}, {'css_class': '', 'value': 'Wehrmann'}, {'css_cla...{'css_class': '', 'value': '406'}, {'css_class': '', 'value': 'Leutloff'}, {'css_class': '', 'value': 'Marlies'}], ...])\n +  and   18 = len([[{'css_class': 'hide', 'value': 1}, {'css_class': '', 'value': 60}, {'css_class': '', 'value': '102'}, {'css_class': ...112'}, {'css_class': '', 'value': 'Esser'}, {'css_class': '', 'value': 'Regina'}, {'css_class': '', 'value': ''}], ...])",
+        "time" : {
+          "start" : 1610962599610,
+          "stop" : 1610962600270,
+          "duration" : 660
+        }
+      }, {
+        "uid" : "8084eabeff24f297",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/10//#testresult/8084eabeff24f297",
+        "status" : "skipped",
+        "statusDetails" : "XFAIL\n\nAssertionError: assert 17 == 18\n +  where 17 = len([[{'css_class': '', 'value': 67}, {'css_class': '', 'value': '108'}, {'css_class': '', 'value': 'Wehrmann'}, {'css_cla...{'css_class': '', 'value': '406'}, {'css_class': '', 'value': 'Leutloff'}, {'css_class': '', 'value': 'Marlies'}], ...])\n +  and   18 = len([[{'css_class': 'hide', 'value': 1}, {'css_class': '', 'value': 60}, {'css_class': '', 'value': '102'}, {'css_class': ...112'}, {'css_class': '', 'value': 'Esser'}, {'css_class': '', 'value': 'Regina'}, {'css_class': '', 'value': ''}], ...])",
+        "time" : {
+          "start" : 1610876109167,
+          "stop" : 1610876109971,
+          "duration" : 804
+        }
+      }, {
+        "uid" : "b723e3996acb600e",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/9//#testresult/b723e3996acb600e",
+        "status" : "skipped",
+        "statusDetails" : "XFAIL\n\nAssertionError: assert 17 == 18\n +  where 17 = len([[{'css_class': '', 'value': 67}, {'css_class': '', 'value': '108'}, {'css_class': '', 'value': 'Wehrmann'}, {'css_cla...{'css_class': '', 'value': '406'}, {'css_class': '', 'value': 'Leutloff'}, {'css_class': '', 'value': 'Marlies'}], ...])\n +  and   18 = len([[{'css_class': 'hide', 'value': 1}, {'css_class': '', 'value': 60}, {'css_class': '', 'value': '102'}, {'css_class': ...112'}, {'css_class': '', 'value': 'Esser'}, {'css_class': '', 'value': 'Regina'}, {'css_class': '', 'value': ''}], ...])",
+        "time" : {
+          "start" : 1610789612288,
+          "stop" : 1610789612811,
+          "duration" : 523
+        }
+      }, {
+        "uid" : "c6c1f6bfed180afd",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/8//#testresult/c6c1f6bfed180afd",
+        "status" : "skipped",
+        "statusDetails" : "XFAIL\n\nAssertionError: assert 17 == 18\n +  where 17 = len([[{'css_class': '', 'value': 67}, {'css_class': '', 'value': '108'}, {'css_class': '', 'value': 'Wehrmann'}, {'css_cla...{'css_class': '', 'value': '406'}, {'css_class': '', 'value': 'Leutloff'}, {'css_class': '', 'value': 'Marlies'}], ...])\n +  and   18 = len([[{'css_class': 'hide', 'value': 1}, {'css_class': '', 'value': 60}, {'css_class': '', 'value': '102'}, {'css_class': ...112'}, {'css_class': '', 'value': 'Esser'}, {'css_class': '', 'value': 'Regina'}, {'css_class': '', 'value': ''}], ...])",
+        "time" : {
+          "start" : 1610718922468,
+          "stop" : 1610718922991,
+          "duration" : 523
+        }
+      }, {
+        "uid" : "a618211a6dec7330",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/6//#testresult/a618211a6dec7330",
+        "status" : "skipped",
+        "statusDetails" : "XFAIL\n\nAssertionError: assert 17 == 18\n +  where 17 = len([[{'css_class': '', 'value': 67}, {'css_class': '', 'value': '108'}, {'css_class': '', 'value': 'Wehrmann'}, {'css_cla...{'css_class': '', 'value': '406'}, {'css_class': '', 'value': 'Leutloff'}, {'css_class': '', 'value': 'Marlies'}], ...])\n +  and   18 = len([[{'css_class': 'hide', 'value': 1}, {'css_class': '', 'value': 60}, {'css_class': '', 'value': '102'}, {'css_class': ...112'}, {'css_class': '', 'value': 'Esser'}, {'css_class': '', 'value': 'Regina'}, {'css_class': '', 'value': ''}], ...])",
+        "time" : {
+          "start" : 1610717719844,
+          "stop" : 1610717720464,
+          "duration" : 620
+        }
+      }, {
+        "uid" : "b94bd83ed3deb728",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/4//#testresult/b94bd83ed3deb728",
+        "status" : "skipped",
+        "statusDetails" : "XFAIL\n\nAssertionError: assert 17 == 18\n +  where 17 = len([[{'css_class': '', 'value': 67}, {'css_class': '', 'value': '108'}, {'css_class': '', 'value': 'Wehrmann'}, {'css_cla...{'css_class': '', 'value': '406'}, {'css_class': '', 'value': 'Leutloff'}, {'css_class': '', 'value': 'Marlies'}], ...])\n +  and   18 = len([[{'css_class': 'hide', 'value': 1}, {'css_class': '', 'value': 60}, {'css_class': '', 'value': '102'}, {'css_class': ...112'}, {'css_class': '', 'value': 'Esser'}, {'css_class': '', 'value': 'Regina'}, {'css_class': '', 'value': ''}], ...])",
+        "time" : {
+          "start" : 1610717184774,
+          "stop" : 1610717185263,
+          "duration" : 489
+        }
+      }, {
+        "uid" : "87c1704f2b354590",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/2//#testresult/87c1704f2b354590",
+        "status" : "skipped",
+        "statusDetails" : "XFAIL\n\npsycopg2.OperationalError: could not connect to server: Connection refused\n\tIs the server running on host \"localhost\" (::1) and accepting\n\tTCP/IP connections on port 5432?\ncould not connect to server: Connection refused\n\tIs the server running on host \"localhost\" (127.0.0.1) and accepting\n\tTCP/IP connections on port 5432?",
+        "time" : {
+          "start" : 1610715010577,
+          "stop" : 1610715010577,
+          "duration" : 0
+        }
+      } ]
+    },
+    "tags" : [ "@pytest.mark.xfail" ]
+  },
+  "source" : "958a230d79d31862.json",
+  "parameterValues" : [ ]
+}
