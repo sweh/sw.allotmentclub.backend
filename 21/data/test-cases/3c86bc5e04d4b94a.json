@@ -1,0 +1,229 @@
+{
+  "uid" : "3c86bc5e04d4b94a",
+  "name" : "test_abort_w_TPC_does_not_raise_ValueError",
+  "fullName" : "src.sw.allotmentclub.tests.test_sendmail_delivery#test_abort_w_TPC_does_not_raise_ValueError",
+  "historyId" : "8c4d365dbc91b4e4eb910636b97c560c",
+  "time" : {
+    "start" : 1611826111508,
+    "stop" : 1611826111508,
+    "duration" : 0
+  },
+  "status" : "skipped",
+  "statusMessage" : "XFAIL\n\nValueError: TPC in progress",
+  "statusTrace" : "Traceback (most recent call last):\n  File \"/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/tests/test_sendmail_delivery.py\", line 12, in test_abort_w_TPC_does_not_raise_ValueError\n    mdm.abort(txn)\n  File \"/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/.pytest/unclean/lib/python3.6/site-packages/repoze/sendmail/delivery.py\", line 120, in abort\n    raise ValueError(\"TPC in progress\")\nValueError: TPC in progress",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "tag",
+    "value" : "@pytest.mark.xfail"
+  }, {
+    "name" : "parentSuite",
+    "value" : "src.sw.allotmentclub.tests"
+  }, {
+    "name" : "suite",
+    "value" : "test_sendmail_delivery"
+  }, {
+    "name" : "host",
+    "value" : "fv-az76-181"
+  }, {
+    "name" : "thread",
+    "value" : "7980-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "src.sw.allotmentclub.tests.test_sendmail_delivery"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "history" : {
+      "statistic" : {
+        "failed" : 0,
+        "broken" : 0,
+        "skipped" : 17,
+        "passed" : 0,
+        "unknown" : 0,
+        "total" : 17
+      },
+      "items" : [ {
+        "uid" : "599ec60f43ed7018",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/20//#testresult/599ec60f43ed7018",
+        "status" : "skipped",
+        "statusDetails" : "XFAIL\n\nValueError: TPC in progress",
+        "time" : {
+          "start" : 1611738615172,
+          "stop" : 1611738615173,
+          "duration" : 1
+        }
+      }, {
+        "uid" : "c6209a2c9b900cf9",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/19//#testresult/c6209a2c9b900cf9",
+        "status" : "skipped",
+        "statusDetails" : "XFAIL\n\nValueError: TPC in progress",
+        "time" : {
+          "start" : 1611652216911,
+          "stop" : 1611652216911,
+          "duration" : 0
+        }
+      }, {
+        "uid" : "7c32b96ed06cf5f5",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/18//#testresult/7c32b96ed06cf5f5",
+        "status" : "skipped",
+        "statusDetails" : "XFAIL\n\nValueError: TPC in progress",
+        "time" : {
+          "start" : 1611567557508,
+          "stop" : 1611567557509,
+          "duration" : 1
+        }
+      }, {
+        "uid" : "2b776776948775c",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/17//#testresult/2b776776948775c",
+        "status" : "skipped",
+        "statusDetails" : "XFAIL\n\nValueError: TPC in progress",
+        "time" : {
+          "start" : 1611481080245,
+          "stop" : 1611481080245,
+          "duration" : 0
+        }
+      }, {
+        "uid" : "c061ffda38ef8581",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/16//#testresult/c061ffda38ef8581",
+        "status" : "skipped",
+        "statusDetails" : "XFAIL\n\nValueError: TPC in progress",
+        "time" : {
+          "start" : 1611394489199,
+          "stop" : 1611394489199,
+          "duration" : 0
+        }
+      }, {
+        "uid" : "e6b6c444aa85b59b",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/15//#testresult/e6b6c444aa85b59b",
+        "status" : "skipped",
+        "statusDetails" : "XFAIL\n\nValueError: TPC in progress",
+        "time" : {
+          "start" : 1611308263229,
+          "stop" : 1611308263230,
+          "duration" : 1
+        }
+      }, {
+        "uid" : "eebbdcf8c0f85f7a",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/14//#testresult/eebbdcf8c0f85f7a",
+        "status" : "skipped",
+        "statusDetails" : "XFAIL\n\nValueError: TPC in progress",
+        "time" : {
+          "start" : 1611221981032,
+          "stop" : 1611221981033,
+          "duration" : 1
+        }
+      }, {
+        "uid" : "82a03ecfe0118393",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/13//#testresult/82a03ecfe0118393",
+        "status" : "skipped",
+        "statusDetails" : "XFAIL\n\nValueError: TPC in progress",
+        "time" : {
+          "start" : 1611135604968,
+          "stop" : 1611135604968,
+          "duration" : 0
+        }
+      }, {
+        "uid" : "85654613394f99a0",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/12//#testresult/85654613394f99a0",
+        "status" : "skipped",
+        "statusDetails" : "XFAIL\n\nValueError: TPC in progress",
+        "time" : {
+          "start" : 1611049170608,
+          "stop" : 1611049170609,
+          "duration" : 1
+        }
+      }, {
+        "uid" : "9806fd5ef7bc06cf",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/11//#testresult/9806fd5ef7bc06cf",
+        "status" : "skipped",
+        "statusDetails" : "XFAIL\n\nValueError: TPC in progress",
+        "time" : {
+          "start" : 1610962610518,
+          "stop" : 1610962610518,
+          "duration" : 0
+        }
+      }, {
+        "uid" : "1d8f3afceadeade5",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/10//#testresult/1d8f3afceadeade5",
+        "status" : "skipped",
+        "statusDetails" : "XFAIL\n\nValueError: TPC in progress",
+        "time" : {
+          "start" : 1610876124338,
+          "stop" : 1610876124338,
+          "duration" : 0
+        }
+      }, {
+        "uid" : "7a0c5a1451140b5d",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/9//#testresult/7a0c5a1451140b5d",
+        "status" : "skipped",
+        "statusDetails" : "XFAIL\n\nValueError: TPC in progress",
+        "time" : {
+          "start" : 1610789618288,
+          "stop" : 1610789618288,
+          "duration" : 0
+        }
+      }, {
+        "uid" : "4c34b9f4d66b3068",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/8//#testresult/4c34b9f4d66b3068",
+        "status" : "skipped",
+        "statusDetails" : "XFAIL\n\nValueError: TPC in progress",
+        "time" : {
+          "start" : 1610718929733,
+          "stop" : 1610718929734,
+          "duration" : 1
+        }
+      }, {
+        "uid" : "60cdc27350267493",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/6//#testresult/60cdc27350267493",
+        "status" : "skipped",
+        "statusDetails" : "XFAIL\n\nValueError: TPC in progress",
+        "time" : {
+          "start" : 1610717734154,
+          "stop" : 1610717734154,
+          "duration" : 0
+        }
+      }, {
+        "uid" : "9dca468a6700bad4",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/4//#testresult/9dca468a6700bad4",
+        "status" : "skipped",
+        "statusDetails" : "XFAIL\n\nValueError: TPC in progress",
+        "time" : {
+          "start" : 1610717200812,
+          "stop" : 1610717200812,
+          "duration" : 0
+        }
+      }, {
+        "uid" : "4c6abf820ce1cac9",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/2//#testresult/4c6abf820ce1cac9",
+        "status" : "skipped",
+        "statusDetails" : "XFAIL\n\nValueError: TPC in progress",
+        "time" : {
+          "start" : 1610715011397,
+          "stop" : 1610715011398,
+          "duration" : 1
+        }
+      } ]
+    },
+    "tags" : [ "@pytest.mark.xfail" ]
+  },
+  "source" : "3c86bc5e04d4b94a.json",
+  "parameterValues" : [ ]
+}

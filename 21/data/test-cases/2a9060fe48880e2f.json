@@ -1,0 +1,376 @@
+{
+  "uid" : "2a9060fe48880e2f",
+  "name" : "test__mail__postmark_webhook_3",
+  "fullName" : "src.sw.allotmentclub.browser.tests.test_postmark_webhook#test__mail__postmark_webhook_3",
+  "historyId" : "241be44a58fa87780900c4dbe39941ff",
+  "time" : {
+    "start" : 1611826097323,
+    "stop" : 1611826097330,
+    "duration" : 7
+  },
+  "description" : "It creates bounce status when message was bounced.",
+  "descriptionHtml" : "<p>It creates bounce status when message was bounced.</p>\n",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "database_session",
+    "time" : {
+      "start" : 1611826077563,
+      "stop" : 1611826078034,
+      "duration" : 471
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "database",
+    "time" : {
+      "start" : 1611826096985,
+      "stop" : 1611826097032,
+      "duration" : 47
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "portal_app",
+    "time" : {
+      "start" : 1611826078034,
+      "stop" : 1611826078034,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "browser",
+    "time" : {
+      "start" : 1611826097313,
+      "stop" : 1611826097314,
+      "duration" : 1
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "setUp",
+    "time" : {
+      "start" : 1611826097314,
+      "stop" : 1611826097322,
+      "duration" : 8
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "wsgi_app",
+    "time" : {
+      "start" : 1611826078035,
+      "stop" : 1611826079716,
+      "duration" : 1681
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "verwalter",
+    "time" : {
+      "start" : 1611826097036,
+      "stop" : 1611826097313,
+      "duration" : 277
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "organization",
+    "time" : {
+      "start" : 1611826097033,
+      "stop" : 1611826097036,
+      "duration" : 3
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  } ],
+  "afterStages" : [ {
+    "name" : "database_session::1",
+    "time" : {
+      "start" : 1611826111571,
+      "stop" : 1611826111571,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "database_session::dropdb",
+    "time" : {
+      "start" : 1611826111571,
+      "stop" : 1611826111777,
+      "duration" : 206
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "database::0",
+    "time" : {
+      "start" : 1611826097332,
+      "stop" : 1611826097332,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  } ],
+  "labels" : [ {
+    "name" : "parentSuite",
+    "value" : "src.sw.allotmentclub.browser.tests"
+  }, {
+    "name" : "suite",
+    "value" : "test_postmark_webhook"
+  }, {
+    "name" : "host",
+    "value" : "fv-az76-181"
+  }, {
+    "name" : "thread",
+    "value" : "7977-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "src.sw.allotmentclub.browser.tests.test_postmark_webhook"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "history" : {
+      "statistic" : {
+        "failed" : 0,
+        "broken" : 1,
+        "skipped" : 0,
+        "passed" : 16,
+        "unknown" : 0,
+        "total" : 17
+      },
+      "items" : [ {
+        "uid" : "1f02d19ff40c5a5e",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/20//#testresult/1f02d19ff40c5a5e",
+        "status" : "passed",
+        "time" : {
+          "start" : 1611738601665,
+          "stop" : 1611738601673,
+          "duration" : 8
+        }
+      }, {
+        "uid" : "e22de6a786a8e2b7",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/19//#testresult/e22de6a786a8e2b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1611652205822,
+          "stop" : 1611652205832,
+          "duration" : 10
+        }
+      }, {
+        "uid" : "2c2ed6f14a5914d4",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/18//#testresult/2c2ed6f14a5914d4",
+        "status" : "passed",
+        "time" : {
+          "start" : 1611567539879,
+          "stop" : 1611567539889,
+          "duration" : 10
+        }
+      }, {
+        "uid" : "88856158d7572bbf",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/17//#testresult/88856158d7572bbf",
+        "status" : "passed",
+        "time" : {
+          "start" : 1611481066615,
+          "stop" : 1611481066626,
+          "duration" : 11
+        }
+      }, {
+        "uid" : "d650554bd366288c",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/16//#testresult/d650554bd366288c",
+        "status" : "passed",
+        "time" : {
+          "start" : 1611394478744,
+          "stop" : 1611394478751,
+          "duration" : 7
+        }
+      }, {
+        "uid" : "5b3f66f6d981078f",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/15//#testresult/5b3f66f6d981078f",
+        "status" : "passed",
+        "time" : {
+          "start" : 1611308249899,
+          "stop" : 1611308249906,
+          "duration" : 7
+        }
+      }, {
+        "uid" : "a6bf770aa80f449b",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/14//#testresult/a6bf770aa80f449b",
+        "status" : "passed",
+        "time" : {
+          "start" : 1611221964595,
+          "stop" : 1611221964602,
+          "duration" : 7
+        }
+      }, {
+        "uid" : "4dfb5fcf56fefcfe",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/13//#testresult/4dfb5fcf56fefcfe",
+        "status" : "passed",
+        "time" : {
+          "start" : 1611135593507,
+          "stop" : 1611135593514,
+          "duration" : 7
+        }
+      }, {
+        "uid" : "eeb35cb3491fd6c1",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/12//#testresult/eeb35cb3491fd6c1",
+        "status" : "passed",
+        "time" : {
+          "start" : 1611049155665,
+          "stop" : 1611049155673,
+          "duration" : 8
+        }
+      }, {
+        "uid" : "27a0b64edd343894",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/11//#testresult/27a0b64edd343894",
+        "status" : "passed",
+        "time" : {
+          "start" : 1610962596643,
+          "stop" : 1610962596650,
+          "duration" : 7
+        }
+      }, {
+        "uid" : "45d567d341c79953",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/10//#testresult/45d567d341c79953",
+        "status" : "passed",
+        "time" : {
+          "start" : 1610876108642,
+          "stop" : 1610876108650,
+          "duration" : 8
+        }
+      }, {
+        "uid" : "47ccbef8f0c8cdb5",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/9//#testresult/47ccbef8f0c8cdb5",
+        "status" : "passed",
+        "time" : {
+          "start" : 1610789604469,
+          "stop" : 1610789604476,
+          "duration" : 7
+        }
+      }, {
+        "uid" : "fa96d76ebab1df96",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/8//#testresult/fa96d76ebab1df96",
+        "status" : "passed",
+        "time" : {
+          "start" : 1610718916070,
+          "stop" : 1610718916077,
+          "duration" : 7
+        }
+      }, {
+        "uid" : "a7755ab9b3ce9407",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/6//#testresult/a7755ab9b3ce9407",
+        "status" : "passed",
+        "time" : {
+          "start" : 1610717723860,
+          "stop" : 1610717723869,
+          "duration" : 9
+        }
+      }, {
+        "uid" : "54fd07d8da3b677f",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/4//#testresult/54fd07d8da3b677f",
+        "status" : "passed",
+        "time" : {
+          "start" : 1610717193221,
+          "stop" : 1610717193228,
+          "duration" : 7
+        }
+      }, {
+        "uid" : "d057b6ecbb6cab27",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/2//#testresult/d057b6ecbb6cab27",
+        "status" : "broken",
+        "statusDetails" : "psycopg2.OperationalError: could not connect to server: Connection refused\n\tIs the server running on host \"localhost\" (::1) and accepting\n\tTCP/IP connections on port 5432?\ncould not connect to server: Connection refused\n\tIs the server running on host \"localhost\" (127.0.0.1) and accepting\n\tTCP/IP connections on port 5432?",
+        "time" : {
+          "start" : 1610715010538,
+          "stop" : 1610715010538,
+          "duration" : 0
+        }
+      } ]
+    },
+    "tags" : [ ]
+  },
+  "source" : "2a9060fe48880e2f.json",
+  "parameterValues" : [ ]
+}
