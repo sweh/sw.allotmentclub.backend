@@ -1,0 +1,421 @@
+{
+  "uid" : "6788ce19a5de887b",
+  "name" : "test_MapDownloadView__call__1",
+  "fullName" : "src.sw.allotmentclub.browser.tests.test_map#test_MapDownloadView__call__1",
+  "historyId" : "96820bb4df734d299af40822f42ae1cc",
+  "time" : {
+    "start" : 1612084184556,
+    "stop" : 1612084186113,
+    "duration" : 1557
+  },
+  "description" : "Map can be downloaded.",
+  "descriptionHtml" : "<p>Map can be downloaded.</p>\n",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "portal_app",
+    "time" : {
+      "start" : 1612084156915,
+      "stop" : 1612084156915,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "database_session",
+    "time" : {
+      "start" : 1612084156310,
+      "stop" : 1612084156915,
+      "duration" : 605
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "wsgi_app",
+    "time" : {
+      "start" : 1612084156915,
+      "stop" : 1612084159183,
+      "duration" : 2268
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "json_fixture",
+    "time" : {
+      "start" : 1612084184549,
+      "stop" : 1612084184555,
+      "duration" : 6
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "organization",
+    "time" : {
+      "start" : 1612084184182,
+      "stop" : 1612084184187,
+      "duration" : 5
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "database",
+    "time" : {
+      "start" : 1612084184082,
+      "stop" : 1612084184182,
+      "duration" : 100
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "browser",
+    "time" : {
+      "start" : 1612084184548,
+      "stop" : 1612084184548,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "verwalter",
+    "time" : {
+      "start" : 1612084184187,
+      "stop" : 1612084184548,
+      "duration" : 361
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  } ],
+  "testStage" : {
+    "description" : "Map can be downloaded.",
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ {
+      "uid" : "561af40704a63887",
+      "name" : "log",
+      "source" : "561af40704a63887.txt",
+      "type" : "text/plain",
+      "size" : 81
+    } ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 1,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true
+  },
+  "afterStages" : [ {
+    "name" : "database_session::1",
+    "time" : {
+      "start" : 1612084197713,
+      "stop" : 1612084197713,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "database_session::dropdb",
+    "time" : {
+      "start" : 1612084197713,
+      "stop" : 1612084197849,
+      "duration" : 136
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "database::0",
+    "time" : {
+      "start" : 1612084186117,
+      "stop" : 1612084186119,
+      "duration" : 2
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  } ],
+  "labels" : [ {
+    "name" : "parentSuite",
+    "value" : "src.sw.allotmentclub.browser.tests"
+  }, {
+    "name" : "suite",
+    "value" : "test_map"
+  }, {
+    "name" : "host",
+    "value" : "fv-az139-362"
+  }, {
+    "name" : "thread",
+    "value" : "7854-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "src.sw.allotmentclub.browser.tests.test_map"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "history" : {
+      "statistic" : {
+        "failed" : 0,
+        "broken" : 2,
+        "skipped" : 0,
+        "passed" : 18,
+        "unknown" : 0,
+        "total" : 20
+      },
+      "items" : [ {
+        "uid" : "85977c1f1ff01bd6",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/23//#testresult/85977c1f1ff01bd6",
+        "status" : "passed",
+        "time" : {
+          "start" : 1611997790397,
+          "stop" : 1611997791941,
+          "duration" : 1544
+        }
+      }, {
+        "uid" : "a5a26aa85bf0b663",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/22//#testresult/a5a26aa85bf0b663",
+        "status" : "passed",
+        "time" : {
+          "start" : 1611911482727,
+          "stop" : 1611911483874,
+          "duration" : 1147
+        }
+      }, {
+        "uid" : "b9fc7c7827c23327",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/21//#testresult/b9fc7c7827c23327",
+        "status" : "passed",
+        "time" : {
+          "start" : 1611826105847,
+          "stop" : 1611826107113,
+          "duration" : 1266
+        }
+      }, {
+        "uid" : "6c8b927b754df304",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/20//#testresult/6c8b927b754df304",
+        "status" : "passed",
+        "time" : {
+          "start" : 1611738592709,
+          "stop" : 1611738594237,
+          "duration" : 1528
+        }
+      }, {
+        "uid" : "ab19afab200fae2",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/19//#testresult/ab19afab200fae2",
+        "status" : "passed",
+        "time" : {
+          "start" : 1611652204172,
+          "stop" : 1611652205670,
+          "duration" : 1498
+        }
+      }, {
+        "uid" : "fef8c6ef97c04687",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/18//#testresult/fef8c6ef97c04687",
+        "status" : "passed",
+        "time" : {
+          "start" : 1611567544036,
+          "stop" : 1611567545720,
+          "duration" : 1684
+        }
+      }, {
+        "uid" : "691e1ffa85e6bc72",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/17//#testresult/691e1ffa85e6bc72",
+        "status" : "passed",
+        "time" : {
+          "start" : 1611481067782,
+          "stop" : 1611481069337,
+          "duration" : 1555
+        }
+      }, {
+        "uid" : "b60d3bd8722d1109",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/16//#testresult/b60d3bd8722d1109",
+        "status" : "passed",
+        "time" : {
+          "start" : 1611394471543,
+          "stop" : 1611394472778,
+          "duration" : 1235
+        }
+      }, {
+        "uid" : "1aa252803e5a9cb5",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/15//#testresult/1aa252803e5a9cb5",
+        "status" : "passed",
+        "time" : {
+          "start" : 1611308258034,
+          "stop" : 1611308259315,
+          "duration" : 1281
+        }
+      }, {
+        "uid" : "e704cdd69f48191b",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/14//#testresult/e704cdd69f48191b",
+        "status" : "passed",
+        "time" : {
+          "start" : 1611221975195,
+          "stop" : 1611221976689,
+          "duration" : 1494
+        }
+      }, {
+        "uid" : "6f838cf2bab02d1f",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/13//#testresult/6f838cf2bab02d1f",
+        "status" : "passed",
+        "time" : {
+          "start" : 1611135597504,
+          "stop" : 1611135598737,
+          "duration" : 1233
+        }
+      }, {
+        "uid" : "bab6270da1c04e69",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/12//#testresult/bab6270da1c04e69",
+        "status" : "passed",
+        "time" : {
+          "start" : 1611049157885,
+          "stop" : 1611049159433,
+          "duration" : 1548
+        }
+      }, {
+        "uid" : "3818f6a7414467f2",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/11//#testresult/3818f6a7414467f2",
+        "status" : "passed",
+        "time" : {
+          "start" : 1610962600703,
+          "stop" : 1610962602249,
+          "duration" : 1546
+        }
+      }, {
+        "uid" : "b39d7ff6a979dd92",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/10//#testresult/b39d7ff6a979dd92",
+        "status" : "passed",
+        "time" : {
+          "start" : 1610876110452,
+          "stop" : 1610876112092,
+          "duration" : 1640
+        }
+      }, {
+        "uid" : "8203ea1088870231",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/9//#testresult/8203ea1088870231",
+        "status" : "passed",
+        "time" : {
+          "start" : 1610789613163,
+          "stop" : 1610789614514,
+          "duration" : 1351
+        }
+      }, {
+        "uid" : "4d09570f1a3dbe2c",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/8//#testresult/4d09570f1a3dbe2c",
+        "status" : "passed",
+        "time" : {
+          "start" : 1610718923336,
+          "stop" : 1610718924584,
+          "duration" : 1248
+        }
+      }, {
+        "uid" : "6fe0ec8f0881d490",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/6//#testresult/6fe0ec8f0881d490",
+        "status" : "passed",
+        "time" : {
+          "start" : 1610717720908,
+          "stop" : 1610717722518,
+          "duration" : 1610
+        }
+      }, {
+        "uid" : "6702efc382dede3c",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/4//#testresult/6702efc382dede3c",
+        "status" : "broken",
+        "statusDetails" : "FileNotFoundError: [Errno 2] No such file or directory: 'pdftotext': 'pdftotext'",
+        "time" : {
+          "start" : 1610717185652,
+          "stop" : 1610717186868,
+          "duration" : 1216
+        }
+      }, {
+        "uid" : "4f0f16f3bf709a9",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/2//#testresult/4f0f16f3bf709a9",
+        "status" : "broken",
+        "statusDetails" : "psycopg2.OperationalError: could not connect to server: Connection refused\n\tIs the server running on host \"localhost\" (::1) and accepting\n\tTCP/IP connections on port 5432?\ncould not connect to server: Connection refused\n\tIs the server running on host \"localhost\" (127.0.0.1) and accepting\n\tTCP/IP connections on port 5432?",
+        "time" : {
+          "start" : 1610715010586,
+          "stop" : 1610715010586,
+          "duration" : 0
+        }
+      } ]
+    },
+    "tags" : [ ]
+  },
+  "source" : "6788ce19a5de887b.json",
+  "parameterValues" : [ ]
+}
