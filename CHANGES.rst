@@ -5,7 +5,7 @@ Change log for sw.allotmentclub
 5.3.1 (unreleased)
 ==================
 
-- Nothing changed yet.
+- Move to private Pypi https://pypi.wehrmann.it.
 
 
 5.3.0 (2021-01-11)

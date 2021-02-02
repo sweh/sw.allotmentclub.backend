@@ -46,14 +46,18 @@ setup(
     classifiers="""\
         License :: OSI Approved :: Zope Public License
         Programming Language :: Python
-        Programming Language :: Python :: 3.5
         Programming Language :: Python :: 3.6
         Programming Language :: Python :: 3 :: Only
         Framework :: Pyramid
         Topic :: Internet :: WWW/HTTP
         Topic :: Internet :: WWW/HTTP :: WSGI :: Application
 """[:-1].split('\n'),
+    platforms=['unix', 'darwin'],
     description=__doc__.strip(),
+    long_description=(
+        open('README.rst').read() +
+        '\n\n' +
+        open('CHANGES.rst').read()),
     namespace_packages=['sw'],
     packages=find_packages('src'),
     package_dir={'': 'src'},
