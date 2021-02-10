@@ -28,8 +28,6 @@ setup(
             'import_members = sw.allotmentclub.scripts:import_members',
             'import_transactions = sw.allotmentclub.scripts:'
             'import_transactions',
-            'grab_dashboard_data = sw.allotmentclub.scripts:'
-            'grab_dashboard_data',
             'export_members_vcf = sw.allotmentclub.scripts:'
             'export_members_vcf',
             'export_events_ics = sw.allotmentclub.scripts:'

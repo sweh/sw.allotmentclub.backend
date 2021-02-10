@@ -1,7 +1,7 @@
 # coding:utf-8
 from __future__ import unicode_literals
 from ..log import auth_log, log_with_user
-from .. import User, DashboardData
+from .. import User
 from datetime import datetime
 from pyramid.security import NO_PERMISSION_REQUIRED
 from pyramid.view import view_config, forbidden_view_config
@@ -57,25 +57,10 @@ def get_next_url(request, default_url):
     return next_url
 
 
-class NetatmoMixin():
-
-    def get_temp_data(self, dest='rotersee'):
-        data = (DashboardData.query()
-                .filter(getattr(DashboardData, '{}_out_temp'.format(
-                    dest)).isnot(None))
-                .order_by(DashboardData.date.desc()).first())
-        if data is None:
-            return dict()
-        return dict(temperature=getattr(data, '{}_out_temp'.format(dest)),
-                    trend=getattr(data, '{}_out_temp_trend'.format(dest)),
-                    date=data.date.strftime('%d.%m.%Y %H:%M Uhr'),
-                    sum_rain_24=getattr(data, '{}_rain_24'.format(dest)))
-
-
 @view_config(route_name='login',
              permission=NO_PERMISSION_REQUIRED,
              renderer='json')
-class LoginView(sw.allotmentclub.browser.base.View, NetatmoMixin):
+class LoginView(sw.allotmentclub.browser.base.View):
 
     def get_user_data(self, user):
         gravatar_url = 'https://www.gravatar.com/avatar/%s' % (
@@ -97,10 +82,11 @@ class LoginView(sw.allotmentclub.browser.base.View, NetatmoMixin):
         if self.request.session.get('auth.userid'):
             user = User.get(self.request.session['auth.userid'])
             if user is not None:
-                return dict(status='success',
-                            message='Ihre Sitzung wurde wiederhergestellt.',
-                            user=self.get_user_data(user),
-                            temp=self.get_temp_data())
+                return dict(
+                    status='success',
+                    message='Ihre Sitzung wurde wiederhergestellt.',
+                    user=self.get_user_data(user)
+                )
 
         if (self.request.method != 'POST' or
                 not self.request.params.get('username')):
@@ -133,9 +119,12 @@ class LoginView(sw.allotmentclub.browser.base.View, NetatmoMixin):
                 user.failed_logins = 0
             default_url = self.request.route_url('login')
             next_url = get_next_url(self.request, default_url)
-            return dict(status='success', message=msg, next_url=next_url,
-                        user=self.get_user_data(user),
-                        temp=self.get_temp_data())
+            return dict(
+                status='success',
+                message=msg,
+                next_url=next_url,
+                user=self.get_user_data(user)
+            )
         else:
             msg = u'Anmeldung fehlgeschlagen.'
             if user:
