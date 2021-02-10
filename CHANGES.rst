@@ -2,7 +2,7 @@
 Change log for sw.allotmentclub
 ===============================
 
-5.4.0 (unreleased)
+5.4.0 (2021-02-10)
 ==================
 
 - Remove dashboard.
