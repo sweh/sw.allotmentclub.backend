@@ -1,0 +1,321 @@
+{
+  "uid" : "d0d5536ca553d60b",
+  "name" : "test__EnergyValue__fee_5",
+  "fullName" : "src.sw.allotmentclub.tests.test_electricity#test__EnergyValue__fee_5",
+  "historyId" : "ff11e1ba5b841388db5b8f19ee9ea603",
+  "time" : {
+    "start" : 1614584997461,
+    "stop" : 1614584997477,
+    "duration" : 16
+  },
+  "description" : "Fee is normal_fee if not electic_power.",
+  "descriptionHtml" : "<p>Fee is normal_fee if not electic_power.</p>\n",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "database_session",
+    "time" : {
+      "start" : 1614584950534,
+      "stop" : 1614584951091,
+      "duration" : 557
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "database",
+    "time" : {
+      "start" : 1614584997384,
+      "stop" : 1614584997459,
+      "duration" : 75
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  } ],
+  "afterStages" : [ {
+    "name" : "database_session::1",
+    "time" : {
+      "start" : 1614584997839,
+      "stop" : 1614584997839,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "database_session::dropdb",
+    "time" : {
+      "start" : 1614584997839,
+      "stop" : 1614584998079,
+      "duration" : 240
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "database::0",
+    "time" : {
+      "start" : 1614584997478,
+      "stop" : 1614584997479,
+      "duration" : 1
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  } ],
+  "labels" : [ {
+    "name" : "parentSuite",
+    "value" : "src.sw.allotmentclub.tests"
+  }, {
+    "name" : "suite",
+    "value" : "test_electricity"
+  }, {
+    "name" : "host",
+    "value" : "fv-az189-618"
+  }, {
+    "name" : "thread",
+    "value" : "6983-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "src.sw.allotmentclub.tests.test_electricity"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "history" : {
+      "statistic" : {
+        "failed" : 0,
+        "broken" : 1,
+        "skipped" : 0,
+        "passed" : 54,
+        "unknown" : 0,
+        "total" : 55
+      },
+      "items" : [ {
+        "uid" : "83cbc68106a4be5b",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/58//#testresult/83cbc68106a4be5b",
+        "status" : "passed",
+        "time" : {
+          "start" : 1614584740538,
+          "stop" : 1614584740555,
+          "duration" : 17
+        }
+      }, {
+        "uid" : "83a5edc7ca7cbbda",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/57//#testresult/83a5edc7ca7cbbda",
+        "status" : "passed",
+        "time" : {
+          "start" : 1614503296786,
+          "stop" : 1614503296803,
+          "duration" : 17
+        }
+      }, {
+        "uid" : "59964b77673d87d2",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/56//#testresult/59964b77673d87d2",
+        "status" : "passed",
+        "time" : {
+          "start" : 1614416880297,
+          "stop" : 1614416880314,
+          "duration" : 17
+        }
+      }, {
+        "uid" : "70c6a9374348604a",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/55//#testresult/70c6a9374348604a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1614330796309,
+          "stop" : 1614330796324,
+          "duration" : 15
+        }
+      }, {
+        "uid" : "6e654aecb0dd48b6",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/54//#testresult/6e654aecb0dd48b6",
+        "status" : "passed",
+        "time" : {
+          "start" : 1614244390157,
+          "stop" : 1614244390170,
+          "duration" : 13
+        }
+      }, {
+        "uid" : "1acef2c728c4b931",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/53//#testresult/1acef2c728c4b931",
+        "status" : "passed",
+        "time" : {
+          "start" : 1614158033927,
+          "stop" : 1614158033944,
+          "duration" : 17
+        }
+      }, {
+        "uid" : "cb388a45b0f8a811",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/52//#testresult/cb388a45b0f8a811",
+        "status" : "passed",
+        "time" : {
+          "start" : 1614071329999,
+          "stop" : 1614071330020,
+          "duration" : 21
+        }
+      }, {
+        "uid" : "9dfb8f1e09e80478",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/51//#testresult/9dfb8f1e09e80478",
+        "status" : "passed",
+        "time" : {
+          "start" : 1613984851958,
+          "stop" : 1613984851974,
+          "duration" : 16
+        }
+      }, {
+        "uid" : "42a147e971b64727",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/50//#testresult/42a147e971b64727",
+        "status" : "passed",
+        "time" : {
+          "start" : 1613898537184,
+          "stop" : 1613898537198,
+          "duration" : 14
+        }
+      }, {
+        "uid" : "f20d5d491c6e9796",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/49//#testresult/f20d5d491c6e9796",
+        "status" : "passed",
+        "time" : {
+          "start" : 1613812068721,
+          "stop" : 1613812068737,
+          "duration" : 16
+        }
+      }, {
+        "uid" : "5982e9e210ab8650",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/48//#testresult/5982e9e210ab8650",
+        "status" : "passed",
+        "time" : {
+          "start" : 1613725734437,
+          "stop" : 1613725734453,
+          "duration" : 16
+        }
+      }, {
+        "uid" : "c5bf86268086b010",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/47//#testresult/c5bf86268086b010",
+        "status" : "passed",
+        "time" : {
+          "start" : 1613639280945,
+          "stop" : 1613639280956,
+          "duration" : 11
+        }
+      }, {
+        "uid" : "ddb89ef3c830472e",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/46//#testresult/ddb89ef3c830472e",
+        "status" : "passed",
+        "time" : {
+          "start" : 1613552939419,
+          "stop" : 1613552939441,
+          "duration" : 22
+        }
+      }, {
+        "uid" : "b40e79e5a4ae322",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/45//#testresult/b40e79e5a4ae322",
+        "status" : "passed",
+        "time" : {
+          "start" : 1613466544903,
+          "stop" : 1613466544920,
+          "duration" : 17
+        }
+      }, {
+        "uid" : "fa8d2f1895334880",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/44//#testresult/fa8d2f1895334880",
+        "status" : "passed",
+        "time" : {
+          "start" : 1613380042997,
+          "stop" : 1613380043009,
+          "duration" : 12
+        }
+      }, {
+        "uid" : "cd87344bd0b324d7",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/43//#testresult/cd87344bd0b324d7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1613293680683,
+          "stop" : 1613293680701,
+          "duration" : 18
+        }
+      }, {
+        "uid" : "f2feb4c1a8cf5a5f",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/42//#testresult/f2feb4c1a8cf5a5f",
+        "status" : "passed",
+        "time" : {
+          "start" : 1613207277681,
+          "stop" : 1613207277693,
+          "duration" : 12
+        }
+      }, {
+        "uid" : "6c82330606f80292",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/41//#testresult/6c82330606f80292",
+        "status" : "passed",
+        "time" : {
+          "start" : 1613120872062,
+          "stop" : 1613120872078,
+          "duration" : 16
+        }
+      }, {
+        "uid" : "71d9c79d0ea22421",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/40//#testresult/71d9c79d0ea22421",
+        "status" : "passed",
+        "time" : {
+          "start" : 1613034498003,
+          "stop" : 1613034498016,
+          "duration" : 13
+        }
+      }, {
+        "uid" : "a712bbc26dac3b69",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/39//#testresult/a712bbc26dac3b69",
+        "status" : "passed",
+        "time" : {
+          "start" : 1612961682650,
+          "stop" : 1612961682662,
+          "duration" : 12
+        }
+      } ]
+    },
+    "tags" : [ ]
+  },
+  "source" : "d0d5536ca553d60b.json",
+  "parameterValues" : [ ]
+}
