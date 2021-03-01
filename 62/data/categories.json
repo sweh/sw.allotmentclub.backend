@@ -1,0 +1,26 @@
+{
+  "uid" : "4b4757e66a1912dae1a509f688f20b0f",
+  "children" : [ {
+    "name" : "Test defects",
+    "children" : [ {
+      "name" : "pytest_flake8.Flake8Error: (\"/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/login.py:32:12: F821 undefined name 'request'\\n\", '')",
+      "children" : [ {
+        "name" : "login.py",
+        "uid" : "2d21c79944d52dc9",
+        "parentUid" : "f3161484d54c31298c7d38d3b23c3116",
+        "status" : "broken",
+        "time" : {
+          "start" : 1614586473446,
+          "stop" : 1614586473660,
+          "duration" : 214
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "f3161484d54c31298c7d38d3b23c3116"
+    } ],
+    "uid" : "bdbf199525818fae7a8651db9eafe741"
+  } ],
+  "name" : "categories"
+}
