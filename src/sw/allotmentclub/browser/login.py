@@ -29,7 +29,7 @@ class Forbidden(sw.allotmentclub.browser.app.HTTPError):
         # respond with HTTPForbidden if user is authenticated
         # use unauthenticated_userid to circumvent privilege check,
         # which would raise another HTTPForbidden
-        if request.unauthenticated_userid:
+        if self.request.unauthenticated_userid:
             return super(Forbidden, self).__call__()
 
         if getattr(self.request, 'session_timeout', False):
