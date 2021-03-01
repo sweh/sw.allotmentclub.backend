@@ -5,7 +5,7 @@ Change log for sw.allotmentclub
 5.4.1 (unreleased)
 ==================
 
-- Nothing changed yet.
+- Upgrade to `pyramid` 2.0.
 
 
 5.4.0 (2021-02-10)
