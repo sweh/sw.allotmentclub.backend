@@ -2,7 +2,7 @@
 Change log for sw.allotmentclub
 ===============================
 
-5.4.2 (unreleased)
+5.4.2 (2021-03-01)
 ==================
 
 - Bugfix pyramid 2 update.
