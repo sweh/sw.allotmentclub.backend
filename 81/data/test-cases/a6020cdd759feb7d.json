@@ -1,0 +1,269 @@
+{
+  "uid" : "a6020cdd759feb7d",
+  "name" : "test_abort_w_TPC_does_not_raise_ValueError",
+  "fullName" : "src.sw.allotmentclub.tests.test_sendmail_delivery#test_abort_w_TPC_does_not_raise_ValueError",
+  "historyId" : "8c4d365dbc91b4e4eb910636b97c560c",
+  "time" : {
+    "start" : 1615972382306,
+    "stop" : 1615972382306,
+    "duration" : 0
+  },
+  "status" : "skipped",
+  "statusMessage" : "XFAIL\n\nValueError: TPC in progress",
+  "statusTrace" : "Traceback (most recent call last):\n  File \"/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/tests/test_sendmail_delivery.py\", line 12, in test_abort_w_TPC_does_not_raise_ValueError\n    mdm.abort(txn)\n  File \"/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/.pytest/unclean/lib/python3.6/site-packages/repoze/sendmail/delivery.py\", line 120, in abort\n    raise ValueError(\"TPC in progress\")\nValueError: TPC in progress",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "tag",
+    "value" : "@pytest.mark.xfail"
+  }, {
+    "name" : "parentSuite",
+    "value" : "src.sw.allotmentclub.tests"
+  }, {
+    "name" : "suite",
+    "value" : "test_sendmail_delivery"
+  }, {
+    "name" : "host",
+    "value" : "fv-az210-336"
+  }, {
+    "name" : "thread",
+    "value" : "7593-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "src.sw.allotmentclub.tests.test_sendmail_delivery"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "history" : {
+      "statistic" : {
+        "failed" : 0,
+        "broken" : 0,
+        "skipped" : 77,
+        "passed" : 0,
+        "unknown" : 0,
+        "total" : 77
+      },
+      "items" : [ {
+        "uid" : "db6970242ef5ecae",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/80//#testresult/db6970242ef5ecae",
+        "status" : "skipped",
+        "statusDetails" : "XFAIL\n\nValueError: TPC in progress",
+        "time" : {
+          "start" : 1615885950390,
+          "stop" : 1615885950391,
+          "duration" : 1
+        }
+      }, {
+        "uid" : "2616e1192fc962ee",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/79//#testresult/2616e1192fc962ee",
+        "status" : "skipped",
+        "statusDetails" : "XFAIL\n\nValueError: TPC in progress",
+        "time" : {
+          "start" : 1615799538019,
+          "stop" : 1615799538020,
+          "duration" : 1
+        }
+      }, {
+        "uid" : "4f5709340b219cb6",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/78//#testresult/4f5709340b219cb6",
+        "status" : "skipped",
+        "statusDetails" : "XFAIL\n\nValueError: TPC in progress",
+        "time" : {
+          "start" : 1615712865369,
+          "stop" : 1615712865369,
+          "duration" : 0
+        }
+      }, {
+        "uid" : "b26d4f7f5160d68b",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/77//#testresult/b26d4f7f5160d68b",
+        "status" : "skipped",
+        "statusDetails" : "XFAIL\n\nValueError: TPC in progress",
+        "time" : {
+          "start" : 1615626475909,
+          "stop" : 1615626475909,
+          "duration" : 0
+        }
+      }, {
+        "uid" : "463381c83a6d2a2c",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/76//#testresult/463381c83a6d2a2c",
+        "status" : "skipped",
+        "statusDetails" : "XFAIL\n\nValueError: TPC in progress",
+        "time" : {
+          "start" : 1615540411455,
+          "stop" : 1615540411456,
+          "duration" : 1
+        }
+      }, {
+        "uid" : "58adaa139c0e1420",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/75//#testresult/58adaa139c0e1420",
+        "status" : "skipped",
+        "statusDetails" : "XFAIL\n\nValueError: TPC in progress",
+        "time" : {
+          "start" : 1615453981813,
+          "stop" : 1615453981814,
+          "duration" : 1
+        }
+      }, {
+        "uid" : "3d939ee17e115614",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/74//#testresult/3d939ee17e115614",
+        "status" : "skipped",
+        "statusDetails" : "XFAIL\n\nValueError: TPC in progress",
+        "time" : {
+          "start" : 1615367324698,
+          "stop" : 1615367324698,
+          "duration" : 0
+        }
+      }, {
+        "uid" : "408cf04f3a686ddf",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/73//#testresult/408cf04f3a686ddf",
+        "status" : "skipped",
+        "statusDetails" : "XFAIL\n\nValueError: TPC in progress",
+        "time" : {
+          "start" : 1615281188215,
+          "stop" : 1615281188216,
+          "duration" : 1
+        }
+      }, {
+        "uid" : "af6f7269241ec61c",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/72//#testresult/af6f7269241ec61c",
+        "status" : "skipped",
+        "statusDetails" : "XFAIL\n\nValueError: TPC in progress",
+        "time" : {
+          "start" : 1615194937530,
+          "stop" : 1615194937531,
+          "duration" : 1
+        }
+      }, {
+        "uid" : "ca320d55149cfcec",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/71//#testresult/ca320d55149cfcec",
+        "status" : "skipped",
+        "statusDetails" : "XFAIL\n\nValueError: TPC in progress",
+        "time" : {
+          "start" : 1615108079529,
+          "stop" : 1615108079529,
+          "duration" : 0
+        }
+      }, {
+        "uid" : "db68ea47420b5b2b",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/70//#testresult/db68ea47420b5b2b",
+        "status" : "skipped",
+        "statusDetails" : "XFAIL\n\nValueError: TPC in progress",
+        "time" : {
+          "start" : 1615021670515,
+          "stop" : 1615021670515,
+          "duration" : 0
+        }
+      }, {
+        "uid" : "adb59e1ed684e127",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/69//#testresult/adb59e1ed684e127",
+        "status" : "skipped",
+        "statusDetails" : "XFAIL\n\nValueError: TPC in progress",
+        "time" : {
+          "start" : 1614935246829,
+          "stop" : 1614935246829,
+          "duration" : 0
+        }
+      }, {
+        "uid" : "5279a01c2d870ba6",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/68//#testresult/5279a01c2d870ba6",
+        "status" : "skipped",
+        "statusDetails" : "XFAIL\n\nValueError: TPC in progress",
+        "time" : {
+          "start" : 1614849204003,
+          "stop" : 1614849204003,
+          "duration" : 0
+        }
+      }, {
+        "uid" : "38d091d96c484a0",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/67//#testresult/38d091d96c484a0",
+        "status" : "skipped",
+        "statusDetails" : "XFAIL\n\nValueError: TPC in progress",
+        "time" : {
+          "start" : 1614762487970,
+          "stop" : 1614762487971,
+          "duration" : 1
+        }
+      }, {
+        "uid" : "5b57cef0e6d392ed",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/66//#testresult/5b57cef0e6d392ed",
+        "status" : "skipped",
+        "statusDetails" : "XFAIL\n\nValueError: TPC in progress",
+        "time" : {
+          "start" : 1614676088595,
+          "stop" : 1614676088595,
+          "duration" : 0
+        }
+      }, {
+        "uid" : "9b2272bb223a4f07",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/65//#testresult/9b2272bb223a4f07",
+        "status" : "skipped",
+        "statusDetails" : "XFAIL\n\nValueError: TPC in progress",
+        "time" : {
+          "start" : 1614589688390,
+          "stop" : 1614589688391,
+          "duration" : 1
+        }
+      }, {
+        "uid" : "4556c7553635b58f",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/64//#testresult/4556c7553635b58f",
+        "status" : "skipped",
+        "statusDetails" : "XFAIL\n\nValueError: TPC in progress",
+        "time" : {
+          "start" : 1614587225315,
+          "stop" : 1614587225315,
+          "duration" : 0
+        }
+      }, {
+        "uid" : "962197e0d528d3b1",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/63//#testresult/962197e0d528d3b1",
+        "status" : "skipped",
+        "statusDetails" : "XFAIL\n\nValueError: TPC in progress",
+        "time" : {
+          "start" : 1614586590388,
+          "stop" : 1614586590389,
+          "duration" : 1
+        }
+      }, {
+        "uid" : "3cd0cfde2455409b",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/62//#testresult/3cd0cfde2455409b",
+        "status" : "skipped",
+        "statusDetails" : "XFAIL\n\nValueError: TPC in progress",
+        "time" : {
+          "start" : 1614586516643,
+          "stop" : 1614586516643,
+          "duration" : 0
+        }
+      }, {
+        "uid" : "7f8222b3282e6a74",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/61//#testresult/7f8222b3282e6a74",
+        "status" : "skipped",
+        "statusDetails" : "XFAIL\n\nValueError: TPC in progress",
+        "time" : {
+          "start" : 1614585314910,
+          "stop" : 1614585314911,
+          "duration" : 1
+        }
+      } ]
+    },
+    "tags" : [ "@pytest.mark.xfail" ]
+  },
+  "source" : "a6020cdd759feb7d.json",
+  "parameterValues" : [ ]
+}
