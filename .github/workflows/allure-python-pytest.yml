@@ -11,7 +11,7 @@ on:
 jobs:
   autotests:
     name: Run tests and generate Allure Report
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     services:
       postgres:
         image: postgres:10.8
