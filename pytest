@@ -39,8 +39,8 @@ def cmd(c, merge_stderr=True, quiet=False):
         return subprocess.check_output([c], **kwargs)
     except subprocess.CalledProcessError as e:
         print('{} returned with exit code {}'.format(c, e.returncode))
-        print(e.output.decode('ascii'))
-        raise ValueError(e.output.decode('ascii'))
+        print(e.output.decode('utf-8'))
+        raise ValueError(e.output.decode('utf-8'))
 
 
 def get(host, path, f):
@@ -225,6 +225,7 @@ def _prepare(meta_args):
 
             with open(os.path.join(env_dir, 'requirements.lock'), 'wb') as f:
                 f.write(requirements)
+
             print(
                 'Installing {meta_args.appname} ...'.format(
                     meta_args=meta_args
