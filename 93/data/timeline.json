@@ -1,5 +1,3800 @@
 {
   "uid" : "ab17fc5a4eb3bca4b216b548c7f9fcbc",
-  "children" : [ ],
+  "children" : [ {
+    "name" : "hawking",
+    "children" : [ {
+      "name" : "1205482-MainThread",
+      "children" : [ {
+        "name" : "bulletins.py",
+        "uid" : "5f94e0367f02afee",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578873273,
+          "stop" : 1616578873525,
+          "duration" : 252
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_imported_booking_data",
+        "uid" : "635bdc7bd3092cdc",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "broken",
+        "time" : {
+          "start" : 1616578907955,
+          "stop" : 1616578907955,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/allotmentclub/alembic/versions/make_protocoll_details_more_robust__e0985a4462d3.py",
+        "uid" : "bad64949ee4706a9",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578892576,
+          "stop" : 1616578892824,
+          "duration" : 248
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_split_booking_failure_1",
+        "uid" : "297e2a329ca5c1f7",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "broken",
+        "time" : {
+          "start" : 1616578908004,
+          "stop" : 1616578908004,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test__mail__postmark_webhook_2",
+        "uid" : "541dfd75a44cc49b",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "broken",
+        "time" : {
+          "start" : 1616578906215,
+          "stop" : 1616578906215,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/allotmentclub/alembic/versions/re_21_add_tap_water_information_708df911eb9e.py",
+        "uid" : "a9f50f586e9a0392",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578895777,
+          "stop" : 1616578896238,
+          "duration" : 461
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/allotmentclub/alembic/versions/add_formbrief_depot_2535014c8ab8.py",
+        "uid" : "734f44928b436fbf",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578880795,
+          "stop" : 1616578881064,
+          "duration" : 269
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/allotmentclub/alembic/versions/add_signature_for_hs_96017ac786bf.py",
+        "uid" : "7045a17e80117398",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578887525,
+          "stop" : 1616578887763,
+          "duration" : 238
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/allotmentclub/alembic/versions/add_new_lastschrift_to_members_30de960848fa.py",
+        "uid" : "78685652e4c2864d",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578882937,
+          "stop" : 1616578883300,
+          "duration" : 363
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/allotmentclub/alembic/versions/allow_formletters_without_address_field_12459e1b365d.py",
+        "uid" : "725a7a128fcd3698",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578889795,
+          "stop" : 1616578890021,
+          "duration" : 226
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test__mail__print_or_sent_date_2",
+        "uid" : "1d797893d168d957",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "broken",
+        "time" : {
+          "start" : 1616578904332,
+          "stop" : 1616578904332,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_SEPASammlerUpdateView_1",
+        "uid" : "980d4e6fe106c64d",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "broken",
+        "time" : {
+          "start" : 1616578900657,
+          "stop" : 1616578900657,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/allotmentclub/alembic/versions/add_protocol_attachments_and_commitments_51143cacbf85.py",
+        "uid" : "9356da069cc36004",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578884113,
+          "stop" : 1616578884403,
+          "duration" : 290
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_value_can_calculate_price",
+        "uid" : "7f2b0eda0e233bd0",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "broken",
+        "time" : {
+          "start" : 1616578909128,
+          "stop" : 1616578909128,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/allotmentclub/alembic/versions/re_11_allow_adding_documents_to_member_c4dbe65a7810.py",
+        "uid" : "86d5260e389d4a5f",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578893826,
+          "stop" : 1616578894075,
+          "duration" : 249
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_depot_can_not_edit_file_if_mimetype_is_different",
+        "uid" : "3ecb6d2c64c165d7",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "broken",
+        "time" : {
+          "start" : 1616578902598,
+          "stop" : 1616578902598,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_AssignmentAddView_1",
+        "uid" : "e5c277254f39b3ec",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "broken",
+        "time" : {
+          "start" : 1616578901200,
+          "stop" : 1616578901200,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test__mail__MailElectricityPreview_1",
+        "uid" : "ff5bef2d4c8a41ce",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "broken",
+        "time" : {
+          "start" : 1616578904610,
+          "stop" : 1616578904610,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test__mail__MailListView_1",
+        "uid" : "587581dbbfbcca7a",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "broken",
+        "time" : {
+          "start" : 1616578904447,
+          "stop" : 1616578904447,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/allotmentclub/alembic/versions/add_inbound_flag_for_messages_b01e97903b78.py",
+        "uid" : "becbcabbb6d827ad",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578881350,
+          "stop" : 1616578881583,
+          "duration" : 233
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/allotmentclub/alembic/versions/grundgebuehr_kraft_stromzaehler_63317db97d4.py",
+        "uid" : "b3df0c98ce005f0",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578891329,
+          "stop" : 1616578891559,
+          "duration" : 230
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/allotmentclub/alembic/versions/add_table_for_abwasser_0593bb8c05b6.py",
+        "uid" : "a85fbce64211fb03",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578888275,
+          "stop" : 1616578888691,
+          "duration" : 416
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_BankingAccountListReportView_1",
+        "uid" : "122c0e693ff77c4f",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "broken",
+        "time" : {
+          "start" : 1616578900763,
+          "stop" : 1616578900763,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/allotmentclub/alembic/versions/remove_dashboard_d0bfe38ddce2.py",
+        "uid" : "e0d1988695e2d374",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578898718,
+          "stop" : 1616578899325,
+          "duration" : 607
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_login_is_possible",
+        "uid" : "4d43842c9b571b9a",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "broken",
+        "time" : {
+          "start" : 1616578901619,
+          "stop" : 1616578901619,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_MemberAddView_1",
+        "uid" : "72bdbfddb7060cc8",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "broken",
+        "time" : {
+          "start" : 1616578905286,
+          "stop" : 1616578905286,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/allotmentclub/alembic/versions/model_changes_to_assignment_in_order_to__db99756d70b.py",
+        "uid" : "e8ffbdcef9aeb9df",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578892835,
+          "stop" : 1616578893074,
+          "duration" : 239
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "electricity.py",
+        "uid" : "bec200cb2519e71d",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578873810,
+          "stop" : 1616578874606,
+          "duration" : 796
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/allotmentclub/alembic/versions/add_signature_for_st_38a1521607b5.py",
+        "uid" : "66ea1d6265325eb",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578887773,
+          "stop" : 1616578888025,
+          "duration" : 252
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_BulletinListView_1",
+        "uid" : "a91c4f6eff22375e",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "broken",
+        "time" : {
+          "start" : 1616578902043,
+          "stop" : 1616578902043,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/allotmentclub/alembic/versions/add_printed_timestamp_to_mail_433297b9762.py",
+        "uid" : "ceec1dcf118ea378",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578883833,
+          "stop" : 1616578884100,
+          "duration" : 267
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/__init__.py",
+        "uid" : "6438420cee39d365",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578871722,
+          "stop" : 1616578872048,
+          "duration" : 326
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_SEPASammlerUpdateView_2",
+        "uid" : "a6eb9a31c4c82dbb",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "broken",
+        "time" : {
+          "start" : 1616578900683,
+          "stop" : 1616578900683,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test__mail__get_recipient_2",
+        "uid" : "9305cfea0e1a46fa",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "broken",
+        "time" : {
+          "start" : 1616578904240,
+          "stop" : 1616578904240,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test__mail__MailPreviewView_4",
+        "uid" : "9179457c7b7f4364",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "broken",
+        "time" : {
+          "start" : 1616578904582,
+          "stop" : 1616578904582,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/allotmentclub/alembic/versions/add_accounting_year_to_assignments_50035156da61.py",
+        "uid" : "407b41854e51e21b",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578877059,
+          "stop" : 1616578877294,
+          "duration" : 235
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/allotmentclub/alembic/versions/add_bulletin_model_4377c6148413.py",
+        "uid" : "4da1caa64d305391",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578878784,
+          "stop" : 1616578879083,
+          "duration" : 299
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_AssignmentListAttendeesView_1",
+        "uid" : "12f50d953af29b0d",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "broken",
+        "time" : {
+          "start" : 1616578901254,
+          "stop" : 1616578901254,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/allotmentclub/alembic/versions/add_attachments_to_parcels_9af3776b0ea9.py",
+        "uid" : "3cf2ee1ee618f56d",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578877553,
+          "stop" : 1616578877803,
+          "duration" : 250
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_can_download_and_upload_energy_list",
+        "uid" : "f96ac493ff7c205f",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "broken",
+        "time" : {
+          "start" : 1616578902924,
+          "stop" : 1616578902924,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test__mail__MailSentView_1",
+        "uid" : "7000be8ad4d97165",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "broken",
+        "time" : {
+          "start" : 1616578904662,
+          "stop" : 1616578904662,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_no_route_to_access_authority_if_logged_in_as_non_admin",
+        "uid" : "2c780ff7e62c6f11",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "broken",
+        "time" : {
+          "start" : 1616578905663,
+          "stop" : 1616578905663,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_SEPASammlerExportView_1",
+        "uid" : "a714531867938048",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "broken",
+        "time" : {
+          "start" : 1616578900710,
+          "stop" : 1616578900710,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/allotmentclub/alembic/versions/add_birthday_to_member_78f2790c1501.py",
+        "uid" : "ec9c883b89ff1690",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578878157,
+          "stop" : 1616578878526,
+          "duration" : 369
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_send_mail_sends_text_mail",
+        "uid" : "fcc7a854fd978897",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "broken",
+        "time" : {
+          "start" : 1616578903531,
+          "stop" : 1616578903531,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/allotmentclub/alembic/versions/add_position_and_signature_to_users_2fd64f1e524c.py",
+        "uid" : "c193c183d036ccc9",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578883575,
+          "stop" : 1616578883821,
+          "duration" : 246
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/allotmentclub/alembic/versions/remove_year_from_bookingkind_32b7b30817d6.py",
+        "uid" : "10309bc8a1ceb147",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578899649,
+          "stop" : 1616578899929,
+          "duration" : 280
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/allotmentclub/alembic/versions/re_2_add_change_of_electricmeter__444966e3e7d6.py",
+        "uid" : "521b5d1729af62ed",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578897282,
+          "stop" : 1616578897752,
+          "duration" : 470
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test__mail__print_or_sent_type_1",
+        "uid" : "b9d34a23e8f23b64",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "broken",
+        "time" : {
+          "start" : 1616578904378,
+          "stop" : 1616578904378,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_double_login_not_possible",
+        "uid" : "a7c0c5a59f14ceb",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "broken",
+        "time" : {
+          "start" : 1616578901672,
+          "stop" : 1616578901672,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test__mail__MailPrintView_1",
+        "uid" : "f4358b0faad8c795",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "broken",
+        "time" : {
+          "start" : 1616578904474,
+          "stop" : 1616578904474,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_value_can_calculate_usage",
+        "uid" : "b6b03c2dca19a8e9",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "broken",
+        "time" : {
+          "start" : 1616578909056,
+          "stop" : 1616578909056,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test__mail__postmark_inbound_webhook_1",
+        "uid" : "d79693ec69ec7d10",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "broken",
+        "time" : {
+          "start" : 1616578906320,
+          "stop" : 1616578906320,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test__mail__MailPreviewView_3",
+        "uid" : "e008a7daf317913b",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "broken",
+        "time" : {
+          "start" : 1616578904555,
+          "stop" : 1616578904555,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "scripts.py",
+        "uid" : "35eeb4fa000b3c30",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578875739,
+          "stop" : 1616578876287,
+          "duration" : 548
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_electricity.py",
+        "uid" : "b3d0a2587d25890c",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578908213,
+          "stop" : 1616578908961,
+          "duration" : 748
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test__mail__get_recipient_1",
+        "uid" : "61c0c4e0452c3e36",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "broken",
+        "time" : {
+          "start" : 1616578904217,
+          "stop" : 1616578904217,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_BulletinAddView_1",
+        "uid" : "a7a21f58535263c6",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "broken",
+        "time" : {
+          "start" : 1616578902071,
+          "stop" : 1616578902071,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_import_sepa_raises_value_error_if_no_sammler",
+        "uid" : "3217c1461854d20a",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "broken",
+        "time" : {
+          "start" : 1616578908141,
+          "stop" : 1616578908141,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_electricity.py",
+        "uid" : "9f3dd092d7459ed3",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578902629,
+          "stop" : 1616578902917,
+          "duration" : 288
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/allotmentclub/alembic/versions/delete_due_payments_for_members_that__45d928fd0cb7.py",
+        "uid" : "d92e4b42c9d99a63",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578891097,
+          "stop" : 1616578891318,
+          "duration" : 221
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/allotmentclub/alembic/versions/model_for_splitting_bookings_43123080ac3a.py",
+        "uid" : "a8d2586e7a4d79b",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578893085,
+          "stop" : 1616578893316,
+          "duration" : 231
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/allotmentclub/alembic/versions/correct_allotments_and_parcels_24a3f3740664.py",
+        "uid" : "2aaed32342ab4668",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578890854,
+          "stop" : 1616578891087,
+          "duration" : 233
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_SplitBookingView_2",
+        "uid" : "c9d4a49652e191b",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "broken",
+        "time" : {
+          "start" : 1616578900603,
+          "stop" : 1616578900603,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/allotmentclub/alembic/versions/add_direct_debit_marker_to_members_dea40636fb3.py",
+        "uid" : "cc2e9daad8053d13",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578879920,
+          "stop" : 1616578880164,
+          "duration" : 244
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/allotmentclub/alembic/versions/add_sepa_sammler_helper_data_17b7b9cfd7e8.py",
+        "uid" : "5b532940abed26bd",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578886381,
+          "stop" : 1616578886881,
+          "duration" : 500
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/allotmentclub/alembic/versions/make_date_of_assignments_a_datetime_56b305a07721.py",
+        "uid" : "8d5aa2fae9b8999e",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578892338,
+          "stop" : 1616578892565,
+          "duration" : 227
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/allotmentclub/alembic/versions/increase_mimetype_space_for_depot_74c2dd192dae.py",
+        "uid" : "10ce6b1a817a7beb",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578891822,
+          "stop" : 1616578892046,
+          "duration" : 224
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/allotmentclub/alembic/versions/replace_electric_meter_for_annette__9f65f923772f.py",
+        "uid" : "fe5ad3f512499424",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578899941,
+          "stop" : 1616578900224,
+          "duration" : 283
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "log.py",
+        "uid" : "dd027a227e3d9d0f",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578874619,
+          "stop" : 1616578875038,
+          "duration" : 419
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/allotmentclub/alembic/versions/add_iban_and_bic_to_account_bookings_41e271c4e3e8.py",
+        "uid" : "1ca845bd8283052a",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578881078,
+          "stop" : 1616578881338,
+          "duration" : 260
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_no_access_if_logging_in_with_invalid_data",
+        "uid" : "c1426f996cec5fa3",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "broken",
+        "time" : {
+          "start" : 1616578901644,
+          "stop" : 1616578901645,
+          "duration" : 1
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_MapDownloadView__call__1",
+        "uid" : "f40ef298829d68e8",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "broken",
+        "time" : {
+          "start" : 1616578904987,
+          "stop" : 1616578904987,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/allotmentclub/alembic/versions/re_1_update_member_model_48019c236591.py",
+        "uid" : "b267501bfa7a3dab",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578895108,
+          "stop" : 1616578895765,
+          "duration" : 657
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/allotmentclub/tests/__init__.py",
+        "uid" : "bedcc7b95132467f",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578907226,
+          "stop" : 1616578907434,
+          "duration" : 208
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_depot.py",
+        "uid" : "3b92fe228c25bbfe",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578902215,
+          "stop" : 1616578902511,
+          "duration" : 296
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_AssignmentListView_1",
+        "uid" : "cf2f42f05737b29a",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "broken",
+        "time" : {
+          "start" : 1616578901173,
+          "stop" : 1616578901173,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_displays_list_of_protocol_details",
+        "uid" : "9f4d06de817b0f08",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "broken",
+        "time" : {
+          "start" : 1616578906834,
+          "stop" : 1616578906834,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/allotmentclub/alembic/versions/add_sale_history_c3c978348cbf.py",
+        "uid" : "b9f695c20a833b52",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578885456,
+          "stop" : 1616578885814,
+          "duration" : 358
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "account.py",
+        "uid" : "fb647de0aa496a1b",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578872066,
+          "stop" : 1616578872931,
+          "duration" : 865
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/allotmentclub/alembic/versions/add_leased_status_to_parcel_75aee9c50aa.py",
+        "uid" : "91ac05f44cf65de6",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578881597,
+          "stop" : 1616578881834,
+          "duration" : 237
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/allotmentclub/alembic/versions/add_account_for_am_769e10087d9e.py",
+        "uid" : "2a0929c7d6fd8ae6",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578876787,
+          "stop" : 1616578877047,
+          "duration" : 260
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_postmark_webhook.py",
+        "uid" : "977555216cbd29b0",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578905722,
+          "stop" : 1616578906183,
+          "duration" : 461
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/allotmentclub/alembic/versions/add_signature_for_ar_5b929a47d6ae.py",
+        "uid" : "3d849bc888004687",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578887269,
+          "stop" : 1616578887514,
+          "duration" : 245
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/allotmentclub/alembic/versions/re_12_add_column_to_save_passive__3efd1e093b36.py",
+        "uid" : "4775319532804a0d",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578894086,
+          "stop" : 1616578894330,
+          "duration" : 244
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_protocol.py",
+        "uid" : "d471f13fbb9cbfbe",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578906351,
+          "stop" : 1616578906753,
+          "duration" : 402
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/allotmentclub/alembic/versions/add_table_for_grundsteuer_b_9dadb9f9561f.py",
+        "uid" : "d5196f9e9fd28bf0",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578888703,
+          "stop" : 1616578888975,
+          "duration" : 272
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/allotmentclub/alembic/versions/add_waiting_status_to_form_letters_24b5e5215f2d.py",
+        "uid" : "4d19cb65fbe575c0",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578889235,
+          "stop" : 1616578889494,
+          "duration" : 259
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test__mail__print_or_sent_type_2",
+        "uid" : "bbf3990e4194cfab",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "broken",
+        "time" : {
+          "start" : 1616578904401,
+          "stop" : 1616578904401,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/allotmentclub/alembic/versions/increase_size_of_mimetype_field_for__46adf5114de1.py",
+        "uid" : "7e8e1cb4c37e38d2",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578892057,
+          "stop" : 1616578892327,
+          "duration" : 270
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_split_booking_failure_4",
+        "uid" : "80887455f7715337",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "broken",
+        "time" : {
+          "start" : 1616578908073,
+          "stop" : 1616578908073,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_SEPASammlerExportView_2",
+        "uid" : "edc29af71f0b5756",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "broken",
+        "time" : {
+          "start" : 1616578900736,
+          "stop" : 1616578900736,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/allotmentclub/alembic/versions/add_revision_security_flag_for_users_95c83e9e7d18.py",
+        "uid" : "75cfac8808ee88fe",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578885215,
+          "stop" : 1616578885444,
+          "duration" : 229
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_displays_list_of_depots",
+        "uid" : "9035b53e6af6e807",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "broken",
+        "time" : {
+          "start" : 1616578902517,
+          "stop" : 1616578902517,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "printmailer.py",
+        "uid" : "19b738ebcfe40a",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578875463,
+          "stop" : 1616578875727,
+          "duration" : 264
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test__EnergyValue__fee_5",
+        "uid" : "fe952b3834e101b8",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "broken",
+        "time" : {
+          "start" : 1616578909270,
+          "stop" : 1616578909270,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_protocol_can_have_details",
+        "uid" : "3999f3cfa855efd",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "broken",
+        "time" : {
+          "start" : 1616578906759,
+          "stop" : 1616578906759,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_letter.py",
+        "uid" : "4cbdb73c12ba5ace",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578903287,
+          "stop" : 1616578903525,
+          "duration" : 238
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_import_sepa_creates_new_booking_entry_for_open_amount",
+        "uid" : "c96321b8e6f3e733",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "broken",
+        "time" : {
+          "start" : 1616578908186,
+          "stop" : 1616578908186,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_home.py",
+        "uid" : "2c3c6c86c1d31a40",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578902956,
+          "stop" : 1616578903223,
+          "duration" : 267
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/allotmentclub/alembic/versions/add_accounting_year_to_inbound_messages_ff18c87afd8e.py",
+        "uid" : "216358360f97702e",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578877307,
+          "stop" : 1616578877541,
+          "duration" : 234
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/allotmentclub/alembic/versions/change_parcel_attachments_to_parcel_map_98db6b34d1a3.py",
+        "uid" : "f1cf1025f6e2a9c8",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578890561,
+          "stop" : 1616578890842,
+          "duration" : 281
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_auth.py",
+        "uid" : "8ed679d8036ef4f4",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578901311,
+          "stop" : 1616578901586,
+          "duration" : 275
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_imported_bookings_are_auto_assigned",
+        "uid" : "eb73fe24340f6889",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "broken",
+        "time" : {
+          "start" : 1616578908118,
+          "stop" : 1616578908118,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_import_sepa_raises_value_error_if_empty_sammler",
+        "uid" : "3ea1fb06c1356c3",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "broken",
+        "time" : {
+          "start" : 1616578908163,
+          "stop" : 1616578908163,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/allotmentclub/alembic/versions/remove_formletters_finally_1842f7373dcd.py",
+        "uid" : "8c4a08b9808e98af",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578899336,
+          "stop" : 1616578899638,
+          "duration" : 302
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_assignment.py",
+        "uid" : "e473ebbac5b0803e",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578900794,
+          "stop" : 1616578901142,
+          "duration" : 348
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test__mail__get_recipient_4",
+        "uid" : "9d3179d4fb52ebb6",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "broken",
+        "time" : {
+          "start" : 1616578904286,
+          "stop" : 1616578904286,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/allotmentclub/alembic/versions/add_protocol_details_571eb56a2b04.py",
+        "uid" : "84b82b02683fd1fd",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578884415,
+          "stop" : 1616578884673,
+          "duration" : 258
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_AssignmentDeleteAttendeesView_1",
+        "uid" : "44a1b75a8d442711",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "broken",
+        "time" : {
+          "start" : 1616578901280,
+          "stop" : 1616578901280,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_account.py",
+        "uid" : "1d6c896a0aae7e6a",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578907446,
+          "stop" : 1616578907902,
+          "duration" : 456
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_SplitBookingView_1",
+        "uid" : "a35f56205e051a87",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "broken",
+        "time" : {
+          "start" : 1616578900576,
+          "stop" : 1616578900576,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/allotmentclub/alembic/versions/re_28_save_message_tag_instead_of__3b50f99a2e2f.py",
+        "uid" : "12cde53c961c528",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578896781,
+          "stop" : 1616578897259,
+          "duration" : 478
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/allotmentclub/alembic/versions/add_boolean_flag_for_white_page_to_mail__1755a035e42a.py",
+        "uid" : "e0c38d5cd4ae6fb3",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578878538,
+          "stop" : 1616578878771,
+          "duration" : 233
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/allotmentclub/alembic/versions/allow_selecting_multiple_members_on__d6e0f091a932.py",
+        "uid" : "94ae0ca1ee82b1d1",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578890295,
+          "stop" : 1616578890550,
+          "duration" : 255
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/allotmentclub/alembic/versions/add_value_to_energyprice_668759e73b80.py",
+        "uid" : "8c15da198cbe924c",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578888987,
+          "stop" : 1616578889224,
+          "duration" : 237
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_import_via_sparkassen_csv",
+        "uid" : "4a46f5c6ec21f03e",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "broken",
+        "time" : {
+          "start" : 1616578907909,
+          "stop" : 1616578907909,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/allotmentclub/alembic/versions/add_reference_to_booking_to_sepasammler_4d63c477b58f.py",
+        "uid" : "376f30db94fde7e6",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578884946,
+          "stop" : 1616578885204,
+          "duration" : 258
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/allotmentclub/alembic/versions/add_email_to_members_2cb8d240d5ac.py",
+        "uid" : "970510b541146f7f",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578880179,
+          "stop" : 1616578880502,
+          "duration" : 323
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/allotmentclub/alembic/versions/add_filter_for_ignoring_bookings_in__1fb65d65969.py",
+        "uid" : "9bbe6507f00918e1",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578880514,
+          "stop" : 1616578880781,
+          "duration" : 267
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test__mail__print_or_sent_date_1",
+        "uid" : "377271a11f1f5a52",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "broken",
+        "time" : {
+          "start" : 1616578904308,
+          "stop" : 1616578904308,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_logout_is_possible",
+        "uid" : "9f59a0eb337c3956",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "broken",
+        "time" : {
+          "start" : 1616578901700,
+          "stop" : 1616578901700,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/allotmentclub/alembic/versions/add_comment_and_estimate_value_to__7136a99f680d.py",
+        "uid" : "6ef05319a6e46fa2",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578879095,
+          "stop" : 1616578879354,
+          "duration" : 259
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/allotmentclub/alembic/versions/add_zählerwechsel_for_steinmüller_897a3181401e.py",
+        "uid" : "5f29029739e50eeb",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578889506,
+          "stop" : 1616578889784,
+          "duration" : 278
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_depot_can_be_added_via_json_view",
+        "uid" : "1885787c64f86c9a",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "broken",
+        "time" : {
+          "start" : 1616578902545,
+          "stop" : 1616578902545,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_route_to_access_authority_if_logged_in_as_admin",
+        "uid" : "92fdd7aa8c57f45d",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "broken",
+        "time" : {
+          "start" : 1616578905637,
+          "stop" : 1616578905637,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_depot_can_be_edited_via_json_view",
+        "uid" : "1f1273ae180b7308",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "broken",
+        "time" : {
+          "start" : 1616578902571,
+          "stop" : 1616578902571,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_protocol_can_be_added_via_json_view",
+        "uid" : "144d996060195619",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "broken",
+        "time" : {
+          "start" : 1616578906808,
+          "stop" : 1616578906808,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_abort_w_TPC_does_not_raise_ValueError",
+        "uid" : "484e66beddfdec5c",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "skipped",
+        "time" : {
+          "start" : 1616578909552,
+          "stop" : 1616578909553,
+          "duration" : 1
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_navigation.py",
+        "uid" : "b86e0834cf53138a",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578905344,
+          "stop" : 1616578905604,
+          "duration" : 260
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_displays_list_of_protocols",
+        "uid" : "9ff3156fc2825509",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "broken",
+        "time" : {
+          "start" : 1616578906783,
+          "stop" : 1616578906783,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test__mail__postmark_webhook_1",
+        "uid" : "d76f2480a2a88728",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "broken",
+        "time" : {
+          "start" : 1616578906190,
+          "stop" : 1616578906190,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/allotmentclub/alembic/versions/allow_selecting_multiple_external__ee1b8c9cb745.py",
+        "uid" : "b994e0a189d08a24",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578890032,
+          "stop" : 1616578890284,
+          "duration" : 252
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_bulletin.py",
+        "uid" : "ff7bb0d8e080bd3",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578901730,
+          "stop" : 1616578902037,
+          "duration" : 307
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_BookingListView_1",
+        "uid" : "e3bdf182c3547b97",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "broken",
+        "time" : {
+          "start" : 1616578900521,
+          "stop" : 1616578900521,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/allotmentclub/alembic/versions/hash_iban_and_bic_1039814b69e3.py",
+        "uid" : "4b7730da658e1638",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578891570,
+          "stop" : 1616578891811,
+          "duration" : 241
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/allotmentclub/alembic/versions/add_message_attachment_38a169e80b6e.py",
+        "uid" : "cc823fb429b8d981",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578882109,
+          "stop" : 1616578882362,
+          "duration" : 253
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test__mail__MailAssignmentPreview_1",
+        "uid" : "88b79e2b21d5f6f7",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "broken",
+        "time" : {
+          "start" : 1616578904635,
+          "stop" : 1616578904635,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/allotmentclub/alembic/versions/re_16_add_organization_model_f86ea5808406.py",
+        "uid" : "384d6dd877712243",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578894341,
+          "stop" : 1616578894708,
+          "duration" : 367
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/allotmentclub/signatures/__init__.py",
+        "uid" : "c76f4bede51cd3ae",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578906890,
+          "stop" : 1616578907215,
+          "duration" : 325
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_split_booking_failure_5",
+        "uid" : "5b4bd8dcb00d3f76",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "broken",
+        "time" : {
+          "start" : 1616578908095,
+          "stop" : 1616578908095,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_imported_bookings_do_contain_iban_and_bic",
+        "uid" : "fa2a456d36d86f65",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "broken",
+        "time" : {
+          "start" : 1616578907932,
+          "stop" : 1616578907932,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_member.py",
+        "uid" : "a491121889707541",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578905021,
+          "stop" : 1616578905280,
+          "duration" : 259
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/allotmentclub/alembic/versions/re_3_remove_no_longer_used_code_1dfd521b7ca0.py",
+        "uid" : "5804928fbfbcb305",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578898438,
+          "stop" : 1616578898706,
+          "duration" : 268
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_route_to_configured_route_if_logged_in_as_non_admin",
+        "uid" : "7a65cda08d970899",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "broken",
+        "time" : {
+          "start" : 1616578905691,
+          "stop" : 1616578905691,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_protocols_can_be_printed_as_pdf",
+        "uid" : "9af70b99fe2c2c03",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "broken",
+        "time" : {
+          "start" : 1616578906860,
+          "stop" : 1616578906860,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_map.py",
+        "uid" : "a79e7580614f29c7",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578904693,
+          "stop" : 1616578904955,
+          "duration" : 262
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test__mail__postmark_webhook_3",
+        "uid" : "3e2b22b0c1fb5035",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "broken",
+        "time" : {
+          "start" : 1616578906241,
+          "stop" : 1616578906241,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test__mail__MailPreviewView_1",
+        "uid" : "a617b3b8a3ff0129",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "broken",
+        "time" : {
+          "start" : 1616578904501,
+          "stop" : 1616578904501,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/allotmentclub/alembic/versions/add_protocols_1850226c55dc.py",
+        "uid" : "8734db8ddb486be5",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578884685,
+          "stop" : 1616578884934,
+          "duration" : 249
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/allotmentclub/alembic/versions/re_26_save_message_id_of_sent_messages__ff1bb01af7fa.py",
+        "uid" : "99bed5da16c8c68",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578896250,
+          "stop" : 1616578896757,
+          "duration" : 507
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_BulletinDeleteView_1",
+        "uid" : "a700bbd9e8167c41",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "broken",
+        "time" : {
+          "start" : 1616578902126,
+          "stop" : 1616578902126,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_mv_entrance_list_view",
+        "uid" : "fc1b85b1d59528d0",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "broken",
+        "time" : {
+          "start" : 1616578905313,
+          "stop" : 1616578905313,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_MapView__call__1",
+        "uid" : "b06baf4a3d6fb8df",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "skipped",
+        "time" : {
+          "start" : 1616578904961,
+          "stop" : 1616578904961,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test__mail__postmark_webhook_5",
+        "uid" : "b47c922d5be9ee87",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "broken",
+        "time" : {
+          "start" : 1616578906295,
+          "stop" : 1616578906295,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_BulletinEditView_1",
+        "uid" : "673f79ab8ca5fd5b",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "broken",
+        "time" : {
+          "start" : 1616578902096,
+          "stop" : 1616578902096,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_AssignmentAttendeesEditView_1",
+        "uid" : "d08f12baac5738c8",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "broken",
+        "time" : {
+          "start" : 1616578901226,
+          "stop" : 1616578901226,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_meter_has_values_for_each_year",
+        "uid" : "59a294f37710d37b",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "broken",
+        "time" : {
+          "start" : 1616578908969,
+          "stop" : 1616578908969,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/allotmentclub/alembic/versions/add_subject_to_formletters_1c44d30192ea.py",
+        "uid" : "26568e54ce098481",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578888036,
+          "stop" : 1616578888264,
+          "duration" : 228
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_split_booking_failure_2",
+        "uid" : "975e05a680e795d6",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "broken",
+        "time" : {
+          "start" : 1616578908027,
+          "stop" : 1616578908027,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/allotmentclub/alembic/versions/add_model_for_arbeitseinsaetze_3ed04edde04e.py",
+        "uid" : "7118f9535600666c",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578882377,
+          "stop" : 1616578882639,
+          "duration" : 262
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_split_booking_failure_3",
+        "uid" : "5084bdf3a2625e49",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "broken",
+        "time" : {
+          "start" : 1616578908050,
+          "stop" : 1616578908050,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/allotmentclub/alembic/versions/re_2_model_for_electic_meter_and_energy__447579f29e92.py",
+        "uid" : "e6571171f51fcc05",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578898149,
+          "stop" : 1616578898427,
+          "duration" : 278
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/allotmentclub/alembic/versions/add_depot_46276fff5bc2.py",
+        "uid" : "cb5b1e2b209570c6",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578879632,
+          "stop" : 1616578879906,
+          "duration" : 274
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/allotmentclub/alembic/versions/re_2_add_model_for_prices_of_energvalues_56e61da4fed1.py",
+        "uid" : "9e3d1412844601d",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578897773,
+          "stop" : 1616578898136,
+          "duration" : 363
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_mail.py",
+        "uid" : "d05d7183e7275c2",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578903560,
+          "stop" : 1616578904209,
+          "duration" : 649
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_no_route_to_energy_meter_import_if_not_logged_in",
+        "uid" : "620b6e53f5d1c374",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "broken",
+        "time" : {
+          "start" : 1616578905611,
+          "stop" : 1616578905611,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_booking_can_be_splitted",
+        "uid" : "fbf59c1b4b5b4f44",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "broken",
+        "time" : {
+          "start" : 1616578907977,
+          "stop" : 1616578907977,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_member.py",
+        "uid" : "d8348fb3a4599a5",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578909317,
+          "stop" : 1616578909538,
+          "duration" : 221
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/allotmentclub/alembic/versions/re_18_add_attachment_to_keylist_d1ccee162c46.py",
+        "uid" : "6556c504af9e3648",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578894728,
+          "stop" : 1616578895095,
+          "duration" : 367
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test__mail__postmark_webhook_4",
+        "uid" : "68d3f9c70e05aabe",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "broken",
+        "time" : {
+          "start" : 1616578906267,
+          "stop" : 1616578906267,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test__mail__print_or_sent_date_3",
+        "uid" : "a4de969b7c5a9286",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "broken",
+        "time" : {
+          "start" : 1616578904355,
+          "stop" : 1616578904355,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test__mail__print_or_sent_type_3",
+        "uid" : "e1fbcd5c7b766219",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "broken",
+        "time" : {
+          "start" : 1616578904424,
+          "stop" : 1616578904424,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_fa_icon_if_system_user",
+        "uid" : "4d9d1ae4b2bb7f1a",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "broken",
+        "time" : {
+          "start" : 1616578903255,
+          "stop" : 1616578903255,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_bulletins_can_be_printed_as_pdf",
+        "uid" : "2a8e9ffbee61f365",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "broken",
+        "time" : {
+          "start" : 1616578902155,
+          "stop" : 1616578902155,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test__EnergyValue__fee_3",
+        "uid" : "8f9671d0ca373a21",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "broken",
+        "time" : {
+          "start" : 1616578909220,
+          "stop" : 1616578909221,
+          "duration" : 1
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/allotmentclub/alembic/versions/add_organization_phone_and_note_to__92cec0e8663e.py",
+        "uid" : "b2d479479b26f18c",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578883313,
+          "stop" : 1616578883563,
+          "duration" : 250
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_value_has_a_member",
+        "uid" : "628c4281de1ab793",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "broken",
+        "time" : {
+          "start" : 1616578909030,
+          "stop" : 1616578909030,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_SplitBookingView_3",
+        "uid" : "7b55bf0dc4df6690",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "broken",
+        "time" : {
+          "start" : 1616578900630,
+          "stop" : 1616578900630,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/allotmentclub/alembic/versions/add_sepasammler_grouping_items_b7de0b4c2bb6.py",
+        "uid" : "fe7cff6c0a3c7fa8",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578886896,
+          "stop" : 1616578887256,
+          "duration" : 360
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test__EnergyValue__fee_1",
+        "uid" : "521c68bb2f4ed4b1",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "broken",
+        "time" : {
+          "start" : 1616578909165,
+          "stop" : 1616578909165,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "mail.py",
+        "uid" : "d7878a676bc26d95",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578875051,
+          "stop" : 1616578875450,
+          "duration" : 399
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/allotmentclub/alembic/versions/add_date_and_user_to_message_attachments_f4b90b599d2a.py",
+        "uid" : "8a8290d91a30ee47",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578879368,
+          "stop" : 1616578879620,
+          "duration" : 252
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/allotmentclub/alembic/versions/prepare_message_hierachy_fd9f9588878d.py",
+        "uid" : "3870b280eb1cac85",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578893327,
+          "stop" : 1616578893555,
+          "duration" : 228
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "depot.py",
+        "uid" : "624779206a1bafda",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578873537,
+          "stop" : 1616578873797,
+          "duration" : 260
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/allotmentclub/alembic/versions/add_mail_model_43245c2d427e.py",
+        "uid" : "41c69d821f38d1cb",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578881847,
+          "stop" : 1616578882097,
+          "duration" : 250
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/allotmentclub/alembic/versions/replace_electric_meter_for_dr_helbig__fc8dd9d7a9d7.py",
+        "uid" : "9377613fd499f011",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578900236,
+          "stop" : 1616578900515,
+          "duration" : 279
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/allotmentclub/alembic/versions/add_new_data_to_members_4d42c583ac73.py",
+        "uid" : "e71e1c5e4c728327",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578882651,
+          "stop" : 1616578882924,
+          "duration" : 273
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test__mail__get_recipient_3",
+        "uid" : "72152a77879558e7",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "broken",
+        "time" : {
+          "start" : 1616578904263,
+          "stop" : 1616578904263,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_no_access_if_not_logged_in",
+        "uid" : "c6046d7d144ed339",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "broken",
+        "time" : {
+          "start" : 1616578901593,
+          "stop" : 1616578901593,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/allotmentclub/alembic/versions/add_banking_accounts_to_booking_kinds_388a201feabf.py",
+        "uid" : "d2bab65266a33059",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578877817,
+          "stop" : 1616578878120,
+          "duration" : 303
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_assignments_can_have_attendees",
+        "uid" : "ace41e5047d3254b",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "broken",
+        "time" : {
+          "start" : 1616578901150,
+          "stop" : 1616578901150,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/allotmentclub/alembic/versions/add_sepa_sammelueberweisung_e47f78fad78f.py",
+        "uid" : "5c9ab930fdef3895",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578885844,
+          "stop" : 1616578886361,
+          "duration" : 517
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test__mail__MailPreviewView_2",
+        "uid" : "fba9e18f0f26c13c",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "broken",
+        "time" : {
+          "start" : 1616578904528,
+          "stop" : 1616578904528,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "assignment.py",
+        "uid" : "90a30e7a5aa3eb92",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578872945,
+          "stop" : 1616578873261,
+          "duration" : 316
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/allotmentclub/alembic/versions/a_29f31fb4aa.py",
+        "uid" : "e16998788a77030d",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578876546,
+          "stop" : 1616578876773,
+          "duration" : 227
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_meter_can_be_replaced_by_another_meter",
+        "uid" : "b4033f96209cb5f0",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "broken",
+        "time" : {
+          "start" : 1616578908998,
+          "stop" : 1616578908998,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "version.py",
+        "uid" : "e57df327632f6901",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578876300,
+          "stop" : 1616578876533,
+          "duration" : 233
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/allotmentclub/alembic/versions/re_10_add_event_model_2952c5487114.py",
+        "uid" : "b0eee30effaa4078",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578893566,
+          "stop" : 1616578893813,
+          "duration" : 247
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_displays_list_of_log_entries",
+        "uid" : "7fcde988456243db",
+        "parentUid" : "83a3de32bd516fbc8b813dcfdd4a812a",
+        "status" : "broken",
+        "time" : {
+          "start" : 1616578903229,
+          "stop" : 1616578903229,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "83a3de32bd516fbc8b813dcfdd4a812a"
+    }, {
+      "name" : "1205485-MainThread",
+      "children" : [ {
+        "name" : "test_sendmail_delivery.py",
+        "uid" : "205777a8c1fafbe3",
+        "parentUid" : "f8f381fdec6e95e55b08b57be3ed3b99",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578909341,
+          "stop" : 1616578909568,
+          "duration" : 227
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/allotmentclub/alembic/env.py",
+        "uid" : "ec3ec27383d12d13",
+        "parentUid" : "f8f381fdec6e95e55b08b57be3ed3b99",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578877232,
+          "stop" : 1616578877501,
+          "duration" : 269
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "protocol.py",
+        "uid" : "d3c6ed4f65c052e",
+        "parentUid" : "f8f381fdec6e95e55b08b57be3ed3b99",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578905831,
+          "stop" : 1616578906672,
+          "duration" : 841
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "logmailer.py",
+        "uid" : "c5bf2eb7104622bf",
+        "parentUid" : "f8f381fdec6e95e55b08b57be3ed3b99",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578875583,
+          "stop" : 1616578875856,
+          "duration" : 273
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "protocol_print.py",
+        "uid" : "1210bfbc0b9bb171",
+        "parentUid" : "f8f381fdec6e95e55b08b57be3ed3b99",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578906684,
+          "stop" : 1616578907035,
+          "duration" : 351
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "conftest.py",
+        "uid" : "17efaa3313493f31",
+        "parentUid" : "f8f381fdec6e95e55b08b57be3ed3b99",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578897435,
+          "stop" : 1616578898024,
+          "duration" : 589
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/allotmentclub/alembic/versions/add_accounting_year_for_protocols_20588bf7b8a7.py",
+        "uid" : "66349ca15ce3cc29",
+        "parentUid" : "f8f381fdec6e95e55b08b57be3ed3b99",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578877879,
+          "stop" : 1616578878204,
+          "duration" : 325
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "authority.py",
+        "uid" : "756b41d18d88309a",
+        "parentUid" : "f8f381fdec6e95e55b08b57be3ed3b99",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578892528,
+          "stop" : 1616578892974,
+          "duration" : 446
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/allotmentclub/alembic/versions/add_keylist_model_4b98c95b9a56.py",
+        "uid" : "2c7b3422bca6388d",
+        "parentUid" : "f8f381fdec6e95e55b08b57be3ed3b99",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578882408,
+          "stop" : 1616578882670,
+          "duration" : 262
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test__EnergyValue__update_data_5",
+        "uid" : "35ea8e28ff020b91",
+        "parentUid" : "f8f381fdec6e95e55b08b57be3ed3b99",
+        "status" : "broken",
+        "time" : {
+          "start" : 1616578908918,
+          "stop" : 1616578908918,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test__EnergyValue__usage_1",
+        "uid" : "c0b54bd6b7962174",
+        "parentUid" : "f8f381fdec6e95e55b08b57be3ed3b99",
+        "status" : "broken",
+        "time" : {
+          "start" : 1616578908984,
+          "stop" : 1616578908984,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/allotmentclub/alembic/versions/add_leaving_year_to_members_55a653c1d5a0.py",
+        "uid" : "75e1c0fae6e52f2c",
+        "parentUid" : "f8f381fdec6e95e55b08b57be3ed3b99",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578882685,
+          "stop" : 1616578882909,
+          "duration" : 224
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/allotmentclub/alembic/versions/add_charge_and_advance_pay_from__5154afa1d7d6.py",
+        "uid" : "eccbf19e30283fac",
+        "parentUid" : "f8f381fdec6e95e55b08b57be3ed3b99",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578880032,
+          "stop" : 1616578880274,
+          "duration" : 242
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test__EnergyValue__fee_6",
+        "uid" : "a77f60a329fc7244",
+        "parentUid" : "f8f381fdec6e95e55b08b57be3ed3b99",
+        "status" : "broken",
+        "time" : {
+          "start" : 1616578909273,
+          "stop" : 1616578909273,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test__EnergyValue__fee_2",
+        "uid" : "d744e3a5e8c62c11",
+        "parentUid" : "f8f381fdec6e95e55b08b57be3ed3b99",
+        "status" : "broken",
+        "time" : {
+          "start" : 1616578909171,
+          "stop" : 1616578909171,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/allotmentclub/browser/tests/__init__.py",
+        "uid" : "bbdd656ae751b38d",
+        "parentUid" : "f8f381fdec6e95e55b08b57be3ed3b99",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578908053,
+          "stop" : 1616578908267,
+          "duration" : 214
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "conftest.py",
+        "uid" : "6be9f92ca0b6342f",
+        "parentUid" : "f8f381fdec6e95e55b08b57be3ed3b99",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578872863,
+          "stop" : 1616578873848,
+          "duration" : 985
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "bulletin.py",
+        "uid" : "c7269e3f58728785",
+        "parentUid" : "f8f381fdec6e95e55b08b57be3ed3b99",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578895427,
+          "stop" : 1616578896064,
+          "duration" : 637
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "base.py",
+        "uid" : "7422d3b190737dc2",
+        "parentUid" : "f8f381fdec6e95e55b08b57be3ed3b99",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578872472,
+          "stop" : 1616578872849,
+          "duration" : 377
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/allotmentclub/alembic/versions/update_formbrief_179b760ddcda.py",
+        "uid" : "426d9ec5f4492d7",
+        "parentUid" : "f8f381fdec6e95e55b08b57be3ed3b99",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578885598,
+          "stop" : 1616578886109,
+          "duration" : 511
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test__EnergyValue__update_data_4",
+        "uid" : "38b1f51b2ef7ae58",
+        "parentUid" : "f8f381fdec6e95e55b08b57be3ed3b99",
+        "status" : "broken",
+        "time" : {
+          "start" : 1616578908895,
+          "stop" : 1616578908895,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_member_active_passive",
+        "uid" : "2cc8f45a35244673",
+        "parentUid" : "f8f381fdec6e95e55b08b57be3ed3b99",
+        "status" : "broken",
+        "time" : {
+          "start" : 1616578909310,
+          "stop" : 1616578909310,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test__EnergyValue__fee_4",
+        "uid" : "644c0054002dc13d",
+        "parentUid" : "f8f381fdec6e95e55b08b57be3ed3b99",
+        "status" : "broken",
+        "time" : {
+          "start" : 1616578909223,
+          "stop" : 1616578909223,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/allotmentclub/alembic/versions/save_calculation_of_energy_values_in__186285f37c74.py",
+        "uid" : "dd6f6a40238cae6d",
+        "parentUid" : "f8f381fdec6e95e55b08b57be3ed3b99",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578884793,
+          "stop" : 1616578885055,
+          "duration" : 262
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "assignment.py",
+        "uid" : "dcd08f3f097fed16",
+        "parentUid" : "f8f381fdec6e95e55b08b57be3ed3b99",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578891594,
+          "stop" : 1616578892212,
+          "duration" : 618
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "login.py",
+        "uid" : "a3f7df30c968736e",
+        "parentUid" : "f8f381fdec6e95e55b08b57be3ed3b99",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578901450,
+          "stop" : 1616578902023,
+          "duration" : 573
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/allotmentclub/alembic/versions/add_behoerdenbeauftragter_2a39970710de.py",
+        "uid" : "4891afd2757873cb",
+        "parentUid" : "f8f381fdec6e95e55b08b57be3ed3b99",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578879087,
+          "stop" : 1616578879315,
+          "duration" : 228
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/allotmentclub/alembic/versions/add_budgets_to_accounting_53f3d16657d3.py",
+        "uid" : "d9eff1601eba1331",
+        "parentUid" : "f8f381fdec6e95e55b08b57be3ed3b99",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578879595,
+          "stop" : 1616578880019,
+          "duration" : 424
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/allotmentclub/alembic/versions/update_hours_of_assignment_attendees_to__39a3b6119fc6.py",
+        "uid" : "a2013f0971b8425e",
+        "parentUid" : "f8f381fdec6e95e55b08b57be3ed3b99",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578886130,
+          "stop" : 1616578886632,
+          "duration" : 502
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test__EnergyValue__update_data_3",
+        "uid" : "4981f0a49accc256",
+        "parentUid" : "f8f381fdec6e95e55b08b57be3ed3b99",
+        "status" : "broken",
+        "time" : {
+          "start" : 1616578908869,
+          "stop" : 1616578908869,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/allotmentclub/alembic/versions/update_transactions_to_fit_new_import__cc8ba97635c1.py",
+        "uid" : "e0eb3947c6152df3",
+        "parentUid" : "f8f381fdec6e95e55b08b57be3ed3b99",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578887878,
+          "stop" : 1616578888117,
+          "duration" : 239
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/allotmentclub/alembic/versions/add_new_bookingkinds_126c6a200c9f.py",
+        "uid" : "7ff0d1f088b243c0",
+        "parentUid" : "f8f381fdec6e95e55b08b57be3ed3b99",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578883461,
+          "stop" : 1616578883699,
+          "duration" : 238
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "map.py",
+        "uid" : "e9129ba54bfadee6",
+        "parentUid" : "f8f381fdec6e95e55b08b57be3ed3b99",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578903463,
+          "stop" : 1616578903950,
+          "duration" : 487
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/allotmentclub/alembic/versions/add_iban_and_bic_to_member_2b1aa8adb13b.py",
+        "uid" : "5cd319a8d8815901",
+        "parentUid" : "f8f381fdec6e95e55b08b57be3ed3b99",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578882163,
+          "stop" : 1616578882394,
+          "duration" : 231
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "base.py",
+        "uid" : "245f542f810a64c",
+        "parentUid" : "f8f381fdec6e95e55b08b57be3ed3b99",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578892982,
+          "stop" : 1616578895418,
+          "duration" : 2436
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "protocol.py",
+        "uid" : "6d624cad54b20bda",
+        "parentUid" : "f8f381fdec6e95e55b08b57be3ed3b99",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578876591,
+          "stop" : 1616578876877,
+          "duration" : 286
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "model.py",
+        "uid" : "2f85dbfc974c44df",
+        "parentUid" : "f8f381fdec6e95e55b08b57be3ed3b99",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578875870,
+          "stop" : 1616578876577,
+          "duration" : 707
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/allotmentclub/alembic/versions/add_external_recipient_for_messages_4841df08d22b.py",
+        "uid" : "fec9ff3b7acc4095",
+        "parentUid" : "f8f381fdec6e95e55b08b57be3ed3b99",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578881294,
+          "stop" : 1616578881562,
+          "duration" : 268
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test__EnergyValue__update_data_1",
+        "uid" : "ce4b78ba9862783f",
+        "parentUid" : "f8f381fdec6e95e55b08b57be3ed3b99",
+        "status" : "broken",
+        "time" : {
+          "start" : 1616578908797,
+          "stop" : 1616578908797,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/allotmentclub/alembic/versions/add_direct_debit_date_411ca2f55194.py",
+        "uid" : "fcc1ce5448c73e9d",
+        "parentUid" : "f8f381fdec6e95e55b08b57be3ed3b99",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578880789,
+          "stop" : 1616578881021,
+          "duration" : 232
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/allotmentclub/alembic/versions/add_new_members_bbb62bf367a.py",
+        "uid" : "bd85322851d5cae",
+        "parentUid" : "f8f381fdec6e95e55b08b57be3ed3b99",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578883967,
+          "stop" : 1616578884231,
+          "duration" : 264
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "waste_water.py",
+        "uid" : "7eaef749a991c11d",
+        "parentUid" : "f8f381fdec6e95e55b08b57be3ed3b99",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578907660,
+          "stop" : 1616578908039,
+          "duration" : 379
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/allotmentclub/alembic/versions/replace_electric_meter_for_dr_kern_ecca91384800.py",
+        "uid" : "b08b0e876ca82faf",
+        "parentUid" : "f8f381fdec6e95e55b08b57be3ed3b99",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578884496,
+          "stop" : 1616578884777,
+          "duration" : 281
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test__EnergyValue__update_data_6",
+        "uid" : "1c19d7287ce9536c",
+        "parentUid" : "f8f381fdec6e95e55b08b57be3ed3b99",
+        "status" : "broken",
+        "time" : {
+          "start" : 1616578908942,
+          "stop" : 1616578908942,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/allotmentclub/alembic/versions/switch_signature_from_largebinary_to__88942e83a048.py",
+        "uid" : "f89fcd015ca66bd1",
+        "parentUid" : "f8f381fdec6e95e55b08b57be3ed3b99",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578885303,
+          "stop" : 1616578885567,
+          "duration" : 264
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/allotmentclub/alembic/versions/add_member_to_bookings_eb7a1761a6d.py",
+        "uid" : "cf09719d365bc8d6",
+        "parentUid" : "f8f381fdec6e95e55b08b57be3ed3b99",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578882922,
+          "stop" : 1616578883166,
+          "duration" : 244
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "direct_debit.py",
+        "uid" : "697f20d68c1d6816",
+        "parentUid" : "f8f381fdec6e95e55b08b57be3ed3b99",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578873861,
+          "stop" : 1616578875281,
+          "duration" : 1420
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test__EnergyValue__price_3",
+        "uid" : "5c08c2c5edbcc57c",
+        "parentUid" : "f8f381fdec6e95e55b08b57be3ed3b99",
+        "status" : "broken",
+        "time" : {
+          "start" : 1616578909136,
+          "stop" : 1616578909136,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/allotmentclub/alembic/versions/add_booking_kinds_568f7817789f.py",
+        "uid" : "9636925e70e7bc89",
+        "parentUid" : "f8f381fdec6e95e55b08b57be3ed3b99",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578879329,
+          "stop" : 1616578879582,
+          "duration" : 253
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/allotmentclub/alembic/versions/update_messages_to_integrate_greeting__2330cb148c04.py",
+        "uid" : "b5510ccaf7870f2f",
+        "parentUid" : "f8f381fdec6e95e55b08b57be3ed3b99",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578887637,
+          "stop" : 1616578887870,
+          "duration" : 233
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/allotmentclub/__init__.py",
+        "uid" : "37a8d858775087c3",
+        "parentUid" : "f8f381fdec6e95e55b08b57be3ed3b99",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578871721,
+          "stop" : 1616578872152,
+          "duration" : 431
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/allotmentclub/alembic/versions/add_missing_foreignkey_constraints_2fd485c59f80.py",
+        "uid" : "42e7f782a46958a",
+        "parentUid" : "f8f381fdec6e95e55b08b57be3ed3b99",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578883179,
+          "stop" : 1616578883447,
+          "duration" : 268
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "property_tax_b.py",
+        "uid" : "15f949b889aa5984",
+        "parentUid" : "f8f381fdec6e95e55b08b57be3ed3b99",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578905530,
+          "stop" : 1616578905804,
+          "duration" : 274
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_account.py",
+        "uid" : "af433641d3f6845f",
+        "parentUid" : "f8f381fdec6e95e55b08b57be3ed3b99",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578908281,
+          "stop" : 1616578908789,
+          "duration" : 508
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/allotmentclub/alembic/versions/add_email_for_users_4e4d0ae80e7a.py",
+        "uid" : "3e39909125f018cb",
+        "parentUid" : "f8f381fdec6e95e55b08b57be3ed3b99",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578881035,
+          "stop" : 1616578881280,
+          "duration" : 245
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "auth.py",
+        "uid" : "cea9f5976ae37af8",
+        "parentUid" : "f8f381fdec6e95e55b08b57be3ed3b99",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578892220,
+          "stop" : 1616578892520,
+          "duration" : 300
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "navigation.py",
+        "uid" : "e1e42e4d74c645c",
+        "parentUid" : "f8f381fdec6e95e55b08b57be3ed3b99",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578905154,
+          "stop" : 1616578905518,
+          "duration" : 364
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "keylist.py",
+        "uid" : "f8d4de4030ce32dc",
+        "parentUid" : "f8f381fdec6e95e55b08b57be3ed3b99",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578900385,
+          "stop" : 1616578901025,
+          "duration" : 640
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "external.py",
+        "uid" : "bf9202f6c7424439",
+        "parentUid" : "f8f381fdec6e95e55b08b57be3ed3b99",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578899621,
+          "stop" : 1616578900037,
+          "duration" : 416
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/allotmentclub/alembic/versions/add_accounting_year_to_bookings_51aecbad82b3.py",
+        "uid" : "ce0f0b3ef2e01124",
+        "parentUid" : "f8f381fdec6e95e55b08b57be3ed3b99",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578878217,
+          "stop" : 1616578878537,
+          "duration" : 320
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "calendar.py",
+        "uid" : "7f44f5b1446ee0ff",
+        "parentUid" : "f8f381fdec6e95e55b08b57be3ed3b99",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578896080,
+          "stop" : 1616578897410,
+          "duration" : 1330
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/allotmentclub/alembic/versions/set_advance_pay_to_0_if_under_threshold_1654373c7899.py",
+        "uid" : "7035edd55d9e3368",
+        "parentUid" : "f8f381fdec6e95e55b08b57be3ed3b99",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578885067,
+          "stop" : 1616578885291,
+          "duration" : 224
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "letter.py",
+        "uid" : "8ed45b223d087a48",
+        "parentUid" : "f8f381fdec6e95e55b08b57be3ed3b99",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578901038,
+          "stop" : 1616578901438,
+          "duration" : 400
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/allotmentclub/alembic/versions/add_heliosdata_5baeb56d1864.py",
+        "uid" : "c6d70d2ebf8b2ddf",
+        "parentUid" : "f8f381fdec6e95e55b08b57be3ed3b99",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578881818,
+          "stop" : 1616578882149,
+          "duration" : 331
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/allotmentclub/alembic/versions/add_deleted_flag_to_external_recipients_7e15fdd9747a.py",
+        "uid" : "f4818638ecc64f65",
+        "parentUid" : "f8f381fdec6e95e55b08b57be3ed3b99",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578880540,
+          "stop" : 1616578880774,
+          "duration" : 234
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "electricity.py",
+        "uid" : "4566d764438f6c9e",
+        "parentUid" : "f8f381fdec6e95e55b08b57be3ed3b99",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578898482,
+          "stop" : 1616578899612,
+          "duration" : 1130
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "depot.py",
+        "uid" : "7e65458f0afa4ecb",
+        "parentUid" : "f8f381fdec6e95e55b08b57be3ed3b99",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578898033,
+          "stop" : 1616578898474,
+          "duration" : 441
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "account.py",
+        "uid" : "f1c8ee2c0d45139a",
+        "parentUid" : "f8f381fdec6e95e55b08b57be3ed3b99",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578888777,
+          "stop" : 1616578890522,
+          "duration" : 1745
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/allotmentclub/alembic/versions/add_banking_account_model_28e32b8a26f4.py",
+        "uid" : "f008be5b907827ce",
+        "parentUid" : "f8f381fdec6e95e55b08b57be3ed3b99",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578878793,
+          "stop" : 1616578879073,
+          "duration" : 280
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "application.py",
+        "uid" : "43e028056589053e",
+        "parentUid" : "f8f381fdec6e95e55b08b57be3ed3b99",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578872170,
+          "stop" : 1616578872459,
+          "duration" : 289
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/allotmentclub/alembic/versions/add_ah_signature_e2cfe9da21cf.py",
+        "uid" : "2c0043dcb695f650",
+        "parentUid" : "f8f381fdec6e95e55b08b57be3ed3b99",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578878550,
+          "stop" : 1616578878779,
+          "duration" : 229
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "app.py",
+        "uid" : "6bfaaa5eca6460de",
+        "parentUid" : "f8f381fdec6e95e55b08b57be3ed3b99",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578890532,
+          "stop" : 1616578891586,
+          "duration" : 1054
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/allotmentclub/alembic/versions/add_access_authority_a08b46e0172e.py",
+        "uid" : "82b8a943baf21891",
+        "parentUid" : "f8f381fdec6e95e55b08b57be3ed3b99",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578877514,
+          "stop" : 1616578877865,
+          "duration" : 351
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "mail.py",
+        "uid" : "48066de96be78ee3",
+        "parentUid" : "f8f381fdec6e95e55b08b57be3ed3b99",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578902035,
+          "stop" : 1616578903448,
+          "duration" : 1413
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "session.py",
+        "uid" : "8ff4493e0daf80ed",
+        "parentUid" : "f8f381fdec6e95e55b08b57be3ed3b99",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578907048,
+          "stop" : 1616578907313,
+          "duration" : 265
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test__EnergyValue__price_1",
+        "uid" : "ba8e023f6896c9e4",
+        "parentUid" : "f8f381fdec6e95e55b08b57be3ed3b99",
+        "status" : "broken",
+        "time" : {
+          "start" : 1616578909030,
+          "stop" : 1616578909030,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/allotmentclub/alembic/versions/add_new_groups_4ac1a4b79213.py",
+        "uid" : "4c41d1ea9aeab94c",
+        "parentUid" : "f8f381fdec6e95e55b08b57be3ed3b99",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578883712,
+          "stop" : 1616578883954,
+          "duration" : 242
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/allotmentclub/alembic/versions/add_flag_if_member_gets_post_3f6271158ce3.py",
+        "uid" : "3303db85bfb791a",
+        "parentUid" : "f8f381fdec6e95e55b08b57be3ed3b99",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578881576,
+          "stop" : 1616578881804,
+          "duration" : 228
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "testing.py",
+        "uid" : "c4ff9a32d0f91735",
+        "parentUid" : "f8f381fdec6e95e55b08b57be3ed3b99",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578907325,
+          "stop" : 1616578907647,
+          "duration" : 322
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "home.py",
+        "uid" : "e571a7b9caf25676",
+        "parentUid" : "f8f381fdec6e95e55b08b57be3ed3b99",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578900045,
+          "stop" : 1616578900376,
+          "duration" : 331
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "user.py",
+        "uid" : "f486265688acb152",
+        "parentUid" : "f8f381fdec6e95e55b08b57be3ed3b99",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578876891,
+          "stop" : 1616578877219,
+          "duration" : 328
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/allotmentclub/alembic/versions/update_member_chaos_5fe4feac157.py",
+        "uid" : "500aeb9eb36f911e",
+        "parentUid" : "f8f381fdec6e95e55b08b57be3ed3b99",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578886650,
+          "stop" : 1616578887359,
+          "duration" : 709
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/allotmentclub/alembic/versions/update_user_model_4369f16d7e67.py",
+        "uid" : "32b1458bfdcdd7fa",
+        "parentUid" : "f8f381fdec6e95e55b08b57be3ed3b99",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578888126,
+          "stop" : 1616578888433,
+          "duration" : 307
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/allotmentclub/alembic/versions/add_payer_name_to_direct_debit_cfc9142d7e69.py",
+        "uid" : "d629777aba3ba56f",
+        "parentUid" : "f8f381fdec6e95e55b08b57be3ed3b99",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578884246,
+          "stop" : 1616578884484,
+          "duration" : 238
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "member.py",
+        "uid" : "77b8acd5acd27fe9",
+        "parentUid" : "f8f381fdec6e95e55b08b57be3ed3b99",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578903962,
+          "stop" : 1616578905139,
+          "duration" : 1177
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test__EnergyValue__price_2",
+        "uid" : "56f15ab6c7d5355c",
+        "parentUid" : "f8f381fdec6e95e55b08b57be3ed3b99",
+        "status" : "broken",
+        "time" : {
+          "start" : 1616578909070,
+          "stop" : 1616578909070,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/allotmentclub/alembic/versions/add_content_for_form_letters_3c0b1fc7eeed.py",
+        "uid" : "a39ed1e68fd0169e",
+        "parentUid" : "f8f381fdec6e95e55b08b57be3ed3b99",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578880288,
+          "stop" : 1616578880523,
+          "duration" : 235
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test__EnergyValue__update_data_2",
+        "uid" : "d06f9b595a744721",
+        "parentUid" : "f8f381fdec6e95e55b08b57be3ed3b99",
+        "status" : "broken",
+        "time" : {
+          "start" : 1616578908846,
+          "stop" : 1616578908846,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/allotmentclub/alembic/versions/update_member_data_2d287284c72e.py",
+        "uid" : "12fb89619a28161b",
+        "parentUid" : "f8f381fdec6e95e55b08b57be3ed3b99",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578887368,
+          "stop" : 1616578887628,
+          "duration" : 260
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "keylist.py",
+        "uid" : "a6d59f6fc3ccdaca",
+        "parentUid" : "f8f381fdec6e95e55b08b57be3ed3b99",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578875295,
+          "stop" : 1616578875569,
+          "duration" : 274
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "src/sw/allotmentclub/browser/__init__.py",
+        "uid" : "72d49dc0ad5b59be",
+        "parentUid" : "f8f381fdec6e95e55b08b57be3ed3b99",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616578888447,
+          "stop" : 1616578888767,
+          "duration" : 320
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "f8f381fdec6e95e55b08b57be3ed3b99"
+    } ],
+    "uid" : "de57e7930f76557d85c9c2923de73a7b"
+  } ],
   "name" : "timeline"
 }
