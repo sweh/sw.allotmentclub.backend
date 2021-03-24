@@ -224,6 +224,9 @@ def _prepare(meta_args):
             with open(os.path.join(env_dir, 'requirements.lock'), 'wb') as f:
                 f.write(requirements)
 
+            cmd('{env_dir}/bin/python -m pip install wheel'.format(
+                env_dir=env_dir
+            ))
             print(
                 'Installing {meta_args.appname} ...'.format(
                     meta_args=meta_args
