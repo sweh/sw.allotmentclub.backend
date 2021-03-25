@@ -1,0 +1,76 @@
+{
+  "uid" : "bd8792717f05587f",
+  "name" : "printmailer.py",
+  "fullName" : "src.sw.allotmentclub.printmailer#FLAKE8",
+  "historyId" : "35ea4e19c0736d3a94ceb89a1c72573c",
+  "time" : {
+    "start" : 1616663168571,
+    "stop" : 1616663168681,
+    "duration" : 110
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "tag",
+    "value" : "flake8"
+  }, {
+    "name" : "parentSuite",
+    "value" : "src.sw.allotmentclub"
+  }, {
+    "name" : "suite",
+    "value" : "printmailer"
+  }, {
+    "name" : "host",
+    "value" : "fv-az210-784"
+  }, {
+    "name" : "thread",
+    "value" : "6810-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "src.sw.allotmentclub.printmailer"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "history" : {
+      "statistic" : {
+        "failed" : 0,
+        "broken" : 0,
+        "skipped" : 0,
+        "passed" : 2,
+        "unknown" : 0,
+        "total" : 2
+      },
+      "items" : [ {
+        "uid" : "f343dc2752e94abf",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/102//#testresult/f343dc2752e94abf",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616593910736,
+          "stop" : 1616593910859,
+          "duration" : 123
+        }
+      } ]
+    },
+    "tags" : [ "flake8" ]
+  },
+  "source" : "bd8792717f05587f.json",
+  "parameterValues" : [ ]
+}

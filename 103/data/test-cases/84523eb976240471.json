@@ -1,0 +1,76 @@
+{
+  "uid" : "84523eb976240471",
+  "name" : "account.py",
+  "fullName" : "src.sw.allotmentclub.account#FLAKE8",
+  "historyId" : "793397596b19b31a53eaad56fc8f8444",
+  "time" : {
+    "start" : 1616663167217,
+    "stop" : 1616663167488,
+    "duration" : 271
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "tag",
+    "value" : "flake8"
+  }, {
+    "name" : "parentSuite",
+    "value" : "src.sw.allotmentclub"
+  }, {
+    "name" : "suite",
+    "value" : "account"
+  }, {
+    "name" : "host",
+    "value" : "fv-az210-784"
+  }, {
+    "name" : "thread",
+    "value" : "6810-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "src.sw.allotmentclub.account"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "history" : {
+      "statistic" : {
+        "failed" : 0,
+        "broken" : 0,
+        "skipped" : 0,
+        "passed" : 2,
+        "unknown" : 0,
+        "total" : 2
+      },
+      "items" : [ {
+        "uid" : "15fbd081ad60506e",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/102//#testresult/15fbd081ad60506e",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616593909292,
+          "stop" : 1616593909633,
+          "duration" : 341
+        }
+      } ]
+    },
+    "tags" : [ "flake8" ]
+  },
+  "source" : "84523eb976240471.json",
+  "parameterValues" : [ ]
+}

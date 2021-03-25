@@ -1,0 +1,76 @@
+{
+  "uid" : "5506d0ad5cc6ee80",
+  "name" : "src/sw/allotmentclub/alembic/versions/add_formbrief_depot_2535014c8ab8.py",
+  "fullName" : "src.sw.allotmentclub.alembic.versions.add_formbrief_depot_2535014c8ab8#FLAKE8",
+  "historyId" : "7758c5b7ff4f6c44bfc80cd2f2153c01",
+  "time" : {
+    "start" : 1616663170718,
+    "stop" : 1616663170825,
+    "duration" : 107
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "tag",
+    "value" : "flake8"
+  }, {
+    "name" : "parentSuite",
+    "value" : "src.sw.allotmentclub.alembic.versions"
+  }, {
+    "name" : "suite",
+    "value" : "add_formbrief_depot_2535014c8ab8"
+  }, {
+    "name" : "host",
+    "value" : "fv-az210-784"
+  }, {
+    "name" : "thread",
+    "value" : "6810-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "src.sw.allotmentclub.alembic.versions.add_formbrief_depot_2535014c8ab8"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "history" : {
+      "statistic" : {
+        "failed" : 0,
+        "broken" : 0,
+        "skipped" : 0,
+        "passed" : 2,
+        "unknown" : 0,
+        "total" : 2
+      },
+      "items" : [ {
+        "uid" : "6ae1641147781b70",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/102//#testresult/6ae1641147781b70",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616593913078,
+          "stop" : 1616593913191,
+          "duration" : 113
+        }
+      } ]
+    },
+    "tags" : [ "flake8" ]
+  },
+  "source" : "5506d0ad5cc6ee80.json",
+  "parameterValues" : [ ]
+}

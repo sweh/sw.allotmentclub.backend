@@ -1,0 +1,225 @@
+{
+  "uid" : "6f8c4c49344321ec",
+  "name" : "test_SEPASammlerExportView_2",
+  "fullName" : "src.sw.allotmentclub.browser.tests.test_account#test_SEPASammlerExportView_2",
+  "historyId" : "fe70ec83b7e0dadfbf0b03740c7efdee",
+  "time" : {
+    "start" : 1616663192202,
+    "stop" : 1616663192769,
+    "duration" : 567
+  },
+  "description" : "Testing SEPASammler Energieabrechnung Sammelüberweisung XML export.",
+  "descriptionHtml" : "<p>Testing SEPASammler Energieabrechnung Sammelüberweisung XML export.</p>\n",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "database",
+    "time" : {
+      "start" : 1616663190173,
+      "stop" : 1616663191861,
+      "duration" : 1688
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "verwalter",
+    "time" : {
+      "start" : 1616663191866,
+      "stop" : 1616663192199,
+      "duration" : 333
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "organization",
+    "time" : {
+      "start" : 1616663191861,
+      "stop" : 1616663191866,
+      "duration" : 5
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "database_session",
+    "time" : {
+      "start" : 1616663179228,
+      "stop" : 1616663179781,
+      "duration" : 553
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "portal_app",
+    "time" : {
+      "start" : 1616663179781,
+      "stop" : 1616663179781,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "wsgi_app",
+    "time" : {
+      "start" : 1616663179781,
+      "stop" : 1616663181906,
+      "duration" : 2125
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "browser",
+    "time" : {
+      "start" : 1616663192200,
+      "stop" : 1616663192200,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  } ],
+  "afterStages" : [ {
+    "name" : "database::0",
+    "time" : {
+      "start" : 1616663192772,
+      "stop" : 1616663192772,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "database_session::1",
+    "time" : {
+      "start" : 1616663223153,
+      "stop" : 1616663223153,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "database_session::dropdb",
+    "time" : {
+      "start" : 1616663223153,
+      "stop" : 1616663223285,
+      "duration" : 132
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  } ],
+  "labels" : [ {
+    "name" : "parentSuite",
+    "value" : "src.sw.allotmentclub.browser.tests"
+  }, {
+    "name" : "suite",
+    "value" : "test_account"
+  }, {
+    "name" : "host",
+    "value" : "fv-az210-784"
+  }, {
+    "name" : "thread",
+    "value" : "6810-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "src.sw.allotmentclub.browser.tests.test_account"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "history" : {
+      "statistic" : {
+        "failed" : 0,
+        "broken" : 0,
+        "skipped" : 0,
+        "passed" : 2,
+        "unknown" : 0,
+        "total" : 2
+      },
+      "items" : [ {
+        "uid" : "8a6481f1ebc2342",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/102//#testresult/8a6481f1ebc2342",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616593933885,
+          "stop" : 1616593934453,
+          "duration" : 568
+        }
+      } ]
+    },
+    "tags" : [ ]
+  },
+  "source" : "6f8c4c49344321ec.json",
+  "parameterValues" : [ ]
+}
