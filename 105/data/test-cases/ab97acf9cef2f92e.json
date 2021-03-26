@@ -1,0 +1,85 @@
+{
+  "uid" : "ab97acf9cef2f92e",
+  "name" : "protocol.py",
+  "fullName" : "src.sw.allotmentclub.browser.protocol#FLAKE8",
+  "historyId" : "9853b8af6d7dd62460df119b05c11bda",
+  "time" : {
+    "start" : 1616749673694,
+    "stop" : 1616749674035,
+    "duration" : 341
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "tag",
+    "value" : "flake8"
+  }, {
+    "name" : "parentSuite",
+    "value" : "src.sw.allotmentclub.browser"
+  }, {
+    "name" : "suite",
+    "value" : "protocol"
+  }, {
+    "name" : "host",
+    "value" : "fv-az241-390"
+  }, {
+    "name" : "thread",
+    "value" : "10621-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "src.sw.allotmentclub.browser.protocol"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "history" : {
+      "statistic" : {
+        "failed" : 0,
+        "broken" : 0,
+        "skipped" : 0,
+        "passed" : 3,
+        "unknown" : 0,
+        "total" : 3
+      },
+      "items" : [ {
+        "uid" : "45df936a0b194afd",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/103//#testresult/45df936a0b194afd",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616663178053,
+          "stop" : 1616663178393,
+          "duration" : 340
+        }
+      }, {
+        "uid" : "27ab9edf7568fe7b",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/102//#testresult/27ab9edf7568fe7b",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616593923219,
+          "stop" : 1616593923604,
+          "duration" : 385
+        }
+      } ]
+    },
+    "tags" : [ "flake8" ]
+  },
+  "source" : "ab97acf9cef2f92e.json",
+  "parameterValues" : [ ]
+}
