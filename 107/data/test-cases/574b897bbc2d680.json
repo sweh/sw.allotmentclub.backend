@@ -1,0 +1,205 @@
+{
+  "uid" : "574b897bbc2d680",
+  "name" : "test_imported_bookings_are_auto_assigned",
+  "fullName" : "src.sw.allotmentclub.tests.test_account#test_imported_bookings_are_auto_assigned",
+  "historyId" : "2d7f324138f1677e39b4113661bfb3ad",
+  "time" : {
+    "start" : 1616922435150,
+    "stop" : 1616922435405,
+    "duration" : 255
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "member",
+    "time" : {
+      "start" : 1616922435144,
+      "stop" : 1616922435148,
+      "duration" : 4
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "database_session",
+    "time" : {
+      "start" : 1616922399813,
+      "stop" : 1616922400378,
+      "duration" : 565
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "database",
+    "time" : {
+      "start" : 1616922435037,
+      "stop" : 1616922435144,
+      "duration" : 107
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  } ],
+  "afterStages" : [ {
+    "name" : "member::delete_member",
+    "time" : {
+      "start" : 1616922435406,
+      "stop" : 1616922435435,
+      "duration" : 29
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "database_session::1",
+    "time" : {
+      "start" : 1616922442831,
+      "stop" : 1616922442831,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "database_session::dropdb",
+    "time" : {
+      "start" : 1616922442831,
+      "stop" : 1616922442964,
+      "duration" : 133
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "database::0",
+    "time" : {
+      "start" : 1616922435435,
+      "stop" : 1616922435436,
+      "duration" : 1
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  } ],
+  "labels" : [ {
+    "name" : "parentSuite",
+    "value" : "src.sw.allotmentclub.tests"
+  }, {
+    "name" : "suite",
+    "value" : "test_account"
+  }, {
+    "name" : "host",
+    "value" : "fv-az210-370"
+  }, {
+    "name" : "thread",
+    "value" : "7138-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "src.sw.allotmentclub.tests.test_account"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "history" : {
+      "statistic" : {
+        "failed" : 0,
+        "broken" : 0,
+        "skipped" : 0,
+        "passed" : 5,
+        "unknown" : 0,
+        "total" : 5
+      },
+      "items" : [ {
+        "uid" : "9cb9d357af8ebd5e",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/106//#testresult/9cb9d357af8ebd5e",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616835980879,
+          "stop" : 1616835981137,
+          "duration" : 258
+        }
+      }, {
+        "uid" : "8e8b3d2e52bca965",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/105//#testresult/8e8b3d2e52bca965",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616749713180,
+          "stop" : 1616749713462,
+          "duration" : 282
+        }
+      }, {
+        "uid" : "b9213e5b5813f832",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/103//#testresult/b9213e5b5813f832",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616663215338,
+          "stop" : 1616663215588,
+          "duration" : 250
+        }
+      }, {
+        "uid" : "f08af5a786fe2a16",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/102//#testresult/f08af5a786fe2a16",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616593958848,
+          "stop" : 1616593959117,
+          "duration" : 269
+        }
+      } ]
+    },
+    "tags" : [ ]
+  },
+  "source" : "574b897bbc2d680.json",
+  "parameterValues" : [ ]
+}
