@@ -1,0 +1,139 @@
+{
+  "uid" : "5940e4fba039eef5",
+  "name" : "src/sw/allotmentclub/alembic/versions/remove_dashboard_d0bfe38ddce2.py",
+  "fullName" : "src.sw.allotmentclub.alembic.versions.remove_dashboard_d0bfe38ddce2#FLAKE8",
+  "historyId" : "dfe0a64394f12dc46cd99f8d17401e53",
+  "time" : {
+    "start" : 1617267968141,
+    "stop" : 1617267968280,
+    "duration" : 139
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "tag",
+    "value" : "flake8"
+  }, {
+    "name" : "parentSuite",
+    "value" : "src.sw.allotmentclub.alembic.versions"
+  }, {
+    "name" : "suite",
+    "value" : "remove_dashboard_d0bfe38ddce2"
+  }, {
+    "name" : "host",
+    "value" : "fv-az180-960"
+  }, {
+    "name" : "thread",
+    "value" : "6668-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "src.sw.allotmentclub.alembic.versions.remove_dashboard_d0bfe38ddce2"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "history" : {
+      "statistic" : {
+        "failed" : 0,
+        "broken" : 0,
+        "skipped" : 0,
+        "passed" : 9,
+        "unknown" : 0,
+        "total" : 9
+      },
+      "items" : [ {
+        "uid" : "f094eabb2e580303",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/110//#testresult/f094eabb2e580303",
+        "status" : "passed",
+        "time" : {
+          "start" : 1617181514296,
+          "stop" : 1617181514437,
+          "duration" : 141
+        }
+      }, {
+        "uid" : "ab0c8b4864a1c3eb",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/109//#testresult/ab0c8b4864a1c3eb",
+        "status" : "passed",
+        "time" : {
+          "start" : 1617095198631,
+          "stop" : 1617095198814,
+          "duration" : 183
+        }
+      }, {
+        "uid" : "5511d8ed99306528",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/108//#testresult/5511d8ed99306528",
+        "status" : "passed",
+        "time" : {
+          "start" : 1617009658795,
+          "stop" : 1617009658994,
+          "duration" : 199
+        }
+      }, {
+        "uid" : "f8c931723636ea33",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/107//#testresult/f8c931723636ea33",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616922395265,
+          "stop" : 1616922395424,
+          "duration" : 159
+        }
+      }, {
+        "uid" : "b2ae4539c5837525",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/106//#testresult/b2ae4539c5837525",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616835941532,
+          "stop" : 1616835941707,
+          "duration" : 175
+        }
+      }, {
+        "uid" : "c5e3ec79fb13b70a",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/105//#testresult/c5e3ec79fb13b70a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616749670089,
+          "stop" : 1616749670251,
+          "duration" : 162
+        }
+      }, {
+        "uid" : "1b8fe7eb10cedc7f",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/103//#testresult/1b8fe7eb10cedc7f",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616663174668,
+          "stop" : 1616663174831,
+          "duration" : 163
+        }
+      }, {
+        "uid" : "c72f7fcc681525f4",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/102//#testresult/c72f7fcc681525f4",
+        "status" : "passed",
+        "time" : {
+          "start" : 1616593920697,
+          "stop" : 1616593920885,
+          "duration" : 188
+        }
+      } ]
+    },
+    "tags" : [ "flake8" ]
+  },
+  "source" : "5940e4fba039eef5.json",
+  "parameterValues" : [ ]
+}
