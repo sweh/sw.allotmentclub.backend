@@ -1,0 +1,76 @@
+{
+  "uid" : "5791c4a01ec97d",
+  "name" : "src/sw/allotmentclub/alembic/versions/add_iban_and_bic_to_member_2b1aa8adb13b.py",
+  "fullName" : "src.sw.allotmentclub.alembic.versions.add_iban_and_bic_to_member_2b1aa8adb13b#FLAKE8",
+  "historyId" : "3585a09a748318e49bf6bc65a71f5ff2",
+  "time" : {
+    "start" : 1621328781368,
+    "stop" : 1621328781479,
+    "duration" : 111
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "tag",
+    "value" : "flake8"
+  }, {
+    "name" : "parentSuite",
+    "value" : "src.sw.allotmentclub.alembic.versions"
+  }, {
+    "name" : "suite",
+    "value" : "add_iban_and_bic_to_member_2b1aa8adb13b"
+  }, {
+    "name" : "host",
+    "value" : "fv-az209-621"
+  }, {
+    "name" : "thread",
+    "value" : "5624-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "src.sw.allotmentclub.alembic.versions.add_iban_and_bic_to_member_2b1aa8adb13b"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "history" : {
+      "statistic" : {
+        "failed" : 0,
+        "broken" : 0,
+        "skipped" : 0,
+        "passed" : 2,
+        "unknown" : 0,
+        "total" : 2
+      },
+      "items" : [ {
+        "uid" : "52cf087fb59cb8c3",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/157//#testresult/52cf087fb59cb8c3",
+        "status" : "passed",
+        "time" : {
+          "start" : 1621242391323,
+          "stop" : 1621242391444,
+          "duration" : 121
+        }
+      } ]
+    },
+    "tags" : [ "flake8" ]
+  },
+  "source" : "5791c4a01ec97d.json",
+  "parameterValues" : [ ]
+}

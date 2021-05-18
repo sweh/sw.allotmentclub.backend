@@ -1,0 +1,76 @@
+{
+  "uid" : "ecb8bd6e9e06ae9a",
+  "name" : "test_electricity.py",
+  "fullName" : "src.sw.allotmentclub.tests.test_electricity#FLAKE8",
+  "historyId" : "1462a93ff129606b646a5db63fbda83e",
+  "time" : {
+    "start" : 1621328824548,
+    "stop" : 1621328824881,
+    "duration" : 333
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "tag",
+    "value" : "flake8"
+  }, {
+    "name" : "parentSuite",
+    "value" : "src.sw.allotmentclub.tests"
+  }, {
+    "name" : "suite",
+    "value" : "test_electricity"
+  }, {
+    "name" : "host",
+    "value" : "fv-az209-621"
+  }, {
+    "name" : "thread",
+    "value" : "5621-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "src.sw.allotmentclub.tests.test_electricity"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "history" : {
+      "statistic" : {
+        "failed" : 0,
+        "broken" : 0,
+        "skipped" : 0,
+        "passed" : 2,
+        "unknown" : 0,
+        "total" : 2
+      },
+      "items" : [ {
+        "uid" : "a2cf4484d2397652",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/157//#testresult/a2cf4484d2397652",
+        "status" : "passed",
+        "time" : {
+          "start" : 1621242436506,
+          "stop" : 1621242436849,
+          "duration" : 343
+        }
+      } ]
+    },
+    "tags" : [ "flake8" ]
+  },
+  "source" : "ecb8bd6e9e06ae9a.json",
+  "parameterValues" : [ ]
+}

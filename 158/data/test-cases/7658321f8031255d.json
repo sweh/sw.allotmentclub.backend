@@ -1,0 +1,76 @@
+{
+  "uid" : "7658321f8031255d",
+  "name" : "src/sw/allotmentclub/alembic/versions/replace_electric_meter_for_annette__9f65f923772f.py",
+  "fullName" : "src.sw.allotmentclub.alembic.versions.replace_electric_meter_for_annette__9f65f923772f#FLAKE8",
+  "historyId" : "5c47be573b51a5eb1235ddb0ce86a721",
+  "time" : {
+    "start" : 1621328788115,
+    "stop" : 1621328788246,
+    "duration" : 131
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "tag",
+    "value" : "flake8"
+  }, {
+    "name" : "parentSuite",
+    "value" : "src.sw.allotmentclub.alembic.versions"
+  }, {
+    "name" : "suite",
+    "value" : "replace_electric_meter_for_annette__9f65f923772f"
+  }, {
+    "name" : "host",
+    "value" : "fv-az209-621"
+  }, {
+    "name" : "thread",
+    "value" : "5621-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "src.sw.allotmentclub.alembic.versions.replace_electric_meter_for_annette__9f65f923772f"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "history" : {
+      "statistic" : {
+        "failed" : 0,
+        "broken" : 0,
+        "skipped" : 0,
+        "passed" : 2,
+        "unknown" : 0,
+        "total" : 2
+      },
+      "items" : [ {
+        "uid" : "51900bdd633e3482",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/157//#testresult/51900bdd633e3482",
+        "status" : "passed",
+        "time" : {
+          "start" : 1621242399007,
+          "stop" : 1621242399147,
+          "duration" : 140
+        }
+      } ]
+    },
+    "tags" : [ "flake8" ]
+  },
+  "source" : "7658321f8031255d.json",
+  "parameterValues" : [ ]
+}
