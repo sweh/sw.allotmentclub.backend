@@ -1,0 +1,85 @@
+{
+  "uid" : "bec07a4ac3de0b6f",
+  "name" : "auth.py",
+  "fullName" : "src.sw.allotmentclub.browser.auth#FLAKE8",
+  "historyId" : "9231289446eb39513f120aa2bc148b6d",
+  "time" : {
+    "start" : 1621415099881,
+    "stop" : 1621415099976,
+    "duration" : 95
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "tag",
+    "value" : "flake8"
+  }, {
+    "name" : "parentSuite",
+    "value" : "src.sw.allotmentclub.browser"
+  }, {
+    "name" : "suite",
+    "value" : "auth"
+  }, {
+    "name" : "host",
+    "value" : "fv-az177-438"
+  }, {
+    "name" : "thread",
+    "value" : "5020-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "src.sw.allotmentclub.browser.auth"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "history" : {
+      "statistic" : {
+        "failed" : 0,
+        "broken" : 0,
+        "skipped" : 0,
+        "passed" : 3,
+        "unknown" : 0,
+        "total" : 3
+      },
+      "items" : [ {
+        "uid" : "68abd3ecee27dfb6",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/158//#testresult/68abd3ecee27dfb6",
+        "status" : "passed",
+        "time" : {
+          "start" : 1621328785182,
+          "stop" : 1621328785314,
+          "duration" : 132
+        }
+      }, {
+        "uid" : "f230371be7aceef0",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/157//#testresult/f230371be7aceef0",
+        "status" : "passed",
+        "time" : {
+          "start" : 1621242395617,
+          "stop" : 1621242395761,
+          "duration" : 144
+        }
+      } ]
+    },
+    "tags" : [ "flake8" ]
+  },
+  "source" : "bec07a4ac3de0b6f.json",
+  "parameterValues" : [ ]
+}

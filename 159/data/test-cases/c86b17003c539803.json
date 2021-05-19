@@ -1,0 +1,85 @@
+{
+  "uid" : "c86b17003c539803",
+  "name" : "src/sw/allotmentclub/alembic/versions/add_new_lastschrift_to_members_30de960848fa.py",
+  "fullName" : "src.sw.allotmentclub.alembic.versions.add_new_lastschrift_to_members_30de960848fa#FLAKE8",
+  "historyId" : "81afc6f91e64b9abe0bbe239e4e44a75",
+  "time" : {
+    "start" : 1621415095190,
+    "stop" : 1621415095267,
+    "duration" : 77
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "tag",
+    "value" : "flake8"
+  }, {
+    "name" : "parentSuite",
+    "value" : "src.sw.allotmentclub.alembic.versions"
+  }, {
+    "name" : "suite",
+    "value" : "add_new_lastschrift_to_members_30de960848fa"
+  }, {
+    "name" : "host",
+    "value" : "fv-az177-438"
+  }, {
+    "name" : "thread",
+    "value" : "5020-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "src.sw.allotmentclub.alembic.versions.add_new_lastschrift_to_members_30de960848fa"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "history" : {
+      "statistic" : {
+        "failed" : 0,
+        "broken" : 0,
+        "skipped" : 0,
+        "passed" : 3,
+        "unknown" : 0,
+        "total" : 3
+      },
+      "items" : [ {
+        "uid" : "55f2aa60dab5230a",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/158//#testresult/55f2aa60dab5230a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1621328781690,
+          "stop" : 1621328781800,
+          "duration" : 110
+        }
+      }, {
+        "uid" : "1601ba5b66ffbcb8",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/157//#testresult/1601ba5b66ffbcb8",
+        "status" : "passed",
+        "time" : {
+          "start" : 1621242391696,
+          "stop" : 1621242391812,
+          "duration" : 116
+        }
+      } ]
+    },
+    "tags" : [ "flake8" ]
+  },
+  "source" : "c86b17003c539803.json",
+  "parameterValues" : [ ]
+}
