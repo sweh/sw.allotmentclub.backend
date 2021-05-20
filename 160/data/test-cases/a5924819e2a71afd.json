@@ -1,0 +1,168 @@
+{
+  "uid" : "a5924819e2a71afd",
+  "name" : "test__EnergyValue__fee_4",
+  "fullName" : "src.sw.allotmentclub.tests.test_electricity#test__EnergyValue__fee_4",
+  "historyId" : "27dc017429998944b36260a31fa4bbf4",
+  "time" : {
+    "start" : 1621501566395,
+    "stop" : 1621501566410,
+    "duration" : 15
+  },
+  "description" : "Fee is 0 no power_fee.",
+  "descriptionHtml" : "<p>Fee is 0 no power_fee.</p>\n",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "database_session",
+    "time" : {
+      "start" : 1621501527855,
+      "stop" : 1621501528305,
+      "duration" : 450
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "database",
+    "time" : {
+      "start" : 1621501566338,
+      "stop" : 1621501566394,
+      "duration" : 56
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  } ],
+  "afterStages" : [ {
+    "name" : "database_session::1",
+    "time" : {
+      "start" : 1621501566861,
+      "stop" : 1621501566862,
+      "duration" : 1
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "database_session::dropdb",
+    "time" : {
+      "start" : 1621501566862,
+      "stop" : 1621501567082,
+      "duration" : 220
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "database::0",
+    "time" : {
+      "start" : 1621501566412,
+      "stop" : 1621501566412,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  } ],
+  "labels" : [ {
+    "name" : "parentSuite",
+    "value" : "src.sw.allotmentclub.tests"
+  }, {
+    "name" : "suite",
+    "value" : "test_electricity"
+  }, {
+    "name" : "host",
+    "value" : "fv-az167-397"
+  }, {
+    "name" : "thread",
+    "value" : "5129-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "src.sw.allotmentclub.tests.test_electricity"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "history" : {
+      "statistic" : {
+        "failed" : 0,
+        "broken" : 0,
+        "skipped" : 0,
+        "passed" : 4,
+        "unknown" : 0,
+        "total" : 4
+      },
+      "items" : [ {
+        "uid" : "24a634a2dad4bd65",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/159//#testresult/24a634a2dad4bd65",
+        "status" : "passed",
+        "time" : {
+          "start" : 1621415131024,
+          "stop" : 1621415131035,
+          "duration" : 11
+        }
+      }, {
+        "uid" : "abc149f0a837649e",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/158//#testresult/abc149f0a837649e",
+        "status" : "passed",
+        "time" : {
+          "start" : 1621328830545,
+          "stop" : 1621328830561,
+          "duration" : 16
+        }
+      }, {
+        "uid" : "9731b59dcedfb062",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/157//#testresult/9731b59dcedfb062",
+        "status" : "passed",
+        "time" : {
+          "start" : 1621242442898,
+          "stop" : 1621242442917,
+          "duration" : 19
+        }
+      } ]
+    },
+    "tags" : [ ]
+  },
+  "source" : "a5924819e2a71afd.json",
+  "parameterValues" : [ ]
+}
