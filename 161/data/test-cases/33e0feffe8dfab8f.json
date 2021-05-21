@@ -1,0 +1,284 @@
+{
+  "uid" : "33e0feffe8dfab8f",
+  "name" : "test__mail__MailPreviewView_2",
+  "fullName" : "src.sw.allotmentclub.browser.tests.test_mail#test__mail__MailPreviewView_2",
+  "historyId" : "3094f6059030c2d253875d1731f2ec17",
+  "time" : {
+    "start" : 1621588005459,
+    "stop" : 1621588006083,
+    "duration" : 624
+  },
+  "description" : "It prints multiple pdf pages for a `Verein` message.",
+  "descriptionHtml" : "<p>It prints multiple pdf pages for a <code>Verein</code> message.</p>\n",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "organization",
+    "time" : {
+      "start" : 1621588005112,
+      "stop" : 1621588005117,
+      "duration" : 5
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false,
+    "stepsCount" : 0
+  }, {
+    "name" : "setUp",
+    "time" : {
+      "start" : 1621588005446,
+      "stop" : 1621588005458,
+      "duration" : 12
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false,
+    "stepsCount" : 0
+  }, {
+    "name" : "wsgi_app",
+    "time" : {
+      "start" : 1621587992051,
+      "stop" : 1621587994096,
+      "duration" : 2045
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false,
+    "stepsCount" : 0
+  }, {
+    "name" : "database",
+    "time" : {
+      "start" : 1621588005022,
+      "stop" : 1621588005111,
+      "duration" : 89
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false,
+    "stepsCount" : 0
+  }, {
+    "name" : "browser",
+    "time" : {
+      "start" : 1621588005446,
+      "stop" : 1621588005446,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false,
+    "stepsCount" : 0
+  }, {
+    "name" : "verwalter",
+    "time" : {
+      "start" : 1621588005117,
+      "stop" : 1621588005446,
+      "duration" : 329
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false,
+    "stepsCount" : 0
+  }, {
+    "name" : "database_session",
+    "time" : {
+      "start" : 1621587991522,
+      "stop" : 1621587992049,
+      "duration" : 527
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false,
+    "stepsCount" : 0
+  }, {
+    "name" : "portal_app",
+    "time" : {
+      "start" : 1621587992050,
+      "stop" : 1621587992050,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false,
+    "stepsCount" : 0
+  } ],
+  "testStage" : {
+    "description" : "It prints multiple pdf pages for a `Verein` message.",
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ {
+      "uid" : "744235b1075748",
+      "name" : "stderr",
+      "source" : "744235b1075748.txt",
+      "type" : "text/plain",
+      "size" : 52
+    } ],
+    "parameters" : [ ],
+    "attachmentsCount" : 1,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true,
+    "stepsCount" : 0
+  },
+  "afterStages" : [ {
+    "name" : "database::0",
+    "time" : {
+      "start" : 1621588006088,
+      "stop" : 1621588006089,
+      "duration" : 1
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false,
+    "stepsCount" : 0
+  }, {
+    "name" : "database_session::1",
+    "time" : {
+      "start" : 1621588030715,
+      "stop" : 1621588030715,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false,
+    "stepsCount" : 0
+  }, {
+    "name" : "database_session::dropdb",
+    "time" : {
+      "start" : 1621588030715,
+      "stop" : 1621588030860,
+      "duration" : 145
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false,
+    "stepsCount" : 0
+  } ],
+  "labels" : [ {
+    "name" : "parentSuite",
+    "value" : "src.sw.allotmentclub.browser.tests"
+  }, {
+    "name" : "suite",
+    "value" : "test_mail"
+  }, {
+    "name" : "host",
+    "value" : "fv-az209-171"
+  }, {
+    "name" : "thread",
+    "value" : "5306-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "src.sw.allotmentclub.browser.tests.test_mail"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "history" : {
+      "statistic" : {
+        "failed" : 0,
+        "broken" : 0,
+        "skipped" : 0,
+        "passed" : 5,
+        "unknown" : 0,
+        "total" : 5
+      },
+      "items" : [ {
+        "uid" : "bf1bda455fd5f307",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/160//#testresult/bf1bda455fd5f307",
+        "status" : "passed",
+        "time" : {
+          "start" : 1621501549342,
+          "stop" : 1621501549982,
+          "duration" : 640
+        }
+      }, {
+        "uid" : "761e066ec8a240f1",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/159//#testresult/761e066ec8a240f1",
+        "status" : "passed",
+        "time" : {
+          "start" : 1621415115766,
+          "stop" : 1621415116271,
+          "duration" : 505
+        }
+      }, {
+        "uid" : "ea987a3cd8c79230",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/158//#testresult/ea987a3cd8c79230",
+        "status" : "passed",
+        "time" : {
+          "start" : 1621328805360,
+          "stop" : 1621328806050,
+          "duration" : 690
+        }
+      }, {
+        "uid" : "696d71d69a68d96a",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/157//#testresult/696d71d69a68d96a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1621242417296,
+          "stop" : 1621242417994,
+          "duration" : 698
+        }
+      } ]
+    },
+    "tags" : [ ]
+  },
+  "source" : "33e0feffe8dfab8f.json",
+  "parameterValues" : [ ]
+}

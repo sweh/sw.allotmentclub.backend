@@ -1,0 +1,103 @@
+{
+  "uid" : "98ad8c4f5c42dd8a",
+  "name" : "src/sw/allotmentclub/alembic/versions/add_bulletin_model_4377c6148413.py",
+  "fullName" : "src.sw.allotmentclub.alembic.versions.add_bulletin_model_4377c6148413#FLAKE8",
+  "historyId" : "aca79d1a9176e73ce6318d390d300e83",
+  "time" : {
+    "start" : 1621587979426,
+    "stop" : 1621587979550,
+    "duration" : 124
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "tag",
+    "value" : "flake8"
+  }, {
+    "name" : "parentSuite",
+    "value" : "src.sw.allotmentclub.alembic.versions"
+  }, {
+    "name" : "suite",
+    "value" : "add_bulletin_model_4377c6148413"
+  }, {
+    "name" : "host",
+    "value" : "fv-az209-171"
+  }, {
+    "name" : "thread",
+    "value" : "5303-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "src.sw.allotmentclub.alembic.versions.add_bulletin_model_4377c6148413"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "history" : {
+      "statistic" : {
+        "failed" : 0,
+        "broken" : 0,
+        "skipped" : 0,
+        "passed" : 5,
+        "unknown" : 0,
+        "total" : 5
+      },
+      "items" : [ {
+        "uid" : "f388b34b3e1e96d2",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/160//#testresult/f388b34b3e1e96d2",
+        "status" : "passed",
+        "time" : {
+          "start" : 1621501518582,
+          "stop" : 1621501518692,
+          "duration" : 110
+        }
+      }, {
+        "uid" : "fb9c55d1765f5f98",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/159//#testresult/fb9c55d1765f5f98",
+        "status" : "passed",
+        "time" : {
+          "start" : 1621415093788,
+          "stop" : 1621415093870,
+          "duration" : 82
+        }
+      }, {
+        "uid" : "7643175e7cefb1f1",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/158//#testresult/7643175e7cefb1f1",
+        "status" : "passed",
+        "time" : {
+          "start" : 1621328779729,
+          "stop" : 1621328779854,
+          "duration" : 125
+        }
+      }, {
+        "uid" : "6c0fd1284a066e58",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/157//#testresult/6c0fd1284a066e58",
+        "status" : "passed",
+        "time" : {
+          "start" : 1621242389618,
+          "stop" : 1621242389746,
+          "duration" : 128
+        }
+      } ]
+    },
+    "tags" : [ "flake8" ]
+  },
+  "source" : "98ad8c4f5c42dd8a.json",
+  "parameterValues" : [ ]
+}
