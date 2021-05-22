@@ -1,0 +1,244 @@
+{
+  "uid" : "26eaaa9046441053",
+  "name" : "test_send_mail_sends_text_mail",
+  "fullName" : "src.sw.allotmentclub.browser.tests.test_letter#test_send_mail_sends_text_mail",
+  "historyId" : "00f9398c7fdd8361ce909fb5dffcecf9",
+  "time" : {
+    "start" : 1621674407234,
+    "stop" : 1621674407345,
+    "duration" : 111
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "database",
+    "time" : {
+      "start" : 1621674407147,
+      "stop" : 1621674407233,
+      "duration" : 86
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "mailer",
+    "time" : {
+      "start" : 1621674407147,
+      "stop" : 1621674407147,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "wsgi_app",
+    "time" : {
+      "start" : 1621674388613,
+      "stop" : 1621674390703,
+      "duration" : 2090
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "dummy_request",
+    "time" : {
+      "start" : 1621674407146,
+      "stop" : 1621674407146,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "database_session",
+    "time" : {
+      "start" : 1621674388156,
+      "stop" : 1621674388612,
+      "duration" : 456
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "portal_app",
+    "time" : {
+      "start" : 1621674388613,
+      "stop" : 1621674388613,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  } ],
+  "afterStages" : [ {
+    "name" : "database::0",
+    "time" : {
+      "start" : 1621674407346,
+      "stop" : 1621674407346,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "database_session::1",
+    "time" : {
+      "start" : 1621674425459,
+      "stop" : 1621674425459,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "database_session::dropdb",
+    "time" : {
+      "start" : 1621674425459,
+      "stop" : 1621674425603,
+      "duration" : 144
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  } ],
+  "labels" : [ {
+    "name" : "parentSuite",
+    "value" : "src.sw.allotmentclub.browser.tests"
+  }, {
+    "name" : "suite",
+    "value" : "test_letter"
+  }, {
+    "name" : "host",
+    "value" : "fv-az209-171"
+  }, {
+    "name" : "thread",
+    "value" : "5231-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "src.sw.allotmentclub.browser.tests.test_letter"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "history" : {
+      "statistic" : {
+        "failed" : 0,
+        "broken" : 0,
+        "skipped" : 0,
+        "passed" : 6,
+        "unknown" : 0,
+        "total" : 6
+      },
+      "items" : [ {
+        "uid" : "b812b7ef321113ea",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/161//#testresult/b812b7ef321113ea",
+        "status" : "passed",
+        "time" : {
+          "start" : 1621588000419,
+          "stop" : 1621588000545,
+          "duration" : 126
+        }
+      }, {
+        "uid" : "313390d65cba7429",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/160//#testresult/313390d65cba7429",
+        "status" : "passed",
+        "time" : {
+          "start" : 1621501546298,
+          "stop" : 1621501546409,
+          "duration" : 111
+        }
+      }, {
+        "uid" : "630ac5bd2ff05afa",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/159//#testresult/630ac5bd2ff05afa",
+        "status" : "passed",
+        "time" : {
+          "start" : 1621415114549,
+          "stop" : 1621415114635,
+          "duration" : 86
+        }
+      }, {
+        "uid" : "78aac48023559074",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/158//#testresult/78aac48023559074",
+        "status" : "passed",
+        "time" : {
+          "start" : 1621328800445,
+          "stop" : 1621328800576,
+          "duration" : 131
+        }
+      }, {
+        "uid" : "af2935b4ed481040",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/157//#testresult/af2935b4ed481040",
+        "status" : "passed",
+        "time" : {
+          "start" : 1621242412386,
+          "stop" : 1621242412529,
+          "duration" : 143
+        }
+      } ]
+    },
+    "tags" : [ ]
+  },
+  "source" : "26eaaa9046441053.json",
+  "parameterValues" : [ ]
+}
