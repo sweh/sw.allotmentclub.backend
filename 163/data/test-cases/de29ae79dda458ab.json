@@ -1,0 +1,129 @@
+{
+  "uid" : "de29ae79dda458ab",
+  "name" : "test_abort_w_TPC_does_not_raise_ValueError",
+  "fullName" : "src.sw.allotmentclub.tests.test_sendmail_delivery#test_abort_w_TPC_does_not_raise_ValueError",
+  "historyId" : "8c4d365dbc91b4e4eb910636b97c560c",
+  "time" : {
+    "start" : 1621760824451,
+    "stop" : 1621760824451,
+    "duration" : 0
+  },
+  "status" : "skipped",
+  "statusMessage" : "XFAIL\n\nValueError: TPC in progress",
+  "statusTrace" : "Traceback (most recent call last):\n  File \"/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/tests/test_sendmail_delivery.py\", line 12, in test_abort_w_TPC_does_not_raise_ValueError\n    mdm.abort(txn)\n  File \"/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/.pytest/unclean/lib/python3.6/site-packages/repoze/sendmail/delivery.py\", line 120, in abort\n    raise ValueError(\"TPC in progress\")\nValueError: TPC in progress",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "tag",
+    "value" : "@pytest.mark.xfail"
+  }, {
+    "name" : "parentSuite",
+    "value" : "src.sw.allotmentclub.tests"
+  }, {
+    "name" : "suite",
+    "value" : "test_sendmail_delivery"
+  }, {
+    "name" : "host",
+    "value" : "fv-az210-620"
+  }, {
+    "name" : "thread",
+    "value" : "5249-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "src.sw.allotmentclub.tests.test_sendmail_delivery"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "history" : {
+      "statistic" : {
+        "failed" : 0,
+        "broken" : 0,
+        "skipped" : 7,
+        "passed" : 0,
+        "unknown" : 0,
+        "total" : 7
+      },
+      "items" : [ {
+        "uid" : "c83ffffd35529741",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/162//#testresult/c83ffffd35529741",
+        "status" : "skipped",
+        "statusDetails" : "XFAIL\n\nValueError: TPC in progress",
+        "time" : {
+          "start" : 1621674425280,
+          "stop" : 1621674425281,
+          "duration" : 1
+        }
+      }, {
+        "uid" : "8b5bb905cce91f81",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/161//#testresult/8b5bb905cce91f81",
+        "status" : "skipped",
+        "statusDetails" : "XFAIL\n\nValueError: TPC in progress",
+        "time" : {
+          "start" : 1621588030597,
+          "stop" : 1621588030597,
+          "duration" : 0
+        }
+      }, {
+        "uid" : "676555ddc5e9718a",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/160//#testresult/676555ddc5e9718a",
+        "status" : "skipped",
+        "statusDetails" : "XFAIL\n\nValueError: TPC in progress",
+        "time" : {
+          "start" : 1621501566853,
+          "stop" : 1621501566854,
+          "duration" : 1
+        }
+      }, {
+        "uid" : "d557e89626582367",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/159//#testresult/d557e89626582367",
+        "status" : "skipped",
+        "statusDetails" : "XFAIL\n\nValueError: TPC in progress",
+        "time" : {
+          "start" : 1621415131417,
+          "stop" : 1621415131417,
+          "duration" : 0
+        }
+      }, {
+        "uid" : "7b2651908b0f81a0",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/158//#testresult/7b2651908b0f81a0",
+        "status" : "skipped",
+        "statusDetails" : "XFAIL\n\nValueError: TPC in progress",
+        "time" : {
+          "start" : 1621328831170,
+          "stop" : 1621328831170,
+          "duration" : 0
+        }
+      }, {
+        "uid" : "8d31968ffae2daf6",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/157//#testresult/8d31968ffae2daf6",
+        "status" : "skipped",
+        "statusDetails" : "XFAIL\n\nValueError: TPC in progress",
+        "time" : {
+          "start" : 1621242443448,
+          "stop" : 1621242443448,
+          "duration" : 0
+        }
+      } ]
+    },
+    "tags" : [ "@pytest.mark.xfail" ]
+  },
+  "source" : "de29ae79dda458ab.json",
+  "parameterValues" : [ ]
+}
