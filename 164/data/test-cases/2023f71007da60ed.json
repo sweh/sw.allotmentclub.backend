@@ -1,0 +1,311 @@
+{
+  "uid" : "2023f71007da60ed",
+  "name" : "test_MapDownloadView__call__1",
+  "fullName" : "src.sw.allotmentclub.browser.tests.test_map#test_MapDownloadView__call__1",
+  "historyId" : "96820bb4df734d299af40822f42ae1cc",
+  "time" : {
+    "start" : 1621847270339,
+    "stop" : 1621847271900,
+    "duration" : 1561
+  },
+  "description" : "Map can be downloaded.",
+  "descriptionHtml" : "<p>Map can be downloaded.</p>\n",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "json_fixture",
+    "time" : {
+      "start" : 1621847270334,
+      "stop" : 1621847270338,
+      "duration" : 4
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "browser",
+    "time" : {
+      "start" : 1621847270333,
+      "stop" : 1621847270333,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "database_session",
+    "time" : {
+      "start" : 1621847243025,
+      "stop" : 1621847243499,
+      "duration" : 474
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "organization",
+    "time" : {
+      "start" : 1621847270017,
+      "stop" : 1621847270021,
+      "duration" : 4
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "wsgi_app",
+    "time" : {
+      "start" : 1621847243500,
+      "stop" : 1621847245594,
+      "duration" : 2094
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "verwalter",
+    "time" : {
+      "start" : 1621847270021,
+      "stop" : 1621847270333,
+      "duration" : 312
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "portal_app",
+    "time" : {
+      "start" : 1621847243499,
+      "stop" : 1621847243499,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "database",
+    "time" : {
+      "start" : 1621847269944,
+      "stop" : 1621847270017,
+      "duration" : 73
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  } ],
+  "testStage" : {
+    "description" : "Map can be downloaded.",
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ {
+      "uid" : "68875c0f57901fdb",
+      "name" : "log",
+      "source" : "68875c0f57901fdb.txt",
+      "type" : "text/plain",
+      "size" : 81
+    } ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 1,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true
+  },
+  "afterStages" : [ {
+    "name" : "database_session::1",
+    "time" : {
+      "start" : 1621847282525,
+      "stop" : 1621847282525,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "database_session::dropdb",
+    "time" : {
+      "start" : 1621847282525,
+      "stop" : 1621847282664,
+      "duration" : 139
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "database::0",
+    "time" : {
+      "start" : 1621847271907,
+      "stop" : 1621847271908,
+      "duration" : 1
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  } ],
+  "labels" : [ {
+    "name" : "parentSuite",
+    "value" : "src.sw.allotmentclub.browser.tests"
+  }, {
+    "name" : "suite",
+    "value" : "test_map"
+  }, {
+    "name" : "host",
+    "value" : "fv-az210-620"
+  }, {
+    "name" : "thread",
+    "value" : "5241-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "src.sw.allotmentclub.browser.tests.test_map"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "history" : {
+      "statistic" : {
+        "failed" : 0,
+        "broken" : 0,
+        "skipped" : 0,
+        "passed" : 8,
+        "unknown" : 0,
+        "total" : 8
+      },
+      "items" : [ {
+        "uid" : "761d6e61c5a2010c",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/163//#testresult/761d6e61c5a2010c",
+        "status" : "passed",
+        "time" : {
+          "start" : 1621760812422,
+          "stop" : 1621760814033,
+          "duration" : 1611
+        }
+      }, {
+        "uid" : "647cad6ed408ea25",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/162//#testresult/647cad6ed408ea25",
+        "status" : "passed",
+        "time" : {
+          "start" : 1621674416002,
+          "stop" : 1621674417346,
+          "duration" : 1344
+        }
+      }, {
+        "uid" : "b3ff67e048b0a912",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/161//#testresult/b3ff67e048b0a912",
+        "status" : "passed",
+        "time" : {
+          "start" : 1621588018444,
+          "stop" : 1621588019979,
+          "duration" : 1535
+        }
+      }, {
+        "uid" : "af2a4918a357e346",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/160//#testresult/af2a4918a357e346",
+        "status" : "passed",
+        "time" : {
+          "start" : 1621501562473,
+          "stop" : 1621501563926,
+          "duration" : 1453
+        }
+      }, {
+        "uid" : "f4787fc3f53a2df",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/159//#testresult/f4787fc3f53a2df",
+        "status" : "passed",
+        "time" : {
+          "start" : 1621415125889,
+          "stop" : 1621415126981,
+          "duration" : 1092
+        }
+      }, {
+        "uid" : "d2bcaf45141fcf35",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/158//#testresult/d2bcaf45141fcf35",
+        "status" : "passed",
+        "time" : {
+          "start" : 1621328818368,
+          "stop" : 1621328819869,
+          "duration" : 1501
+        }
+      }, {
+        "uid" : "ae770191fbc35a3d",
+        "reportUrl" : "https://sweh.github.io/sw.allotmentclub.backend/157//#testresult/ae770191fbc35a3d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1621242431390,
+          "stop" : 1621242433013,
+          "duration" : 1623
+        }
+      } ]
+    },
+    "tags" : [ ]
+  },
+  "source" : "2023f71007da60ed.json",
+  "parameterValues" : [ ]
+}
