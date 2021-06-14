@@ -421,7 +421,7 @@ def import_members(max=99999):
         ['', '', '', 'Herr', 'Günter', 'Tillack', 'Harry-S.-Truman-'
          'Allee 4', '14167', 'Berlin', '', '', '0162 9541236'],
         ['153', '328', '', '', '', 'Leuna Bungalowgemeinschaft Roter '
-         'See e.V.', 'Postfach 4023', '06233', 'Leuna', '', '', ''],
+         'See e.V.', 'Postfach 1106', '06773', 'Gräfenhainichen', '', '', ''],
         ['58', '203', '', '', '', 'Werkstatt', '', '', '', '', '', '']
     ]:
         if '/' in line[0] or '/' in line[1]:
