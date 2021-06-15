@@ -38,7 +38,7 @@ TEMPLATE_HEADER = """
                  font-size: 16pt; margin: 0px; padding: 0px;">
         Leuna&mdash;Bungalowgemeinschaft Roter See e.V.</h1>
       Postfach 1106<br />
-      06773 Gräfenhainichen<br />
+      06767 Gräfenhainichen<br />
       vorstand@roter-see.de
     </div>
     <div id="logo">
@@ -98,7 +98,7 @@ PDF_TEMPLATE = TEMPLATE_HEADER + """
     <p style="font-size: 7pt; text-decoration: underline;
               padding-bottom: 7pt;">
       Leuna&mdash;Bungalowgemeinschaft Roter See e.V.&nbsp;&nbsp;Postfach 1106
-      &nbsp;&nbsp;06773 Gräfenhainichen
+      &nbsp;&nbsp;06767 Gräfenhainichen
     </p>
     <div style="font-size: 11pt; line-height: 11pt; padding-top: 13pt;">
       {{{address}}}
