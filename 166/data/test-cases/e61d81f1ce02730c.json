@@ -1,0 +1,245 @@
+{
+  "uid" : "e61d81f1ce02730c",
+  "name" : "test_MapDownloadView__call__1",
+  "fullName" : "src.sw.allotmentclub.browser.tests.test_map#test_MapDownloadView__call__1",
+  "historyId" : "96820bb4df734d299af40822f42ae1cc",
+  "time" : {
+    "start" : 1628570913736,
+    "stop" : 1628570915364,
+    "duration" : 1628
+  },
+  "description" : "Map can be downloaded.",
+  "descriptionHtml" : "<p>Map can be downloaded.</p>\n",
+  "status" : "failed",
+  "statusMessage" : "Failed: Generated pdf does not equal master: \n\r\n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: Grimmling, \n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: B. \n\r/tmp/tmp0w_tde4bpdf: Grimmling, \n\r\n\r/tmp/tmp0w_tde4bpdf: 53 \n\r/tmp/tmp0w_tde4bpdf: B. \n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: 53 \n\r\n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: C. \n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: 55 \n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: 86 \n\r/tmp/tmp0w_tde4bpdf: Masthoff, \n\r/tmp/tmp0w_tde4bpdf: 55 \n\r\n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: Grimmling, \n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: B. \n\r/tmp/tmp0w_tde4bpdf: Grimmling, \n\r\n\r/tmp/tmp0w_tde4bpdf: B. \n\r/tmp/tmp0w_tde4bpdf: 86 \n\r/tmp/tmp0w_tde4bpdf: C. \n\r/tmp/tmp0w_tde4bpdf: B. \n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: B. \n\r\n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: 87 \n\r/tmp/tmp0w_tde4bpdf: 115 \n\r\n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: Masthoff, \n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: C. \n\r/tmp/tmp0w_tde4bpdf: Masthoff, \n\r\n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: 84 \n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: 77 \n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: 75 \n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: 108 \n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: 125 \n\r/tmp/tmp0w_tde4bpdf: 87 \n\r/tmp/tmp0w_tde4bpdf: 84 \n\r/tmp/tmp0w_tde4bpdf: C. \n\r/tmp/tmp0w_tde4bpdf: 77 \n\r\n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: S. \n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: 110 \n\r/tmp/tmp0w_tde4bpdf: Wehrmann, \n\r/tmp/tmp0w_tde4bpdf: 75 \n\r\n\r/tmp/tmp0w_tde4bpdf: 108 \n\r\n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: 127 \n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: 64 \n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: (106) \n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: Ritter, \n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: A. \n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: 71 \n\r/tmp/tmp0w_tde4bpdf: 125 \n\r/tmp/tmp0w_tde4bpdf: 110 \n\r/tmp/tmp0w_tde4bpdf: 127 \n\r\n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: 111 \n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: 128 \n\r/tmp/tmp0w_tde4bpdf: 129 \n\r/tmp/tmp0w_tde4bpdf: 62 \n\r/tmp/tmp0w_tde4bpdf: (104) \n\r/tmp/tmp0w_tde4bpdf: Pfeil, \n\r/tmp/tmp0w_tde4bpdf: R. \n\r\n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: 62 \n\r/tmp/tmp0w_tde4bpdf: 176 \n\r/tmp/tmp0w_tde4bpdf: 111 \n\r/tmp/tmp0w_tde4bpdf: 128 \n\r/tmp/tmp0w_tde4bpdf: S. \n\r/tmp/tmp0w_tde4bpdf: 64 \n\r\n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: (104) \n\r/tmp/tmp0w_tde4bpdf: (106) \n\r\n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: Pfeil, \n\r/tmp/tmp0w_tde4bpdf: Ritter, \n\r\n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: R. \n\r/tmp/tmp0w_tde4bpdf: A. \n\r\n\r/tmp/tmp0w_tde4bpdf: 71 \n\r\n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: 90 \n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: 105 \n\r/tmp/tmp0w_tde4bpdf: 98 \n\r\n\r/tmp/tmp0w_tde4bpdf: 90 \n\r/tmp/tmp0w_tde4bpdf: 105 \n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: Werkstatt \n\r\n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: 106 \n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: 146 \n\r/tmp/tmp0w_tde4bpdf: 99 \n\r\n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: 149 \n\r/tmp/tmp0w_tde4bpdf: 157 \n\r/tmp/tmp0w_tde4bpdf: 141 \n\r\n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: 143 \n\r/tmp/tmp0w_tde4bpdf: 158 \n\r\n\r/tmp/tmp0w_tde4bpdf: 159 \n\r/tmp/tmp0w_tde4bpdf: 143 \n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: Bungalowgemeinschaft \n\r\n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: e.V. \n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: 159 \n\r/tmp/tmp0w_tde4bpdf: e.V. \n\r\n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: 141 \n\r/tmp/tmp0w_tde4bpdf: 149 \n\r\n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: 157 \n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: 162 \n\r/tmp/tmp0w_tde4bpdf: 162 \n\r\n\r/tmp/tmp0w_tde4bpdf: 91 \n\r/tmp/tmp0w_tde4bpdf: 106 \n\r/tmp/tmp0w_tde4bpdf: 146 \n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: 91",
+  "statusTrace" : "Traceback (most recent call last):\n  File \"/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map.py\", line 34, in test_MapDownloadView__call__1\n    assertFileEqual(browser.contents, 'test_map_print.pdf')\n  File \"/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/conftest.py\", line 96, in assertFileEqual\n    changes_text))\n  File \"/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/.pytest/unclean/lib/python3.6/site-packages/_pytest/outcomes.py\", line 153, in fail\n    raise Failed(msg=msg, pytrace=pytrace)\nFailed: Generated pdf does not equal master: \n\r\n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: Grimmling, \n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: B. \n\r/tmp/tmp0w_tde4bpdf: Grimmling, \n\r\n\r/tmp/tmp0w_tde4bpdf: 53 \n\r/tmp/tmp0w_tde4bpdf: B. \n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: 53 \n\r\n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: C. \n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: 55 \n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: 86 \n\r/tmp/tmp0w_tde4bpdf: Masthoff, \n\r/tmp/tmp0w_tde4bpdf: 55 \n\r\n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: Grimmling, \n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: B. \n\r/tmp/tmp0w_tde4bpdf: Grimmling, \n\r\n\r/tmp/tmp0w_tde4bpdf: B. \n\r/tmp/tmp0w_tde4bpdf: 86 \n\r/tmp/tmp0w_tde4bpdf: C. \n\r/tmp/tmp0w_tde4bpdf: B. \n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: B. \n\r\n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: 87 \n\r/tmp/tmp0w_tde4bpdf: 115 \n\r\n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: Masthoff, \n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: C. \n\r/tmp/tmp0w_tde4bpdf: Masthoff, \n\r\n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: 84 \n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: 77 \n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: 75 \n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: 108 \n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: 125 \n\r/tmp/tmp0w_tde4bpdf: 87 \n\r/tmp/tmp0w_tde4bpdf: 84 \n\r/tmp/tmp0w_tde4bpdf: C. \n\r/tmp/tmp0w_tde4bpdf: 77 \n\r\n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: S. \n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: 110 \n\r/tmp/tmp0w_tde4bpdf: Wehrmann, \n\r/tmp/tmp0w_tde4bpdf: 75 \n\r\n\r/tmp/tmp0w_tde4bpdf: 108 \n\r\n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: 127 \n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: 64 \n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: (106) \n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: Ritter, \n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: A. \n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: 71 \n\r/tmp/tmp0w_tde4bpdf: 125 \n\r/tmp/tmp0w_tde4bpdf: 110 \n\r/tmp/tmp0w_tde4bpdf: 127 \n\r\n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: 111 \n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: 128 \n\r/tmp/tmp0w_tde4bpdf: 129 \n\r/tmp/tmp0w_tde4bpdf: 62 \n\r/tmp/tmp0w_tde4bpdf: (104) \n\r/tmp/tmp0w_tde4bpdf: Pfeil, \n\r/tmp/tmp0w_tde4bpdf: R. \n\r\n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: 62 \n\r/tmp/tmp0w_tde4bpdf: 176 \n\r/tmp/tmp0w_tde4bpdf: 111 \n\r/tmp/tmp0w_tde4bpdf: 128 \n\r/tmp/tmp0w_tde4bpdf: S. \n\r/tmp/tmp0w_tde4bpdf: 64 \n\r\n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: (104) \n\r/tmp/tmp0w_tde4bpdf: (106) \n\r\n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: Pfeil, \n\r/tmp/tmp0w_tde4bpdf: Ritter, \n\r\n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: R. \n\r/tmp/tmp0w_tde4bpdf: A. \n\r\n\r/tmp/tmp0w_tde4bpdf: 71 \n\r\n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: 90 \n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: 105 \n\r/tmp/tmp0w_tde4bpdf: 98 \n\r\n\r/tmp/tmp0w_tde4bpdf: 90 \n\r/tmp/tmp0w_tde4bpdf: 105 \n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: Werkstatt \n\r\n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: 106 \n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: 146 \n\r/tmp/tmp0w_tde4bpdf: 99 \n\r\n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: 149 \n\r/tmp/tmp0w_tde4bpdf: 157 \n\r/tmp/tmp0w_tde4bpdf: 141 \n\r\n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: 143 \n\r/tmp/tmp0w_tde4bpdf: 158 \n\r\n\r/tmp/tmp0w_tde4bpdf: 159 \n\r/tmp/tmp0w_tde4bpdf: 143 \n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: Bungalowgemeinschaft \n\r\n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: e.V. \n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: 159 \n\r/tmp/tmp0w_tde4bpdf: e.V. \n\r\n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: 141 \n\r/tmp/tmp0w_tde4bpdf: 149 \n\r\n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: 157 \n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: 162 \n\r/tmp/tmp0w_tde4bpdf: 162 \n\r\n\r/tmp/tmp0w_tde4bpdf: 91 \n\r/tmp/tmp0w_tde4bpdf: 106 \n\r/tmp/tmp0w_tde4bpdf: 146 \n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: 91",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "browser",
+    "time" : {
+      "start" : 1628570913729,
+      "stop" : 1628570913729,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "verwalter",
+    "time" : {
+      "start" : 1628570913456,
+      "stop" : 1628570913729,
+      "duration" : 273
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "wsgi_app",
+    "time" : {
+      "start" : 1628570886111,
+      "stop" : 1628570887872,
+      "duration" : 1761
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "database",
+    "time" : {
+      "start" : 1628570913404,
+      "stop" : 1628570913452,
+      "duration" : 48
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "portal_app",
+    "time" : {
+      "start" : 1628570886110,
+      "stop" : 1628570886110,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "json_fixture",
+    "time" : {
+      "start" : 1628570913729,
+      "stop" : 1628570913735,
+      "duration" : 6
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "database_session",
+    "time" : {
+      "start" : 1628570885629,
+      "stop" : 1628570886110,
+      "duration" : 481
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "organization",
+    "time" : {
+      "start" : 1628570913452,
+      "stop" : 1628570913456,
+      "duration" : 4
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  } ],
+  "testStage" : {
+    "description" : "Map can be downloaded.",
+    "status" : "failed",
+    "statusMessage" : "Failed: Generated pdf does not equal master: \n\r\n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: Grimmling, \n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: B. \n\r/tmp/tmp0w_tde4bpdf: Grimmling, \n\r\n\r/tmp/tmp0w_tde4bpdf: 53 \n\r/tmp/tmp0w_tde4bpdf: B. \n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: 53 \n\r\n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: C. \n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: 55 \n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: 86 \n\r/tmp/tmp0w_tde4bpdf: Masthoff, \n\r/tmp/tmp0w_tde4bpdf: 55 \n\r\n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: Grimmling, \n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: B. \n\r/tmp/tmp0w_tde4bpdf: Grimmling, \n\r\n\r/tmp/tmp0w_tde4bpdf: B. \n\r/tmp/tmp0w_tde4bpdf: 86 \n\r/tmp/tmp0w_tde4bpdf: C. \n\r/tmp/tmp0w_tde4bpdf: B. \n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: B. \n\r\n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: 87 \n\r/tmp/tmp0w_tde4bpdf: 115 \n\r\n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: Masthoff, \n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: C. \n\r/tmp/tmp0w_tde4bpdf: Masthoff, \n\r\n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: 84 \n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: 77 \n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: 75 \n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: 108 \n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: 125 \n\r/tmp/tmp0w_tde4bpdf: 87 \n\r/tmp/tmp0w_tde4bpdf: 84 \n\r/tmp/tmp0w_tde4bpdf: C. \n\r/tmp/tmp0w_tde4bpdf: 77 \n\r\n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: S. \n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: 110 \n\r/tmp/tmp0w_tde4bpdf: Wehrmann, \n\r/tmp/tmp0w_tde4bpdf: 75 \n\r\n\r/tmp/tmp0w_tde4bpdf: 108 \n\r\n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: 127 \n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: 64 \n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: (106) \n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: Ritter, \n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: A. \n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: 71 \n\r/tmp/tmp0w_tde4bpdf: 125 \n\r/tmp/tmp0w_tde4bpdf: 110 \n\r/tmp/tmp0w_tde4bpdf: 127 \n\r\n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: 111 \n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: 128 \n\r/tmp/tmp0w_tde4bpdf: 129 \n\r/tmp/tmp0w_tde4bpdf: 62 \n\r/tmp/tmp0w_tde4bpdf: (104) \n\r/tmp/tmp0w_tde4bpdf: Pfeil, \n\r/tmp/tmp0w_tde4bpdf: R. \n\r\n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: 62 \n\r/tmp/tmp0w_tde4bpdf: 176 \n\r/tmp/tmp0w_tde4bpdf: 111 \n\r/tmp/tmp0w_tde4bpdf: 128 \n\r/tmp/tmp0w_tde4bpdf: S. \n\r/tmp/tmp0w_tde4bpdf: 64 \n\r\n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: (104) \n\r/tmp/tmp0w_tde4bpdf: (106) \n\r\n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: Pfeil, \n\r/tmp/tmp0w_tde4bpdf: Ritter, \n\r\n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: R. \n\r/tmp/tmp0w_tde4bpdf: A. \n\r\n\r/tmp/tmp0w_tde4bpdf: 71 \n\r\n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: 90 \n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: 105 \n\r/tmp/tmp0w_tde4bpdf: 98 \n\r\n\r/tmp/tmp0w_tde4bpdf: 90 \n\r/tmp/tmp0w_tde4bpdf: 105 \n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: Werkstatt \n\r\n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: 106 \n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: 146 \n\r/tmp/tmp0w_tde4bpdf: 99 \n\r\n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: 149 \n\r/tmp/tmp0w_tde4bpdf: 157 \n\r/tmp/tmp0w_tde4bpdf: 141 \n\r\n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: 143 \n\r/tmp/tmp0w_tde4bpdf: 158 \n\r\n\r/tmp/tmp0w_tde4bpdf: 159 \n\r/tmp/tmp0w_tde4bpdf: 143 \n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: Bungalowgemeinschaft \n\r\n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: e.V. \n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: 159 \n\r/tmp/tmp0w_tde4bpdf: e.V. \n\r\n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: 141 \n\r/tmp/tmp0w_tde4bpdf: 149 \n\r\n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: 157 \n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: 162 \n\r/tmp/tmp0w_tde4bpdf: 162 \n\r\n\r/tmp/tmp0w_tde4bpdf: 91 \n\r/tmp/tmp0w_tde4bpdf: 106 \n\r/tmp/tmp0w_tde4bpdf: 146 \n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: 91",
+    "statusTrace" : "Traceback (most recent call last):\n  File \"/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map.py\", line 34, in test_MapDownloadView__call__1\n    assertFileEqual(browser.contents, 'test_map_print.pdf')\n  File \"/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/conftest.py\", line 96, in assertFileEqual\n    changes_text))\n  File \"/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/.pytest/unclean/lib/python3.6/site-packages/_pytest/outcomes.py\", line 153, in fail\n    raise Failed(msg=msg, pytrace=pytrace)\nFailed: Generated pdf does not equal master: \n\r\n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: Grimmling, \n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: B. \n\r/tmp/tmp0w_tde4bpdf: Grimmling, \n\r\n\r/tmp/tmp0w_tde4bpdf: 53 \n\r/tmp/tmp0w_tde4bpdf: B. \n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: 53 \n\r\n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: C. \n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: 55 \n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: 86 \n\r/tmp/tmp0w_tde4bpdf: Masthoff, \n\r/tmp/tmp0w_tde4bpdf: 55 \n\r\n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: Grimmling, \n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: B. \n\r/tmp/tmp0w_tde4bpdf: Grimmling, \n\r\n\r/tmp/tmp0w_tde4bpdf: B. \n\r/tmp/tmp0w_tde4bpdf: 86 \n\r/tmp/tmp0w_tde4bpdf: C. \n\r/tmp/tmp0w_tde4bpdf: B. \n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: B. \n\r\n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: 87 \n\r/tmp/tmp0w_tde4bpdf: 115 \n\r\n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: Masthoff, \n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: C. \n\r/tmp/tmp0w_tde4bpdf: Masthoff, \n\r\n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: 84 \n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: 77 \n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: 75 \n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: 108 \n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: 125 \n\r/tmp/tmp0w_tde4bpdf: 87 \n\r/tmp/tmp0w_tde4bpdf: 84 \n\r/tmp/tmp0w_tde4bpdf: C. \n\r/tmp/tmp0w_tde4bpdf: 77 \n\r\n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: S. \n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: 110 \n\r/tmp/tmp0w_tde4bpdf: Wehrmann, \n\r/tmp/tmp0w_tde4bpdf: 75 \n\r\n\r/tmp/tmp0w_tde4bpdf: 108 \n\r\n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: 127 \n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: 64 \n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: (106) \n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: Ritter, \n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: A. \n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: 71 \n\r/tmp/tmp0w_tde4bpdf: 125 \n\r/tmp/tmp0w_tde4bpdf: 110 \n\r/tmp/tmp0w_tde4bpdf: 127 \n\r\n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: 111 \n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: 128 \n\r/tmp/tmp0w_tde4bpdf: 129 \n\r/tmp/tmp0w_tde4bpdf: 62 \n\r/tmp/tmp0w_tde4bpdf: (104) \n\r/tmp/tmp0w_tde4bpdf: Pfeil, \n\r/tmp/tmp0w_tde4bpdf: R. \n\r\n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: 62 \n\r/tmp/tmp0w_tde4bpdf: 176 \n\r/tmp/tmp0w_tde4bpdf: 111 \n\r/tmp/tmp0w_tde4bpdf: 128 \n\r/tmp/tmp0w_tde4bpdf: S. \n\r/tmp/tmp0w_tde4bpdf: 64 \n\r\n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: (104) \n\r/tmp/tmp0w_tde4bpdf: (106) \n\r\n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: Pfeil, \n\r/tmp/tmp0w_tde4bpdf: Ritter, \n\r\n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: R. \n\r/tmp/tmp0w_tde4bpdf: A. \n\r\n\r/tmp/tmp0w_tde4bpdf: 71 \n\r\n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: 90 \n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: 105 \n\r/tmp/tmp0w_tde4bpdf: 98 \n\r\n\r/tmp/tmp0w_tde4bpdf: 90 \n\r/tmp/tmp0w_tde4bpdf: 105 \n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: Werkstatt \n\r\n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: 106 \n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: 146 \n\r/tmp/tmp0w_tde4bpdf: 99 \n\r\n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: 149 \n\r/tmp/tmp0w_tde4bpdf: 157 \n\r/tmp/tmp0w_tde4bpdf: 141 \n\r\n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: 143 \n\r/tmp/tmp0w_tde4bpdf: 158 \n\r\n\r/tmp/tmp0w_tde4bpdf: 159 \n\r/tmp/tmp0w_tde4bpdf: 143 \n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: Bungalowgemeinschaft \n\r\n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: e.V. \n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: 159 \n\r/tmp/tmp0w_tde4bpdf: e.V. \n\r\n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: 141 \n\r/tmp/tmp0w_tde4bpdf: 149 \n\r\n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: 157 \n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: 162 \n\r/tmp/tmp0w_tde4bpdf: 162 \n\r\n\r/tmp/tmp0w_tde4bpdf: 91 \n\r/tmp/tmp0w_tde4bpdf: 106 \n\r/tmp/tmp0w_tde4bpdf: 146 \n\r/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map_print.pdf: 91",
+    "steps" : [ ],
+    "attachments" : [ {
+      "uid" : "3e3d2fad5ec59495",
+      "name" : "log",
+      "source" : "3e3d2fad5ec59495.txt",
+      "type" : "text/plain",
+      "size" : 81
+    } ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 1,
+    "shouldDisplayMessage" : true,
+    "hasContent" : true
+  },
+  "afterStages" : [ {
+    "name" : "database::0",
+    "time" : {
+      "start" : 1628570915369,
+      "stop" : 1628570915370,
+      "duration" : 1
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "database_session::1",
+    "time" : {
+      "start" : 1628570919406,
+      "stop" : 1628570919406,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "database_session::dropdb",
+    "time" : {
+      "start" : 1628570919406,
+      "stop" : 1628570919553,
+      "duration" : 147
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  } ],
+  "labels" : [ {
+    "name" : "parentSuite",
+    "value" : "src.sw.allotmentclub.browser.tests"
+  }, {
+    "name" : "suite",
+    "value" : "test_map"
+  }, {
+    "name" : "host",
+    "value" : "fv-az167-76"
+  }, {
+    "name" : "thread",
+    "value" : "4856-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "src.sw.allotmentclub.browser.tests.test_map"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ {
+      "name" : "Product defects",
+      "matchedStatuses" : [ ],
+      "flaky" : false
+    } ],
+    "tags" : [ ]
+  },
+  "source" : "e61d81f1ce02730c.json",
+  "parameterValues" : [ ]
+}

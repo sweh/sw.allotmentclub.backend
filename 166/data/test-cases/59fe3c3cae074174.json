@@ -1,0 +1,225 @@
+{
+  "uid" : "59fe3c3cae074174",
+  "name" : "test_MapView__call__1",
+  "fullName" : "src.sw.allotmentclub.browser.tests.test_map#test_MapView__call__1",
+  "historyId" : "54230af9810dba4a24469b6fce738cef",
+  "time" : {
+    "start" : 1628570912876,
+    "stop" : 1628570913396,
+    "duration" : 520
+  },
+  "description" : "It returns members and parcels.",
+  "descriptionHtml" : "<p>It returns members and parcels.</p>\n",
+  "status" : "skipped",
+  "statusMessage" : "XFAIL\n\nAssertionError: assert 17 == 18\n +  where 17 = len([[{'css_class': '', 'value': 67}, {'css_class': '', 'value': '108'}, {'css_class': '', 'value': 'Wehrmann'}, {'css_cla...{'css_class': '', 'value': '406'}, {'css_class': '', 'value': 'Leutloff'}, {'css_class': '', 'value': 'Marlies'}], ...])\n +  and   18 = len([[{'css_class': 'hide', 'value': 1}, {'css_class': '', 'value': 60}, {'css_class': '', 'value': '102'}, {'css_class': ...112'}, {'css_class': '', 'value': 'Esser'}, {'css_class': '', 'value': 'Regina'}, {'css_class': '', 'value': ''}], ...])",
+  "statusTrace" : "Traceback (most recent call last):\n  File \"/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/browser/tests/test_map.py\", line 19, in test_MapView__call__1\n    json_fixture.assertEqual(browser.json['data'], 'data')\n  File \"/home/runner/work/sw.allotmentclub.backend/sw.allotmentclub.backend/src/sw/allotmentclub/conftest.py\", line 57, in assertEqual\n    assert len(expected) == len(got)\nAssertionError: assert 17 == 18\n +  where 17 = len([[{'css_class': '', 'value': 67}, {'css_class': '', 'value': '108'}, {'css_class': '', 'value': 'Wehrmann'}, {'css_cla...{'css_class': '', 'value': '406'}, {'css_class': '', 'value': 'Leutloff'}, {'css_class': '', 'value': 'Marlies'}], ...])\n +  and   18 = len([[{'css_class': 'hide', 'value': 1}, {'css_class': '', 'value': 60}, {'css_class': '', 'value': '102'}, {'css_class': ...112'}, {'css_class': '', 'value': 'Esser'}, {'css_class': '', 'value': 'Regina'}, {'css_class': '', 'value': ''}], ...])",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "organization",
+    "time" : {
+      "start" : 1628570912587,
+      "stop" : 1628570912594,
+      "duration" : 7
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "verwalter",
+    "time" : {
+      "start" : 1628570912594,
+      "stop" : 1628570912869,
+      "duration" : 275
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "json_fixture",
+    "time" : {
+      "start" : 1628570912870,
+      "stop" : 1628570912875,
+      "duration" : 5
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "database",
+    "time" : {
+      "start" : 1628570912534,
+      "stop" : 1628570912586,
+      "duration" : 52
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "wsgi_app",
+    "time" : {
+      "start" : 1628570886111,
+      "stop" : 1628570887872,
+      "duration" : 1761
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "portal_app",
+    "time" : {
+      "start" : 1628570886110,
+      "stop" : 1628570886110,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "database_session",
+    "time" : {
+      "start" : 1628570885629,
+      "stop" : 1628570886110,
+      "duration" : 481
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "browser",
+    "time" : {
+      "start" : 1628570912870,
+      "stop" : 1628570912870,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  } ],
+  "afterStages" : [ {
+    "name" : "database::0",
+    "time" : {
+      "start" : 1628570913400,
+      "stop" : 1628570913400,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "database_session::1",
+    "time" : {
+      "start" : 1628570919406,
+      "stop" : 1628570919406,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "database_session::dropdb",
+    "time" : {
+      "start" : 1628570919406,
+      "stop" : 1628570919553,
+      "duration" : 147
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  } ],
+  "labels" : [ {
+    "name" : "tag",
+    "value" : "@pytest.mark.xfail"
+  }, {
+    "name" : "parentSuite",
+    "value" : "src.sw.allotmentclub.browser.tests"
+  }, {
+    "name" : "suite",
+    "value" : "test_map"
+  }, {
+    "name" : "host",
+    "value" : "fv-az167-76"
+  }, {
+    "name" : "thread",
+    "value" : "4856-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "src.sw.allotmentclub.browser.tests.test_map"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ "@pytest.mark.xfail" ]
+  },
+  "source" : "59fe3c3cae074174.json",
+  "parameterValues" : [ ]
+}
