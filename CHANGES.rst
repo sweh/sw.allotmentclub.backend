@@ -7,6 +7,8 @@ Change log for sw.allotmentclub
 
 - Change address of Leuna Bungalow-Gemeinschaft.
 
+- Improve energy billing procedure.
+
 
 5.4.2 (2021-03-01)
 ==================

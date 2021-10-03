@@ -467,6 +467,10 @@ class EnergyMeterImporterView(sw.allotmentclub.browser.base.XLSXImporterView):
         if line[0].value is None and line[1].value is None:
             return
         meter = ElectricMeter.by_number(line[4].value)
+        if meter is None:
+            meter = ElectricMeter.get(line[0].value)
+            if line[4].value:
+                meter.number = line[4].value
         if not line[self.cell_index].value:
             value = int(line[self.cell_index-1].value)
             estimated = True
