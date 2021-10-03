@@ -2,7 +2,7 @@
 Change log for sw.allotmentclub
 ===============================
 
-5.4.3 (unreleased)
+5.4.3 (2021-10-03)
 ==================
 
 - Change address of Leuna Bungalow-Gemeinschaft.
