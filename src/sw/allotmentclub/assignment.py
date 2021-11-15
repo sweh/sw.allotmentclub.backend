@@ -43,6 +43,10 @@ def get_assignment_mail_data(member, year):
         to_pay=format_eur(price),
         year=year,
         iban=member.iban,
+        iban_short=(
+            member.iban.replace(member.iban[:18], 'X'*18)
+            if member.iban else None
+        ),
         bic=member.bic,
         direct_debit=member.direct_debit)
     subject = u'Fehlende Arbeitsstunden %s' % year
