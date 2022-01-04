@@ -11,7 +11,7 @@ def authorize(request=None, context=None):
     route_name = request.matched_route.name
     user = request.user
     if context is not None:
-        if user.organization_id != context.organization_id:
+        if user is None or user.organization_id != context.organization_id:
             return []
     allowed = (AccessAuthority.query()
                .filter(AccessAuthority.viewname == route_name)
