@@ -2,7 +2,7 @@
 Change log for sw.allotmentclub
 ===============================
 
-5.5.1 (unreleased)
+5.5.1 (2022-01-04)
 ==================
 
 - Update sentry integration.
