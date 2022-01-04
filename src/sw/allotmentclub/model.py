@@ -284,6 +284,7 @@ class Parcel(Object):
     number = Column(Integer, nullable=False)
     leased = Column(Boolean, nullable=False, default=False)
     tap_water = Column(Boolean, nullable=False, default=False)
+    size = Column(Integer, nullable=True)
     allotment_id = Column(Integer, ForeignKey(Allotment.id), nullable=False)
     allotment = sqlalchemy.orm.relation(
         'Allotment', uselist=False, backref='parcels')

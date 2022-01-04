@@ -6,7 +6,15 @@ import warnings
 # VALUE_PER_MEMBER = 600000  # until end of 2015
 # VALUE_PER_MEMBER = 750000  # until end of 2016
 # VALUE_PER_MEMBER = 650000  # until end of 2018
-VALUE_PER_MEMBER = 750000
+# VALUE_PER_MEMBER = 750000  # until end of 2021
+
+MEMBERSHIP_FEE = {
+    300: 700000,
+    500: 750000,
+    750: 850000,
+    1000: 950000,
+    99999: 1050000,
+    }
 
 SCAN_IGNORE_TESTS = [re.compile(r'\.testing$').search,
                      re.compile(r'\.conftest$').search,

@@ -29,6 +29,7 @@ class Query(sw.allotmentclub.browser.base.Query):
                 Parcel.id.label('#'),
                 Parcel.number.label('Flurstück'),
                 string_agg(Allotment.number).label('Bungalow'),
+                Parcel.size.label('Größe in qm'),
                 Member.lastname.label('Nachname'),
                 Member.firstname.label('Vorname'),
                 Parcel.map_mimetype.label('Karte hinterlegt'),
@@ -39,6 +40,7 @@ class Query(sw.allotmentclub.browser.base.Query):
             .group_by(
                 Parcel.id,
                 Parcel.number,
+                Parcel.size,
                 Member.firstname,
                 Member.lastname,
                 Parcel.map_mimetype,

@@ -12,7 +12,7 @@ from pyramid.view import view_config
 from sqlalchemy.sql import func
 from sw.allotmentclub import Booking, Member, Allotment, GrundsteuerB, Abwasser
 from sw.allotmentclub import BookingKind, SEPASammler, SEPASammlerEntry
-from sw.allotmentclub import Budget, VALUE_PER_MEMBER
+from sw.allotmentclub import Budget
 import collections
 import datetime
 import pybars
@@ -349,12 +349,15 @@ class MemberAccountDetailSwitchRSView(sw.allotmentclub.browser.base.View):
 def get_budget_raw(value, request=None, year=None):
     year = year if year else get_selected_year()
     kind = BookingKind.get(value)
-    return [
+    budget = (
         Budget.query()
         .filter(Budget.booking_kind == kind)
         .filter(Budget.accounting_year == year)
-        .one()
-    ]
+        .one_or_none()
+    )
+    if budget:
+        return [budget]
+    return []
 
 
 def get_budget_sum(value, request=None, year=None):
@@ -756,11 +759,15 @@ class SEPASammlerUpdateView(sw.allotmentclub.browser.base.View):
                     member=member)
 
     def mitgliedsbeitrag(self):
-        for member in self.active_members.all():
+        for booking in (
+            Booking.query()
+            .filter(Booking.accounting_year == self.context.accounting_year)
+            .filter(Booking.kind == self.context.kind)
+        ):
             SEPASammlerEntry().find_or_create(
                 sepasammler=self.context,
-                value=VALUE_PER_MEMBER,
-                member=member)
+                value=0 - booking.value,
+                member=booking.member)
 
     def update(self):
         if not self.context.kind:

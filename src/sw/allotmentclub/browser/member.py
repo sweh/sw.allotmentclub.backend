@@ -10,7 +10,7 @@ from .protocol import format_markdown
 from pyramid.view import view_config
 from sqlalchemy import func
 from sqlalchemy.orm import aliased
-from sw.allotmentclub import BankingAccount, BookingKind, VALUE_PER_MEMBER
+from sw.allotmentclub import BankingAccount, BookingKind, MEMBERSHIP_FEE
 from sw.allotmentclub import Member, Allotment, Parcel, Booking
 from sw.allotmentclub import SaleHistory, MemberAttachment
 import collections
@@ -265,21 +265,35 @@ class MembershipFeeView(sw.allotmentclub.browser.base.View):
                    .filter(BankingAccount.number == '1')).one()
         kind = (BookingKind.query()
                 .filter(BookingKind.title == 'Mitgliedsbeitrag')).one()
-        members = []
+        year = get_selected_year()
+        members = {}
         for parcel in Parcel.query().all():
             member = parcel.allotment.member
             if not member:
                 continue
             if member.lastname in ['Verein', 'Werkstatt']:
                 continue
-            members.append(member)
-        for member in set(members):
+            if member not in members:
+                members[member] = [parcel]
+            elif parcel not in members[member]:
+                members[member].append(parcel)
+        for member, parcels in members.items():
+            parcel_numbers = '/'.join(
+                sorted(set([str(p.number) for p in parcels])))
+            parcel_size = sum(p.size for p in parcels)
+            for k, v in sorted(MEMBERSHIP_FEE.items()):
+                if parcel_size <= k:
+                    fee = v
+                    break
             Booking.create(
                 banking_account=account,
-                purpose='Mitgliedsbeitrag %s' % get_selected_year(),
-                value=0 - VALUE_PER_MEMBER,
-                accounting_year=get_selected_year(),
-                booking_day=datetime.date(int(get_selected_year()), 3, 31),
+                purpose=(
+                    f'Mitgliedsbeitrag {year} Flurstück {parcel_numbers} '
+                    f'({parcel_size}qm)'
+                ),
+                value=0 - fee,
+                accounting_year=year,
+                booking_day=datetime.date(int(year), 3, 31),
                 member=member,
                 kind=kind)
 
