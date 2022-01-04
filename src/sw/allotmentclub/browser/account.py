@@ -20,7 +20,9 @@ import re
 import sqlalchemy
 import sw.allotmentclub.browser.base
 
-BOOKING_FUTURE = datetime.datetime.now() + datetime.timedelta(days=61)
+
+def get_booking_future(days=90):
+    return datetime.datetime.now() + datetime.timedelta(days=days)
 
 
 def AccountDetailFactory(request):
@@ -189,7 +191,7 @@ def get_balance(value, request=None):
         .join(Member)
         .filter(Booking.member == member)
         .filter(Booking.is_splitted == false())
-        .filter(Booking.booking_day <= BOOKING_FUTURE)
+        .filter(Booking.booking_day <= get_booking_future())
         .filter(Booking.accounting_year == get_selected_year()))
     sepa = (
         db.query(func.sum(
@@ -204,7 +206,7 @@ def get_balance(value, request=None):
         .join(Member)
         .join(SEPASammler)
         .filter(SEPASammlerEntry.member == member)
-        .filter(SEPASammler.booking_day <= BOOKING_FUTURE)
+        .filter(SEPASammler.booking_day <= get_booking_future())
         .filter(SEPASammler.accounting_year == get_selected_year()))
     booking_sum = bookings.one()[0]
     sepa_sum = sepa.one()[0]
@@ -294,7 +296,7 @@ class MemberAccountDetailQuery(sw.allotmentclub.browser.base.Query):
             .join(Member)
             .filter(Booking.is_splitted == false())
             .filter(Booking.accounting_year == get_selected_year())
-            .filter(Booking.booking_day <= BOOKING_FUTURE)
+            .filter(Booking.booking_day <= get_booking_future())
             .filter(Booking.organization_id == self.user.organization_id)
             .filter(Booking.member == self.context))
         sepa = (
@@ -317,7 +319,7 @@ class MemberAccountDetailQuery(sw.allotmentclub.browser.base.Query):
             .outerjoin(BookingKind)
             .join(Member)
             .filter(SEPASammler.accounting_year == get_selected_year())
-            .filter(SEPASammler.booking_day <= BOOKING_FUTURE)
+            .filter(SEPASammler.booking_day <= get_booking_future())
             .filter(SEPASammler.organization_id == self.user.organization_id)
             .filter(SEPASammlerEntry.member == self.context))
         return bookings.union(sepa)

@@ -58,7 +58,7 @@ class MapView(sw.allotmentclub.browser.base.TableView):
     def __call__(self):
         result = super(MapView, self).__call__()
         map_data = {}
-        for _, parcel, allotment, ln, fn, _ in sw.allotmentclub.json_result(
+        for _, parcel, allotment, _, ln, fn, _ in sw.allotmentclub.json_result(
                 result['data']['data']):
             if fn:
                 ln += ', {}.'.format(fn[0])
