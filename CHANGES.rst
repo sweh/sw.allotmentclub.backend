@@ -2,7 +2,7 @@
 Change log for sw.allotmentclub
 ===============================
 
-5.5.0 (unreleased)
+5.5.0 (2022-01-04)
 ==================
 
 - Add new calculation for membership fee.
