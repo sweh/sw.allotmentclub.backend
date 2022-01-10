@@ -5,7 +5,7 @@ Change log for sw.allotmentclub
 5.5.3 (unreleased)
 ==================
 
-- Nothing changed yet.
+- Fix brown bag release.
 
 
 5.5.2 (2022-01-10)
