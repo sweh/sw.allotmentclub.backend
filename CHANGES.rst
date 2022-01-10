@@ -2,7 +2,7 @@
 Change log for sw.allotmentclub
 ===============================
 
-5.5.2 (unreleased)
+5.5.2 (2022-01-10)
 ==================
 
 - Fix map download view a little bit.
