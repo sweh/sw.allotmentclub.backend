@@ -2,7 +2,7 @@
 Change log for sw.allotmentclub
 ===============================
 
-5.5.3 (unreleased)
+5.5.3 (2022-01-10)
 ==================
 
 - Fix brown bag release.
