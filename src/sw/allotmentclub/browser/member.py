@@ -257,6 +257,39 @@ class MemberAddView(MemberEditView):
         return 'member_edit'
 
 
+def get_membership_fees(year=None, currency_formatter=None):
+    if year is None:
+        year = get_selected_year()
+    members = {}
+    for parcel in Parcel.query().all():
+        member = parcel.allotment.member
+        if not member:
+            continue
+        if member.lastname in ['Verein', 'Werkstatt']:
+            continue
+        if member not in members:
+            members[member] = [parcel]
+        elif parcel not in members[member]:
+            members[member].append(parcel)
+    result = {}
+    for member, parcels in members.items():
+        parcel_numbers = '/'.join(
+            sorted(set([str(p.number) for p in parcels])))
+        parcel_size = sum(p.size for p in parcels if p.size)
+        for k, v in sorted(MEMBERSHIP_FEE.items()):
+            if parcel_size <= k:
+                fee = v
+                break
+        if currency_formatter is not None:
+            fee = currency_formatter(fee)
+        result[member] = dict(
+            parcel_number=parcel_numbers,
+            parcel_size=parcel_size,
+            membership_fee=fee
+        )
+    return result
+
+
 @view_config(route_name='membership_fee', renderer='json', permission='view')
 class MembershipFeeView(sw.allotmentclub.browser.base.View):
 
@@ -266,25 +299,10 @@ class MembershipFeeView(sw.allotmentclub.browser.base.View):
         kind = (BookingKind.query()
                 .filter(BookingKind.title == 'Mitgliedsbeitrag')).one()
         year = get_selected_year()
-        members = {}
-        for parcel in Parcel.query().all():
-            member = parcel.allotment.member
-            if not member:
-                continue
-            if member.lastname in ['Verein', 'Werkstatt']:
-                continue
-            if member not in members:
-                members[member] = [parcel]
-            elif parcel not in members[member]:
-                members[member].append(parcel)
-        for member, parcels in members.items():
-            parcel_numbers = '/'.join(
-                sorted(set([str(p.number) for p in parcels])))
-            parcel_size = sum(p.size for p in parcels)
-            for k, v in sorted(MEMBERSHIP_FEE.items()):
-                if parcel_size <= k:
-                    fee = v
-                    break
+        for member, fee_data in get_membership_fees(year).items():
+            parcel_numbers = fee_data['parcel_number']
+            parcel_size = fee_data['parcel_size']
+            fee = fee_data['membership_fee']
             Booking.create(
                 banking_account=account,
                 purpose=(

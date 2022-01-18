@@ -3,9 +3,10 @@ from __future__ import unicode_literals
 from ..assignment import get_assignment_mail_data
 from ..electricity import get_energyvalue_mail_data
 from ..log import user_data_log, log_with_user
-from .base import date_time, get_selected_year, route_url
+from .base import date_time, get_selected_year, route_url, format_eur
 from .letter import render_pdf, send_mail
 from .protocol import format_markdown
+from .member import get_membership_fees
 from babel.dates import format_datetime
 from PyPDF2 import PdfFileWriter, PdfFileReader
 from bs4 import BeautifulSoup
@@ -259,14 +260,17 @@ class MailPreviewView(sw.allotmentclub.browser.base.View):
     def recipients_data(self, recipient):
         if recipient is None:
             return dict()
-        return dict(deflection=recipient.deflection,
-                    appellation=recipient.appellation,
-                    title=recipient.title,
-                    organization=recipient.organization or '',
-                    firstname=recipient.firstname,
-                    lastname=recipient.lastname,
-                    phone=getattr(recipient, 'phone', ''),
-                    mobile=getattr(recipient, 'mobile', ''))
+        result = dict(
+            deflection=recipient.deflection,
+            appellation=recipient.appellation,
+            title=recipient.title,
+            organization=recipient.organization or '',
+            firstname=recipient.firstname,
+            lastname=recipient.lastname,
+            phone=getattr(recipient, 'phone', ''),
+            mobile=getattr(recipient, 'mobile', '')
+        )
+        return result
 
     def update(self):
         output = PdfFileWriter()
@@ -274,12 +278,17 @@ class MailPreviewView(sw.allotmentclub.browser.base.View):
             recipients = self.recipients
         else:
             recipients = [r for r in self.recipients if r and not r.email]
+        membership_fee_data = get_membership_fees(
+            currency_formatter=format_eur
+        )
         subject = self.context.subject or ''
         compiler = pybars.Compiler()
         compiled_body = compiler.compile(self.context.body)
         for recipient in recipients:
             address = recipient.address if recipient else None
             data = self.recipients_data(recipient)
+            if recipient in membership_fee_data:
+                data.update(membership_fee_data[recipient])
             if subject in self.additional.keys():
                 for nsubject, additional_data in self.additional[subject](
                         recipient, self.context.accounting_year):
@@ -332,6 +341,9 @@ class MailSendView(MailPrintView):
         recipients = []
         if not self.context.sent:
             recipients = [r for r in self.recipients if r.email]
+            membership_fee_data = get_membership_fees(
+                currency_formatter=format_eur
+            )
             subject = self.context.subject or ''
             compiler = pybars.Compiler()
             compiled_body = compiler.compile(self.context.body)
@@ -339,6 +351,8 @@ class MailSendView(MailPrintView):
             for recipient in recipients:
                 address = recipient.email
                 data = self.recipients_data(recipient)
+                if recipient in membership_fee_data:
+                    data.update(membership_fee_data[recipient])
                 if subject in self.additional.keys():
                     for nsubject, additional_data in self.additional[subject](
                             recipient, self.context.accounting_year):

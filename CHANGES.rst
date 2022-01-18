@@ -2,10 +2,10 @@
 Change log for sw.allotmentclub
 ===============================
 
-5.5.4 (unreleased)
+5.6.0 (unreleased)
 ==================
 
-- Nothing changed yet.
+- Add membership fee data to mail data.
 
 
 5.5.3 (2022-01-10)
