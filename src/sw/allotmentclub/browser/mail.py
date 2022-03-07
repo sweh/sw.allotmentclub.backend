@@ -742,6 +742,8 @@ class PostmarkInboundWebhookView(object):
         sender = data['FromFull']['Email'].lower()
         if sender == 'vorstand@roter-see.de':
             return Response('ok')
+        if data['Subject'].startswith('***** SPAM'):
+            return Response('ok')
         message = Message.create(
             inbound=True,
             organization_id=self.organization_id,
