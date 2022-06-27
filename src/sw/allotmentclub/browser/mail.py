@@ -432,6 +432,7 @@ class MailEditView(sw.allotmentclub.browser.base.EditJSFormView):
     show_old_members = True
 
     def strip_html(self, body):
+        body = body.strip()
         if not body.startswith('<'):
             return body
         soup = BeautifulSoup(body, 'html.parser')
