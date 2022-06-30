@@ -348,9 +348,7 @@ class EnergyMeterExporterView(sw.allotmentclub.browser.base.XLSXExporterView):
         return (
             self.db.query(
                 ElectricMeter.id.label('#'),
-                ElectricMeter.id.label('Nachname'),
-                ElectricMeter.id.label('Vorname'),
-                Allotment.number.label('Bungalow'),
+                ElectricMeter.id.label('Bunaglow'),
                 ElectricMeter.number.label('Zählernummer'),
                 ElectricMeter.id.label('Zähler {}'.format(current_year-3)),
                 ElectricMeter.id.label('Zähler {}'.format(current_year-2)),
@@ -359,7 +357,7 @@ class EnergyMeterExporterView(sw.allotmentclub.browser.base.XLSXExporterView):
             )
             .select_from(ElectricMeter)
             .join(Allotment)
-            .join(Member, Allotment.member_id == Member.id)
+            .outerjoin(Member, Allotment.member_id == Member.id)
             .order_by(Allotment.number)
             .filter(ElectricMeter.disconnected == false())
             .filter(ElectricMeter.id != 124)
@@ -370,8 +368,7 @@ class EnergyMeterExporterView(sw.allotmentclub.browser.base.XLSXExporterView):
         for item in data:
             item = list(item)
             meter = ElectricMeter.get(item[1])
-            item[1] = meter.allotment.member.lastname
-            item[2] = meter.comment or meter.allotment.member.firstname
+            item[1] = get_discount_to(item[1])
             year = get_selected_year()
             value_sec3last_year = meter.get_value(year-3)
             value_sec2last_year = meter.get_value(year-2)
@@ -400,7 +397,7 @@ class EnergyMeterExporterView(sw.allotmentclub.browser.base.XLSXExporterView):
     def after_export(self):
         red_format = self.workbook.add_format(
             {'bold': True, 'font_color': 'red'})
-        irow = self.worksheet.dim_colmax + 1
+        irow = 7
         lrow = chr(ord('A') + irow)
         self.worksheet.write(1, irow, 'Verbrauch', self.bold_style)
         for i in range(self.worksheet.dim_rowmax - 2):
@@ -436,7 +433,7 @@ class EnergyMeterExporterView(sw.allotmentclub.browser.base.XLSXExporterView):
              renderer='json')
 class EnergyMeterImporterView(sw.allotmentclub.browser.base.XLSXImporterView):
 
-    cell_index = 8
+    cell_index = 6
 
     def __call__(self):
         year = datetime.datetime.now().year
@@ -466,11 +463,11 @@ class EnergyMeterImporterView(sw.allotmentclub.browser.base.XLSXImporterView):
             return
         if line[0].value is None and line[1].value is None:
             return
-        meter = ElectricMeter.by_number(line[4].value)
+        meter = ElectricMeter.by_number(line[2].value)
         if meter is None:
             meter = ElectricMeter.get(line[0].value)
-            if line[4].value:
-                meter.number = line[4].value
+            if line[2].value:
+                meter.number = line[2].value
         if not line[self.cell_index].value:
             value = int(line[self.cell_index-1].value)
             estimated = True

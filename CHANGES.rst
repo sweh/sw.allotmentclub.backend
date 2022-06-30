@@ -7,6 +7,8 @@ Change log for sw.allotmentclub
 
 - Bugfix display of semi html mails.
 
+- Add non-members to energy meter export.
+
 
 5.6.0 (2022-01-18)
 ==================

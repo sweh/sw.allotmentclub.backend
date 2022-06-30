@@ -23,11 +23,13 @@ def test_can_download_and_upload_energy_list(browser):
     browser.login()
     browser.open('http://localhost/electricity/export')
     wb = openpyxl.load_workbook(BytesIO(browser.contents))
+    with open('/Users/sweh/Downloads/test.xlsx', 'wb') as f:
+        f.write(browser.contents)
     sheet = wb.get_active_sheet()
     for index, row in enumerate(sheet.rows):
         if index in (0, 1):
             continue
-        row[-3].value = row[5].value or 0 + 100
+        row[-3].value = row[-4].value or 0 + 100
         row[-1].value = True
         if row[0].value == 4:
             row[-1].value = False
