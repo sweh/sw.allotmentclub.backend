@@ -7,6 +7,8 @@ Change log for sw.allotmentclub
 
 - Fix filename of finances report (contained static year 2018).
 
+- Remove dummy test code in xslx export of energy meters.
+
 
 5.7.0 (2022-06-30)
 ==================
