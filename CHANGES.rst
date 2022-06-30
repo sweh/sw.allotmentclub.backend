@@ -2,7 +2,7 @@
 Change log for sw.allotmentclub
 ===============================
 
-5.6.1 (unreleased)
+5.7.0 (2022-06-30)
 ==================
 
 - Bugfix display of semi html mails.
