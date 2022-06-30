@@ -5,7 +5,7 @@ Change log for sw.allotmentclub
 5.7.1 (unreleased)
 ==================
 
-- Nothing changed yet.
+- Fix filename of finances report (contained static year 2018).
 
 
 5.7.0 (2022-06-30)

@@ -580,6 +580,7 @@ class BankingAccountListReportView(sw.allotmentclub.browser.base.View):
         compiler = pybars.Compiler()
         compiled_page = compiler.compile(self.hbs_page)
         cleanr = re.compile('<.*?>')
+        year = get_selected_year()
 
         for kind in BookingKind.query():
             data = BankingAccountListDetailView(kind, self.request)()['data']
@@ -597,8 +598,7 @@ class BankingAccountListReportView(sw.allotmentclub.browser.base.View):
             sum_ = int(sum_ * 10000)
 
             body = format_markdown(compiled_page(dict(
-                title='{} {}'.format(
-                    kind.title, get_selected_year()),
+                title='{} {}'.format(kind.title, year),
                 content=table_content,
                 summe=format_eur(sum_),
                 header_style=("border: 1px solid black; "
@@ -610,7 +610,9 @@ class BankingAccountListReportView(sw.allotmentclub.browser.base.View):
         response = self.request.response
         response.set_cookie('fileDownload', value='true')
         response.content_type = 'application/pdf'
-        response.content_disposition = 'attachment; filename=Report 2018.pdf'
+        response.content_disposition = (
+            f'attachment; filename=Report {year}.pdf'
+        )
         response.app_iter = FileIter(result)
         self.result = response
 
