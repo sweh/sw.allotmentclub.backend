@@ -379,20 +379,26 @@ class EnergyMeterExporterView(sw.allotmentclub.browser.base.XLSXExporterView):
             item[-2] = self._get_value(value_last_year)
             item[-1] = self._get_value(value_current_year)
             yield item
-        item = [0, 'Hauptzähler (kWh)', 48328153, '', '', '', '']
+        yield [None, None, None, None, None, None, None]
+        item = ['Hauptzähler (kWh)', None, None, None, None, None, None]
         for i in range(-1, -5, -1):
             price = (EnergyPrice.query()
                      .filter(EnergyPrice.year == year+i+1).first())
             if price:
                 item[i] = price.value
         yield item
-        item = [0, 'Endabrechnung (microcent)', 48328153, '', '', '', '']
+        item = [
+            'Endabrechnung (microcent)', None, None, None, None, None, None
+        ]
         for i in range(-1, -5, -1):
             price = (EnergyPrice.query()
                      .filter(EnergyPrice.year == year+i+1).first())
             if price:
                 item[i] = price.bill
         yield item
+        yield [None, None, None, None, None, None, None]
+        yield ['Summe Verbrauch', None, None, None, None, None, None]
+        yield ['Verluststrom', None, None, None, None, None, None]
 
     def after_export(self):
         red_format = self.workbook.add_format(
@@ -400,7 +406,7 @@ class EnergyMeterExporterView(sw.allotmentclub.browser.base.XLSXExporterView):
         irow = 7
         lrow = chr(ord('A') + irow)
         self.worksheet.write(1, irow, 'Verbrauch', self.bold_style)
-        for i in range(self.worksheet.dim_rowmax - 2):
+        for i in range(self.worksheet.dim_rowmax - 7):
             i += 3
             cellindex = '{}{}'.format(lrow, i)
             formula = '=IF({r1}{i},{r1}{i}-{r2}{i},0)'.format(
@@ -409,11 +415,36 @@ class EnergyMeterExporterView(sw.allotmentclub.browser.base.XLSXExporterView):
             self.worksheet.conditional_format(
                 cellindex, {'type': 'cell', 'criteria': '<', 'value': 0,
                             'format': red_format})
+        i += 2
+        cellindex = '{}{}'.format(lrow, i)
+        formula = '=IF({r1}{i},{r1}{i}-{r2}{i},0)'.format(
+            i=i, r1=chr(ord('A') + irow-1), r2=chr(ord('A') + irow-2))
+        self.worksheet.write_formula(cellindex, formula)
+        self.worksheet.conditional_format(
+            cellindex, {'type': 'cell', 'criteria': '<', 'value': 0,
+                        'format': red_format})
+
+        i += 3
+        cellindex = '{}{}'.format(lrow, i)
+        formula = '=SUM({r1}3:{r2}{i})'.format(
+            i=i-5, r1=chr(ord('A') + irow), r2=chr(ord('A') + irow))
+        self.worksheet.write_formula(cellindex, formula)
+        self.worksheet.conditional_format(
+            cellindex, {'type': 'cell', 'criteria': '<', 'value': 0,
+                        'format': red_format})
+        i += 1
+        cellindex = '{}{}'.format(lrow, i)
+        formula = '={r1}{i}-{r2}{j}'.format(
+            i=i-4, j=i-1, r1=chr(ord('A') + irow), r2=chr(ord('A') + irow))
+        self.worksheet.write_formula(cellindex, formula)
+        self.worksheet.conditional_format(
+            cellindex, {'type': 'cell', 'criteria': '<', 'value': 0,
+                        'format': red_format})
 
         irow += 1
         lrow = chr(ord('A') + irow)
         self.worksheet.write(1, irow, 'Zähler gesehen?', self.bold_style)
-        for i in range(self.worksheet.dim_rowmax - 2):
+        for i in range(self.worksheet.dim_rowmax - 7):
             i += 3
             cellindex = '{}{}'.format(lrow, i)
             self.worksheet.write_boolean(cellindex, False)
@@ -451,17 +482,17 @@ class EnergyMeterImporterView(sw.allotmentclub.browser.base.XLSXImporterView):
 
     def add_data(self, line):
         year = datetime.datetime.now().year
-        if line[1].value == 'Hauptzähler (kWh)':
+        if line[0].value == 'Hauptzähler (kWh)':
             EnergyPrice.find_or_create(year=year).value = line[
                 self.cell_index].value
             transaction.savepoint()
             return
-        if line[1].value == 'Endabrechnung (microcent)':
+        if line[0].value == 'Endabrechnung (microcent)':
             EnergyPrice.find_or_create(year=year).bill = line[
                 self.cell_index].value
             transaction.savepoint()
             return
-        if line[0].value is None and line[1].value is None:
+        if line[1].value is None:
             return
         meter = ElectricMeter.by_number(line[2].value)
         if meter is None:
