@@ -2,7 +2,7 @@
 Change log for sw.allotmentclub
 ===============================
 
-5.7.1 (unreleased)
+5.7.1 (2022-07-08)
 ==================
 
 - Fix filename of finances report (contained static year 2018).
