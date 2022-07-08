@@ -9,6 +9,8 @@ Change log for sw.allotmentclub
 
 - Remove dummy test code in xslx export of energy meters.
 
+- Bugfix export and import of electicity new format.
+
 
 5.7.0 (2022-06-30)
 ==================

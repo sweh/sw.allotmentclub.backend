@@ -379,14 +379,14 @@ class EnergyMeterExporterView(sw.allotmentclub.browser.base.XLSXExporterView):
             item[-2] = self._get_value(value_last_year)
             item[-1] = self._get_value(value_current_year)
             yield item
-        item = [0, 'Hauptzähler', 'kWh', 0, 48328153, '', '', '', '']
+        item = [0, 'Hauptzähler (kWh)', 48328153, '', '', '', '']
         for i in range(-1, -5, -1):
             price = (EnergyPrice.query()
                      .filter(EnergyPrice.year == year+i+1).first())
             if price:
                 item[i] = price.value
         yield item
-        item = [0, 'Endabrechnung', 'microcent', 0, 48328153, '', '', '', '']
+        item = [0, 'Endabrechnung (microcent)', 48328153, '', '', '', '']
         for i in range(-1, -5, -1):
             price = (EnergyPrice.query()
                      .filter(EnergyPrice.year == year+i+1).first())
@@ -451,12 +451,12 @@ class EnergyMeterImporterView(sw.allotmentclub.browser.base.XLSXImporterView):
 
     def add_data(self, line):
         year = datetime.datetime.now().year
-        if line[1].value == 'Hauptzähler':
+        if line[1].value == 'Hauptzähler (kWh)':
             EnergyPrice.find_or_create(year=year).value = line[
                 self.cell_index].value
             transaction.savepoint()
             return
-        if line[1].value == 'Endabrechnung':
+        if line[1].value == 'Endabrechnung (microcent)':
             EnergyPrice.find_or_create(year=year).bill = line[
                 self.cell_index].value
             transaction.savepoint()
