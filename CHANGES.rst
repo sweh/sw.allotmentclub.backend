@@ -7,6 +7,8 @@ Change log for sw.allotmentclub
 
 - Improve excel energy list export.
 
+- Download map svg instead of pdf as pdf is broken.
+
 
 5.7.1 (2022-07-08)
 ==================

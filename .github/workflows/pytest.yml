@@ -8,6 +8,9 @@ on:
     # * is a special character in YAML so you have to quote this string
     - cron:  '0 9 * * *'
 
+env:
+  CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
+
 jobs:
   autotests:
     name: Run tests
@@ -35,6 +38,16 @@ jobs:
           sudo apt-get update
           sudo apt-get -yqq install poppler-utils
 
+      - name: Install and setup code coverage tool
+        run: |
+          curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+          chmod +x ./cc-test-reporter
+          ./cc-test-reporter before-build
+
       - name: Run Test
         if: always()
         run: ./pytest
+
+      - name: Report coverage to codeclimate
+        run: |
+          ./cc-test-reporter after-build --exit-code 0

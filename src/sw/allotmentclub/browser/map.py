@@ -91,10 +91,20 @@ class MapDownloadView(object):
     def __call__(self):
         data = self.request.POST['svg']
         msg = 'Lageplan vom %s' % date(datetime.now())
+
+        data = data.encode('utf-8')
+        return Response(
+            content_type='image/svg+xml',
+            content_disposition='attachment; filename="Lageplan.svg"',
+            content_length=len(data),
+            charset='utf-8',
+            body=data
+        )
+
         svg_handle, svg_filename = tempfile.mkstemp(suffix='svg')
-        app_log.info('Map written to `{}`.'.format(svg_filename))
         try:
-            os.fdopen(svg_handle, 'wb').write(data.encode('utf-8'))
+            os.fdopen(svg_handle, 'wb').write(data)
+            app_log.info('Map written to `{}`.'.format(svg_filename))
             d = renderPDF.renderScaledDrawing(svg2rlg(svg_filename))
             output = BytesIO()
             c = Canvas(output)

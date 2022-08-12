@@ -1,8 +1,7 @@
 # encoding=utf8
-from __future__ import unicode_literals
-from ...conftest import assertFileEqual
 from sw.allotmentclub.conftest import import_members
 from datetime import datetime
+import pkg_resources
 import transaction
 import mock
 import pytest
@@ -31,4 +30,8 @@ def test_MapDownloadView__call__1(browser, json_fixture):
             'http://localhost{}'.format(expected['url']),
             data=expected['data'],
             type=expected['type'])
-    assertFileEqual(browser.contents, 'test_map_print.pdf')
+    # assertFileEqual(browser.contents, 'test_map_print.pdf')
+    with open(pkg_resources.resource_filename(
+        'sw.allotmentclub.browser.tests', 'test_map_print.svg'
+    ), 'r') as f:
+        assert f.read() == browser.contents
