@@ -2,7 +2,7 @@
 Change log for sw.allotmentclub
 ===============================
 
-5.7.2 (unreleased)
+5.7.2 (2022-08-31)
 ==================
 
 - Improve excel energy list export.
