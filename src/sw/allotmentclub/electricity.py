@@ -204,13 +204,20 @@ class EnergyValue(Object):
         return self.fee + self.price
 
     @property
-    def _to_pay(self):
+    def advance_pay_last_year(self):
         last_value = self.electric_meter.get_value(self.year-1)
         if last_value:
             advance_pay_last_year = last_value.advance_pay
+            advance_pay_last_year = int(
+                round(advance_pay_last_year / 10000.0, 2) * 10000
+            )
         else:
             advance_pay_last_year = 0
-        return self.whole_price - advance_pay_last_year * 2
+        return advance_pay_last_year * 2
+
+    @property
+    def _to_pay(self):
+        return self.whole_price - self.advance_pay_last_year
 
     @property
     def _advance_pay(self):
@@ -261,7 +268,7 @@ def get_energyvalue_mail_data(member, year):
             iban=format_iban(member.iban),
             bic=member.bic,
             threshold=format_eur(THRESHOLD),
-            advance_pay=format_eur(value.whole_price - value.to_pay),
+            advance_pay=format_eur(value.advance_pay_last_year),
             advance_pay_next_year=format_eur(value._advance_pay),
             price_kwh=format_eur(price.price, full=True),
             normal_fee=format_eur(price.normal_fee),
