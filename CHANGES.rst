@@ -2,7 +2,7 @@
 Change log for sw.allotmentclub
 ===============================
 
-5.7.3 (unreleased)
+5.8.0 (2022-12-09)
 ==================
 
 - Bugfix: Calculation of energy value with advanced pay.
