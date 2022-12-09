@@ -1,9 +1,9 @@
 # coding:utf8
 from __future__ import unicode_literals
 from .. import Member, BookingKind, User, Allotment
-from ..direct_debit import DirectDebit
 from ..log import user_data_log, log_with_user
 from ..base import parse_date
+from sepaxml import SepaDD, SepaTransfer
 from io import StringIO, BytesIO
 from pyramid.decorator import reify
 from pyramid.response import FileIter
@@ -969,17 +969,18 @@ class SEPAExporterView(CSVExporterView):
             return self.data_wire_bank
         return self.data_direct_debit
 
+    config = {
+        "name": 'Leuna Bungalowgemeinschaft Roter See e.V.',
+        "IBAN": 'DE71800537623440000167',
+        "BIC": 'NOLADE21HAL',
+        "batch": True,
+        "creditor_id": 'DE42ZZZ00000348413',
+        "currency": "EUR",
+    }
+
     @property
     def data_wire_bank(self):
-        from ..direct_debit import BankWire
-        dd = BankWire(
-            message_id=self.subject,
-            debitor_name='Leuna Bungalowgemeinschaft Roter See e.V.',
-            debitor_iban='DE71800537623440000167',
-            debitor_bic='NOLADE21HAL')
-        transfer = dd.add_transfer(
-            payment_id='NOTPROVIDED',
-            payment_date=datetime.date(1999, 1, 1))
+        sepa = SepaTransfer(self.config, clean=True)
         for value in self.values:
             to_pay = float(self.format_eur(self.get_to_pay(value)))
             member = self.get_member(value)
@@ -995,31 +996,24 @@ class SEPAExporterView(CSVExporterView):
             else:
                 name = '{}, {}'.format(member.lastname, member.firstname)
 
-            transfer.add_transaction(
-                name,
-                member.iban,
-                member.bic,
-                to_pay,
-                self.subject)
-        return dd.to_string(validate_xml=True)
+            bd = datetime.date(*(int(s) for s in self.booking_day.split('-')))
+            sepa.add_payment({
+                "name": name,
+                "IBAN": member.iban,
+                "BIC": member.bic,
+                "amount": int(to_pay * 100),
+                "execution_date": bd,
+                "description": self.subject
+            })
+
+        return sepa.export(validate=True)
 
     @property
     def data_direct_debit(self):
-        dd = DirectDebit(
-            message_id=self.subject,
-            creditor_name='Leuna Bungalowgemeinschaft Roter See e.V.',
-            creditor_ci='DE42ZZZ00000348413',
-            creditor_iban='DE71800537623440000167',
-            creditor_bic='NOLADE21HAL')
+        sepa = SepaDD(self.config, schema="pain.008.001.02", clean=True)
         payment_id = (
             self.context.pmtinfid or 'PII0ad20386aa6c4287ba8e2000c25c01e2')
-        payment = dd.add_payment(
-            payment_id=payment_id,
-            direct_debit_type='CORE',
-            sequence_type='RCUR',
-            purpose='CASH',
-            payment_date=self.booking_day,
-            batch_booking=True)
+
         for value in self.values:
             to_pay = float(self.format_eur(self.get_to_pay(value)))
             if to_pay <= 0:
@@ -1032,9 +1026,6 @@ class SEPAExporterView(CSVExporterView):
 
             id_ = '{}{}'.format(member.lastname, '/'.join(
                 str(m.number) for m in member.allotments))
-            id_ = (id_.replace('ä', 'au').replace('ö', 'oe')
-                   .replace('ü', 'ue').replace('ß', 'ss')
-                   .replace(' ', '').upper())
 
             if member.direct_debit_account_holder:
                 name = member.direct_debit_account_holder
@@ -1044,22 +1035,26 @@ class SEPAExporterView(CSVExporterView):
             else:
                 name = '{}, {}'.format(member.lastname, member.firstname)
 
-            payment.add_transaction(
-                debtor_name=name,
-                debtor_iban=member.iban,
-                debtor_bic=member.bic,
-                amount=to_pay,
-                purpose='SALA',
-                mandate_id=id_,
-                mandate_date=member.direct_debit_date.strftime('%Y-%m-%d'),
-                reason=self.subject,
-                end_to_end_id='NOTPROVIDED')
-        return dd.to_string(validate_xml=True)
+            bd = datetime.date(*(int(s) for s in self.booking_day.split('-')))
+            sepa.add_payment({
+                "name": name,
+                "IBAN": member.iban,
+                "BIC": member.bic,
+                "amount": int(to_pay * 100),  # in cents
+                "type": "RCUR",  # FRST,RCUR,OOFF,FNAL
+                "collection_date": bd,
+                "mandate_id": id_,
+                "mandate_date": datetime.date.today(),
+                "description": self.subject,
+                "endtoend_id": payment_id,
+            })
+
+        return sepa.export(validate=True)
 
     def __call__(self):
         response = self.request.response
         response.content_type = 'application/xml'
         response.content_disposition = (
             'attachment; filename={}.xml'.format(self.filename))
-        response.app_iter = FileIter(BytesIO(self.data.encode('utf-8')))
+        response.app_iter = FileIter(BytesIO(self.data))
         return response

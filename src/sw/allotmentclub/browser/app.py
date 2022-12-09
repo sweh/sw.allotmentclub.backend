@@ -536,16 +536,16 @@ class HTTPError(Error):
 class NotFound(HTTPError):
 
     def log(self):
-        if self.request.user.authenticated:
+        if self.request.user and self.request.user.authenticated:
             log_with_user(
                 auth_log.warning, self.request.user,
                 'Ref: %s User %s tried to access non-existing url %s',
                 self.error_ref, self.request.user.username, self.request.url)
         else:
-            log_with_user(
-                auth_log.warning, self.request.user,
+            app_log.warning(
                 'Ref: %s Unauthenticated user tried to access '
-                'non-existing url %s', self.error_ref, self.request.url)
+                'non-existing url %s' % (self.error_ref, self.request.url)
+            )
 
 
 @pyramid.events.subscriber(pyramid.events.ApplicationCreated)

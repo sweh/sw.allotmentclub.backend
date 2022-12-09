@@ -12,6 +12,7 @@ setup(
     install_requires=[
         'pyramid',
         'fints',
+        'sepaxml',
     ],
 
     extras_require={

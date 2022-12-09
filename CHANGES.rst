@@ -7,6 +7,8 @@ Change log for sw.allotmentclub
 
 - Bugfix: Calculation of energy value with advanced pay.
 
+- Move SEPA XML generate to `python-sepaxml` library.
+
 
 5.7.2 (2022-08-31)
 ==================

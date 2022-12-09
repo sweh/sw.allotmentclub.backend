@@ -116,8 +116,8 @@ def test_SEPASammlerExportView_1(browser):
         'http://localhost/accounts/sepa_sammler/{}/export'.format(sammler.id))
     doc = lxml.etree.fromstring(browser.contents.encode('utf-8'))
     assert '1075.39' == doc.find('.//CtrlSum', namespaces=doc.nsmap).text
-    assert 'Mueller, ' == doc.findall('.//Nm', namespaces=doc.nsmap)[-1].text
-    assert 'MUELLER' == doc.find('.//MndtId', namespaces=doc.nsmap).text
+    assert 'Muller, ' == doc.findall('.//Nm', namespaces=doc.nsmap)[-1].text
+    assert 'Müller' == doc.find('.//MndtId', namespaces=doc.nsmap).text
 
 
 def test_SEPASammlerExportView_2(browser):
