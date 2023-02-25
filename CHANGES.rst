@@ -2,7 +2,7 @@
 Change log for sw.allotmentclub
 ===============================
 
-5.8.1 (unreleased)
+5.8.1 (2023-02-25)
 ==================
 
 - Only add direct debit members to Mitgliedsbeitrag.
