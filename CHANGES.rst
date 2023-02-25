@@ -7,6 +7,8 @@ Change log for sw.allotmentclub
 
 - Only add direct debit members to Mitgliedsbeitrag.
 
+- Check iban of members when generating SEPA export.
+
 
 5.8.0 (2022-12-09)
 ==================
