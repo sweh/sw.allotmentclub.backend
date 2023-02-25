@@ -5,7 +5,7 @@ Change log for sw.allotmentclub
 5.8.1 (unreleased)
 ==================
 
-- Nothing changed yet.
+- Only add direct debit members to Mitgliedsbeitrag.
 
 
 5.8.0 (2022-12-09)
