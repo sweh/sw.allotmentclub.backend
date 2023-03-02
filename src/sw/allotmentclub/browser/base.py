@@ -1011,7 +1011,7 @@ class SEPAExporterView(CSVExporterView):
             sepa.add_payment({
                 "name": name,
                 "IBAN": member.iban,
-                "BIC": member.bic,
+                "BIC": kontocheck.get_bic(member.iban),
                 "amount": int(to_pay * 100),
                 "execution_date": bd,
                 "description": self.subject
@@ -1021,6 +1021,7 @@ class SEPAExporterView(CSVExporterView):
 
     @property
     def data_direct_debit(self):
+        kontocheck.lut_load(9)
         sepa = SepaDD(self.config, schema="pain.008.001.02", clean=True)
         payment_id = (
             self.context.pmtinfid or 'PII0ad20386aa6c4287ba8e2000c25c01e2')
@@ -1031,11 +1032,23 @@ class SEPAExporterView(CSVExporterView):
                 continue
 
             member = self.get_member(value)
+            if not member.iban:
+                raise ValueError(
+                    f'Mitglied {member.lastname}, {member.firstname} hat keine'
+                    f' IBAN hinterlegt, aber Lastschrift aktiv'
+                )
+
+            if not kontocheck.check_iban(member.iban):
+                raise ValueError(
+                    f'IBAN {member.iban} von Mitglied {member.lastname}, '
+                    f'{member.firstname} ist nicht valide.'
+                )
+
 
             if not member.direct_debit or not member.iban:
                 continue
 
-            id_ = '{}{}'.format(member.lastname, '/'.join(
+            id_ = 'BNGLW{}'.format('-'.join(
                 str(m.number) for m in member.allotments))
 
             if member.direct_debit_account_holder:
@@ -1050,7 +1063,7 @@ class SEPAExporterView(CSVExporterView):
             sepa.add_payment({
                 "name": name,
                 "IBAN": member.iban,
-                "BIC": member.bic,
+                "BIC": kontocheck.get_bic(member.iban),
                 "amount": int(to_pay * 100),  # in cents
                 "type": "RCUR",  # FRST,RCUR,OOFF,FNAL
                 "collection_date": bd,
