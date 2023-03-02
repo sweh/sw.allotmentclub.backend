@@ -1044,7 +1044,6 @@ class SEPAExporterView(CSVExporterView):
                     f'{member.firstname} ist nicht valide.'
                 )
 
-
             if not member.direct_debit or not member.iban:
                 continue
 
