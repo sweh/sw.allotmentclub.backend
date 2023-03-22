@@ -2,7 +2,7 @@
 Change log for sw.allotmentclub
 ===============================
 
-5.8.2 (unreleased)
+5.9.0 (2023-03-22)
 ==================
 
 - Add category to depot items.
