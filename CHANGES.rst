@@ -5,7 +5,7 @@ Change log for sw.allotmentclub
 5.8.2 (unreleased)
 ==================
 
-- Nothing changed yet.
+- Add category to depot items.
 
 
 5.8.1 (2023-02-25)

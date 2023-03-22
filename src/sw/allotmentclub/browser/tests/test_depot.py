@@ -29,28 +29,21 @@ def test_depot_can_be_added_via_json_view(browser):
     assert 'Transparent.gif' == Depot.query().one().name
 
 
-def test_depot_can_be_edited_via_json_view(browser):
+def test_depot_can_be_edited_via_json_view(browser, json_fixture):
     from sw.allotmentclub import Depot
     setUp()
+    url = json_fixture.url()
     browser.login()
-    browser._upload('http://localhost/depots/1/edit')
-    now = datetime.datetime.now()
+    browser.post(
+        'http://localhost{}'.format(url),
+        data={"name": "foo.gif"}
+    )
     assert 'success' == browser.json['status']
-    assert 1 == len(Depot.query().all())
-    browser.open('http://localhost/depots')
-    assert [1, 'Transparent.gif', 'GIF', '42.00 B',
-            now.strftime('%d.%m.%Y %H:%M'), 'admin'] == browser.json_result[0]
+    assert Depot.get(1).name == 'foo.gif'
 
-
-def test_depot_can_not_edit_file_if_mimetype_is_different(browser):
-    from sw.allotmentclub import Depot
-    setUp()
-    depot = Depot.get(1)
-    depot.mimetype = 'image/png'
-    transaction.savepoint()
-    browser.login()
-    browser._upload('http://localhost/depots/1/edit')
-    assert 'error' == browser.json['status']
-    assert (
-        'Kann nur Dateien vom gleichen Typ bearbeiten. '
-        'alt: image/png, neu: image/gif' == browser.json['message'])
+    browser.post(
+        'http://localhost{}'.format(url),
+        data={"category": "Mitgliederversammlung"}
+    )
+    assert 'success' == browser.json['status']
+    assert Depot.get(1).category == 'Mitgliederversammlung'

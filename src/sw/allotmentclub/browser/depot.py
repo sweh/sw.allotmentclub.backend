@@ -5,6 +5,7 @@ from io import BytesIO
 from pyramid.response import FileIter
 from pyramid.view import view_config
 from sw.allotmentclub import Depot, User
+import collections
 import datetime
 import sw.allotmentclub.browser.base
 
@@ -32,6 +33,7 @@ class Query(sw.allotmentclub.browser.base.Query):
             self.db.query(
                 Depot.id.label('#'),
                 Depot.name.label('Dateiname'),
+                Depot.category.label('Kategorie'),
                 Depot.mimetype.label('Dateityp'),
                 Depot.size.label('Größe'),
                 Depot.date.label('Aktualisiert'),
@@ -96,28 +98,48 @@ class DepotAddView(DepotBase):
         return {'status': 'success'}
 
 
-@view_config(route_name='depot_edit', renderer='json',
-             permission='view')
-class DepotEditView(DepotBase):
+@view_config(route_name='depot_edit', renderer='json', permission='view')
+class DepotEditView(sw.allotmentclub.browser.base.EditJSFormView):
 
-    action = 'bearbeitet'
+    title = 'Ablage bearbeiten'
 
-    def __call__(self):
-        if not self.form_submit():
-            return {'status': 'success', 'data': {}}
-        name, mimetype, size, data, date, user = self.parse_file()
-        if mimetype != self.context.mimetype:
-            return {'status': 'error',
-                    'message': 'Kann nur Dateien vom gleichen Typ bearbeiten. '
-                               'alt: {}, neu: {}'.format(
-                                   self.context.mimetype, mimetype)}
-        self.context.size = size
-        self.context.data = data
-        self.context.date = date
-        self.context.name = name
-        self.context.user = user
-        self.log(self.context.id)
-        return {'status': 'success'}
+    @property
+    def load_options(self):
+        return {
+            'name': {
+                'label': 'Dateiname',
+                'disabled': False,
+            },
+            'category': {
+                'source': [
+                    {'title': '', 'token': ''},
+                    {
+                        'title': 'Mitgliederversammlung',
+                        'token': 'Mitgliederversammlung'
+                    },
+                    {
+                        'title': 'Satzung',
+                        'token': 'Satzung'
+                    },
+                    {
+                        'title': 'Energie',
+                        'token': 'Energie'
+                    },
+                ],
+                'label': 'Kategorie',
+                'css_class': 'chosen',
+                'disabled': False,
+                'multiple': False,
+            },
+        }
+
+    @property
+    def load_data(self):
+        fields = [
+            ('name', self.context.name),
+            ('category', self.context.category),
+        ]
+        return collections.OrderedDict(fields)
 
 
 @view_config(route_name='depot_delete', renderer='json',
