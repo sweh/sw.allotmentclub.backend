@@ -17,7 +17,9 @@ def test_displays_list_of_depots(browser):
     setUp()
     browser.login()
     browser.open('http://localhost/depots')
-    expected = [1, 'test.gif', 'GIF', '15.00 B', '27.11.2014 07:21', 'hans']
+    expected = [
+        1, 'test.gif', '', 'GIF', '15.00 B', '27.11.2014 07:21', 'hans'
+    ]
     assert expected in browser.json_result
 
 
