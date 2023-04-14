@@ -2,7 +2,27 @@
 Change log for sw.allotmentclub
 ===============================
 
-5.7.3 (unreleased)
+5.9.1 (unreleased)
+==================
+
+- Nothing changed yet.
+
+
+5.9.0 (2023-03-22)
+==================
+
+- Add category to depot items.
+
+
+5.8.1 (2023-02-25)
+==================
+
+- Only add direct debit members to Mitgliedsbeitrag.
+
+- Check iban of members when generating SEPA export.
+
+
+5.8.0 (2022-12-09)
 ==================
 
 - Bugfix: Calculation of energy value with advanced pay.

@@ -709,7 +709,7 @@ class SEPASammlerUpdateView(sw.allotmentclub.browser.base.View):
         else:
             values = [v for v in values if v.value <= 0]
         for value in values:
-            if value.member.direct_debit:
+            if value.member and value.member.direct_debit:
                 SEPASammlerEntry().find_or_create(
                     sepasammler=self.context,
                     value=(
@@ -768,10 +768,11 @@ class SEPASammlerUpdateView(sw.allotmentclub.browser.base.View):
             .filter(Booking.accounting_year == self.context.accounting_year)
             .filter(Booking.kind == self.context.kind)
         ):
-            SEPASammlerEntry().find_or_create(
-                sepasammler=self.context,
-                value=0 - booking.value,
-                member=booking.member)
+            if booking.member.direct_debit:
+                SEPASammlerEntry().find_or_create(
+                    sepasammler=self.context,
+                    value=0 - booking.value,
+                    member=booking.member)
 
     def update(self):
         if not self.context.kind:

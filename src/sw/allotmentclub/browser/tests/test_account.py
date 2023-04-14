@@ -102,8 +102,8 @@ def test_SEPASammlerExportView_1(browser):
         title='Energieabschlag I', shorttitle='ENA1')
     sammler = SEPASammler.create(
         booking_day='2018-03-31', accounting_year=2018, kind=kind)
-    for iban, value in (('DE12500105170648489890', 2540500),
-                        ('EE342200221034126658', 8213400)):
+    for iban, value in (('DE02120300000000202051', 2540500),
+                        ('DE02500105170137075030', 8213400)):
         SEPASammlerEntry.find_or_create(
             sepasammler=sammler, value=value,
             member=Member.create(
@@ -117,7 +117,7 @@ def test_SEPASammlerExportView_1(browser):
     doc = lxml.etree.fromstring(browser.contents.encode('utf-8'))
     assert '1075.39' == doc.find('.//CtrlSum', namespaces=doc.nsmap).text
     assert 'Muller, ' == doc.findall('.//Nm', namespaces=doc.nsmap)[-1].text
-    assert 'Müller' == doc.find('.//MndtId', namespaces=doc.nsmap).text
+    assert 'BNGLW' == doc.find('.//MndtId', namespaces=doc.nsmap).text
 
 
 def test_SEPASammlerExportView_2(browser):
@@ -131,8 +131,8 @@ def test_SEPASammlerExportView_2(browser):
     sammler = SEPASammler.create(
         booking_day='2018-03-31', accounting_year=2018, kind=kind,
         is_ueberweisung=True)
-    for iban, value in (('DE12500105170648489890', 2540500),
-                        ('EE342200221034126658', 8213400)):
+    for iban, value in (('DE02120300000000202051', 2540500),
+                        ('DE02500105170137075030', 8213400)):
         SEPASammlerEntry.find_or_create(
             sepasammler=sammler, value=value,
             member=Member.create(

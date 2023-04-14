@@ -26,3 +26,6 @@ recursive-include src *.txt
 recursive-include src *.woff
 recursive-include src *.woff2
 recursive-include src *.xsd
+exclude requirements.txt
+exclude pytest
+recursive-include src *.bak
