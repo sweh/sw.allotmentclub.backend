@@ -73,29 +73,16 @@ class JSONFixture(object):
 
 
 def assertFileEqual(generated_data, master_filename):
-    from pdf_diff.command_line import compute_changes
+    from diff_pdf_visually import pdfdiff
     import pkg_resources
     import tempfile
     import os
-    import pytest
+
     master_file = pkg_resources.resource_filename(
         'sw.allotmentclub.browser.tests', master_filename)
     handle, generated_file = tempfile.mkstemp(suffix='pdf')
     os.fdopen(handle, 'wb').write(generated_data)
-    changes = compute_changes(master_file, generated_file)
-    if changes:
-        changes_text = ""
-        for change in changes:
-            if change == '*':
-                changes_text += '\n\r'
-                continue
-            changes_text += '{}: {}\n\r'.format(
-                change['pdf']['file'], change['text'])
-        pytest.fail(
-            'Generated pdf does not equal master: \n\r\n\r{}'.format(
-                changes_text))
-    else:
-        os.remove(generated_file)
+    assert pdfdiff(master_file, generated_file)
 
 
 def pytest_configure(config):
