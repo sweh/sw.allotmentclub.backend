@@ -441,7 +441,7 @@ Leuna-Bungalowgemeinschaft an.
     <tr>
       <td style="width: 20%">&nbsp;<hr/>Datum</td>
       <td style="width: 40%;">&nbsp;<hr/>Ort</td>
-      <td style="width: 40%;">&nbsp;<hr/>Unterschrift Kontoinhaber</td>
+      <td style="width: 40%;">&nbsp;<hr/>Unterschrift</td>
     </tr>
   </tbody>
 </table>"""
