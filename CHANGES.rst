@@ -2,8 +2,8 @@
 Change log for sw.allotmentclub
 ===============================
 
-5.9.1 (unreleased)
-==================
+5.10.0 (2023-06-19)
+===================
 
 - Remove "Kontoinhaber" from Beitrittserklärung.
 
