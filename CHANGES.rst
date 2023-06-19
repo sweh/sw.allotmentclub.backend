@@ -7,6 +7,8 @@ Change log for sw.allotmentclub
 
 - Remove "Kontoinhaber" from Beitrittserklärung.
 
+- Add new and remove old users after new Vorstand was elected.
+
 
 5.9.0 (2023-03-22)
 ==================

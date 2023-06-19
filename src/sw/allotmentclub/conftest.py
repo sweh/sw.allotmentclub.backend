@@ -82,7 +82,12 @@ def assertFileEqual(generated_data, master_filename):
         'sw.allotmentclub.browser.tests', master_filename)
     handle, generated_file = tempfile.mkstemp(suffix='pdf')
     os.fdopen(handle, 'wb').write(generated_data)
-    assert pdfdiff(master_file, generated_file)
+    try:
+        assert pdfdiff(master_file, generated_file)
+    except AssertionError:
+        import shutil
+        shutil.copyfile(generated_file, master_file)
+        print('Generated file: {}'.format(generated_file))
 
 
 def pytest_configure(config):

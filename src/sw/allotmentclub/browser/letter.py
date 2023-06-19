@@ -77,7 +77,7 @@ TEMPLATE_FOOTER = """
           Amtsgericht Stendal VR 46284</td>
           <td style="width: 30%; text-align: center;"></td>
           <td style="width: 35%; text-align: right;">
-          Vorsitzender: Hartmut Schlöffel</td>
+          Vorsitzende: Anne Hausding</td>
         </tr>
       </table>
       <hr style="margin: 0px; padding: 0px;" />
