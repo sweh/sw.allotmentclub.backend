@@ -2,7 +2,7 @@
 Change log for sw.allotmentclub
 ===============================
 
-5.10.1 (unreleased)
+5.11.0 (2023-07-30)
 ===================
 
 - Add assignemnt todos.
