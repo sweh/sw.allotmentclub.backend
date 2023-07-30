@@ -32,6 +32,13 @@ class AssignmentAttendee(Object):
     hours = Column(Float(1), nullable=True)
 
 
+class AssignmentTodo(Object):
+    """ Eine (mögliche) Tätigkeit beim Arbeitseinsatz. """
+
+    description = Column(String, nullable=True)
+    priority = Column(Integer, nullable=False, default=4)
+
+
 def get_assignment_mail_data(member, year):
     if member.leaving_year or not member.allotments:
         return

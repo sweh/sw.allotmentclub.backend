@@ -80,3 +80,24 @@ def test_AssignmentDeleteAttendeesView_1(browser, json_fixture):
     json_fixture.assertEqual(browser.json, 'data')
     browser.open('http://localhost/assignments/1/list')
     assert [] == browser.json_result
+
+
+def test_AssignmentTodoListView_1(browser, json_fixture):
+    """It displays list of assignment todos."""
+    url = json_fixture.url()
+    setUp()
+    browser.login()
+    browser.open('http://localhost{}'.format(url))
+    json_fixture.assertEqual(browser.json, 'data')
+
+
+def test_AssignmentTodoAddView_1(browser, json_fixture):
+    """It can add new assignment todos via JSON."""
+    from sw.allotmentclub import AssignmentTodo
+    url = json_fixture.url()
+    browser.login()
+    browser.post('http://localhost{}'.format(url), data='')
+    assert 'success' == browser.json['status']
+    json_fixture.assertEqual(browser.json, 'data', save=True)
+    assert 1 == len(AssignmentTodo.query().all())
+    assert 4 == AssignmentTodo.query().one().priority

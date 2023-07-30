@@ -14,6 +14,7 @@ NAVIGATION_ITEMS = (
     ('Schlüsselbuch', 'keylists', 'fa-key', None),
     ('Arbeitseinsätze', 'assignments', 'fa-wrench', (
         ('Übersicht', 'assignments'),
+        ('Tätigkeiten', 'assignment_todos'),
         ('Abrechnung', 'member_assignments'),
     )),
     ('Mitglieder', 'member_list', 'fa-user', (

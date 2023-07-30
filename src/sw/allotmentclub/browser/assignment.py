@@ -5,9 +5,19 @@ from .base import date_time, to_string, string_agg, get_selected_year
 from .base import datetime_now  # noqa
 from sqlalchemy import func
 from pyramid.view import view_config
-from sw.allotmentclub import Assignment, AssignmentAttendee, Member, Allotment
+from sw.allotmentclub import (
+    Assignment, AssignmentAttendee, AssignmentTodo, Member, Allotment
+)
 import collections
 import sw.allotmentclub.browser.base
+
+PRIORITIES = [
+    {'token': 1, 'title': 'Sofort'},
+    {'token': 2, 'title': 'Dringend'},
+    {'token': 3, 'title': 'Hoch'},
+    {'token': 4, 'title': 'Normal'},
+    {'token': 5, 'title': 'Niedrig'},
+]
 
 
 class Query(sw.allotmentclub.browser.base.Query):
@@ -305,3 +315,105 @@ class MemberAssignmentsBillView(sw.allotmentclub.browser.base.View):
             member.bill_assignment_hours()
         self.result = {'status': 'success',
                        'message': 'Arbeitsstunden erfolgreich übertragen'}
+
+
+def fmt_priority(value, request):
+    for i in PRIORITIES:
+        if i['token'] == value:
+            return i['title']
+
+
+class TodoQuery(sw.allotmentclub.browser.base.Query):
+
+    formatters = {
+        'Priorität': fmt_priority,
+    }
+
+    def select(self):
+        todos = (
+            self.db.query(
+                AssignmentTodo.id.label('#'),
+                AssignmentTodo.priority.label('Priorität'),
+                AssignmentTodo.description.label('Aufgabe')
+            )
+            .select_from(AssignmentTodo)
+        )
+        return todos
+
+
+@view_config(route_name='assignment_todos',
+             renderer='json',
+             permission='view')
+class AssignmentTodoListView(sw.allotmentclub.browser.base.TableView):
+    """ Liste aller Tätigkeiten."""
+
+    query_class = TodoQuery
+    default_order_by = 'priority'
+    year_selection = False
+    available_actions = [
+        dict(url='assignment_todo_add', btn_class='btn-success',
+             icon='fa fa-plus', title='Neu'),
+        dict(url='assignment_todo_edit', btn_class='btn-success',
+             icon='fa fa-pencil', title='Bearbeiten'),
+        dict(url='assignment_todo_delete', btn_class='btn-danger',
+             icon='glyphicon glyphicon-trash', title='Löschen',
+             callback='sw.allotmentclub.assignments_list_view.render()'),
+    ]
+
+
+@view_config(route_name='assignment_todo_edit', renderer='json',
+             permission='view')
+class AssignmentTodoEditView(sw.allotmentclub.browser.base.EditJSFormView):
+
+    title = 'Tätigkeit bearbeiten'
+
+    @property
+    def load_options(self):
+        return {
+            'priority': {
+                'label': '',
+                'source': self.priority_source,
+                'css_class': 'chosen',
+                'required': True
+            },
+            'description': {
+                'label': 'Beschreibung',
+            },
+        }
+
+    @property
+    def priority_source(self):
+        return PRIORITIES
+
+    @property
+    def load_data(self):
+        fields = [
+            ('priority', self.context.priority),
+            ('description', self.context.description),
+        ]
+        return collections.OrderedDict(fields)
+
+
+@view_config(route_name='assignment_todo_add', renderer='json',
+             permission='view')
+class AssignmentTodoAddView(AssignmentTodoEditView):
+
+    title = 'Tätigkeit anlegen'
+
+    def __init__(self, context, request):
+        context = AssignmentTodo.create()
+        context.commit()
+        super(AssignmentTodoAddView, self).__init__(context, request)
+        log_with_user(user_data_log.info, self.request.user,
+                      'Tätigkeit %s hinzugefügt.', self.context.id)
+
+    @property
+    def route_name(self):
+        return 'assignment_todo_edit'
+
+
+@view_config(route_name='assignment_todo_delete', renderer='json',
+             permission='view')
+class AssignmentTodoDeleteView(sw.allotmentclub.browser.base.DeleteView):
+
+    model = AssignmentTodo

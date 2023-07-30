@@ -26,15 +26,11 @@
         },
         "url": "/assignments/add"
     },
-    "AssignmentDeleteAttendeesView_1": {
-        "data": null,
-        "url": "/assignments/1/attendees/1/delete"
-    },
     "AssignmentAttendeesEditView_1": {
         "data": {
             "load_data": {
-                "member_id": null,
-                "hours": null
+                "hours": null,
+                "member_id": null
             },
             "load_options": {
                 "hours": {
@@ -47,10 +43,14 @@
                     "source": []
                 }
             },
-            "title": "Stunden für Teilnehmer erfassen",
+            "title": "Stunden f\u00fcr Teilnehmer erfassen",
             "url": "/api//assignments/1/attendees/1/edit"
         },
         "url": "/assignments/1/attendees/1/edit"
+    },
+    "AssignmentDeleteAttendeesView_1": {
+        "data": null,
+        "url": "/assignments/1/attendees/1/delete"
     },
     "AssignmentListAttendeesView_1": {
         "data": {
@@ -209,5 +209,114 @@
             ]
         },
         "url": "/assignments?for_year=2015"
+    },
+    "AssignmentTodoAddView_1": {
+        "data": {
+            "load_data": {
+                "description": null,
+                "priority": 4
+            },
+            "load_options": {
+                "description": {
+                    "label": "Beschreibung"
+                },
+                "priority": {
+                    "css_class": "chosen",
+                    "label": "",
+                    "required": true,
+                    "source": [
+                        {
+                            "title": "Sofort",
+                            "token": 1
+                        },
+                        {
+                            "title": "Dringend",
+                            "token": 2
+                        },
+                        {
+                            "title": "Hoch",
+                            "token": 3
+                        },
+                        {
+                            "title": "Normal",
+                            "token": 4
+                        },
+                        {
+                            "title": "Niedrig",
+                            "token": 5
+                        }
+                    ]
+                }
+            },
+            "title": "T\u00e4tigkeit anlegen",
+            "url": "/api//assignment_todos/1/edit"
+        },
+        "url": "/assignment_todos/add"
+    },
+    "AssignmentTodoListView_1": {
+        "data": {
+            "actions": [
+                {
+                    "btn_class": "btn-success",
+                    "icon": "fa fa-plus",
+                    "route": "assignment_todo_add",
+                    "title": "Neu",
+                    "url": "/assignment_todos/add"
+                },
+                {
+                    "btn_class": "btn-success",
+                    "icon": "fa fa-pencil",
+                    "route": "assignment_todo_edit",
+                    "title": "Bearbeiten",
+                    "url": "/assignment_todos/{id}/edit"
+                },
+                {
+                    "btn_class": "btn-danger",
+                    "callback": "sw.allotmentclub.assignments_list_view.render()",
+                    "icon": "glyphicon glyphicon-trash",
+                    "route": "assignment_todo_delete",
+                    "title": "L\u00f6schen",
+                    "url": "/assignment_todos/{id}/delete"
+                }
+            ],
+            "data": [
+                [
+                    {
+                        "css_class": "hide",
+                        "value": 1
+                    },
+                    {
+                        "css_class": "",
+                        "value": 4
+                    },
+                    {
+                        "css_class": "",
+                        "value": "Fr\u00fchjahrsputz"
+                    }
+                ]
+            ],
+            "header": [
+                {
+                    "css_class": "hide",
+                    "data-class": "",
+                    "data-hide": "",
+                    "name": "#"
+                },
+                {
+                    "css_class": "",
+                    "data-class": "expand",
+                    "data-hide": "",
+                    "name": "Priorit\u00e4t"
+                },
+                {
+                    "css_class": "",
+                    "data-class": "",
+                    "data-hide": "phone,tablet",
+                    "name": "Aufgabe"
+                }
+            ],
+            "records": 1
+        },
+        "url": "/assignment_todos"
     }
 }

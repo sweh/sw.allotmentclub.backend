@@ -426,6 +426,14 @@ class Portal(sw.allotmentclub.application.Application):
             'assignment_attendees_delete',
             '/assignments/{assignment_id}/attendees/{id}/delete',
             factory='..assignment.AssignmentAttendee.context_factory')
+        config.add_route('assignment_todos', '/assignment_todos')
+        config.add_route('assignment_todo_add', '/assignment_todos/add')
+        config.add_route('assignment_todo_edit', '/assignment_todos/{id}/edit',
+                         factory='..assignment.AssignmentTodo.context_factory')
+        config.add_route(
+            'assignment_todo_delete',
+            '/assignment_todos/{id}/delete',
+            factory='..assignment.AssignmentTodo.context_factory')
 
         config.add_route('depots', '/depots')
         config.add_route('depot_add', '/depots/add')
