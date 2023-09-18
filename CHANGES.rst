@@ -2,7 +2,7 @@
 Change log for sw.allotmentclub
 ===============================
 
-5.11.1 (unreleased)
+5.11.1 (2023-09-18)
 ===================
 
 - Allow special text in Energieabrechnung for disconnected energymeters.
