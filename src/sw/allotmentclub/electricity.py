@@ -251,6 +251,11 @@ def get_energyvalue_mail_data(member, year):
                   .filter(EnergyValue.member == member)).all():
         price = (
             EnergyPrice.query().filter(EnergyPrice.year == value.year).one())
+        under_threshold = not value.advance_pay
+        above_threshold = value.advance_pay
+        if value.electric_meter.disconnected:
+            under_threshold = False
+            above_threshold = False
         content_data = dict(
             deflection='' if member.appellation == 'Frau' else 'r',
             appellation=member.appellation,
@@ -276,8 +281,9 @@ def get_energyvalue_mail_data(member, year):
             no_abschlag=value.to_pay == value.whole_price,
             must_pay=value.to_pay > 0,
             gets_back=value.to_pay <= 0,
-            under_threshold=not value.advance_pay,
-            above_threshold=value.advance_pay)
+            disconnected=value.electric_meter.disconnected,
+            under_threshold=under_threshold,
+            above_threshold=above_threshold)
         subject = u'Energieabrechnung für Zähler Nr. %s' % (
             value.electric_meter.number)
         yield subject, content_data
