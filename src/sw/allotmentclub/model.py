@@ -244,7 +244,7 @@ class Member(Object, PersonMixin):
                 booking_day=datetime.date(int(year), 10, 31),
                 purpose='fehlende %s Arbeitsstunden %s' % (
                     missing_hours, year),
-                value=0 - int(missing_hours * 10) * 10000,
+                value=0 - int(missing_hours * 25 * 10000),
                 accounting_year=year,
                 member=self,
                 kind=kind)

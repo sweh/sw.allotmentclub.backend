@@ -42,7 +42,7 @@ class AssignmentTodo(Object):
 def get_assignment_mail_data(member, year):
     if member.leaving_year or not member.allotments:
         return
-    price = int((5 - member.assignment_hours) * 10) * 10000
+    price = int((5 - member.assignment_hours) * 25 * 10000)
     if price <= 0:
         return
     content_data = dict(
