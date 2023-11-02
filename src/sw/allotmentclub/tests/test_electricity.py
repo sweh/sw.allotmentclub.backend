@@ -109,9 +109,9 @@ def test__EnergyValue__update_data_2(database):
     assert 239 == value.usage
     assert 721780 == value.price
     assert 81700 == value.fee
-    assert value.whole_price == value.fee + value.price
+    assert value.whole_price == 803500
     assert value.whole_price == value.to_pay
-    assert 267826 == value.advance_pay
+    assert 267800 == value.advance_pay
 
 
 def test__EnergyValue__update_data_3(database):
@@ -308,3 +308,32 @@ def test__EnergyValue__fee_6(database):
             allotment=Allotment.create(number='123', member=Member.create()),
             electric_power=True),
         year=2016)._fee
+
+
+def test__EnergyValue__uodate_data__round_issue(database):
+    from sw.allotmentclub import EnergyValue, ElectricMeter, EnergyPrice
+    from sw.allotmentclub import Allotment, Member
+    from sw.allotmentclub import Booking, BookingKind, BankingAccount
+    BookingKind.create(title='Energieabrechnung')
+    BankingAccount.create(number='3')
+    EnergyPrice.create(
+        year=2023,
+        normal_fee=98339,
+        power_fee=295017,
+        price=4177
+    )
+    member = Member.create()
+    value = EnergyValue.create(
+        electric_meter=ElectricMeter.create(
+            allotment=Allotment.create(
+                number='123',
+                member=member),
+            electric_power=False
+        ),
+        year=2023,
+        usage=51,
+        member=member
+    )
+    value.update_data()
+    booking = Booking.query().one()
+    assert booking.value == -311300

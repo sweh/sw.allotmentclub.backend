@@ -201,10 +201,11 @@ class EnergyValue(Object):
 
     @property
     def _whole_price(self):
-        return self.fee + self.price
+        return (round(self.fee/10000, 2) + round(self.price/10000, 2)) * 10000
 
     @property
     def advance_pay_last_year(self):
+        # XXX Use real value from booking
         last_value = self.electric_meter.get_value(self.year-1)
         if last_value:
             advance_pay_last_year = last_value.advance_pay
@@ -222,7 +223,7 @@ class EnergyValue(Object):
     @property
     def _advance_pay(self):
         # Calculate the advance payment for the next year
-        return self.whole_price / 3.0
+        return int(self.whole_price / 300) * 100
 
 
 class EnergyPrice(Object):

@@ -7,6 +7,8 @@ Change log for sw.allotmentclub
 
 - Switch Arbeitsstunden from 10 € to 25 €.
 
+- Fix a bug in calculating the energy value.
+
 
 5.11.1 (2023-09-18)
 ===================
