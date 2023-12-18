@@ -2,12 +2,14 @@
 Change log for sw.allotmentclub
 ===============================
 
-5.11.2 (unreleased)
+5.12.0 (unreleased)
 ===================
 
 - Switch Arbeitsstunden from 10 € to 25 €.
 
 - Fix a bug in calculating the energy value.
+
+- Add CSV import view for bookings.
 
 
 5.11.1 (2023-09-18)
