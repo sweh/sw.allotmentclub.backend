@@ -1,6 +1,7 @@
 # encoding=utf8
-from __future__ import unicode_literals
+import decimal
 from ..log import user_data_log, log_with_user
+from ..account import add_transaction
 from .base import date, get_selected_year, value_to_int, boolean, date_time
 from .base import format_eur_with_color, format_eur, format_date, to_string
 from .base import string_agg, parse_date
@@ -12,9 +13,10 @@ from pyramid.view import view_config
 from sqlalchemy.sql import func
 from sw.allotmentclub import Booking, Member, Allotment, GrundsteuerB, Abwasser
 from sw.allotmentclub import BookingKind, SEPASammler, SEPASammlerEntry
-from sw.allotmentclub import Budget
+from sw.allotmentclub import Budget, BankingAccount
 import collections
 import datetime
+import dateutil.parser
 import pybars
 import re
 import sqlalchemy
@@ -91,7 +93,9 @@ class BookingListView(sw.allotmentclub.browser.base.TableView):
         dict(url='map_booking', btn_class='btn-success',
              icon='fa fa-hand-o-right', title='Zuordnen'),
         dict(url='split_booking', btn_class='btn-success',
-             icon='fa fa-scissors', title='Aufteilen')
+             icon='fa fa-scissors', title='Aufteilen'),
+        dict(url='booking_csv_import', btn_class='btn-success',
+             icon='fa fa-upload', title='CSV-Import')
     ]
 
 
@@ -542,6 +546,40 @@ class BankingAccountListDetailView(sw.allotmentclub.browser.base.TableView):
                 'actions': [],
                 'records': len(result)}
         return {'status': 'success', 'data': data}
+
+
+@view_config(route_name='booking_csv_import', renderer='json',
+             permission='view')
+class BookingCSVImporterView(sw.allotmentclub.browser.base.CSVImporterView):
+
+    charset = 'latin-1'
+    type = 'Transaktionen'
+
+    def add_data(self, line):
+        class amount:
+            amount = None
+        account = (
+            BankingAccount.query()
+            .filter(BankingAccount.number == line[0][-10:])
+            .one_or_none())
+        if not account:
+            raise ValueError(f'Banking account not found: {line[0][-10:]}')
+        data = dict()
+        data['date'] = dateutil.parser.parse(line[1]).date()
+        if data['date'] < datetime.date(2023, 11, 28):
+            # Dont import data before fints exodus
+            return
+        data['currency'] = line[15]
+        data['purpose'] = line[4]
+        amount = amount()
+        amount.amount = decimal.Decimal(line[14].replace(',', '.'))
+        data['amount'] = amount
+        data['posting_text'] = line[3]
+        data['customer_reference'] = f'\n{line[8]}'  # Compatability to fints
+        data['applicant_name'] = line[11]
+        data['applicant_iban'] = line[12]
+        data['applicant_bin'] = line[13]
+        return add_transaction(data, account)
 
 
 @view_config(route_name='banking_account_list_report', renderer='json',

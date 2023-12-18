@@ -259,6 +259,7 @@ class Portal(sw.allotmentclub.application.Application):
         config.add_route('sepa_direct_debit', '/accounts/sepa_direct_debit')
         config.add_route('booking_list', '/accounts/{id}/list',
                          factory='..account.BankingAccount.context_factory')
+        config.add_route('booking_csv_import', '/accounts/import')
         config.add_route('split_booking', '/booking/{id}/split',
                          factory='..account.Booking.context_factory')
         config.add_route('map_booking', '/booking/{id}/map',

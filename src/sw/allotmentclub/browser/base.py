@@ -757,14 +757,14 @@ class PrintBaseView(object):
 class CSVImporterView(View):
 
     charset = 'utf-8'
+    type = 'Objekte'
 
     def _import(self, file, max=99999):
-        file = StringIO(file.getvalue().decode(self.charset))
+        file = StringIO(file.read().decode(self.charset))
         reader = csv.reader(file, delimiter=';')
         count = 0
-        for line in reader:
-            if count == 0:
-                count += 1
+        for i, line in enumerate(reader):
+            if i == 0:
                 continue
             if count >= max:
                 return
@@ -776,7 +776,7 @@ class CSVImporterView(View):
             count += 1
         count -= 1
         return {'status': 'success',
-                'message': '%s Mitglieder importiert.' % count}
+                'message': f'{count} {self.type} importiert.'}
 
     def __call__(self):
         if not self.form_submit():
