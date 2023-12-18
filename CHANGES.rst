@@ -2,7 +2,7 @@
 Change log for sw.allotmentclub
 ===============================
 
-5.12.0 (unreleased)
+5.12.0 (2023-12-18)
 ===================
 
 - Switch Arbeitsstunden from 10 € to 25 €.
