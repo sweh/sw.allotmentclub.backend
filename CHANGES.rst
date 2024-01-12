@@ -5,7 +5,7 @@ Change log for sw.allotmentclub
 5.12.1 (unreleased)
 ===================
 
-- Nothing changed yet.
+- Bugfix date calculation CSV booking import.
 
 
 5.12.0 (2023-12-18)

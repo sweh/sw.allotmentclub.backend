@@ -16,7 +16,6 @@ from sw.allotmentclub import BookingKind, SEPASammler, SEPASammlerEntry
 from sw.allotmentclub import Budget, BankingAccount
 import collections
 import datetime
-import dateutil.parser
 import pybars
 import re
 import sqlalchemy
@@ -565,7 +564,7 @@ class BookingCSVImporterView(sw.allotmentclub.browser.base.CSVImporterView):
         if not account:
             raise ValueError(f'Banking account not found: {line[0][-10:]}')
         data = dict()
-        data['date'] = dateutil.parser.parse(line[1]).date()
+        data['date'] = datetime.datetime.strptime(line[1], '%d.%m.%y').date()
         if data['date'] < datetime.date(2023, 11, 28):
             # Dont import data before fints exodus
             return
