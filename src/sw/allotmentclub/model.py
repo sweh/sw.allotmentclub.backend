@@ -131,7 +131,6 @@ ADDRESS = """
 
 ADDRESS_CHANGE = {
     188: 187,  # Werkstatt -> Leuna Bungalowgemeinschaft
-    82: 108,  # Britta Grimmling -> Andreas Grimmling
 }
 
 

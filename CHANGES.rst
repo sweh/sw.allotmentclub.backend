@@ -7,6 +7,10 @@ Change log for sw.allotmentclub
 
 - Bugfix date calculation CSV booking import.
 
+- Remove address change for Grimmlings.
+
+- Add email variable to every letter.
+
 
 5.12.0 (2023-12-18)
 ===================

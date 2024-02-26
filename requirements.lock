@@ -1,5 +1,4 @@
-# Created by batou. Do not edit manually.
-# appenv-python-preference: 3.10
+# appenv-requirements-hash: b54e7308943b27a2e8340c55ca85c520a1d74bf8650509628b471939fe3c08bd
 --extra-index-url https://pypi.wehrmann.it/packages/stable
 --extra-index-url https://pypi:sUAh5YidAP43@pypi.claimx.net/pypi/prod/
 -e .
@@ -40,7 +39,7 @@ decorator==4.0.11
 diff-pdf-visually==1.4.1
 elementpath==1.4.5
 entrypoints==0.3
-et-xmlfile==1.0.1
+et_xmlfile==1.0.1
 exceptiongroup==1.1.1
 execnet==1.5.0
 filelock==3.0.12
@@ -83,12 +82,12 @@ pycodestyle==2.5.0
 pycparser==2.17
 pyflakes==2.1.1
 pyparsing==2.4.7
-pyramid-beaker==0.8
 pyramid-exclog==1.0
 pyramid-mailer==0.15.1
 pyramid-tm==2.4
-pyramid-who==0.3
 pyramid==2.0
+pyramid_beaker==0.8
+pyramid_who==0.3
 pytest-cache==1.0
 pytest-cov==2.10.1
 pytest-flake8==1.1.0
@@ -121,7 +120,7 @@ tomli==2.0.1
 traceback2==1.4.0
 transaction==3.1.0
 translationstring==1.3
-typing-extensions==4.5.0
+typing_extensions==4.5.0
 ua-parser==0.7.3
 urllib3==1.26.15
 user-agents==1.1.0

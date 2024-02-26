@@ -268,7 +268,8 @@ class MailPreviewView(sw.allotmentclub.browser.base.View):
             firstname=recipient.firstname,
             lastname=recipient.lastname,
             phone=getattr(recipient, 'phone', ''),
-            mobile=getattr(recipient, 'mobile', '')
+            mobile=getattr(recipient, 'mobile', ''),
+            email=recipient.email,
         )
         return result
 
