@@ -511,10 +511,7 @@ class EditJSFormView(AddEditBase):
             json = None
         file_ = self.request.params.get('file')
         if self.form_submit() and file_ is None:
-            self.result = {
-                'status': 'error',
-                'msg': 'Ein unerwarteter Fehler ist aufgetreten'
-            }
+            result = {'status': 'success'}
         elif file_ is not None:
             created, route_name = self.handle_upload(file_)
             transaction.savepoint()

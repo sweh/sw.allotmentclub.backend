@@ -30,6 +30,19 @@ class Key(Object):
     lost = Column(Boolean, default=sql.false())
 
 
+class KeyAttachment(Object):
+    """Eine Anlage zum Schlüssel."""
+
+    key_id = Column(
+        Integer, ForeignKey(Key.id, ondelete='cascade'), nullable=False)
+    key = sqlalchemy.orm.relation(
+        'Key', uselist=False, backref='attachments', cascade='all')
+    filename = Column(String(100), default=u'')
+    mimetype = Column(String(30), default=u'')
+    size = Column(String(20), default=u'')
+    data = Column(LargeBinary(MAX_FILE_SIZE))
+
+
 class KeylistAttachment(Object):
     """Eine Anlage zum Schlüsselbuch."""
 

@@ -2,12 +2,13 @@
 from __future__ import unicode_literals
 from ..log import user_data_log, log_with_user
 from .base import boolean, date_time, to_string, string_agg, format_size
-from .base import format_mimetype, parse_date
+from .base import format_mimetype, parse_date, route_url
 from io import BytesIO
 from pyramid.response import FileIter
 from pyramid.view import view_config
 from sqlalchemy.sql import func, text
-from sw.allotmentclub import Keylist, Key, KeylistAttachment, Member, Allotment
+from sw.allotmentclub import Keylist, Key, KeyAttachment, KeylistAttachment
+from sw.allotmentclub import Member, Allotment
 import collections
 import sw.allotmentclub.browser.base
 import zope.component
@@ -164,6 +165,11 @@ class KeyEditView(sw.allotmentclub.browser.base.EditJSFormView):
 
     @property
     def load_options(self):
+        collection_url = '/api/' + route_url(
+            'key_list_attachments',
+            self.request
+        ).replace('{id}', str(self.context.id)).replace(
+            '{keylist_id}', str(self.context.keylist.id))
         return {
             'serial': {'label': 'Seriennummer'},
             'member_id': {
@@ -176,8 +182,20 @@ class KeyEditView(sw.allotmentclub.browser.base.EditJSFormView):
                 'css_class': 'datetimepicker'
             },
             'note': {'label': 'Notiz'},
+            'attachment': {
+                'label': 'Anlage',
+                'template': 'form_upload',
+                'documents_collection_url': collection_url,
+            },
             'lost': {'label': 'Verloren?', 'template': 'form_boolean'}
         }
+
+    def resource_data_item(self, item, route_name):
+        return {
+            'status': 'success',
+            'resource': self.get_route(item, route_name),
+            'id': item.id,
+            'data': {'title': self.resource_data_item_title(item)}}
 
     @property
     def load_data(self):
@@ -187,12 +205,75 @@ class KeyEditView(sw.allotmentclub.browser.base.EditJSFormView):
             ('rent', self.context.rent),
             ('note', self.context.note),
             ('lost', self.context.lost),
+            ('attachment', [
+                {'id': a.id, 'title': a.filename}
+                for a in self.context.attachments]),
         ]
         return collections.OrderedDict(fields)
 
     def get_route(self, item, name):
         route = super(KeyEditView, self).get_route(item, name)
+        if 'key_id' in route:
+            route = route.replace('{key_id}', str(self.context.id))
         return route.replace('{keylist_id}', str(self.context.keylist.id))
+
+    def handle_upload(self, file_):
+        data = file_.file
+        data.seek(0)
+        data = data.read()
+        return KeyAttachment.create(
+            key=self.context,
+            filename=file_.filename,
+            mimetype=file_.type,
+            size=len(data),
+            data=data), 'key_attachment_del'
+
+
+@view_config(route_name='key_list_attachments', renderer='json',
+             permission='view')
+class KeyListAttachments(KeyEditView):
+
+    def update(self):
+        self.result = [
+            self.resource_data_item(attachment, 'key_attachment_del')
+            for attachment in self.context.attachments]
+
+
+@view_config(route_name='key_attachment_del', renderer='json',
+             permission='view')
+class KeyAttachmentDelView(sw.allotmentclub.browser.base.DeleteView):
+
+    model = KeyAttachment
+
+    def update(self):
+        db = zope.component.getUtility(
+            risclog.sqlalchemy.interfaces.IDatabase
+        )
+        stmt = text("DELETE FROM keyattachment WHERE id = :x")
+        stmt = stmt.bindparams(x=self.context.id)
+        db.session.execute(stmt)
+        self.deleted = True
+        self.result = {'status': 'success'}
+        self.log()
+
+
+@view_config(route_name='key_attachment_download', renderer='json',
+             permission='view')
+class KeyAttachmentDownloadView(object):
+
+    def __init__(self, context, request):
+        self.context = context
+        self.request = request
+
+    def __call__(self):
+        response = self.request.response
+        response.set_cookie('fileDownload', value='true')
+        response.content_type = self.context.mimetype
+        response.content_length = int(self.context.size)
+        response.content_disposition = (
+            'attachment; filename="{}"'.format(self.context.filename))
+        response.app_iter = FileIter(BytesIO(self.context.data))
+        return response
 
 
 @view_config(route_name='key_add', renderer='json', permission='view')

@@ -13,6 +13,8 @@ Change log for sw.allotmentclub
 
 - Fix deletion of keys and keylists.
 
+- Add attachments to keylist keys.
+
 
 5.12.0 (2023-12-18)
 ===================

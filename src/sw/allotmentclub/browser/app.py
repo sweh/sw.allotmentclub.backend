@@ -350,6 +350,21 @@ class Portal(sw.allotmentclub.application.Application):
             'key_delete',
             '/keylists/{keylist_id}/keys/{id}/delete',
             factory='..keylist.Key.context_factory')
+        config.add_route(
+            'key_list_attachments',
+            '/keylists/{keylist_id}/keys/{id}/list_attachments',
+            factory='..keylist.Key.context_factory'
+        )
+        config.add_route(
+            'key_attachment_del',
+            '/keys/{key_id}/attachments/{id}/del',
+            factory='..keylist.KeyAttachment.context_factory'
+        )
+        config.add_route(
+            'key_attachment_download',
+            '/keys/{key_id}/attachments/{id}/download',
+            factory='..keylist.KeyAttachment.context_factory'
+        )
         config.add_route('keylist_attachment_add',
                          '/keylists/{id}/attachments/add',
                          factory='..keylist.Keylist.context_factory')
