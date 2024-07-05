@@ -11,6 +11,8 @@ Change log for sw.allotmentclub
 
 - Add email variable to every letter.
 
+- Fix deletion of keys and keylists.
+
 
 5.12.0 (2023-12-18)
 ===================

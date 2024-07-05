@@ -6,10 +6,12 @@ from .base import format_mimetype, parse_date
 from io import BytesIO
 from pyramid.response import FileIter
 from pyramid.view import view_config
-from sqlalchemy.sql import func
+from sqlalchemy.sql import func, text
 from sw.allotmentclub import Keylist, Key, KeylistAttachment, Member, Allotment
 import collections
 import sw.allotmentclub.browser.base
+import zope.component
+import risclog.sqlalchemy.interfaces
 
 
 class KeylistQuery(sw.allotmentclub.browser.base.Query):
@@ -86,6 +88,23 @@ class KeylistAddView(KeylistEditView):
 class KeylistDeleteView(sw.allotmentclub.browser.base.DeleteView):
 
     model = Keylist
+
+    def update(self):
+        db = zope.component.getUtility(
+            risclog.sqlalchemy.interfaces.IDatabase
+        )
+        stmt = text("DELETE FROM key WHERE keylist_id = :x")
+        stmt = stmt.bindparams(x=self.context.id)
+        db.session.execute(stmt)
+        stmt = text("DELETE FROM keylistattachment WHERE keylist_id = :x")
+        stmt = stmt.bindparams(x=self.context.id)
+        db.session.execute(stmt)
+        stmt = text("DELETE FROM keylist WHERE id = :x")
+        stmt = stmt.bindparams(x=self.context.id)
+        db.session.execute(stmt)
+        self.deleted = True
+        self.result = {'status': 'success'}
+        self.log()
 
 
 class KeyQuery(sw.allotmentclub.browser.base.Query):
@@ -197,6 +216,17 @@ class KeyAddView(KeyEditView):
 class KeyDeleteView(sw.allotmentclub.browser.base.DeleteView):
 
     model = Key
+
+    def update(self):
+        db = zope.component.getUtility(
+            risclog.sqlalchemy.interfaces.IDatabase
+        )
+        stmt = text("DELETE FROM key WHERE id = :x")
+        stmt = stmt.bindparams(x=self.context.id)
+        db.session.execute(stmt)
+        self.deleted = True
+        self.result = {'status': 'success'}
+        self.log()
 
     def log(self):
         if self.deleted is not None:
