@@ -121,10 +121,11 @@ class EnergyValue(Object):
         self.fee = self._fee
         self.whole_price = self._whole_price
         self.to_pay = self._to_pay
-        if self._advance_pay >= THRESHOLD:
-            self.advance_pay = int(self._advance_pay)
-        else:
-            self.advance_pay = 0
+        # if self._advance_pay >= THRESHOLD:
+        #     self.advance_pay = int(self._advance_pay)
+        # else:
+        #     self.advance_pay = 0
+        self.advance_pay = 0
         purpose = 'Energieabrechnung'
         month = 8
         day = 31
@@ -147,6 +148,7 @@ class EnergyValue(Object):
             booking.value = 0 - value_to_int(format_eur(self.to_pay)[:-2])
         if self.member.lastname in ['Verein', 'Werkstatt']:
             return
+        return
         for purpose, month, day in [('Energieabschlag I', 3, 31),
                                     ('Energieabschlag II', 6, 30)]:
             try:
