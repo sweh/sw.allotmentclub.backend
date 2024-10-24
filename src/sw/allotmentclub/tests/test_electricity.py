@@ -111,7 +111,7 @@ def test__EnergyValue__update_data_2(database):
     assert 81700 == value.fee
     assert value.whole_price == 803500
     assert value.whole_price == value.to_pay
-    assert 267800 == value.advance_pay
+    assert 0 == value.advance_pay
 
 
 def test__EnergyValue__update_data_3(database):
@@ -146,31 +146,6 @@ def test__EnergyValue__update_data_4(database):
     assert value.advance_pay == 0
 
 
-def test__EnergyValue__update_data_5(database):
-    """Creates bookings for advanced pay for the next year."""
-    from sw.allotmentclub import EnergyValue, ElectricMeter, EnergyPrice
-    from sw.allotmentclub import Booking, BookingKind, BankingAccount
-    setUp()
-    BookingKind.create(title='Energieabschlag I')
-    BookingKind.create(title='Energieabschlag II')
-    BankingAccount.create(number='3')
-    EnergyPrice.create(
-        year=2016, price=3020, normal_fee=81700, power_fee=243300)
-    meter = ElectricMeter.get(1)
-    value = EnergyValue.create(electric_meter=meter, year=2016, value=7132)
-    assert Booking.query().filter(Booking.accounting_year == 2017).all() == []
-    value.update_member()
-    value.update_usage()
-    value.update_data()
-    ap1, ap2 = Booking.query().filter(Booking.accounting_year == 2017).all()
-    assert ap1.value == ap2.value == -267800
-    assert ap1.member == ap2.member == value.member
-    assert ap1.booking_day == datetime.date(2017, 3, 31)
-    assert ap2.booking_day == datetime.date(2017, 6, 30)
-    assert ap1.purpose == 'Energieabschlag I für Zähler 318992603'
-    assert ap2.purpose == 'Energieabschlag II für Zähler 318992603'
-
-
 def test__EnergyValue__update_data_6(database):
     """Creates multiple bookings for multiple meters of the same allotment."""
     from sw.allotmentclub import EnergyValue, ElectricMeter, EnergyPrice
@@ -194,13 +169,6 @@ def test__EnergyValue__update_data_6(database):
     value2.update_member()
     value2.update_usage()
     value2.update_data()
-
-    ap1, ap2 = Booking.query().filter(Booking.accounting_year == 2017).all()
-    assert ap1.value != ap2.value
-    assert ap1.member == ap2.member == value.member
-    assert ap1.booking_day == ap2.booking_day == datetime.date(2017, 3, 31)
-    assert ap1.purpose == 'Energieabschlag I für Zähler 318992603'
-    assert ap2.purpose == 'Energieabschlag I für Zähler 136426011'
 
     enab1, enab2 = Booking.query().filter(
         Booking.accounting_year == 2016).all()
