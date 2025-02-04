@@ -8,46 +8,23 @@ on:
     # * is a special character in YAML so you have to quote this string
     - cron:  '0 9 * * *'
 
-env:
-  CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
-
 jobs:
-  autotests:
-    name: Run tests
-    runs-on: ubuntu-latest
-    services:
-      postgres:
-        image: postgres:10.8
-        env:
-          POSTGRES_USER: allotmentclubtest
-          POSTGRES_PASSWORD: asdf
-          POSTGRES_DB: postgres
-        ports:
-        - 5432:5432
-        # needed because the postgres container does not provide a healthcheck
-        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
-    steps:
-      - uses: actions/checkout@v2
+  test:
+    uses: risclog-solution/gha_workflow_templates/.github/workflows/pytest_appenv.yml@master
+    with:
+      timeout_minutes: 25
+      versions: >-
+        ["3.10",]
 
-      - name: Set up Python 3.10
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.10'
-      - name: Install needed software
-        run: |
-          sudo apt-get update
-          sudo apt-get -yqq install poppler-utils
+  coverage:
+    needs: test
+    uses: risclog-solution/gha_workflow_templates/.github/workflows/coverage.yml@master
+    with:
+      min_coverage: 80
 
-      - name: Install and setup code coverage tool
-        run: |
-          curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
-          chmod +x ./cc-test-reporter
-          ./cc-test-reporter before-build
+  pre-commit:
+    uses: risclog-solution/gha_workflow_templates/.github/workflows/pre_commit.yml@master
 
-      - name: Run Test
-        if: always()
-        run: ./pytest
-
-      - name: Report coverage to codeclimate
-        run: |
-          ./cc-test-reporter after-build --exit-code 0
+  publish-test-results:
+    needs: test
+    uses: risclog-solution/gha_workflow_templates/.github/workflows/publish_test_results.yml@master
