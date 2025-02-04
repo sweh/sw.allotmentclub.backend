@@ -110,9 +110,9 @@ def json_fixture(request):
 
 class PostgreSQLTestDB(object):
 
-    user = 'allotmentclubtest'
-    passwd = 'asdf'
-    host = 'localhost'
+    user = os.environ.get("POSTGRES_USER", "allotmentclubtest")
+    passwd = os.environ.get("POSTGRES_PASSWORD", "asdf")
+    host = os.environ.get("POSTGRES_HOST", "localhost")
     port = 5432
     name = None
 
