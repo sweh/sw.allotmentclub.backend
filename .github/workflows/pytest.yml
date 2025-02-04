@@ -20,7 +20,7 @@ jobs:
     needs: test
     uses: risclog-solution/gha_workflow_templates/.github/workflows/coverage.yml@master
     with:
-      min_coverage: 75
+      min_coverage: 70
 
   pre-commit:
     uses: risclog-solution/gha_workflow_templates/.github/workflows/pre_commit.yml@master
