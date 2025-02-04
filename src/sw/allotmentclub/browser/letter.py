@@ -97,8 +97,8 @@ PDF_TEMPLATE = TEMPLATE_HEADER + """
     {{#if address}}
     <p style="font-size: 7pt; text-decoration: underline;
               padding-bottom: 7pt;">
-      Leuna&mdash;Bungalowgemeinschaft Roter See e.V.&nbsp;&nbsp;Leuna-Siedlung 175
-      &nbsp;&nbsp;06901 Kemberg
+      Leuna&mdash;Bungalowgemeinschaft Roter See e.V.&nbsp;&nbsp;
+      Leuna-Siedlung 175&nbsp;&nbsp;06901 Kemberg
     </p>
     <div style="font-size: 11pt; line-height: 11pt; padding-top: 13pt;">
       {{{address}}}
