@@ -2,23 +2,44 @@
 requires = ["setuptools>=40.6.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
-[tool.black]
+[tool.coverage.run]
+relative_files = true
+parallel = true
+branch = true
+source = ["sw.allotmentclub"]
+
+[tool.coverage.paths]
+source = ["src", ".pytest/*/site-packages"]
+
+[tool.coverage.html]
+directory = "coverage-report"
+
+[tool.coverage.report]
+precision = 2
+show_missing = true
+skip_covered = true
+exclude_lines = [
+    # a more strict default pragma
+    "\\# pragma: no cover\\b",
+
+    # allow defensive code
+    "^\\s*raise AssertionError\\b",
+    "^\\s*raise NotImplementedError\\b",
+    "^\\s*return NotImplemented\\b",
+    "^\\s*raise$",
+
+    # typing-related code
+    "^if (False|TYPE_CHECKING):",
+    ": \\.\\.\\.(\\s*#.*)?$",
+    "^ +\\.\\.\\.$",
+    "-> ['\"]?NoReturn['\"]?:",
+]
+
+[tool.ruff]
+lint.extend-ignore = ["E721"]
+lint.extend-select = ["I"]
+target-version = "py310"
 line-length = 79
-target-version = ['py36']
-exclude = '''
-/(
-    \.eggs
-  | eggs
-  | venv
-  | \.git
-  | \.hg
-  | \.mypy_cache
-  | \.tox
-  | \.venv
-  | _build
-  | buck-out
-  | build
-  | dist
-)/
-'''
-skip-string-normalization = true
+
+[tool.check-manifest]
+ignore-bad-ideas = ["*.mo"]

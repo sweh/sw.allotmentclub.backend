@@ -1,24 +1,31 @@
-# -*- coding: utf-8 -*-
 from __future__ import unicode_literals
-from datetime import datetime
-from sw.allotmentclub import Member
-from io import BytesIO
+
 import email.utils
+import re
+import unicodedata
+from datetime import datetime
+from io import BytesIO
+
 import pkg_resources
 import pybars
 import pyramid.threadlocal
 import pyramid_mailer
 import pyramid_mailer.message
-import re
 import xhtml2pdf.pisa
-import unicodedata
-
 from reportlab import rl_config
+
+from sw.allotmentclub import Member
+
 rl_config.invariant = True
 
 
-LOGO = pkg_resources.resource_stream(
-    'sw.allotmentclub.browser', 'logo_letter.txt').read().decode('utf-8')
+LOGO = (
+    pkg_resources.resource_stream(
+        "sw.allotmentclub.browser", "logo_letter.txt"
+    )
+    .read()
+    .decode("utf-8")
+)
 
 TEMPLATE_HEADER = """
 <html lang="de">
@@ -93,7 +100,9 @@ TEMPLATE_FOOTER = """
 </body>
 </html>"""
 
-PDF_TEMPLATE = TEMPLATE_HEADER + """
+PDF_TEMPLATE = (
+    TEMPLATE_HEADER
+    + """
     {{#if address}}
     <p style="font-size: 7pt; text-decoration: underline;
               padding-bottom: 7pt;">
@@ -121,7 +130,9 @@ PDF_TEMPLATE = TEMPLATE_HEADER + """
     <div id="content">
       {{{content}}}
     </div>
-""" + TEMPLATE_FOOTER
+"""
+    + TEMPLATE_FOOTER
+)
 
 PDF_STYLES = """
     @page {
@@ -144,14 +155,18 @@ PDF_STYLES = """
     }
 """
 
-MAIL_TEMPLATE = TEMPLATE_HEADER + """
+MAIL_TEMPLATE = (
+    TEMPLATE_HEADER
+    + """
     <p style="text-align: right; width: 100%; padding-top: 30pt;
               margin-top: 0px;">
       {{city}}, den {{date}}</p>
     <div id="content">
       {{{content}}}
     </div>
-""" + TEMPLATE_FOOTER
+"""
+    + TEMPLATE_FOOTER
+)
 
 MAIL_STYLES = """
     #header_content { display: block; padding-top: 10pt; width: 80% }
@@ -169,8 +184,16 @@ mail_template = compiler.compile(MAIL_TEMPLATE)
 
 
 def render_pdf(
-        to, subject, content, user, date=None,
-        subsubject=None, attachments=None, font_size='12pt', force_from=False):
+    to,
+    subject,
+    content,
+    user,
+    date=None,
+    subsubject=None,
+    attachments=None,
+    font_size="12pt",
+    force_from=False,
+):
     if date is None:
         date = datetime.now()
     if isinstance(to, Member):
@@ -178,7 +201,7 @@ def render_pdf(
     if not to and not force_from:
         from_ = None
     else:
-        from_ = '{} {} ({})'.format(user.vorname, user.nachname, user.position)
+        from_ = "{} {} ({})".format(user.vorname, user.nachname, user.position)
     data = dict(
         styles=PDF_STYLES,
         subject=subject,
@@ -187,22 +210,33 @@ def render_pdf(
         from_=from_,
         city=user.ort if user else None,
         signature=user.signature if user else None,
-        date=date.strftime('%d.%m.%Y') if date else None,
-        address=to if to else None, logo=LOGO,
-        attachments=attachments, font_size=font_size)
+        date=date.strftime("%d.%m.%Y") if date else None,
+        address=to if to else None,
+        logo=LOGO,
+        attachments=attachments,
+        font_size=font_size,
+    )
     html = "".join(pdf_template(data))
     pdf = BytesIO()
-    xhtml2pdf.pisa.CreatePDF(src=html, dest=pdf, encoding='utf-8')
+    xhtml2pdf.pisa.CreatePDF(src=html, dest=pdf, encoding="utf-8")
     pdf.seek(0)
     return pdf
 
 
-def send_mail(to, subject, content, user, date=None, attachments=[],
-              font_size='12pt', self_cc=False):
+def send_mail(
+    to,
+    subject,
+    content,
+    user,
+    date=None,
+    attachments=[],
+    font_size="12pt",
+    self_cc=False,
+):
     anschreiben = render_pdf(to, subject, content, user, date)
     if date is None:
         date = datetime.now()
-    from_ = '{} {} ({})'.format(user.vorname, user.nachname, user.position)
+    from_ = "{} {} ({})".format(user.vorname, user.nachname, user.position)
     text = """
 {}
 
@@ -213,33 +247,44 @@ Im Auftrag des Vorstandes
 
 """.format(content, from_)
 
-    text = text.replace('</p>', '\n')
-    text = re.sub('<[^<]+?>', '', text)
-    text = text.replace('  ', ' ')
+    text = text.replace("</p>", "\n")
+    text = re.sub("<[^<]+?>", "", text)
+    text = text.replace("  ", " ")
     msg_tag = email.utils.make_msgid()
     msg = pyramid_mailer.message.Message(
         subject=subject,
         recipients=[to],
-        cc=['vorstand@roter-see.de'] if self_cc else None,
-        sender=('Vorstand Leuna-Bungalowgemeinschaft Roter See '
-                '<vorstand@roter-see.de>'),
-        body=text)
-    msg.attach(pyramid_mailer.message.Attachment(
-            'Anschreiben.pdf', 'application/pdf', anschreiben))
+        cc=["vorstand@roter-see.de"] if self_cc else None,
+        sender=(
+            "Vorstand Leuna-Bungalowgemeinschaft Roter See "
+            "<vorstand@roter-see.de>"
+        ),
+        body=text,
+    )
+    msg.attach(
+        pyramid_mailer.message.Attachment(
+            "Anschreiben.pdf", "application/pdf", anschreiben
+        )
+    )
     for attachment in attachments:
         filename = attachment.filename
         try:
             # Prevent tuple exception in repoze.sendmail if filename contains
             # non-ascii characters
-            filename = (unicodedata
-                        .normalize('NFKD', filename)
-                        .encode('ASCII', 'ignore')
-                        .decode())
+            filename = (
+                unicodedata.normalize("NFKD", filename)
+                .encode("ASCII", "ignore")
+                .decode()
+            )
         except Exception:
             pass
-        msg.attach(pyramid_mailer.message.Attachment(
-            filename, attachment.mimetype, attachment.data))
+        msg.attach(
+            pyramid_mailer.message.Attachment(
+                filename, attachment.mimetype, attachment.data
+            )
+        )
     mailer = pyramid_mailer.get_mailer(
-        pyramid.threadlocal.get_current_request())
+        pyramid.threadlocal.get_current_request()
+    )
     mailer.send(msg)
     return msg_tag

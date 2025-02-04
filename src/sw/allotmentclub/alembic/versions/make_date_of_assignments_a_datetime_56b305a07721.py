@@ -5,11 +5,12 @@ Revises: 4377c6148413
 Create Date: 2015-02-26 13:51:22.336689
 
 """
+
 from alembic import op
 
 # revision identifiers, used by Alembic.
-revision = '56b305a07721'
-down_revision = '4377c6148413'
+revision = "56b305a07721"
+down_revision = "4377c6148413"
 
 
 def upgrade():

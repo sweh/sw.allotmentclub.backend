@@ -5,17 +5,18 @@ Revises: 3b50f99a2e2f
 Create Date: 2017-02-07 09:42:06.154891
 
 """
-from alembic import op
+
 import sqlalchemy as sa
+from alembic import op
 
 # revision identifiers, used by Alembic.
-revision = '78f2790c1501'
-down_revision = '3b50f99a2e2f'
+revision = "78f2790c1501"
+down_revision = "3b50f99a2e2f"
 
 
 def upgrade():
-    op.add_column('member', sa.Column('birthday', sa.Date(), nullable=True))
+    op.add_column("member", sa.Column("birthday", sa.Date(), nullable=True))
 
 
 def downgrade():
-    op.drop_column('member', 'birthday')
+    op.drop_column("member", "birthday")

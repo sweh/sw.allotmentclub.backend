@@ -9,8 +9,8 @@ Create Date: 2015-03-27 08:15:43.051506
 # revision identifiers, used by Alembic.
 from alembic import op
 
-revision = '1654373c7899'
-down_revision = u'51aecbad82b3'
+revision = "1654373c7899"
+down_revision = "51aecbad82b3"
 
 
 def upgrade():

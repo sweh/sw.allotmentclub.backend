@@ -28,4 +28,7 @@ recursive-include src *.woff2
 recursive-include src *.xsd
 exclude requirements.txt
 exclude pytest
+exclude appenv
+exclude requirements.*
+exclude .pre-commit-config.yaml
 recursive-include src *.bak

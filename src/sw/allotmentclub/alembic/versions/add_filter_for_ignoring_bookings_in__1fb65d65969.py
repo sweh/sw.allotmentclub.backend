@@ -7,26 +7,32 @@ Create Date: 2015-11-17 15:04:58.595746
 """
 
 # revision identifiers, used by Alembic.
-from alembic import op
 import sqlalchemy as sa
+from alembic import op
 
-revision = '1fb65d65969'
-down_revision = '433297b9762'
+revision = "1fb65d65969"
+down_revision = "433297b9762"
 
 
 def upgrade():
     op.add_column(
-        'booking',
-        sa.Column('ignore_in_reporting',
-                  sa.Boolean(),
-                  server_default='False',
-                  nullable=False))
+        "booking",
+        sa.Column(
+            "ignore_in_reporting",
+            sa.Boolean(),
+            server_default="False",
+            nullable=False,
+        ),
+    )
     op.add_column(
-        'sepasammler',
-        sa.Column('ignore_in_reporting',
-                  sa.Boolean(),
-                  server_default='False',
-                  nullable=False))
+        "sepasammler",
+        sa.Column(
+            "ignore_in_reporting",
+            sa.Boolean(),
+            server_default="False",
+            nullable=False,
+        ),
+    )
     op.execute("""UPDATE booking SET ignore_in_reporting = True
                   WHERE id in (102, 586, 516, 598, 591, 963, 431, 1001, 998,
                   999, 1000, 1027);""")
@@ -35,5 +41,5 @@ def upgrade():
 
 
 def downgrade():
-    op.drop_column('booking', 'ignore_in_reporting')
-    op.drop_column('sepasammler', 'ignore_in_reporting')
+    op.drop_column("booking", "ignore_in_reporting")
+    op.drop_column("sepasammler", "ignore_in_reporting")

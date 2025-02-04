@@ -1,16 +1,18 @@
-# -*- coding: utf-8 -*-
 from __future__ import unicode_literals
-from .protocol import format_markdown
-from io import BytesIO
-from pyramid.view import view_config
-from PyPDF2 import PdfFileWriter, PdfFileReader
-from .mail import append_pdf
+
 import datetime
+from io import BytesIO
+
 import img2pdf
 import pybars
-import sw.allotmentclub.browser.base
 import xhtml2pdf.pisa
+from PyPDF2 import PdfFileReader, PdfFileWriter
+from pyramid.view import view_config
 
+import sw.allotmentclub.browser.base
+
+from .mail import append_pdf
+from .protocol import format_markdown
 
 TEMPLATE = """
 <html lang=de>
@@ -88,39 +90,42 @@ TEMPLATE = """
 </html>"""
 
 
-@view_config(route_name='protocol_print', permission='view')
+@view_config(route_name="protocol_print", permission="view")
 class ProtocolPrintView(sw.allotmentclub.browser.base.PrintBaseView):
-
-    filename = 'Protokoll'
+    filename = "Protokoll"
 
     def get_pdf(self):
         # Base data
         data = self.get_json(self.context)
         # Details data
-        data['details'] = []
+        data["details"] = []
         time = self.context.day
         minutes = 0
         for detail in self.context.details:
             detail = self.get_json(detail)
             time += datetime.timedelta(minutes=minutes)
-            minutes = detail['duration']
-            detail['time'] = time.strftime('%H:%M')
-            detail['message'] = format_markdown(detail['message'])
-            data['details'].append(detail)
+            minutes = detail["duration"]
+            detail["time"] = time.strftime("%H:%M")
+            detail["message"] = format_markdown(detail["message"])
+            data["details"].append(detail)
         time += datetime.timedelta(minutes=minutes)
-        data['details'].append(dict(
-            time=time.strftime('%H:%M'), message='<p>Ende</p>',
-            responsible=''))
+        data["details"].append(
+            dict(
+                time=time.strftime("%H:%M"),
+                message="<p>Ende</p>",
+                responsible="",
+            )
+        )
         # Commitments
-        data['commitments'] = []
+        data["commitments"] = []
         for commitment in self.context.commitments:
-            data['commitments'].append(self.get_json(commitment))
+            data["commitments"].append(self.get_json(commitment))
         # Attachments
-        data['attachments'] = bool(self.context.attachments)
+        data["attachments"] = bool(self.context.attachments)
         if self.context.day >= datetime.datetime.now():
-            data['type'] = 'AGENDA'
+            data["type"] = "AGENDA"
         else:
-            data['type'] = 'PROTOKOLL'
+            data["type"] = "PROTOKOLL"
         compiler = pybars.Compiler()
         template = compiler.compile(TEMPLATE)
         html = "".join(template(data))
@@ -132,7 +137,7 @@ class ProtocolPrintView(sw.allotmentclub.browser.base.PrintBaseView):
         append_pdf(PdfFileReader(pdf, strict=False), output)
 
         for attachment in self.context.attachments:
-            if attachment.mimetype in ('application/pdf',):
+            if attachment.mimetype in ("application/pdf",):
                 pdf = attachment.data
             else:
                 pdf = img2pdf.convert(attachment.data)

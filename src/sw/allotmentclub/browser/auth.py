@@ -1,8 +1,9 @@
-from pyramid.security import Allow, Authenticated
-from sw.allotmentclub import User, AccessAuthority
 import pyramid.httpexceptions
 import pyramid.security
 import pyramid.threadlocal
+from pyramid.security import Allow, Authenticated
+
+from sw.allotmentclub import AccessAuthority, User
 
 
 def authorize(request=None, context=None):
@@ -13,16 +14,18 @@ def authorize(request=None, context=None):
     if context is not None:
         if user is None or user.organization_id != context.organization_id:
             return []
-    allowed = (AccessAuthority.query()
-               .filter(AccessAuthority.viewname == route_name)
-               .filter(AccessAuthority.user == user).all())
+    allowed = (
+        AccessAuthority.query()
+        .filter(AccessAuthority.viewname == route_name)
+        .filter(AccessAuthority.user == user)
+        .all()
+    )
     if user.unrestricted_access or allowed:
-        return [(Allow, Authenticated, 'view')]
+        return [(Allow, Authenticated, "view")]
     return []
 
 
 class DefaultContext(object):
-
     @property
     def __acl__(self):
         return authorize(self.request)

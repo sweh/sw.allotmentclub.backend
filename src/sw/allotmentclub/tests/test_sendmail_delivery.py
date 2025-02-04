@@ -1,6 +1,6 @@
+import pytest
 from repoze.sendmail.delivery import MailDataManager
 from repoze.sendmail.tests.test_delivery import DummyTransaction
-import pytest
 
 
 @pytest.mark.xfail

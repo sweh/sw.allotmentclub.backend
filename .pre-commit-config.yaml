@@ -1,0 +1,70 @@
+# See https://pre-commit.com for more information
+# See https://pre-commit.com/hooks.html for more hooks
+repos:
+
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.2.0
+    hooks:
+
+    # These are the most critical checks.
+    #
+    - id: check-ast
+
+    # Some basic sanitization.
+    #
+    - id: trailing-whitespace
+    - id: end-of-file-fixer
+      exclude: src/risclog/kravagportal/openapi/tests/car_claims_notification.txt
+    - id: check-docstring-first
+    - id: mixed-line-ending
+      args: [--fix=lf]
+    - id: debug-statements
+
+    # Checking data formats.
+    #
+    - id: check-yaml
+    - id: check-json
+    - id: check-toml
+    - id: check-xml
+
+    # Check for secrets.
+    #
+    # - id: check-private-key
+    # - id: detect-aws-credentials
+
+    # Try to catch some faux-pas.
+    #
+    # - id: no-commit-to-branch
+    #   args: [--branch, master]
+    - id: check-added-large-files
+      args: [--maxkb=6000]
+    - id: check-merge-conflict
+    - id: check-symlinks
+
+    # Try to catch some more obscure things.
+    #
+    - id: check-executables-have-shebangs
+    - id: check-byte-order-marker
+    - id: check-case-conflict
+    - id: fix-encoding-pragma
+      args: [--remove]
+
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: v8.23.1
+    hooks:
+      - id: gitleaks
+  - repo: https://github.com/asottile/pyupgrade
+    rev: v2.9.0
+    hooks:
+    - id: pyupgrade
+  - repo: https://github.com/charliermarsh/ruff-pre-commit
+    rev: "v0.4.1"
+    hooks:
+    - id: ruff
+      args: [--fix, --exit-non-zero-on-fix]
+    - id: ruff-format
+  - repo: https://github.com/mgedmin/check-manifest
+    rev: '0.49'
+    hooks:
+    - id: check-manifest
+      args: [--no-build-isolation]

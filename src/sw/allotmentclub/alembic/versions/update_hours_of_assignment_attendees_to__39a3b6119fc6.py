@@ -7,26 +7,26 @@ Create Date: 2015-04-07 12:38:11.475425
 """
 
 # revision identifiers, used by Alembic.
-from alembic import op
 import sqlalchemy
+from alembic import op
 
-revision = '39a3b6119fc6'
-down_revision = '4d63c477b58f'
+revision = "39a3b6119fc6"
+down_revision = "4d63c477b58f"
 
 
 def upgrade():
     op.alter_column(
-        table_name='assignmentattendee',
-        column_name='hours',
+        table_name="assignmentattendee",
+        column_name="hours",
         nullable=False,
-        type_=sqlalchemy.types.Float(1)
+        type_=sqlalchemy.types.Float(1),
     )
 
 
 def downgrade():
     op.alter_column(
-        table_name='assignmentattendee',
-        column_name='hours',
+        table_name="assignmentattendee",
+        column_name="hours",
         nullable=False,
-        type_=sqlalchemy.types.Integer()
+        type_=sqlalchemy.types.Integer(),
     )

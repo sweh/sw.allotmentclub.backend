@@ -1,4 +1,3 @@
-# encoding=utf8
 """Add new members.
 
 Revision ID: bbb62bf367a
@@ -6,18 +5,22 @@ Revises: 2d287284c72e
 Create Date: 2015-10-05 09:42:39.792984
 
 """
+
 from __future__ import unicode_literals
-from alembic import op
+
 import sqlalchemy as sa
+from alembic import op
 
 # revision identifiers, used by Alembic.
-revision = 'bbb62bf367a'
-down_revision = '2d287284c72e'
+revision = "bbb62bf367a"
+down_revision = "2d287284c72e"
 
 
 def upgrade():
-    op.add_column('electricmeter',
-                  sa.Column('discount_to_id', sa.Integer(), nullable=True))
+    op.add_column(
+        "electricmeter",
+        sa.Column("discount_to_id", sa.Integer(), nullable=True),
+    )
 
     # Silvia & Lars Müller verkaufen Bungalow 317 an Andrea und Mario Gille
     op.execute("""
@@ -71,4 +74,4 @@ def upgrade():
 
 
 def downgrade():
-    op.drop_column('electricmeter', 'discount_to_id')
+    op.drop_column("electricmeter", "discount_to_id")

@@ -1,10 +1,12 @@
-# -*- coding: utf-8 -*-
 from __future__ import unicode_literals
-from ...conftest import assertFileEqual
+
 from datetime import datetime
+
 import mock
 import pytest
 import transaction
+
+from ...conftest import assertFileEqual
 
 ENERGIEABRECHNUNG_BODY = """
 Sehr geehrte{{deflection}} {{appellation}} {{title}} {{lastname}},
@@ -77,42 +79,64 @@ als gegenstandslos.
 """
 
 
-@pytest.fixture(scope='function')
+@pytest.fixture(scope="function")
 def setUp():
     from sw.allotmentclub import Member, Message, User
+
     verein = Member.create(lastname="Verein")
     mustermann = Member.create(lastname="Mustermann", firstname="Max")
-    user = User.create(username='sw')
-    greeting = ('Sehr geehrte{{deflection}} {{appellation}} '
-                '{{title}} {{lastname}},\n\n')
-    Message.create(id=242, members=[verein], user=user, accounting_year=2015,
-                   subject="Info-Brief",
-                   body=greeting+"**Info** an alle Mitglieder")
-    Message.create(id=243, members=[mustermann], user=user,
-                   accounting_year=2015, subject="Willkommen",
-                   body=greeting+"Willkommen im Verein.")
-    Message.create(id=244, members=[mustermann], user=user,
-                   accounting_year=2016, subject="Beitragsabrechnung",
-                   body=greeting)
+    user = User.create(username="sw")
+    greeting = (
+        "Sehr geehrte{{deflection}} {{appellation}} "
+        "{{title}} {{lastname}},\n\n"
+    )
+    Message.create(
+        id=242,
+        members=[verein],
+        user=user,
+        accounting_year=2015,
+        subject="Info-Brief",
+        body=greeting + "**Info** an alle Mitglieder",
+    )
+    Message.create(
+        id=243,
+        members=[mustermann],
+        user=user,
+        accounting_year=2015,
+        subject="Willkommen",
+        body=greeting + "Willkommen im Verein.",
+    )
+    Message.create(
+        id=244,
+        members=[mustermann],
+        user=user,
+        accounting_year=2016,
+        subject="Beitragsabrechnung",
+        body=greeting,
+    )
     transaction.commit()
 
 
 def test__mail__get_recipient_1(database, setUp):
     """It returns lastname and firstname of member of given message id."""
     from ..mail import get_recipient
+
     assert get_recipient(243) == "Mustermann, Max"
 
 
 def test__mail__get_recipient_2(database, setUp):
     """It returns "Alle Mitglieder" if member is `Verein`."""
     from ..mail import get_recipient
+
     assert get_recipient(242) == "Alle Mitglieder"
 
 
 def test__mail__get_recipient_3(database, setUp):
     """It returns lastname and firstname of external recipient."""
     from sw.allotmentclub import ExternalRecipient, Message, User
+
     from ..mail import get_recipient
+
     muster = ExternalRecipient.create(lastname="Muster", firstname="Max")
     Message.create(id=300, externals=[muster], user=User.get(1))
     assert get_recipient(300) == "Muster, Max"
@@ -121,7 +145,9 @@ def test__mail__get_recipient_3(database, setUp):
 def test__mail__get_recipient_4(database, setUp):
     """It returns Mehrere Empfänger if multiple recipients."""
     from sw.allotmentclub import ExternalRecipient, Message, User
+
     from ..mail import get_recipient
+
     muster = ExternalRecipient.create(lastname="Muster", firstname="Max")
     muster2 = ExternalRecipient.create(lastname="Mustermann", firstname="Max")
     Message.create(id=300, externals=[muster, muster2], user=User.get(1))
@@ -130,7 +156,8 @@ def test__mail__get_recipient_4(database, setUp):
 
 def test__mail__print_or_sent_date_1(database, setUp):
     """It returns printed date if message is printed."""
-    from ..mail import print_or_sent_date, Message
+    from ..mail import Message, print_or_sent_date
+
     now = datetime(2016, 3, 25, 9, 37)
     msg = Message.get(243)
     msg.printed = now
@@ -139,7 +166,8 @@ def test__mail__print_or_sent_date_1(database, setUp):
 
 def test__mail__print_or_sent_date_2(database, setUp):
     """It returns sent date if message is sent."""
-    from ..mail import print_or_sent_date, Message
+    from ..mail import Message, print_or_sent_date
+
     now = datetime(2016, 3, 25, 9, 37)
     msg = Message.get(243)
     msg.sent = now
@@ -148,7 +176,8 @@ def test__mail__print_or_sent_date_2(database, setUp):
 
 def test__mail__print_or_sent_date_3(database, setUp):
     """It returns sent date if message is sent and printed."""
-    from ..mail import print_or_sent_date, Message
+    from ..mail import Message, print_or_sent_date
+
     now = datetime(2016, 3, 25, 9, 37)
     msg = Message.get(243)
     msg.sent = now
@@ -158,7 +187,8 @@ def test__mail__print_or_sent_date_3(database, setUp):
 
 def test__mail__print_or_sent_type_1(database, setUp):
     """It returns `E-Mail` if message is sent."""
-    from ..mail import print_or_sent_type, Message
+    from ..mail import Message, print_or_sent_type
+
     msg = Message.get(243)
     msg.sent = datetime.now()
     assert print_or_sent_type(msg.id) == "E-Mail"
@@ -166,7 +196,8 @@ def test__mail__print_or_sent_type_1(database, setUp):
 
 def test__mail__print_or_sent_type_2(database, setUp):
     """It returns `Brief` if message is printed."""
-    from ..mail import print_or_sent_type, Message
+    from ..mail import Message, print_or_sent_type
+
     msg = Message.get(243)
     msg.printed = datetime.now()
     assert print_or_sent_type(msg.id) == "Brief"
@@ -174,7 +205,8 @@ def test__mail__print_or_sent_type_2(database, setUp):
 
 def test__mail__print_or_sent_type_3(database, setUp):
     "It returns `Brief und E-Mail` if message is sent for multiple Members."
-    from ..mail import print_or_sent_type, Message
+    from ..mail import Message, print_or_sent_type
+
     msg = Message.get(242)
     msg.printed = datetime.now()
     msg.sent = datetime.now()
@@ -185,139 +217,172 @@ def test__mail__MailListView_1(browser, json_fixture, setUp):
     """It displays list of messages."""
     url = json_fixture.url()
     browser.login()
-    browser.open('http://localhost{}'.format(url))
-    json_fixture.assertEqual(browser.json, 'data')
+    browser.open("http://localhost{}".format(url))
+    json_fixture.assertEqual(browser.json, "data")
 
 
 def test__mail__MailPrintView_1(browser, setUp):
     """It only generates pdfs for recipients without email."""
-    from sw.allotmentclub import Message, Member
+    from sw.allotmentclub import Member, Message
+
     message = Message.get(243)
-    message.members.append(Member.create(
-        email='sw@roter-see.de', street='Musterstrasse'))
+    message.members.append(
+        Member.create(email="sw@roter-see.de", street="Musterstrasse")
+    )
     transaction.commit()
     browser.login()
-    with mock.patch('sw.allotmentclub.browser.mail.datetime') as dt:
+    with mock.patch("sw.allotmentclub.browser.mail.datetime") as dt:
         dt.now.return_value = datetime(2016, 3, 25)
-        browser.open('http://localhost/mail/243/download')
-    assertFileEqual(browser.contents, 'test_mail_print_1.pdf')
+        browser.open("http://localhost/mail/243/download")
+    assertFileEqual(browser.contents, "test_mail_print_1.pdf")
 
 
 def test__mail__MailPreviewView_1(browser, setUp):
     """It generates pdfs for recipients regardless of email."""
-    from sw.allotmentclub import Message, Member
+    from sw.allotmentclub import Member, Message
+
     message = Message.get(243)
-    message.members.append(Member.create(
-        email='sw@roter-see.de', street='Musterstrasse'))
+    message.members.append(
+        Member.create(email="sw@roter-see.de", street="Musterstrasse")
+    )
     transaction.commit()
     browser.login()
-    with mock.patch('sw.allotmentclub.browser.letter.datetime') as dt:
+    with mock.patch("sw.allotmentclub.browser.letter.datetime") as dt:
         dt.now.return_value = datetime(2016, 3, 25)
-        browser.open('http://localhost/mail/243/preview')
-    assertFileEqual(browser.contents, 'test_mail_preview_1.pdf')
+        browser.open("http://localhost/mail/243/preview")
+    assertFileEqual(browser.contents, "test_mail_preview_1.pdf")
 
 
 def test__mail__MailPreviewView_2(browser, setUp):
     """It prints multiple pdf pages for a `Verein` message."""
     browser.login()
-    with mock.patch('sw.allotmentclub.browser.letter.datetime') as dt:
+    with mock.patch("sw.allotmentclub.browser.letter.datetime") as dt:
         dt.now.return_value = datetime(2016, 3, 25)
-        browser.open('http://localhost/mail/242/preview')
-    assertFileEqual(browser.contents, 'test_mail_preview_2.pdf')
+        browser.open("http://localhost/mail/242/preview")
+    assertFileEqual(browser.contents, "test_mail_preview_2.pdf")
 
 
 def test__mail__MailPreviewView_3(browser):
     """It does not print address and date if no member assigned to message."""
     from sw.allotmentclub import Message, User
-    Message.create(id=244, user=User.create(), accounting_year=2015,
-                   subject="Info-Brief", body="**Info** an alle Mitglieder")
+
+    Message.create(
+        id=244,
+        user=User.create(),
+        accounting_year=2015,
+        subject="Info-Brief",
+        body="**Info** an alle Mitglieder",
+    )
     transaction.commit()
     browser.login()
-    browser.open('http://localhost/mail/244/preview')
-    assertFileEqual(browser.contents, 'test_mail_preview_3.pdf')
+    browser.open("http://localhost/mail/244/preview")
+    assertFileEqual(browser.contents, "test_mail_preview_3.pdf")
 
 
 def test__mail__MailPreviewView_4(browser, setUp):
     """It renders attachments to the message."""
-    from sw.allotmentclub import Attachment, User
     import pkg_resources
+
+    from sw.allotmentclub import Attachment, User
+
     data = pkg_resources.resource_stream(
-        'sw.allotmentclub.browser.tests', 'test_protocol_print.pdf').read()
-    Attachment.create(message_id=243, data=data, mimetype='application/pdf',
-                      user=User.get(1))
+        "sw.allotmentclub.browser.tests", "test_protocol_print.pdf"
+    ).read()
+    Attachment.create(
+        message_id=243, data=data, mimetype="application/pdf", user=User.get(1)
+    )
     transaction.commit()
     browser.login()
-    with mock.patch('sw.allotmentclub.browser.letter.datetime') as dt:
+    with mock.patch("sw.allotmentclub.browser.letter.datetime") as dt:
         dt.now.return_value = datetime(2016, 3, 25)
-        browser.open('http://localhost/mail/243/preview')
-    assertFileEqual(browser.contents, 'test_mail_preview_4.pdf')
+        browser.open("http://localhost/mail/243/preview")
+    assertFileEqual(browser.contents, "test_mail_preview_4.pdf")
 
 
 def test__mail__MailElectricityPreview_1(browser):
     """It can send Energieabrechnungen."""
-    from sw.allotmentclub import Message, User, Member
+    from sw.allotmentclub import Member, Message, User
     from sw.allotmentclub.conftest import import_energy_meters, import_members
+
     import_members()
     import_energy_meters()
     verein = Member.find_or_create(lastname="Verein")
-    Message.create(id=245, members=[verein], user=User.create(),
-                   accounting_year=2014, subject="Energieabrechnung",
-                   body=ENERGIEABRECHNUNG_BODY)
+    Message.create(
+        id=245,
+        members=[verein],
+        user=User.create(),
+        accounting_year=2014,
+        subject="Energieabrechnung",
+        body=ENERGIEABRECHNUNG_BODY,
+    )
     transaction.commit()
     browser.login()
-    with mock.patch('sw.allotmentclub.browser.letter.datetime') as dt:
+    with mock.patch("sw.allotmentclub.browser.letter.datetime") as dt:
         dt.now.return_value = datetime(2016, 3, 25)
-        browser.open('http://localhost/mail/245/preview')
-    assertFileEqual(browser.contents, 'test_mail_energieabrechnung_1.pdf')
+        browser.open("http://localhost/mail/245/preview")
+    assertFileEqual(browser.contents, "test_mail_energieabrechnung_1.pdf")
 
 
 def test__mail__MailAssignmentPreview_1(browser):
     """It can send Fehlende Arbeitsstunden."""
-    from sw.allotmentclub import Message, User, Member, Assignment
-    from sw.allotmentclub import AssignmentAttendee
+    from sw.allotmentclub import (
+        Assignment,
+        AssignmentAttendee,
+        Member,
+        Message,
+        User,
+    )
     from sw.allotmentclub.conftest import import_members
+
     import_members()
     assignment = Assignment.find_or_create(
-        day=datetime.now(),
-        accounting_year=datetime.now().year
+        day=datetime.now(), accounting_year=datetime.now().year
     )
     AssignmentAttendee.find_or_create(
         assignment=assignment,
-        member=Member.query().filter(Member.lastname == 'Wehrmann').one(),
-        hours=5)  # No letter
+        member=Member.query().filter(Member.lastname == "Wehrmann").one(),
+        hours=5,
+    )  # No letter
     AssignmentAttendee.find_or_create(
         assignment=assignment,
-        member=Member.query().filter(Member.lastname == 'Hennig').one(),
-        hours=3)  # Needs to pay less
+        member=Member.query().filter(Member.lastname == "Hennig").one(),
+        hours=3,
+    )  # Needs to pay less
 
     verein = Member.find_or_create(lastname="Verein")
-    Message.create(id=245, members=[verein], user=User.create(),
-                   accounting_year=2018,
-                   subject="Fehlende Arbeitsstunden",
-                   body=MISSING_ASSIGMENT_BODY)
+    Message.create(
+        id=245,
+        members=[verein],
+        user=User.create(),
+        accounting_year=2018,
+        subject="Fehlende Arbeitsstunden",
+        body=MISSING_ASSIGMENT_BODY,
+    )
     transaction.commit()
     browser.login()
-    with mock.patch('sw.allotmentclub.browser.letter.datetime') as dt:
+    with mock.patch("sw.allotmentclub.browser.letter.datetime") as dt:
         dt.now.return_value = datetime(2016, 3, 25)
-        browser.open('http://localhost/mail/245/preview')
-    assertFileEqual(browser.contents, 'test_mail_fehlarbeitsstunden_1.pdf')
+        browser.open("http://localhost/mail/245/preview")
+    assertFileEqual(browser.contents, "test_mail_fehlarbeitsstunden_1.pdf")
 
 
 def test__mail__MailSentView_1(browser, setUp, mailer):
     """It does not sent mail if already sent."""
-    from sw.allotmentclub import Message, Member
+    from sw.allotmentclub import Member, Message
+
     assert 0 == len(mailer.outbox)
     message = Message.get(243)
-    message.members.append(Member.create(
-        email='sw@roter-see.de', street='Musterstrasse'))
+    message.members.append(
+        Member.create(email="sw@roter-see.de", street="Musterstrasse")
+    )
     transaction.commit()
     browser.login()
-    browser.open('http://localhost/mail/243/send')
-    assert browser.json['message'] == '1 E-Mail(s) erfolgreich versendet'
+    browser.open("http://localhost/mail/243/send")
+    assert browser.json["message"] == "1 E-Mail(s) erfolgreich versendet"
     assert 1 == len(mailer.outbox)
-    assert 'Willkommen' in mailer.outbox[0].subject
+    assert "Willkommen" in mailer.outbox[0].subject
 
-    browser.open('http://localhost/mail/243/send')
-    assert browser.json['message'] == 'Keine E-Mail versendet'
+    browser.open("http://localhost/mail/243/send")
+    assert browser.json["message"] == "Keine E-Mail versendet"
     assert 1 == len(mailer.outbox)
-    assert browser.json['redirect'] == '/api/mail/243/download'
+    assert browser.json["redirect"] == "/api/mail/243/download"

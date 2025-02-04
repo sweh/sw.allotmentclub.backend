@@ -7,16 +7,17 @@ Create Date: 2015-11-09 08:42:09.370420
 """
 
 # revision identifiers, used by Alembic.
-from alembic import op
 import sqlalchemy as sa
+from alembic import op
 
-revision = '20588bf7b8a7'
-down_revision = '55a653c1d5a0'
+revision = "20588bf7b8a7"
+down_revision = "55a653c1d5a0"
 
 
 def upgrade():
-    op.add_column('protocol',
-                  sa.Column('accounting_year', sa.Integer(), nullable=True))
+    op.add_column(
+        "protocol", sa.Column("accounting_year", sa.Integer(), nullable=True)
+    )
     op.execute("""UPDATE protocol set accounting_year = 2014
                   WHERE day::text like '2014%';""")
     op.execute("""UPDATE protocol set accounting_year = 2015
@@ -26,4 +27,4 @@ def upgrade():
 
 
 def downgrade():
-    op.drop_column('protocol', 'accounting_year')
+    op.drop_column("protocol", "accounting_year")

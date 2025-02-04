@@ -1,4 +1,3 @@
-# encoding=utf8
 """Add new bookingkinds.
 
 Revision ID: 126c6a200c9f
@@ -6,13 +5,14 @@ Revises: 32b7b30817d6
 Create Date: 2015-11-18 13:04:39.964719
 
 """
+
 from __future__ import unicode_literals
+
 from alembic import op
 
-
 # revision identifiers, used by Alembic.
-revision = '126c6a200c9f'
-down_revision = u'32b7b30817d6'
+revision = "126c6a200c9f"
+down_revision = "32b7b30817d6"
 
 
 def upgrade():

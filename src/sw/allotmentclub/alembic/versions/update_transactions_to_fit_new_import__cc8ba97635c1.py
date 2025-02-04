@@ -5,11 +5,12 @@ Revises: 1755a035e42a
 Create Date: 2016-02-02 14:16:40.837958
 
 """
+
 from alembic import op
 
 # revision identifiers, used by Alembic.
-revision = 'cc8ba97635c1'
-down_revision = '1755a035e42a'
+revision = "cc8ba97635c1"
+down_revision = "1755a035e42a"
 
 
 def upgrade():

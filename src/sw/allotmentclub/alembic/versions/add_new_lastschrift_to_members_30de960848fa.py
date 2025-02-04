@@ -1,4 +1,3 @@
-# encoding=utf8
 """Add new lastschrift to members.
 
 Revision ID: 30de960848fa
@@ -9,10 +8,11 @@ Create Date: 2015-11-06 13:54:34.537556
 
 # revision identifiers, used by Alembic.
 from __future__ import unicode_literals
+
 from alembic import op
 
-revision = '30de960848fa'
-down_revision = u'bbb62bf367a'
+revision = "30de960848fa"
+down_revision = "bbb62bf367a"
 
 
 def upgrade():

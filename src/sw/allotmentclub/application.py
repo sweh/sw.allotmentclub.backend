@@ -1,10 +1,9 @@
-# -*- coding: utf-8 -*-
-from sw.allotmentclub.model import ENGINE_NAME
 import risclog.sqlalchemy.db
+
+from sw.allotmentclub.model import ENGINE_NAME
 
 
 class Application(object):
-
     settings = None
     testing = False
 
@@ -14,6 +13,7 @@ class Application(object):
         # We have to do the import here because the converter cannot depend
         # on pyramid:
         import pyramid.paster
+
         pyramid.paster.setup_logging(filename)
         settings = pyramid.paster.get_appsettings(filename)
         portal = cls(**settings)
@@ -23,7 +23,7 @@ class Application(object):
 
     def __init__(self, testing=False, **settings):
         self.settings = settings
-        self.settings['testing'] = testing
+        self.settings["testing"] = testing
         self.testing = testing
 
     def __call__(self, **settings):
@@ -36,10 +36,12 @@ class Application(object):
     def setup_runtime(self):
         if not self.testing:
             db = risclog.sqlalchemy.db.get_database()
-            db.register_engine(self.settings['sqlalchemy.url'],
-                               engine_args=dict(pool_pre_ping=True),
-                               name=ENGINE_NAME,
-                               alembic_location='sw.allotmentclub:alembic')
+            db.register_engine(
+                self.settings["sqlalchemy.url"],
+                engine_args=dict(pool_pre_ping=True),
+                name=ENGINE_NAME,
+                alembic_location="sw.allotmentclub:alembic",
+            )
 
     def check_db_revision(self):
         db = risclog.sqlalchemy.db.get_database(self.testing)
@@ -49,7 +51,8 @@ class Application(object):
             # Bail out when database revision does not match.
             raise SystemExit(
                 "Database revision does not match current head. "
-                "Please run alembic to get migrated to the latest revision.")
+                "Please run alembic to get migrated to the latest revision."
+            )
 
     def configure(self):
         pass

@@ -5,11 +5,12 @@ Revises: cfc9142d7e69
 Create Date: 2016-03-14 09:29:49.734108
 
 """
+
 from alembic import op
 
 # revision identifiers, used by Alembic.
-revision = '45d928fd0cb7'
-down_revision = u'cfc9142d7e69'
+revision = "45d928fd0cb7"
+down_revision = "cfc9142d7e69"
 
 
 def upgrade():

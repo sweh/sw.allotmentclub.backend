@@ -1,22 +1,32 @@
-# encoding=utf-8
-from sqlalchemy import Column, Integer, String, ForeignKey, Numeric, DateTime
-from sqlalchemy import Date, Table, LargeBinary, Boolean, Text
-from sqlalchemy.orm import relationship, ColumnProperty
-from sqlalchemy.orm.interfaces import AttributeExtension
-from sqlalchemy.ext.instrumentation import InstrumentationManager
 import datetime
 import json
+import sys
+
 import pyramid.threadlocal
 import risclog.sqlalchemy.interfaces
 import risclog.sqlalchemy.model
 import sqlalchemy
 import sqlalchemy.orm
-import sys
 import zope.component
+from sqlalchemy import (
+    Boolean,
+    Column,
+    Date,
+    DateTime,
+    ForeignKey,
+    Integer,
+    LargeBinary,
+    Numeric,
+    String,
+    Table,
+    Text,
+)
+from sqlalchemy.ext.instrumentation import InstrumentationManager
+from sqlalchemy.orm import ColumnProperty, relationship
+from sqlalchemy.orm.interfaces import AttributeExtension
 
-
-MAX_FILE_SIZE = 1024*1024*10  # 10 MB
-ENGINE_NAME = 'portal'
+MAX_FILE_SIZE = 1024 * 1024 * 10  # 10 MB
+ENGINE_NAME = "portal"
 
 
 class InstallValidatorListeners(InstrumentationManager):
@@ -28,12 +38,18 @@ class InstallValidatorListeners(InstrumentationManager):
             col = prop.columns[0]
             if isinstance(col.type, String) and col.type.length:
                 sqlalchemy.event.listen(
-                    getattr(class_, key), 'set',
-                    LengthValidator(col.type.length), retval=True)
+                    getattr(class_, key),
+                    "set",
+                    LengthValidator(col.type.length),
+                    retval=True,
+                )
             elif isinstance(col.type, Integer):
                 sqlalchemy.event.listen(
-                    getattr(class_, key), 'set',
-                    IntegerValidator(), retval=True)
+                    getattr(class_, key),
+                    "set",
+                    IntegerValidator(),
+                    retval=True,
+                )
 
 
 class ValidationError(Exception):
@@ -51,25 +67,23 @@ class LengthValidator(AttributeExtension):
             value = str(value)
         if len(value) > self.max_length:
             raise ValidationError(
-                "Länge von %d übersteigt erlaubte %d" % (
-                    len(value), self.max_length))
+                "Länge von %d übersteigt erlaubte %d"
+                % (len(value), self.max_length)
+            )
         return value
 
 
 class IntegerValidator(AttributeExtension):
-
     def __call__(self, state, value, oldvalue, initiator):
         if value is None or isinstance(value, int):
             return value
         try:
             return int(value)
         except Exception:
-            raise ValidationError(
-                "%s ist keine Zahl." % value)
+            raise ValidationError("%s ist keine Zahl." % value)
 
 
 class ObjectBase(risclog.sqlalchemy.model.ObjectBase):
-
     _engine_name = ENGINE_NAME
     __sa_instrumentation_manager__ = InstallValidatorListeners
     id = Column(Integer, primary_key=True)
@@ -81,18 +95,20 @@ class ObjectBase(risclog.sqlalchemy.model.ObjectBase):
         # XXX importing browser here is a dependency in the wrong direction,
         # on the other hand, context_factory is used only by Pyramid
         import sw.allotmentclub.browser.auth
+
         result.__acl__ = sw.allotmentclub.browser.auth.authorize(
-            context=result)
+            context=result
+        )
         return result
 
     @classmethod
     def create(cls, *args, **kw):
-        if 'organization_id' not in kw:
+        if "organization_id" not in kw:
             request = pyramid.threadlocal.get_current_request()
-            if request and hasattr(request, 'user') and request.user:
-                kw['organization_id'] = request.user.organization_id
-            elif hasattr(sys, '_called_from_test'):
-                kw['organization_id'] = 1
+            if request and hasattr(request, "user") and request.user:
+                kw["organization_id"] = request.user.organization_id
+            elif hasattr(sys, "_called_from_test"):
+                kw["organization_id"] = 1
         return super(ObjectBase, cls).create(*args, **kw)
 
     def commit(self):
@@ -101,7 +117,8 @@ class ObjectBase(risclog.sqlalchemy.model.ObjectBase):
 
 
 Object = risclog.sqlalchemy.model.declarative_base(
-    ObjectBase, class_registry=risclog.sqlalchemy.model.class_registry)
+    ObjectBase, class_registry=risclog.sqlalchemy.model.class_registry
+)
 MONEY = Numeric(12, 2)
 
 
@@ -115,7 +132,7 @@ class Organization(Object):
 class Log(Object):
     """Container in the database for security relevant incidents."""
 
-    user_id = Column(Integer, ForeignKey('user.id'), nullable=False)
+    user_id = Column(Integer, ForeignKey("user.id"), nullable=False)
     name = Column(String(16))
     level = Column(String(8))
     created = Column(DateTime)
@@ -135,67 +152,73 @@ ADDRESS_CHANGE = {
 
 
 class PersonMixin(object):
-
     @property
     def address(self):
         address_data = json.loads(json.dumps(self))
         if self.id in ADDRESS_CHANGE:
             realto = Member.get(ADDRESS_CHANGE[self.id])
             realto_data = json.loads(json.dumps(realto))
-            for data in ['street', 'zip', 'city', 'country']:
+            for data in ["street", "zip", "city", "country"]:
                 address_data[data] = realto_data[data]
-        address_data['country'] = (
-            '' if address_data['country'] == 'Deutschland'
-            else address_data['country'])
-        if address_data['organization']:
-            address_data['appellation_or_organization'] = (
-                address_data['organization']
-            )
+        address_data["country"] = (
+            ""
+            if address_data["country"] == "Deutschland"
+            else address_data["country"]
+        )
+        if address_data["organization"]:
+            address_data["appellation_or_organization"] = address_data[
+                "organization"
+            ]
         else:
-            address_data['appellation_or_organization'] = (
-                address_data['appellation']
-            )
+            address_data["appellation_or_organization"] = address_data[
+                "appellation"
+            ]
         return ADDRESS.format(**address_data)
 
     @property
     def deflection(self):
-        return '' if self.appellation == 'Frau' else 'r'
+        return "" if self.appellation == "Frau" else "r"
 
     @property
     def greeting(self):
-        return ('Sehr geehrte{deflection} {appellation} {title} '
-                '{lastname},').format(**dict(
-                    deflection=self.deflection,
-                    appellation=self.appellation,
-                    title=self.title,
-                    lastname=self.lastname))
+        return (
+            "Sehr geehrte{deflection} {appellation} {title} " "{lastname},"
+        ).format(
+            **dict(
+                deflection=self.deflection,
+                appellation=self.appellation,
+                title=self.title,
+                lastname=self.lastname,
+            )
+        )
 
 
 members_messages_table = Table(
-    'members_messages', Object.metadata,
-    Column('member_id', Integer, ForeignKey('member.id')),
-    Column('message_id', Integer, ForeignKey('message.id'))
+    "members_messages",
+    Object.metadata,
+    Column("member_id", Integer, ForeignKey("member.id")),
+    Column("message_id", Integer, ForeignKey("message.id")),
 )
 
 
 class Member(Object, PersonMixin):
     """A member in the club."""
 
-    title = Column(String(20), default=u'')
-    appellation = Column(String(20), default=u'')
-    organization = Column(String(100), default='')
-    firstname = Column(String(50), default=u'')
-    lastname = Column(String(50), default=u'')
-    street = Column(String(100), default=u'')
-    zip = Column(String(6), default=u'')
-    city = Column(String(50), default=u'')
-    country = Column(String(50), default=u'')
-    phone = Column(String(50), default=u'')
-    mobile = Column(String(50), default=u'')
-    email = Column(String(100), default=u'')
+    title = Column(String(20), default="")
+    appellation = Column(String(20), default="")
+    organization = Column(String(100), default="")
+    firstname = Column(String(50), default="")
+    lastname = Column(String(50), default="")
+    street = Column(String(100), default="")
+    zip = Column(String(6), default="")
+    city = Column(String(50), default="")
+    country = Column(String(50), default="")
+    phone = Column(String(50), default="")
+    mobile = Column(String(50), default="")
+    email = Column(String(100), default="")
     birthday = Column(Date)
-    iban = Column(String(34), default=u'')
-    bic = Column(String(11), default=u'')
+    iban = Column(String(34), default="")
+    bic = Column(String(11), default="")
     direct_debit_account_holder = Column(String(100))
     direct_debit = Column(Boolean)
     direct_debit_date = Column(DateTime)
@@ -205,14 +228,22 @@ class Member(Object, PersonMixin):
 
     messages = relationship("Message", secondary=members_messages_table)
     attachments = sqlalchemy.orm.relation(
-        'MemberAttachment', uselist=True, backref='protocol',
-        order_by="MemberAttachment.name", cascade='all,delete')
+        "MemberAttachment",
+        uselist=True,
+        backref="protocol",
+        order_by="MemberAttachment.name",
+        cascade="all,delete",
+    )
 
     passive_allotment_id = Column(
-        Integer, ForeignKey('allotment.id'), nullable=True)
+        Integer, ForeignKey("allotment.id"), nullable=True
+    )
     passive_allotment = sqlalchemy.orm.relation(
-        'Allotment', uselist=True, backref='passive_members',
-        foreign_keys=[passive_allotment_id])
+        "Allotment",
+        uselist=True,
+        backref="passive_members",
+        foreign_keys=[passive_allotment_id],
+    )
 
     @property
     def active(self):
@@ -223,6 +254,7 @@ class Member(Object, PersonMixin):
         if self.id in (187, 188):  # Werkstatt, Verein
             return 5.0
         from .browser.base import get_selected_year
+
         hours = 0.0
         year = get_selected_year()
         for assignmentattendee in self.assignments:
@@ -232,36 +264,39 @@ class Member(Object, PersonMixin):
 
     def bill_assignment_hours(self):
         from .account import Booking, BookingKind
+
         missing_hours = 5 - self.assignment_hours
         from .browser.base import get_selected_year
+
         year = get_selected_year()
-        kind = (BookingKind.query()
-                .filter(BookingKind.shorttitle == 'NARB')).one()
+        kind = (
+            BookingKind.query().filter(BookingKind.shorttitle == "NARB")
+        ).one()
         if missing_hours > 0:
             Booking.find_or_create(
                 banking_account_id=2,
                 booking_day=datetime.date(int(year), 10, 31),
-                purpose='fehlende %s Arbeitsstunden %s' % (
-                    missing_hours, year),
+                purpose="fehlende {} Arbeitsstunden {}".format(
+                    missing_hours, year
+                ),
                 value=0 - int(missing_hours * 25 * 10000),
                 accounting_year=year,
                 member=self,
-                kind=kind)
+                kind=kind,
+            )
 
 
 class MemberAttachment(Object):
-    """ Eine Anlage zum Mitglied. """
+    """Eine Anlage zum Mitglied."""
 
-    member_id = Column(
-        Integer, ForeignKey('member.id'), nullable=False)
-    name = Column(String(100), default=u'')
-    mimetype = Column(String(30), default=u'')
-    size = Column(String(20), default=u'')
+    member_id = Column(Integer, ForeignKey("member.id"), nullable=False)
+    name = Column(String(100), default="")
+    mimetype = Column(String(30), default="")
+    size = Column(String(20), default="")
     data = Column(LargeBinary(MAX_FILE_SIZE))
 
 
 class SaleHistory(Object):
-
     seller_id = Column(Integer, nullable=False)
     buyer_id = Column(Integer, nullable=False)
     date = Column(Date, nullable=False, default=datetime.date.today)
@@ -273,8 +308,8 @@ class Allotment(Object):
     number = Column(Integer, nullable=False)
     member_id = Column(Integer, ForeignKey(Member.id), nullable=False)
     member = sqlalchemy.orm.relation(
-        'Member', uselist=False, backref='allotments',
-        foreign_keys=[member_id])
+        "Member", uselist=False, backref="allotments", foreign_keys=[member_id]
+    )
 
 
 class Parcel(Object):
@@ -286,9 +321,10 @@ class Parcel(Object):
     size = Column(Integer, nullable=True)
     allotment_id = Column(Integer, ForeignKey(Allotment.id), nullable=False)
     allotment = sqlalchemy.orm.relation(
-        'Allotment', uselist=False, backref='parcels')
-    map_mimetype = Column(String(100), default='')
-    map_size = Column(String(20), default='')
+        "Allotment", uselist=False, backref="parcels"
+    )
+    map_mimetype = Column(String(100), default="")
+    map_size = Column(String(20), default="")
     map_data = Column(LargeBinary(MAX_FILE_SIZE))
 
 
@@ -296,15 +332,15 @@ class AccessAuthority(Object):
     """Eine Zugriffssteuerung."""
 
     viewname = Column(String)
-    user_id = Column(Integer, ForeignKey('user.id'), nullable=True)
-    user = sqlalchemy.orm.relation('User', uselist=False)
+    user_id = Column(Integer, ForeignKey("user.id"), nullable=True)
+    user = sqlalchemy.orm.relation("User", uselist=False)
 
 
 class Event(Object):
     """Ein Termin im Kalender."""
 
-    user_id = Column(Integer, ForeignKey('user.id'), nullable=True)
-    user = sqlalchemy.orm.relation('User', uselist=False)
+    user_id = Column(Integer, ForeignKey("user.id"), nullable=True)
+    user = sqlalchemy.orm.relation("User", uselist=False)
 
     category = Column(String, nullable=True)
     title = Column(String, nullable=True)

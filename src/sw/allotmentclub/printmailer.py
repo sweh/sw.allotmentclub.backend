@@ -7,6 +7,7 @@ class PrintMailer(pyramid_mailer.mailer.Mailer):
     Dummy mailing instance, printing its mails to console.
 
     """
+
     def send(self, message):
         self._print(message)
 
@@ -24,7 +25,7 @@ class PrintMailer(pyramid_mailer.mailer.Mailer):
 
     def _print(self, message):
         if not message.sender:
-            message.sender = '<no sender specified>'
+            message.sender = "<no sender specified>"
         mime_message = message.to_message()
         print(mime_message)
 

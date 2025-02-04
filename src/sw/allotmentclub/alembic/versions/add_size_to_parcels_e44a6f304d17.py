@@ -5,12 +5,13 @@ Revises: ad2b49f5d70a
 Create Date: 2022-01-04 09:41:38.972167
 
 """
-from alembic import op
+
 import sqlalchemy as sa
+from alembic import op
 
 # revision identifiers, used by Alembic.
-revision = 'e44a6f304d17'
-down_revision = 'ad2b49f5d70a'
+revision = "e44a6f304d17"
+down_revision = "ad2b49f5d70a"
 SIZES = {
     103: 737,
     81: 405,
@@ -134,10 +135,10 @@ SIZES = {
 
 
 def upgrade():
-    op.add_column('parcel', sa.Column('size', sa.Integer(), nullable=True))
+    op.add_column("parcel", sa.Column("size", sa.Integer(), nullable=True))
     for parcel, size in SIZES.items():
         op.execute(f"UPDATE parcel SET size = {size} WHERE id = {parcel}")
 
 
 def downgrade():
-    op.drop_column('parcel', 'size')
+    op.drop_column("parcel", "size")

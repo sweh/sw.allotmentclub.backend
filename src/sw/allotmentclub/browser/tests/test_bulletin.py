@@ -1,15 +1,17 @@
-# -*- coding: utf-8 -*-
 from __future__ import unicode_literals
+
 import datetime
+
 import transaction
 
 
 def setUp():
     from sw.allotmentclub import Bulletin, User
-    user = User.create(username='hans')
+
+    user = User.create(username="hans")
     Bulletin.create(
         date=datetime.datetime(2015, 3, 7, 10),
-        subject='Ruhezeiten im Verein',
+        subject="Ruhezeiten im Verein",
         user=user,
         content="""
 ### Mittagsruhe
@@ -23,7 +25,8 @@ def setUp():
 
 ### Genereller Baustop
 
-- jährlich vom 15. Juni bis 31. August.""")
+- jährlich vom 15. Juni bis 31. August.""",
+    )
     transaction.commit()
 
 
@@ -32,42 +35,44 @@ def test_BulletinListView_1(browser, json_fixture):
     url = json_fixture.url()
     setUp()
     browser.login()
-    browser.open('http://localhost{}'.format(url))
-    json_fixture.assertEqual(browser.json, 'data')
+    browser.open("http://localhost{}".format(url))
+    json_fixture.assertEqual(browser.json, "data")
 
 
 def test_BulletinAddView_1(browser, json_fixture):
     """It can add new bulletins via JSON."""
     url = json_fixture.url()
     browser.login()
-    browser.post('http://localhost{}'.format(url), data='')
-    assert 'success' == browser.json['status']
-    json_fixture.assertEqual(browser.json, 'data')
+    browser.post("http://localhost{}".format(url), data="")
+    assert "success" == browser.json["status"]
+    json_fixture.assertEqual(browser.json, "data")
 
 
 def test_BulletinEditView_1(browser, json_fixture):
     """It can update bulletins from JSON."""
     from sw.allotmentclub import Bulletin
+
     setUp()
-    assert 'Vereinsfest findet statt' != Bulletin.query().one().subject
+    assert "Vereinsfest findet statt" != Bulletin.query().one().subject
     browser.login()
     json_fixture.ajax(browser)
-    assert 'success' == browser.json['status']
-    assert 'Vereinsfest findet statt' == Bulletin.query().one().subject
+    assert "success" == browser.json["status"]
+    assert "Vereinsfest findet statt" == Bulletin.query().one().subject
 
 
 def test_BulletinDeleteView_1(browser, json_fixture):
     from sw.allotmentclub import Bulletin
+
     setUp()
     assert 1 == len(Bulletin.query().all())
     browser.login()
     json_fixture.ajax(browser)
-    assert 'success' == browser.json['status']
+    assert "success" == browser.json["status"]
     assert 0 == len(Bulletin.query().all())
 
 
 def test_bulletins_can_be_printed_as_pdf(browser):
     setUp()
     browser.login()
-    browser.open('http://localhost/bulletins/1/print')
-    assert browser.contents.decode('latin1').startswith('%PDF-')
+    browser.open("http://localhost/bulletins/1/print")
+    assert browser.contents.decode("latin1").startswith("%PDF-")

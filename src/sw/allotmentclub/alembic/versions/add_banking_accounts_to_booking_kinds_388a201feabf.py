@@ -7,17 +7,18 @@ Create Date: 2015-04-01 13:17:35.841429
 """
 
 # revision identifiers, used by Alembic.
-from alembic import op
 import sqlalchemy as sa
+from alembic import op
 
-revision = '388a201feabf'
-down_revision = '5fe4feac157'
+revision = "388a201feabf"
+down_revision = "5fe4feac157"
 
 
 def upgrade():
     op.add_column(
-        'bookingkind',
-        sa.Column('banking_account_id', sa.Integer(), nullable=True))
+        "bookingkind",
+        sa.Column("banking_account_id", sa.Integer(), nullable=True),
+    )
     op.execute("UPDATE bookingkind SET banking_account_id = 2 WHERE id = 1;")
     op.execute("UPDATE bookingkind SET banking_account_id = 3 WHERE id = 2;")
     op.execute("UPDATE bookingkind SET banking_account_id = 4 WHERE id = 3;")
@@ -26,4 +27,4 @@ def upgrade():
 
 
 def downgrade():
-    op.drop_column('bookingkind', 'banking_account_id')
+    op.drop_column("bookingkind", "banking_account_id")

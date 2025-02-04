@@ -5,17 +5,19 @@ Revises: 50035156da61
 Create Date: 2015-09-14 10:34:10.825636
 
 """
-from alembic import op
+
 import sqlalchemy as sa
+from alembic import op
 
 # revision identifiers, used by Alembic.
-revision = '2d287284c72e'
-down_revision = '50035156da61'
+revision = "2d287284c72e"
+down_revision = "50035156da61"
 
 
 def upgrade():
     op.add_column(
-        'energyvalue', sa.Column('to_pay', sa.Integer(), nullable=True))
+        "energyvalue", sa.Column("to_pay", sa.Integer(), nullable=True)
+    )
     op.execute("UPDATE energyvalue SET to_pay = 0")
     op.execute("""
         INSERT into electricmeter
@@ -41,7 +43,8 @@ def upgrade():
             VALUES ('Energieabrechnung', 2016, 4)""")
     op.execute("DELETE FROM booking WHERE id in (404, 405, 406, 407)")
     op.execute(
-        "UPDATE member SET email = 'boehme.wsf@online.de' WHERE id = 126")
+        "UPDATE member SET email = 'boehme.wsf@online.de' WHERE id = 126"
+    )
     op.execute("""
         UPDATE energyprice
             SET price = 2786,
@@ -51,4 +54,4 @@ def upgrade():
 
 
 def downgrade():
-    op.drop_column('energyvalue', 'to_pay')
+    op.drop_column("energyvalue", "to_pay")

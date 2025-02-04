@@ -5,11 +5,12 @@ Revises: 186285f37c74
 Create Date: 2015-03-05 10:34:51.011115
 
 """
+
 from alembic import op
 
 # revision identifiers, used by Alembic.
-revision = '24a3f3740664'
-down_revision = '186285f37c74'
+revision = "24a3f3740664"
+down_revision = "186285f37c74"
 
 
 def upgrade():

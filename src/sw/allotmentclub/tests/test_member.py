@@ -1,5 +1,5 @@
 def test_member_active_passive(database):
-    from sw.allotmentclub import Member, Allotment
+    from sw.allotmentclub import Allotment, Member
 
     member = Member.create()
 

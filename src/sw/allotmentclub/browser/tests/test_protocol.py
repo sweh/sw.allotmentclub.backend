@@ -1,22 +1,29 @@
-# -*- coding: utf-8 -*-
 from __future__ import unicode_literals
-import pkg_resources
+
 import datetime
+
+import pkg_resources
 import transaction
 
 
 def setUp():
     from sw.allotmentclub import (
-        Protocol, ProtocolDetail, ProtocolCommitment, ProtocolAttachment)
+        Protocol,
+        ProtocolAttachment,
+        ProtocolCommitment,
+        ProtocolDetail,
+    )
+
     protocol = Protocol.create(
         day=datetime.datetime(2015, 3, 7, 10),
-        title='1. Vorstandssitzung',
-        location='Leuna Siedling, Vereinsbungalow',
-        attendees='GM, AR, ST, SW',
-        accounting_year=2015)
+        title="1. Vorstandssitzung",
+        location="Leuna Siedling, Vereinsbungalow",
+        attendees="GM, AR, ST, SW",
+        accounting_year=2015,
+    )
     ProtocolDetail.create(
         protocol=protocol,
-        duration='10',
+        duration="10",
         message="""
 **TOP I: Berichte**
 
@@ -25,42 +32,49 @@ def setUp():
 - dabei fällt SW auf, dass AR garnicht anwesend ist.
 
 Na sowas.""",
-        responsible='GM')
+        responsible="GM",
+    )
     ProtocolDetail.create(
         protocol=protocol,
-        duration='20',
+        duration="20",
         message="""
 **TOP II: Finanzen**
 
 Geld ist genug da. (Sagt ST)""",
-        responsible='ST')
+        responsible="ST",
+    )
     ProtocolCommitment.create(
         protocol=protocol,
-        who='SW',
-        what='Verwaltungs-Software endlich fertig bekommen',
-        when='Mitte 2015')
+        who="SW",
+        what="Verwaltungs-Software endlich fertig bekommen",
+        when="Mitte 2015",
+    )
     ProtocolCommitment.create(
         protocol=protocol,
-        who='ST',
-        what='Mehr Geld ausgeben',
-        when='Ende 2015')
+        who="ST",
+        what="Mehr Geld ausgeben",
+        when="Ende 2015",
+    )
     img = get_test_image()
     ProtocolAttachment.create(
         protocol=protocol,
-        name='Anlage I',
-        mimetype='image/gif',
+        name="Anlage I",
+        mimetype="image/gif",
         size=len(img),
-        data=img)
+        data=img,
+    )
     transaction.commit()
 
 
 def get_test_image():
     return pkg_resources.resource_stream(
-        'sw.allotmentclub.browser.tests', 'assyrian.gif').read()
+        "sw.allotmentclub.browser.tests", "assyrian.gif"
+    ).read()
 
 
 def test_protocol_can_have_details(database):
     from sw.allotmentclub import Protocol
+
     setUp()
     protocol = Protocol.query().one()
     assert 2 == len(protocol.details)
@@ -71,34 +85,45 @@ def test_protocol_can_have_details(database):
 def test_displays_list_of_protocols(browser):
     setUp()
     browser.login()
-    browser.open('http://localhost/protocols?for_year=2015')
-    expected = [1, '07.03.2015 10:00', '1. Vorstandssitzung',
-                'GM, AR, ST, SW', 'Leuna Siedling, Vereinsbungalow']
+    browser.open("http://localhost/protocols?for_year=2015")
+    expected = [
+        1,
+        "07.03.2015 10:00",
+        "1. Vorstandssitzung",
+        "GM, AR, ST, SW",
+        "Leuna Siedling, Vereinsbungalow",
+    ]
     assert expected in browser.json_result
 
 
 def test_protocol_can_be_added_via_json_view(browser):
     from sw.allotmentclub import Protocol
+
     setUp()
     browser.login()
-    browser.post('http://localhost/protocols/add', data='')
-    assert 'success' == browser.json['status']
+    browser.post("http://localhost/protocols/add", data="")
+    assert "success" == browser.json["status"]
     assert 2 == len(Protocol.query().all())
 
 
 def test_displays_list_of_protocol_details(browser):
     setUp()
     browser.login()
-    browser.open('http://localhost/protocols/1/details')
-    assert [2, 20, '<p><strong>TOP II: Finanzen</strong></p>\n<p>Geld ist '
-            'genug da. (Sagt ST)</p>', 'ST'] in browser.json_result
+    browser.open("http://localhost/protocols/1/details")
+    assert [
+        2,
+        20,
+        "<p><strong>TOP II: Finanzen</strong></p>\n<p>Geld ist "
+        "genug da. (Sagt ST)</p>",
+        "ST",
+    ] in browser.json_result
 
 
 def test_protocols_can_be_printed_as_pdf(browser):
     setUp()
     browser.login()
-    browser.open('http://localhost/protocols/1/print')
-    assert browser.contents.decode('latin1').startswith('%PDF-')
+    browser.open("http://localhost/protocols/1/print")
+    assert browser.contents.decode("latin1").startswith("%PDF-")
 
 
 # class IProtocolCRUDTest(sw.allotmentclub.browser.testing.SeleniumTestCase):
