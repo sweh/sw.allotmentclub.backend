@@ -632,7 +632,7 @@ class Query(object):
         query = self.select()
         if not self.disable_global_organization_filter:
             query = query.filter(
-                getattr(query._select_from_entity.columns, "organization_id")
+                query._from_obj[0].c.organization_id
                 == self.user.organization_id
             )
         self._assert_columns(query, self.filters.keys(), "filters")
@@ -849,7 +849,7 @@ class CSVExporterView(View):
         writer = csv.writer(file_, delimiter=";", dialect="excel")
         query = self.query()
         query = query.filter(
-            getattr(query._select_from_entity.columns, "organization_id")
+            query._from_obj[0].c.organization_id
             == self.request.user.organization_id
         )
         writer.writerow([d["name"] for d in query.column_descriptions])
@@ -873,7 +873,7 @@ class CSVExporterView(View):
 class XLSXImporterView(View):
     def _import(self, file):
         wb = openpyxl.load_workbook(file, data_only=True)
-        sheet = wb.get_active_sheet()
+        sheet = wb.get_sheet_by_name("Datenbank Export")
         for index, line in enumerate(sheet.rows):
             if index in (0, 1):
                 continue
@@ -921,7 +921,7 @@ class XLSXExporterView(View):
     def _query(self):
         query = self.query()
         return query.filter(
-            getattr(query._select_from_entity.columns, "organization_id")
+            query._from_obj[0].c.organization_id
             == self.request.user.organization_id
         )
 

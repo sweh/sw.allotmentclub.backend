@@ -133,7 +133,7 @@ class EnergyValue(Object):
             return
         self.price = self._price
         self.fee = self._fee
-        self.whole_price = self._whole_price
+        self.whole_price = int(self._whole_price)
         self.to_pay = self._to_pay
         # if self._advance_pay >= THRESHOLD:
         #     self.advance_pay = int(self._advance_pay)

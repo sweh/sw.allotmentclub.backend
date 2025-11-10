@@ -6,7 +6,7 @@ from io import BytesIO
 import img2pdf
 import pybars
 import xhtml2pdf.pisa
-from PyPDF2 import PdfFileReader, PdfFileWriter
+from pypdf import PdfReader, PdfWriter
 from pyramid.view import view_config
 
 import sw.allotmentclub.browser.base
@@ -133,15 +133,15 @@ class ProtocolPrintView(sw.allotmentclub.browser.base.PrintBaseView):
         xhtml2pdf.pisa.CreatePDF(html, dest=pdf)
         pdf.seek(0)
 
-        output = PdfFileWriter()
-        append_pdf(PdfFileReader(pdf, strict=False), output)
+        output = PdfWriter()
+        append_pdf(PdfReader(pdf, strict=False), output)
 
         for attachment in self.context.attachments:
             if attachment.mimetype in ("application/pdf",):
                 pdf = attachment.data
             else:
                 pdf = img2pdf.convert(attachment.data)
-            append_pdf(PdfFileReader(BytesIO(pdf), strict=False), output)
+            append_pdf(PdfReader(BytesIO(pdf), strict=False), output)
 
         result = BytesIO()
         output.write(result)

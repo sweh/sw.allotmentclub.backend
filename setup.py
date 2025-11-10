@@ -13,6 +13,9 @@ setup(
         "pyramid",
         "fints",
         "sepaxml",
+        "gocept.loginuser",
+        "kontocheck",
+        "sentry_sdk",
     ],
     extras_require={
         "test": [

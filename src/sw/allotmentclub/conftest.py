@@ -13,7 +13,6 @@ import risclog.sqlalchemy.testing
 import sqlalchemy
 import sqlalchemy.orm.session
 import transaction
-from psycopg2.extensions import ISOLATION_LEVEL_AUTOCOMMIT
 
 from sw.allotmentclub import Member, Organization, User
 from sw.allotmentclub.model import ENGINE_NAME
@@ -145,49 +144,52 @@ class PostgreSQLTestDB(object):
         return f"postgresql://{login}{self.host}:{self.port}/{self.name}"
 
     def create(self):
-        with psycopg2.connect(
+        conn = psycopg2.connect(
             database="postgres",
             user=self.user,
             password=self.passwd,
             host=self.host,
             port=self.port,
-        ) as conn:
-            conn.set_isolation_level(ISOLATION_LEVEL_AUTOCOMMIT)
-            with conn.cursor() as cursor:
-                sql = f"CREATE DATABASE {self.name} WITH OWNER {self.user}"
-                cursor.execute(sql)
+        )
+        cur = conn.cursor()
+        conn.autocommit = True
+        sql = f'CREATE DATABASE {self.name} WITH OWNER "{self.user}"'
+        cur.execute(sql)
         self.mark_testing()
+        conn.close()
         if self.schema_path:
-            with psycopg2.connect(
+            conn = psycopg2.connect(
                 database=self.name,
                 user=self.user,
                 password=self.passwd,
                 host=self.host,
                 port=self.port,
-            ) as conn:
-                conn.set_isolation_level(ISOLATION_LEVEL_AUTOCOMMIT)
-                with conn.cursor() as cursor:
-                    cursor.execute(open(self.schema_path, "r").read())
+            )
+            cur = conn.cursor()
+            conn.autocommit = True
+            cur.execute(open(self.schema_path, "r").read())
+            conn.close()
 
     def drop(self):
-        with psycopg2.connect(
+        conn = psycopg2.connect(
             database="postgres",
             user=self.user,
             password=self.passwd,
             host=self.host,
             port=self.port,
-        ) as conn:
-            conn.set_isolation_level(ISOLATION_LEVEL_AUTOCOMMIT)
-            with conn.cursor() as cursor:
-                for sql in [
-                    f"UPDATE pg_database SET datallowconn = false "
-                    f"WHERE datname = '{self.name}'",
-                    f'ALTER DATABASE "{self.name}" CONNECTION LIMIT 1',
-                    f"SELECT pg_terminate_backend(pid) FROM pg_stat_activity "
-                    f"WHERE datname = '{self.name}'",
-                    f"drop database {self.name}",
-                ]:
-                    cursor.execute(sql)
+        )
+        cur = conn.cursor()
+        conn.autocommit = True
+        for sql in [
+            f"UPDATE pg_database SET datallowconn = false "
+            f"WHERE datname = '{self.name}'",
+            f'ALTER DATABASE "{self.name}" CONNECTION LIMIT 1',
+            f"SELECT pg_terminate_backend(pid) FROM pg_stat_activity "
+            f"WHERE datname = '{self.name}'",
+            f"drop database {self.name}",
+        ]:
+            cur.execute(sql)
+        conn.close()
 
     def mark_testing(self):
         engine = sqlalchemy.create_engine(self.dsn)
@@ -226,9 +228,8 @@ def database_fixture_factory(
 
     def dropdb():
         transaction.abort()
+        db_util.get_engine(name).dispose()
         db_util.drop_engine(name)
-        for conn in sqlalchemy.pool._refs:
-            conn.close()
 
         db.drop()
         if db_util and not db_util.get_all_engines():

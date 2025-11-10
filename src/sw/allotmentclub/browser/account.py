@@ -6,7 +6,7 @@ from io import BytesIO
 
 import pybars
 import sqlalchemy
-from PyPDF2 import PdfFileReader, PdfFileWriter
+from pypdf import PdfReader, PdfWriter
 from pyramid.response import FileIter
 from pyramid.view import view_config
 from sqlalchemy.sql import func
@@ -698,7 +698,7 @@ class BankingAccountListReportView(sw.allotmentclub.browser.base.View):
 """
 
     def update(self):
-        output = PdfFileWriter()
+        output = PdfWriter()
         compiler = pybars.Compiler()
         compiled_page = compiler.compile(self.hbs_page)
         cleanr = re.compile("<.*?>")
@@ -757,7 +757,7 @@ class BankingAccountListReportView(sw.allotmentclub.browser.base.View):
 
     def add_page(self, body, output):
         pdf = render_pdf(None, None, body, None, date=None, force_from=False)
-        pdf = PdfFileReader(pdf, strict=False)
+        pdf = PdfReader(pdf, strict=False)
         append_pdf(pdf, output)
         return output
 

@@ -38,7 +38,7 @@ exclude_lines = [
 [tool.ruff]
 lint.extend-ignore = ["E721"]
 lint.extend-select = ["I"]
-target-version = "py310"
+target-version = "py312"
 line-length = 79
 
 [tool.check-manifest]

@@ -21,71 +21,18 @@ from sqlalchemy import (
     Table,
     Text,
 )
-from sqlalchemy.ext.instrumentation import InstrumentationManager
-from sqlalchemy.orm import ColumnProperty, relationship
-from sqlalchemy.orm.interfaces import AttributeExtension
+from sqlalchemy.orm import relationship
 
 MAX_FILE_SIZE = 1024 * 1024 * 10  # 10 MB
 ENGINE_NAME = "portal"
-
-
-class InstallValidatorListeners(InstrumentationManager):
-    def post_configure_attribute(self, class_, key, inst):
-        """Add validators for any attributes that can be validated."""
-        prop = inst.prop
-        # Only interested in simple columns, not relations
-        if isinstance(prop, ColumnProperty) and len(prop.columns) == 1:
-            col = prop.columns[0]
-            if isinstance(col.type, String) and col.type.length:
-                sqlalchemy.event.listen(
-                    getattr(class_, key),
-                    "set",
-                    LengthValidator(col.type.length),
-                    retval=True,
-                )
-            elif isinstance(col.type, Integer):
-                sqlalchemy.event.listen(
-                    getattr(class_, key),
-                    "set",
-                    IntegerValidator(),
-                    retval=True,
-                )
 
 
 class ValidationError(Exception):
     pass
 
 
-class LengthValidator(AttributeExtension):
-    def __init__(self, max_length):
-        self.max_length = max_length
-
-    def __call__(self, state, value, oldvalue, initiator):
-        if value is None:
-            return value
-        if value:
-            value = str(value)
-        if len(value) > self.max_length:
-            raise ValidationError(
-                "Länge von %d übersteigt erlaubte %d"
-                % (len(value), self.max_length)
-            )
-        return value
-
-
-class IntegerValidator(AttributeExtension):
-    def __call__(self, state, value, oldvalue, initiator):
-        if value is None or isinstance(value, int):
-            return value
-        try:
-            return int(value)
-        except Exception:
-            raise ValidationError("%s ist keine Zahl." % value)
-
-
 class ObjectBase(risclog.sqlalchemy.model.ObjectBase):
     _engine_name = ENGINE_NAME
-    __sa_instrumentation_manager__ = InstallValidatorListeners
     id = Column(Integer, primary_key=True)
     organization_id = Column(Integer, nullable=False)
 

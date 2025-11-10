@@ -11,7 +11,7 @@ import pybars
 import pytz
 from babel.dates import format_datetime
 from bs4 import BeautifulSoup
-from PyPDF2 import PdfFileReader, PdfFileWriter
+from pypdf import PdfReader, PdfWriter
 from pyramid.response import FileIter, Response
 from pyramid.security import NO_PERMISSION_REQUIRED
 from pyramid.view import view_config
@@ -39,8 +39,8 @@ from .protocol import format_markdown
 
 def append_pdf(input, output):
     [
-        output.addPage(input.getPage(page_num))
-        for page_num in range(input.numPages)
+        output.add_page(input.get_page(page_num))
+        for page_num in range(input.get_num_pages())
     ]
 
 
@@ -300,7 +300,7 @@ class MailPreviewView(sw.allotmentclub.browser.base.View):
                 if attachment.mimetype in ("application/pdf",):
                     if attachment.white_page_before:
                         output.addBlankPage()
-                    pdf = PdfFileReader(BytesIO(attachment.data), strict=False)
+                    pdf = PdfReader(BytesIO(attachment.data), strict=False)
                     append_pdf(pdf, output)
         return pdf, output
 
@@ -338,7 +338,7 @@ class MailPreviewView(sw.allotmentclub.browser.base.View):
         return result
 
     def update(self):
-        output = PdfFileWriter()
+        output = PdfWriter()
         if self.recipients == [None] or self.preview:
             recipients = self.recipients
         else:
@@ -384,12 +384,12 @@ class MailPreviewView(sw.allotmentclub.browser.base.View):
             date=sent,
             force_from=False,
         )
-        pdf = PdfFileReader(pdf, strict=False)
+        pdf = PdfReader(pdf, strict=False)
         append_pdf(pdf, output)
         pdf, output = self.add_attachments(pdf, output)
-        numpages = pdf.numPages
+        numpages = pdf.get_num_pages()
         if numpages % 2 == 1:
-            output.addBlankPage()
+            output.add_blank_page()
         return output
 
 
