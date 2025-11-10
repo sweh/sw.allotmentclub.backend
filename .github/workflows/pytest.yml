@@ -15,6 +15,8 @@ jobs:
       timeout_minutes: 25
       versions: >-
         ["3.12",]
+    secrets:
+      PIPCONF: ${{ secrets.PIPCONF }}
 
   coverage:
     needs: test
