@@ -127,6 +127,8 @@ class MitgliederQuery(BaseQuery):
 
 
 class BirthdayQuery(sw.allotmentclub.browser.base.Query):
+    disable_global_organization_filter = True
+
     def select(self, year=None):
         if not year:
             year = get_selected_year()
@@ -174,6 +176,8 @@ class BirthdayQuery(sw.allotmentclub.browser.base.Query):
 
 
 class Query(sw.allotmentclub.browser.base.Query):
+    disable_global_organization_filter = True
+
     def select(self):
         query = (
             VorstandQuery(self.db, self.user)

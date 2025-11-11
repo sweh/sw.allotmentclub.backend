@@ -145,6 +145,7 @@ class MemberListView(sw.allotmentclub.browser.base.TableView):
 
 
 class PassiveQuery(Query):
+    disable_global_organization_filter = True
     join_condition = Member.passive_allotment_id == Allotment.id
 
     def select(self):
