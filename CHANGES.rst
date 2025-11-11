@@ -2,8 +2,10 @@
 Change log for sw.allotmentclub
 ===============================
 
-5.13.1 (unreleased)
-===================
+6.0.0 (unreleased)
+==================
+
+- Update to Python 3.12.
 
 - Change address of Leuna Bungalow-Gemeinschaft.
 
