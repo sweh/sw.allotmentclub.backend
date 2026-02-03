@@ -277,7 +277,10 @@ def add_transaction(data, account):
         )
     value = int(data["amount"].amount * 10000)
     sammlers = get_sepa_sammlers(data, account)
-    data["purpose"] = data["purpose"].encode("latin-1").decode("utf-8")
+    try:
+        data["purpose"] = data["purpose"].encode("latin-1").decode("utf-8")
+    except UnicodeDecodeError:
+        data["purpose"] = data["purpose"]
     if data["posting_text"] == "SAMMEL-LS-EINZUG":
         data["purpose"] += "\n" + data["customer_reference"]
     booking = Booking.find_or_create(
