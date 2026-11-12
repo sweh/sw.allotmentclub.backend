@@ -542,7 +542,7 @@ class EnergyMeterExporterView(sw.allotmentclub.browser.base.XLSXExporterView):
         if not value_item:
             return ""
         if value_item.estimated_value:
-            return (value_item.value, {"color": "#8D0009"})
+            return (value_item.value, {"font_color": "#8D0009"})
         return value_item.value
 
 
