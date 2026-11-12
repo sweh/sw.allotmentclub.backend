@@ -2,7 +2,7 @@
 Change log for sw.allotmentclub
 ===============================
 
-6.0.1 (unreleased)
+6.0.1 (2026-11-12)
 ==================
 
 - fix: Bugfix xlsx writer fonts.
